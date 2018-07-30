@@ -1,0 +1,11 @@
+<!--component/class-banner/img-containger/img-container.wxml-->
+<view class="clsdet-img">
+  <scroll-view class="content-item" scroll-x style="width: 100%">
+    <view class="content-row" >
+			<view class="clsdet-detail" wx:for="{{images}}" >
+				<view class="clsdet-detail-img" style="background-image: url('{{item.url}}')" >
+				</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

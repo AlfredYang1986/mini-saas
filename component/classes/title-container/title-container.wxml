@@ -1,0 +1,43 @@
+<!--component/class-banner/title-container/title-container.wxml-->
+<view class="clsdet-title">
+	<view class="content-item">
+		<view class="content-row-span clsdet-title-margin">
+			<view class="content-item">
+				<text class="clsdet-title-text" >{{category}}|{{title}}</text>
+				<view class="content-row">
+					<text class="clsdet-high-item" wx:for="{{highlights}}">{{item.content}}</text>
+				</view>
+			</view>
+			<view class="content-item-mid">
+        <view class="content-item clsdet-level">
+          <view class="clsdet-level-text">
+            <text>Lv {{level}}</text>
+          </view>
+          <view class="clsdet-level-counter">
+            <text>{{count}}课时</text>
+          </view>
+        </view>
+			</view>
+		</view>
+    <view class="content-row-span clsdet-panel-margin">
+			<view class="content-item">
+				<view class="clsdet-panel content-row-center">
+        	<text>{{age.from}}-{{age.to}}岁</text>
+				</view>
+        <text class="clsdet-panel-des">适宜年龄</text>
+      </view>
+      <view class="content-item">
+				<view class="clsdet-panel content-row-center">
+        	<text>{{peer.tech}}:{{peer.stud}}岁</text>
+				</view>
+        <text class="clsdet-panel-des">师生配比</text>
+      </view>
+      <view class="content-item">
+				<view class="clsdet-panel content-row-center">
+					<text>{{capacity}}</text>
+      	</view>
+        <text class="clsdet-panel-des">班级容纳</text>
+      </view>
+    </view>
+	</view>
+</view>

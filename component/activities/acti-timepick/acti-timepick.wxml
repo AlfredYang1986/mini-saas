@@ -1,0 +1,41 @@
+<!--component/activity-banner/acti-timepick/acti-timepick.wxml-->
+<view class="actitp">
+	<view class="content-item actitp-margin">
+		<view class="content-row actitp-title">
+			<text>可选时间</text>
+		</view>
+
+		<view class="content-row-wrap actitp-panel-margin">
+			<block wx:for="{{gallery}}" wx:for-index="idx">
+
+				<block wx:if="{{idx == 1}}">
+				<view class="content-item-mid gallery-panel gallery-panel-selected">
+					<view class="content-row-mid gallery-panel-up">
+						<view class="content-row">
+							<text class="gallery-date">{{item.date}}</text>
+							<text class="gallery-dow">{{item.dow}}</text>
+						</view>
+					</view>
+					<view class="content-row-mid gallery-panel-down">
+						<text class="gallery-range">{{item.range.from}}-{{item.range.to}}</text>
+					</view>
+				</view>
+				</block>
+				
+				<block wx:else>
+				<view class="content-item-mid gallery-panel">
+					<view class="content-row-mid gallery-panel-up">
+						<view class="content-row">
+							<text class="gallery-date">{{item.date}}</text>
+							<text class="gallery-dow">{{item.dow}}</text>
+						</view>
+					</view>
+					<view class="content-row-mid gallery-panel-down">
+						<text class="gallery-range">{{item.range.from}}-{{item.range.to}}</text>
+					</view>
+				</view>
+				</block>
+			</block>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,18 @@
+<!--pages/class-lst/class-detail/class-detail.wxml-->
+<view class="clsdet-container">
+	<view class="clsdet-component">
+		<clsimg ></clsimg>
+	</view>
+  <view class="clsdet-component">
+    <clstitle ></clstitle>
+  </view>
+  <view class="clsdet-component">
+    <clsabout ></clsabout>
+  </view>
+  <view class="clsdet-component">
+    <clsloc ></clsloc>
+  </view>
+  <view class="clsdet-component">
+    <clsbtns ></clsbtns>
+  </view>
+</view>

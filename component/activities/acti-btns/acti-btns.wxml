@@ -1,0 +1,17 @@
+<!--component/activity-banner/acti-btns/acti-btns.wxml-->
+<view class="actibtn">
+	<view class="content-row-mid ">
+		<view class="content-item-mid actibtn-bkg">
+      <view class="content-row-span ">
+        <view class="content-row">
+          <text class="acti-price">¥{{price}}</text>
+          <text class="acti-price-des">起</text>
+        </view>
+        <view class="content-row">
+          <text class="acti-nav">立即报名</text>
+          <image class="acti-nav-arrow" src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_arrow_right_light%402x.png"></image>
+        </view>
+			</view>
+    </view>
+	</view>
+</view>

@@ -1,0 +1,39 @@
+<!--component/activity-banner/acti-img/acti-img.wxml-->
+<view class="acti-img">
+	<view class="content-row-mid">
+		<view class="content-item-reverse acti-bkg" style="background-image:url('{{bkg}}')">
+
+			<view class="content-item-reverse acti-img-another-bkg">
+
+			<view class=".acti-img-title acti-img-margin">
+				<text>{{title}}</text>
+			</view>
+
+			<view class="content-item acti-img-margin acti-img-panel-margin">
+				<view class="content-row acti-img-panel">
+					<image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_date%402x.png"></image>
+					<text>{{dateline}}</text>
+				</view>
+
+				<view class="content-row acti-img-panel">
+					<image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_location%402x.png"></image>
+					<text>{{location}}</text>
+				</view>
+
+				<view class="content-row acti-img-panel">
+					<image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_age%402x.png"></image>
+					<text>{{age.from}}-{{age.to}}岁</text>
+				</view>
+
+			</view>
+
+
+			<view class="content-row-span acti-img-bottom acti-img-margin">
+				<text>已报名 {{count}}人</text>
+				<image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_share%402x.png"></image>
+			</view>
+
+			</view>
+		</view>
+	</view>
+</view>

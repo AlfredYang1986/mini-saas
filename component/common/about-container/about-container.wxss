@@ -1,0 +1,113 @@
+/* component/class-banner/about-container/about-container.wxss */
+
+.clsabout {
+
+}
+
+.clsabout .content-item {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.clsabout .content-row {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.clsabout .content-row-span {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.clsabout .about-margin {
+	margin-top: 64rpx;
+	margin-left: 64rpx;
+	margin-right: 64rpx;
+}
+
+.clsabout .about-title {
+	font-family: SFProText-Medium;
+	font-size: 32rpx;
+	color: #404040;
+
+	margin-bottom: 32rpx;
+}
+
+.clsabout .about-title-des {
+  font-family: SFProText-Regular;
+  font-size: 26rpx;
+  color: #A6A6A6;
+}
+
+.clsabout .about-title-des image {
+  width: 24rpx;
+  height: 24rpx;
+
+  margin-top: 4rpx;
+  margin-right: 6rpx;
+}
+
+.clsabout .about-des {
+	max-height: 176rpx;
+
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+
+	font-family: PingFangSC-Regular;
+	font-size: 28rpx;
+	color: #404040;
+	letter-spacing: 3rpx;
+	line-height: 44rpx;
+
+	position: relative;
+	margin-bottom: 22rpx;
+}
+
+.clsabout .about-des-more {
+	position: absolute;
+	bottom: 0;
+	right: 15rpx;
+
+	font-family: PingFangSC-Medium;
+	font-size: 22rpx;
+	color: #80AEFF;
+	text-align: right;
+}
+
+.clsabout .about-des-all {
+	font-family: PingFangSC-Regular;
+	font-size: 28rpx;
+	color: #404040;
+	letter-spacing: 3rpx;
+	line-height: 44rpx;
+	
+	position: relative;
+	margin-bottom: 22rpx;
+}
+
+.clsabout .about-bonus {
+	font-family: SFProText-Regular;
+	font-size: 28rpx;
+	color: #A6A6A6;
+	letter-spacing: 2rpx;
+
+	margin-top: 10rpx;
+}
+
+.clsabout .about-bonus image {
+	width: 28rpx;
+	height: 28rpx;
+
+	margin-right: 16rpx;
+	margin-top: 5rpx;
+}
+

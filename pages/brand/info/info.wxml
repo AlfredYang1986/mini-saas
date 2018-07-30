@@ -1,0 +1,15 @@
+<!--pages/brand/brand.wxml-->
+<div class="brand-container">
+	<view class="brand-component">
+		<brand-banner class="brand-banner"></brand-banner>
+	</view>
+  <view class="brand-component">
+    <activity-banner class="activity-banner"></activity-banner>
+  </view>
+  <view class="brand-component component-margin-top">
+    <class-banner class="class-banner"></class-banner>
+  </view>
+  <view class="brand-component component-margin-top">
+    <location-banner class="location-banner"></location-banner>
+  </view>
+</div>

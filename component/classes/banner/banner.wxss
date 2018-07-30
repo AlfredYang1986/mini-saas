@@ -1,0 +1,109 @@
+/* component/class-banner/class-banner.wxss */
+.class-banner {
+
+}
+
+.class-banner .content-page {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+
+	padding: 0 20rpx;
+}
+
+.class-banner .content-item {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+}
+
+.class-banner .content-row-span {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	margin-bottom: 20rpx;
+}
+
+.class-banner .content-row-span .title {
+	font-family: SFProText-Medium;
+	font-size: 40rpx;
+	color: #0D0D0D;
+	margin-left: 40rpx;
+}
+
+.class-banner .content-row-span .more {
+	font-family: SFProText-Medium;
+	font-size: 26rpx;
+	color: #A6A6A6;
+	margin-right: 20rpx;
+}
+
+.class-banner .content-row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+}
+
+.class-banner .cls-container {
+	margin-left: 14rpx;
+	margin-right: 14rpx;
+}
+
+.class-banner .cls-detail {
+	margin-left: 16rpx;
+	margin-right: 16rpx;
+
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+}
+
+.class-banner .cls-detail .cls-img {
+	width: 406rpx;
+	height: 250rpx;
+
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.class-banner .cls-detail .cls-subtitle {
+	font-family: SFProText-Regular;
+	font-size: 26rpx;
+	color: #A6A6A6;
+
+	margin-top: 32rpx;
+}
+
+.class-banner .cls-detail .cls-subtitle > text:nth-child(2) {
+	margin-left: 16rpx;
+}
+
+.class-banner .cls-detail .cls-title {
+	font-family: PingFangSC-Medium;
+	font-size: 32rpx;
+	color: #404040;
+	
+	margin-top: 8rpx;
+}
+
+.class-banner .cls-detail .booking-content {
+	margin-top: 24rpx;
+}
+
+.class-banner .cls-detail .booking-content .currency {
+	font-family: SFProText-Medium;
+	font-size: 36rpx;
+	color: #404040;
+}
+
+.class-banner .cls-detail .booking-content .currency-des {
+	font-family: PingFangSC-Regular;
+	font-size: 22rpx;
+	color: #A6A6A6;
+	margin-top: 14rpx;
+}

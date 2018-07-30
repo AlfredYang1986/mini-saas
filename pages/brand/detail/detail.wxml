@@ -1,0 +1,13 @@
+<!--pages/brand-detail/brand-detail.wxml-->
+<!-- <view class="container">  -->
+	<view class="class-component">
+		<brand-banner-slogan></brand-banner-slogan>
+	</view>
+  <view class="class-component component-margin-top">
+		<brand-description></brand-description>
+	</view>
+  <view class="class-component component-margin-top">
+    <brand-glory></brand-glory>
+  </view>
+<!-- </view>  -->
+

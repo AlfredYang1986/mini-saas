@@ -1,0 +1,35 @@
+/* component/activity-banner/acti-lstc/acti-lstc.wxss */
+
+.actilstc {
+
+}
+
+.actilstc .content-item {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.actilstc .content-row {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.actilstc .actilstc-margin {
+	margin-left: 64rpx;
+	margin-right: 64rpx;
+	margin-top: 64rpx;
+}
+
+.actilstc .actilstc-panel {
+	margin: 8rpx;
+}
+
+.actilstc .actilstc-panel image {
+	width: 294rpx;
+	height: 182rpx;
+}
+

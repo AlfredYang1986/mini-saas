@@ -1,0 +1,30 @@
+/* component/class-banner/img-containger/img-container.wxss */
+.clsdet-img {
+
+}
+
+.clsdet-img .content-item {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.clsdet-img .content-row {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.clsdet-img .clsdet-detail {
+
+}
+
+.clsdet-img .clsdet-detail .clsdet-detail-img {
+	width: 750rpx;
+	height: 504rpx;
+
+	background-size: cover;
+	background-repeat: no-repeat;
+}

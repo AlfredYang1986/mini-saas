@@ -1,0 +1,147 @@
+/* component/activity-banner/activity-banner.wxss */
+
+.act-banner {
+
+}
+
+.act-banner .content-page {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+
+	padding: 0 20rpx;
+}
+
+.act-banner .content-item {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+}
+
+.act-banner .content-row-span {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	margin-bottom: 20rpx;
+}
+
+.act-banner .content-row-span .title {
+	font-family: SFProText-Medium;
+	font-size: 40rpx;
+	color: #0D0D0D;
+	margin-left: 40rpx;
+}
+
+.act-banner .content-row-span .more {
+	font-family: SFProText-Medium;
+	font-size: 26rpx;
+	color: #A6A6A6;
+	margin-right: 20rpx;
+}
+
+.act-banner .content-row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+}
+
+.act-banner .act-img {
+	background-color: red;
+	margin: 10rpx;
+}
+
+.act-banner .act-img image {
+	width: 640rpx;
+	height: 354rpx;
+}
+
+.act-banner .act-img .act-detail {
+	width: 640rpx;
+	height: 354rpx;
+
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.act-banner .act-img .act-detail .title {
+	color: white;
+	font-size: 32rpx;
+	font-family: SFProText-Medium;
+	/* margin: 32rpx; */
+	margin-top: 32rpx;
+	margin-left: 32rpx;
+}
+
+.act-banner .act-img .act-detail .time {
+	color: white;
+	font-size: 26rpx;
+	font-family: SFProText-Regular;
+
+	/* margin: 8rpx, 0rpx, 0rpx, 32rpx; */
+	margin-top: 8rpx;
+	margin-left: 32rpx;
+}
+
+.act-banner .act-img .act-detail .district {
+	color: white;
+	font-size: 26rpx;
+	font-family: SFProText-Regular;
+
+	/* margin: 8rpx, 0rpx, 0rpx, 16rpx; */
+	margin-top: 8rpx;
+	margin-left: 16rpx;
+}
+
+.act-banner .act-img .act-detail .booking-content {
+	margin-left: 32rpx;
+	margin-bottom: 32rpx;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+
+	/* width: 100%; */
+}
+
+.act-banner .act-img .act-detail .currency-symbol {
+	font-family: PingFangSC-Semibold;
+	font-size: 40rpx;
+	color: white;
+}
+
+.act-banner .act-img .act-detail .currency {
+	font-family: PingFangSC-Semibold;
+	font-size: 40rpx;
+	color: white;
+	letter-spacing: 2rpx;
+}
+
+.act-banner .act-img .act-detail .currency-des {
+	font-family: PingFangSC-Regular;
+	font-size: 22rpx;
+	color: white;
+
+	padding-top: 18rpx;
+}
+
+.act-banner .act-img .act-detail .booking-btn {
+	font-family: PingFangSC-Medium;
+	font-size: 28rpx;
+	color: white;
+	background-color: #FE7967;
+	border: 1px solid #FF6F5F;
+	border-radius: 4rpx;
+
+	margin: 0;
+	margin-right: 32rpx;
+}

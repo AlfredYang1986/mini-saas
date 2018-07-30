@@ -1,0 +1,14 @@
+<!--component/activity-banner/acti-lstc/acti-lstc.wxml-->
+<view class="actilstc" >
+	<view class="content-item actilstc-margin">
+		<scroll-view class="content-item" scroll-x style="width: 100%">
+			<view class="content-row">
+				<block wx:for="{{images}}">
+					<view class="actilstc-panel">
+						<image src="{{item.src}}"></image>
+					</view>
+				</block>
+      </view>
+    </scroll-view>
+	</view>
+</view>

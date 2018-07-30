@@ -1,0 +1,64 @@
+/**
+ * component/brand-detail/brand-detail.wxss
+ */
+.info .content-page {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+
+	/* background-color: black; */
+
+	padding: 0 40rpx;
+}
+
+.info .content-item {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	
+	/* background-color: red; */
+}
+
+.info .content-item .content-row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+
+.info .content-item .content-row .whole-line {
+	width: 100%;
+	
+	/* background-color: blue; */
+}
+
+.story {
+
+}
+
+.info .found-date {
+	
+}
+
+.info .title {
+	font-family: PingFangSC-Medium;
+	font-size: 32rpx;
+	color: #0D0D0D;
+
+	margin-left: 10rpx;
+}
+
+.info .sub-title {
+
+}
+
+.info .description {
+	font-family: PingFangSC-Regular;
+	font-size: 28rpx;
+	color: #737373;
+	letter-spacing: 2rpx;
+
+	margin-top: 48rpx;
+}

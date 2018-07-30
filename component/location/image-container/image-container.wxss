@@ -1,0 +1,68 @@
+/* component/location-banner/image-container/image-container.wxss */
+
+.loc-img {
+
+}
+
+.loc-img .content-page {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.loc-img .content-item {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.loc-img .content-row {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.loc-img .content-row-span {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.loc-img .content-row .loc-detail {
+
+}
+
+.loc-img .loc-detail .loc-detail-img {
+	width: 750rpx;
+	height: 464rpx;
+	
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.loc-img .loc-detail-img .loc-tag {
+	font-family: PingFangSC-Regular;
+	font-size: 28rpx;
+	color: #FFFFFF;
+
+	padding-top: 4rpx;
+	padding-left: 16rpx;
+	padding-right: 16rpx;
+	padding-bottom: 4rpx;
+
+	background: #0000007F;
+	border-radius: 8rpx;
+
+	margin-bottom: 20rpx;
+	margin-left: 40rpx;
+	margin-right: 40rpx;
+}

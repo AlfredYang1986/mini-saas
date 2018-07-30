@@ -1,0 +1,21 @@
+<!--pages/activity/activity.wxml-->
+<view class="acti-container">
+	<view class="acti-component">
+		<actiimg ></actiimg>
+	</view>
+  <view class="acti-component">
+		<actiabout isCourse='false' ></actiabout>
+	</view>
+  <view class="acti-component">
+		<actilstc></actilstc>
+	</view>
+  <view class="acti-component">
+		<actiloc></actiloc>
+	</view>
+  <view class="acti-component">
+		<actitp></actitp>
+	</view>
+  <view class="acti-component">
+		<actibtn></actibtn>
+	</view>
+</view>

@@ -1,0 +1,39 @@
+<!--component/activity-banner/activity-banner.wxml-->
+<view class="act-banner">
+	<view class="content-page">
+		<view class="content-item">
+			<view class="content-row-span" bindtap='showActiDetail'>
+				<text class="title">本周活动</text>
+				<text class="more">更多</text>
+			</view>
+		  <scroll-view class="" scroll-x style="width: 100%" bindtap='showActiDetail'>
+				<view class="content-row" style="margin-left:20rpx">
+					<view class="act-img" wx:for="{{activities}}">
+						<view class="act-detail" style="background-image: url('{{item.image}}')" >
+							<view class="title-content">
+								<view class="content-row">
+									<text class="title">{{item.category}} | {{item.title}}</text>
+								</view>
+								<view class="content-row">
+									<text class="time">{{item.time}}</text>
+									<text class="district">{{item.district}}</text>
+								</view>
+							</view>
+							<view class="booking-content">
+								<view class="content-row">
+									<text class="currency-symbol">¥</text>
+									<text class="currency">{{item.price}}</text>
+									<text class="currency-des">起</text>
+								</view>
+
+								<button class="booking-btn">
+									立即报名
+								</button>
+							</view>
+						</view>
+					</view>
+        </view>
+			</scroll-view>
+		</view>
+	</view>
+</view>

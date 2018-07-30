@@ -1,0 +1,41 @@
+<!--component/class-banner/about-container/about-container.wxml-->
+<view class="clsabout">
+	<view class="content-item about-margin">
+
+    <block wx:if="{{isCourse == 'false'}}">
+      <view class="content-row-span">
+        <text class="about-title">活动详情</text>
+        <view class="content-row about-title-des">
+          <image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_time%402x.png"></image>
+          <text>45分钟</text>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+		  <text class="about-title">课程描述</text>
+    </block>
+
+		<block wx:if="{{!expending}}">
+			<view class="about-des">
+				<text>{{des}}</text>
+				<view class="about-des-more">
+					<text>更多</text>
+				</view>
+			</view>
+		</block>
+		<block wx:else>
+			<text class="about-des-all">{{des}}</text>
+		</block>
+
+		<view class="content-row about-bonus" wx:if="{{bonus.length > 0}}">
+			<image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_gift%402x.png"></image>
+			<text>{{bonus}}</text>
+		</view>
+
+		<view class="content-row about-bonus" wx:if="{{fee.length > 0}}">
+			<image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_fee%402x.png"></image>
+			<text>{{fee}}</text>
+		</view>
+	
+	</view>
+</view>

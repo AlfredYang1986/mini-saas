@@ -1,0 +1,18 @@
+<!--component/class-banner/btn-container/btn-container.wxml-->
+
+<view class="clsbtns">
+	<view class="content-item clsbtns-margin">
+		<view class="content-row-span">
+			<view class="clsbtns-trial">
+				<text class="">预约试听</text>
+			</view>
+			<view class="content-row-span clsbtns-pc">
+				<view class="content-row">
+					<text class="clsbtns-price">¥{{price}}</text>
+					<text class="clsbtns-price-des">起</text>
+				</view>
+				<text class="clsbtns-purchase">立即购买</text>
+			</view>
+		</view>	
+	</view>
+</view>

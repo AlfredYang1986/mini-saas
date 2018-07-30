@@ -1,0 +1,14 @@
+/* pages/brand/brand.wxss */
+
+.brand-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.brand-component {
+	width: 100%;
+}
