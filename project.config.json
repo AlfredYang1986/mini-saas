@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.0.9",
 	"appid": "wx6129e48a548c52b8",
-	"projectname": "minisaas",
+	"projectname": "mini-saas",
 	"condition": {
 		"search": {
 			"current": -1,
