@@ -9,10 +9,13 @@
   <view class="clsdet-component">
     <clsabout ></clsabout>
   </view>
-  <view class="clsdet-component">
+  <!-- <view class="clsdet-component">
     <clsloc ></clsloc>
+  </view> -->
+  <view class='clsdet-component'>
+    <clslocal></clslocal>
   </view>
-  <view class="clsdet-component">
-    <clsbtns ></clsbtns>
+  <view class="clsdet-component" bindtap=''>
+    <clsbtn ></clsbtn>
   </view>
 </view>

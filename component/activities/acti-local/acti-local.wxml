@@ -3,13 +3,13 @@
 	<view class="content-page">
 		<view class="content-item">
 			<view class="content-row-span">
-				<text class="title">附近场地 5</text>
+				<text class="title">活动场地</text>
 				<!-- <text class="more">更多{{locations.length}}个</text> -->
 			</view>
       
 		</view>
 		
-		<view class="content-item loc-place-holder"></view>
+		<!-- <view class="content-item loc-place-holder"></view> -->
 
 		<view class="content-item loc-lst">
 			<view class="loc-panel" wx:for="{{[locations[0]]}}" bindtap='showLocations' >
@@ -21,7 +21,6 @@
 								<text class="location-title">{{item.title}}</text>
 							</view>
 							<view class="content-row">
-								<image class="location-icon" src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_location%402x.png"></image>
 								<text class="location-address">{{item.address}}</text>
 							</view>
 						</view>

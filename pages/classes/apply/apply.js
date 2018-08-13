@@ -1,4 +1,4 @@
-// pages/brand/brand.js
+// pages/classes/apply/apply.js
 Page({
 
   /**
@@ -62,10 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  showBrandDetail: function (event) {
-    wx.navigateTo({
-      url: '/pages/brand/details/details'
-    })
   }
 })

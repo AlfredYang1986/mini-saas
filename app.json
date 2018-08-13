@@ -8,7 +8,9 @@
     "pages/classes/detail/detail",
     "pages/activity/detail/detail",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/brand/details/details",
+    "pages/classes/apply/apply"
   ],
   "window": {
     "backgroundTextStyle": "light",

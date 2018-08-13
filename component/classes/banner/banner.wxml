@@ -2,34 +2,32 @@
 <view class="class-banner">
 	<view class="content-page">
 		<view class="content-item">
-			<view class="content-row-span" bindtap='showClasses'>
-				<text class="title">课程</text>
-				<text class="more">更多</text>
+			<view class="content-row-span">
+				<text class="title">
+        课程 
+       <image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png"></image>
+        </text>
+				<!-- <text class="more">更多</text> -->
 			</view>
-		  <scroll-view class="" scroll-x style="width: 100%">
 				<view class="content-row cls-container ">
 					<view class="cls-detail" wx:for="{{classes}}">
 						<view class="cls-img" style="background-image: url('{{item.image}}')" ></view>
-
-						<view class="cls-subtitle content-row">
+            <view class='cls-content'>
+              <view class="cls-subtitle content-row">
+              <text>{{item.category}}</text>
 							<text>{{item.bundary}}</text>
-							<text>{{item.lecture}}</text>
-						</view>
+              </view>
 
-						<view class="cls-title content-row">
-							<text>{{item.category}} | {{item.title}}</text>
-						</view>
-
-						<view class="booking-content">
-							<view class="content-row">
-								<text class="currency">¥{{item.price}}</text>
-								<text class="currency-des">/起</text>
-							</view>
-						</view>
+              <view class="cls-title content-row">
+                <text>{{item.title}}</text>
+              </view>
+            </view>
+						
 
 					</view>
         </view>
-			</scroll-view>
+      <button type="default" size="default" loading="{{loading}}" plain="{{plain}}"
+		disabled="{{disabled}}" bindtap="default" class='brand-button'  bindtap='showClasses'> 查看全部课程</button>
 		</view>
 	</view>
 </view>

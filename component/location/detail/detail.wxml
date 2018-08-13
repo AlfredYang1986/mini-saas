@@ -2,7 +2,7 @@
 <view class="c-loc-detail">
 	<view class="content-item">
 		<view class="content-row-span c-loc-margin-32">
-			<view class="c-loc-address">
+			<view class="c-loc-address"  bindtap='showLocationList' >
 				<text class="">{{address}}</text>
 			</view>
 			<view class="c-loc-icon content-mid">

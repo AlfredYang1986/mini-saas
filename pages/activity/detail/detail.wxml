@@ -9,12 +9,15 @@
   <view class="acti-component">
 		<actilstc></actilstc>
 	</view>
-  <view class="acti-component">
+  <!-- <view class="acti-component">
 		<actiloc></actiloc>
 	</view>
   <view class="acti-component">
 		<actitp></actitp>
-	</view>
+	</view> -->
+  <view class='acti-component'>
+    <actilocal></actilocal>
+  </view>
   <view class="acti-component">
 		<actibtn></actibtn>
 	</view>

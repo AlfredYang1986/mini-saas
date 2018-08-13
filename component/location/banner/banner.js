@@ -33,7 +33,7 @@ Component({
   methods: {
     showLocations: function (event) {
       wx.navigateTo({
-        url: '/pages/locations/lst/lst'
+        url: '/pages/locations/detail/detail'
       })
     }
   }

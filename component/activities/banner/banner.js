@@ -14,16 +14,16 @@ Component({
 		activities: [
 			{
 				category: "编程",
-				title: "嘀嗒杯科学魔方小组赛",
-				time: "7月19日 ～ 7月22日",
-				district: "朝阳区",
+				title: "ZHANGLU",
+				time: "16",
+				district: "this is",
 				image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png",
 				price: 134
 			},
 			{
 				category: "编程",
 				title: "嘀嗒杯科学魔方小组赛",
-				time: "7月22日 ～ 7月25日",
+				time: "25",
 				district: "海淀区",
 				image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png",
 				price: 154
@@ -31,7 +31,7 @@ Component({
 			{
 				category: "编程",
 				title: "嘀嗒杯科学魔方小组赛",
-				time: "7月25日 ～ 7月28日",
+				time: "28日",
 				district: "东城区",
 				image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png",
 				price: 154

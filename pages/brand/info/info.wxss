@@ -12,3 +12,9 @@
 .brand-component {
 	width: 100%;
 }
+.brand-logo {
+  margin: 30px auto;
+  width: 220px;
+  height: 80px;
+  background: red;
+}

@@ -9,8 +9,10 @@
 	flex-wrap: nowrap;
 	flex-direction: column;
 	justify-content: flex-start;
+
 }
 
+ 
 .actilstc .content-row {
 	display: flex;
 	flex-wrap: nowrap;
@@ -22,6 +24,8 @@
 	margin-left: 64rpx;
 	margin-right: 64rpx;
 	margin-top: 64rpx;
+  padding-bottom: 64rpx; 
+  border-bottom: 1px solid rgb(151,151,151);
 }
 
 .actilstc .actilstc-panel {

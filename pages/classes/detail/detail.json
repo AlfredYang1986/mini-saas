@@ -4,6 +4,8 @@
     "clstitle": "/component/classes/title-container/title-container",
     "clsabout": "/component/common/about-container/about-container",
     "clsloc": "/component/common/loc-container/loc-container",
+    "clslocal": "/component/activities/acti-local/acti-local",
+    "clsbtn": "/component/activities/acti-btns/acti-btns",
     "clsbtns": "/component/classes/btn-container/btn-container"
   }
 }

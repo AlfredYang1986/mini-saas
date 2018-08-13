@@ -1,8 +1,11 @@
 <!--pages/brand/brand.wxml-->
-<div class="brand-container">
-	<view class="brand-component">
+<div class="brand-container"> 
+  <view class='brand-logo' bindtap='showBrandDetail'>
+    <image></image>
+  </view>
+	<!-- <view class="brand-component">
 		<brand-banner class="brand-banner"></brand-banner>
-	</view>
+	</view> -->
   <view class="brand-component">
     <activity-banner class="activity-banner"></activity-banner>
   </view>

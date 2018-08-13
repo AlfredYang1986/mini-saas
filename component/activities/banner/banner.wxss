@@ -1,9 +1,5 @@
 /* component/activity-banner/activity-banner.wxss */
 
-.act-banner {
-
-}
-
 .act-banner .content-page {
 	display: flex;
 	flex-direction: column;
@@ -30,9 +26,9 @@
 
 .act-banner .content-row-span .title {
 	font-family: SFProText-Medium;
-	font-size: 40rpx;
-	color: #0D0D0D;
-	margin-left: 40rpx;
+	font-size: 48rpx;
+	color: #404040;
+	margin-left: 44rpx;
 }
 
 .act-banner .content-row-span .more {
@@ -47,29 +43,35 @@
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: flex-start;
+  align-items: flex-end;
 }
 
 .act-banner .act-img {
-	background-color: red;
-	margin: 10rpx;
-}
+	background-color: #fff;
+	margin: 30rpx;
 
-.act-banner .act-img image {
-	width: 640rpx;
-	height: 354rpx;
-}
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
+  width: 100%;
+  height: 586rpx;
+  border-radius: 8rpx;
+}
 .act-banner .act-img .act-detail {
-	width: 640rpx;
-	height: 354rpx;
+	width: 400rpx;
+	height: 540rpx;
+  border-radius: 8rpx;
 
 	display: flex;
-	flex-direction: column;
+	flex-direction: column;  
 	flex-wrap: nowrap;
-	justify-content: space-between;
+	justify-content: space-between; 
+  align-items: flex-end;
 
 	background-repeat: no-repeat;
 	background-size: cover;
+  background-position:center;
 }
 
 .act-banner .act-img .act-detail .title {
@@ -80,15 +82,24 @@
 	margin-top: 32rpx;
 	margin-left: 32rpx;
 }
+.title-time {
+  z-index: 2;
+  transform: translateY(306rpx);
+  color: #fff;
+  font-size: 60rpx;
+  font-family: SFProText-Semibold;
 
-.act-banner .act-img .act-detail .time {
-	color: white;
-	font-size: 26rpx;
-	font-family: SFProText-Regular;
-
-	/* margin: 8rpx, 0rpx, 0rpx, 32rpx; */
-	margin-top: 8rpx;
-	margin-left: 32rpx;
+}
+.title-mask {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+ 
+  width: 100%;
+  height: 158rpx;
+  border-radius: 8rpx;
+  opacity: 0.8;
+  background-image: linear-gradient(-180deg, #3749DE 0%, #121537 100%);
 }
 
 .act-banner .act-img .act-detail .district {
@@ -98,50 +109,65 @@
 
 	/* margin: 8rpx, 0rpx, 0rpx, 16rpx; */
 	margin-top: 8rpx;
-	margin-left: 16rpx;
+	margin-left: 32rpx;
+  margin-bottom: 50rpx;
 }
 
-.act-banner .act-img .act-detail .booking-content {
-	margin-left: 32rpx;
-	margin-bottom: 32rpx;
+.act-banner .act-img .booking-content {
+	/* margin-left: 140rpx; */
 
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: space-between;
 
+  transform: translate(132rpx,-20rpx);
 	/* width: 100%; */
 }
 
-.act-banner .act-img .act-detail .currency-symbol {
+.act-banner .act-img .currency-symbol {
 	font-family: PingFangSC-Semibold;
-	font-size: 40rpx;
+	font-size: 32rpx;
 	color: white;
 }
 
-.act-banner .act-img .act-detail .currency {
-	font-family: PingFangSC-Semibold;
-	font-size: 40rpx;
-	color: white;
+.act-banner .act-img .currency {
+	font-size: 32rpx;
 	letter-spacing: 2rpx;
+  padding-top: 22rpx;
+  /* padding-left: 32rpx; */
+  padding-bottom: 20rpx;
+  font-family: SFProText-Bold;
+  color: #FFFFFF;
 }
 
-.act-banner .act-img .act-detail .currency-des {
+.act-banner .act-img .currency-des {
 	font-family: PingFangSC-Regular;
 	font-size: 22rpx;
 	color: white;
 
 	padding-top: 18rpx;
+  padding-right: 20rpx;
+  
+  
 }
 
-.act-banner .act-img .act-detail .booking-btn {
+.act-banner .act-img  .booking-btn {
 	font-family: PingFangSC-Medium;
-	font-size: 28rpx;
+	font-size: 26rpx;
 	color: white;
-	background-color: #FE7967;
+  height: 80rpx;
+  line-height: 30rpx;
+  width: auto;
+	background-color: rgba(249,157,75,1);
 	border: 1px solid #FF6F5F;
-	border-radius: 4rpx;
+	border-radius: 8rpx;
 
 	margin: 0;
-	margin-right: 32rpx;
+	margin-right: -32rpx;
+  padding: 22rpx 32rpx 11rpx 32rpx;
+
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: nowrap; 
 }

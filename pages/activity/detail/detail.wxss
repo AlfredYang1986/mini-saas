@@ -11,3 +11,6 @@
 .acti-component {
 	width: 100%;
 }
+.content-item {
+  border: 1px solid rgb(151,151,151);
+}

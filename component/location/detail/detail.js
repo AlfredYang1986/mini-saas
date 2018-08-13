@@ -38,6 +38,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    showLocationList: function (event) {
+      wx.navigateTo({
+        url: '/pages/locations/lst/lst'
+      })
+    }
   }
 })
