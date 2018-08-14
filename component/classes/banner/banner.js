@@ -15,7 +15,7 @@ Component({
 			{
 				category: "编程",
 				lecture: "授课方式",
-				title: "嘀嗒杯科学初级课程",
+				title: "科学初级课程",
 				bundary: "6-12岁",
 				image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png",
 				price: 134
@@ -35,7 +35,15 @@ Component({
 				bundary: "6-12岁",
 				image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png",
 				price: 154
-			}
+			},
+      {
+        category: "编程",
+        lecture: "授课方式",
+        title: "嘀嗒杯科学高级课程",
+        bundary: "6-12岁",
+        image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png",
+        price: 154
+      }
 		]	
   },
 

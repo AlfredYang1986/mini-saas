@@ -62,5 +62,10 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  applyDetail: function (event) {
+    wx.navigateTo({
+      url: '/pages/activity/apply/apply'
+    })
   }
 })

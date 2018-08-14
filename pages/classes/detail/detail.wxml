@@ -15,7 +15,7 @@
   <view class='clsdet-component'>
     <clslocal></clslocal>
   </view>
-  <view class="clsdet-component" bindtap=''>
+  <view class="clsdet-component" bindtap='applyDetail'>
     <clsbtn ></clsbtn>
   </view>
 </view>

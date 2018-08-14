@@ -7,10 +7,13 @@
     "pages/classes/lst/lst",
     "pages/classes/detail/detail",
     "pages/activity/detail/detail",
+    "pages/activity/apply/apply",
     "pages/index/index",
     "pages/logs/logs",
     "pages/brand/details/details",
-    "pages/classes/apply/apply"
+    "pages/classes/apply/apply",
+    "pages/baby/baby",
+    "pages/user/user"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -21,7 +24,7 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/baby/baby",
         "iconPath": "./utils/image/icon_tabbar_grow_normal@2x.png",
         "selectedIconPath": "./utils/image/icon_tabbar_grow_selected@2x.png",
         "color": "#A6A6A6",
@@ -37,7 +40,7 @@
         "text": "品牌"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/user/user",
         "iconPath": "./utils/image/icon_tabbar_user_normal@2x.png",
         "selectedIconPath": "./utils/image/icon_tabbar_user_selected@2x.png",
         "color": "#A6A6A6",

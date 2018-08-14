@@ -18,7 +18,7 @@
   <view class='acti-component'>
     <actilocal></actilocal>
   </view>
-  <view class="acti-component">
+  <view class="acti-component" bindtap='applyDetail'>
 		<actibtn></actibtn>
 	</view>
 </view>

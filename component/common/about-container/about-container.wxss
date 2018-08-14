@@ -9,6 +9,8 @@
 	flex-wrap: nowrap;
 	flex-direction: column;
 	justify-content: flex-start;
+
+  border-bottom: 1px solid rgba(151, 151, 151, 0.12);
 }
 
 .clsabout .content-row {
@@ -26,16 +28,17 @@
 }
 
 .clsabout .about-margin {
-	margin-top: 64rpx;
+	margin-top: 98rpx;
 	margin-left: 64rpx;
 	margin-right: 64rpx;
+  padding-bottom: 64rpx;
 }
 
 .clsabout .about-title {
 	font-family: SFProText-Medium;
 	font-size: 32rpx;
-	color: #404040;
-
+  color: #0D0D0D;
+  
 	margin-bottom: 32rpx;
 }
 

@@ -1,0 +1,51 @@
+<!--pages/baby/baby.wxml-->
+<view class='content-page'>
+  <text class='headline'>Baby</text>
+  <text class='title'>即将开始</text>
+  <view class='image'></view>
+  <view class='list'>
+    <view class='time-list color-white'>
+      <text class='day'>02</text>
+      <text class='month'>8月</text>
+    </view>
+    <view class='matter-list'>
+      <view class='info item'>
+        <text class='name'>STEM Meeting Up</text>
+        <text class='address'>朝阳区青年路甘露园中街</text>
+      </view>
+      <text class='num item'>23人参加</text>
+    </view>
+  </view>
+  <view class='list'>
+    <view class='time-list'>
+      <text class='day'>05</text>
+      <text class='month'>8月</text>
+    </view>
+    <view class='matter-list'>
+      <view class='bg-img'>
+        <view class='start-time item'>
+          <text>10:00开始</text>
+        </view>
+        <view class='progress item'>
+          <text>已学习12/30</text>
+          <progress percent="100" color="black" />
+        </view>
+      </view>
+      <view class='class-info'>
+        <text class='cla-name'></text>
+        <text class='cla-num'></text>
+      </view>
+    </view>
+  </view>
+  <view class='over'>
+    <view class='over-title'>已结束</view>
+    <view class='border'></view>
+  </view>
+  <view class='list'>
+    <view class='time-list'>
+      <text class='day'>16</text>
+      <text class='month'>3月</text>
+    </view>
+    <view class='matter-list'></view>
+  </view>
+</view>

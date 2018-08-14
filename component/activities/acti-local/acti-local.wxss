@@ -38,9 +38,9 @@
 
 .loc-banner .content-row-span .title {
 	font-size: 32rpx;
-  padding-left: 20rpx;
-  font-family: SFProText-Bold;
-  color: #FFFFFF;
+  /* padding-left: 20rpx; */
+  font-family: SFProText-Medium;
+  color: #404040;
 }
 
 .loc-banner .content-row-span .more {
@@ -54,8 +54,8 @@
 }
 
 .loc-banner .loc-lst {
-	margin-left: 16rpx;
-	margin-right: 16rpx;
+	/* margin-left: 16rpx;
+	margin-right: 16rpx; */
 }
 
 .loc-banner .loc-panel .loc-detail-container {

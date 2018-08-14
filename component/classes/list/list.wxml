@@ -4,7 +4,7 @@
 		<view class="content-item">
 			<view class="content-row-span">
 				<text class="title">
-        课程 
+        全部课程 
        <image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png"></image>
         </text>
 				<!-- <text class="more">更多</text> -->
@@ -26,7 +26,6 @@
 
 					</view>
         </view>
-      <button type="default" class='brand-button'  bindtap='showClasses'> 查看全部课程</button>
 		</view>
 	</view>
 </view>

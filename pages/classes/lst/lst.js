@@ -30,6 +30,14 @@ Page({
 				image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png",
 				price: 184
 			},
+      {
+        category: "编程",
+        lecture: "授课方式",
+        title: "嘀嗒杯科学高级课程",
+        bundary: "6-12岁",
+        image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png",
+        price: 184
+      },
 		] 
   },
 

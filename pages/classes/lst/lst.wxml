@@ -1,7 +1,6 @@
 <!--pages/class-lst/class-lst.wxml-->
 <view class="cls-lst">
-	<view class="content-page">
-		<view class="content-item" wx:for="{{classes}}" bindtap='showClsDetail'>
+		<!-- <view class="content-item" wx:for="{{classes}}" bindtap='showClsDetail'>
 			<view class="cls-img" style="background-image:url('{{item.image}}')"></view>
 
 			<view class="content-row">
@@ -18,6 +17,6 @@
 				</view>
 			</view>
 
-		</view>
-	</view>
+		</view> -->
+    <class-lst  bindtap='showClsDetail'></class-lst>
 </view>

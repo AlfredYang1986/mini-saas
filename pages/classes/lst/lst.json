@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "class-banner": "/component/classes/banner/banner"
+    "class-lst": "/component/classes/list/list"
   }
 }

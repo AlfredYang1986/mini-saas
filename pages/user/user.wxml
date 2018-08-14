@@ -1,0 +1,23 @@
+<!--pages/user/user.wxml-->
+<view class='content-page'>
+  <view class='head'>
+    <view class='head-img'></view>
+    <view class='head-name'>KIM</view>
+  </view>
+  <view class='func'>
+    <view class='server'>
+    <view>
+      <image></image>
+      <text>预约服务</text>
+    </view>
+    <image></image>
+    </view>
+    <view class='server'>
+     <view>
+      <image></image>
+      <text>帮助</text>
+    </view>
+      <image></image>
+    </view>
+  </view>
+</view>

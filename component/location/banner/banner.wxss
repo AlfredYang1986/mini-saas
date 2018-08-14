@@ -37,9 +37,11 @@
 
 .loc-banner .content-row-span .title {
 	font-family: PingFangSC-Medium;
-	font-size: 32rpx;
-	color: #0D0D0D;
-  padding-left: 20rpx;
+	font-size: 48rpx;
+  color: #404040;
+  margin-left: 40rpx;
+  margin-top: 6d0rpx;
+  margin-bottom: 38rpx;
 }
 
 .loc-banner .content-row-span .more {

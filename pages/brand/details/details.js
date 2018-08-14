@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png"
   },
 
   /**

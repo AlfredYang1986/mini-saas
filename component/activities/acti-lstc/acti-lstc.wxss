@@ -25,15 +25,18 @@
 	margin-right: 64rpx;
 	margin-top: 64rpx;
   padding-bottom: 64rpx; 
-  border-bottom: 1px solid rgb(151,151,151);
+  border-bottom: 1px solid rgba(151,151,151,0.12);
 }
 
 .actilstc .actilstc-panel {
 	margin: 8rpx;
+ 
 }
-
 .actilstc .actilstc-panel image {
 	width: 294rpx;
 	height: 182rpx;
+   background: #FFFFFF;
+  box-shadow: 0 6px 12px 0 rgba(173,186,222,0.52);
+  border-radius: 4rpx;
 }
 

@@ -1,4 +1,4 @@
-// pages/class-lst/class-detail/class-detail.js
+// pages/baby/baby.js
 Page({
 
   /**
@@ -62,10 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  applyDetail: function (event) {
-    wx.navigateTo({
-      url: '/pages/classes/apply/apply'
-    })
   }
 })

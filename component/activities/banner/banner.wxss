@@ -28,15 +28,9 @@
 	font-family: SFProText-Medium;
 	font-size: 48rpx;
 	color: #404040;
-	margin-left: 44rpx;
+	margin-left: 40rpx;
 }
 
-.act-banner .content-row-span .more {
-	font-family: SFProText-Medium;
-	font-size: 26rpx;
-	color: #A6A6A6;
-	margin-right: 20rpx;
-}
 
 .act-banner .content-row {
 	display: flex;
@@ -47,21 +41,22 @@
 }
 
 .act-banner .act-img {
-	background-color: #fff;
 	margin: 30rpx;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  width: 100%;
+  width: 452px;
   height: 586rpx;
-  border-radius: 8rpx;
+  border-radius: 8rpx !important;
 }
 .act-banner .act-img .act-detail {
-	width: 400rpx;
-	height: 540rpx;
-  border-radius: 8rpx;
+	width: 404rpx;
+	height: 538rpx;
+  border-radius: 8rpx !important;
+  background: #FFFFFF;
+  box-shadow: 0 8px 12px 0 rgba(173,186,222,0.62);
 
 	display: flex;
 	flex-direction: column;  
@@ -115,13 +110,12 @@
 
 .act-banner .act-img .booking-content {
 	/* margin-left: 140rpx; */
-
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: space-between;
 
-  transform: translate(132rpx,-20rpx);
+  transform: translate(132rpx,-34rpx);
 	/* width: 100%; */
 }
 
@@ -159,9 +153,10 @@
   height: 80rpx;
   line-height: 30rpx;
   width: auto;
-	background-color: rgba(249,157,75,1);
 	border: 1px solid #FF6F5F;
 	border-radius: 8rpx;
+  background: #F99D4B;
+  box-shadow: 0 8px 12px 0 rgba(242,140,37,0.29);
 
 	margin: 0;
 	margin-right: -32rpx;

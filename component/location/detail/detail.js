@@ -11,6 +11,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    name:"PROGWARTS-科学空间 青年路站",
 		address: "青年路甘露园中街天鹅湾南区底商雅成三里2号楼107室",
 		description: "距地铁6号线潞城站B口步行500m",
 		parking: "免费停车",
