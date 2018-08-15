@@ -1,0 +1,77 @@
+/* pages/user/server/reserve/reserve.wxss */
+.content-page {
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  padding-top: 36rpx;
+}
+.content-page .content {
+  display: flex;
+  flex-direction: row;
+
+  padding-bottom: 76rpx;
+  border-bottom: 1px solid #E0E0E0;
+}
+.content-page .content .img {
+  width: 254rpx;
+  height: 156rpx;
+  border-radius: 8rpx;
+  background: red;
+
+  margin-right: 32rpx;
+}
+.content-page .content .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+.content-page .content .info view {
+  display: flex;
+  flex-direction: column;
+}
+.content-page .content .info .headline {
+  font-family: PingFangSC-Semibold;
+  font-size: 32rpx;
+  color: #404040;
+}
+.content-page .content .info .age {
+  font-family: SFProText-Regular;
+  font-size: 26rpx;
+  color: #A6A6A6;
+}
+.content-page .content .info .cost {
+  font-family: SFProText-Medium;
+  font-size: 28rpx;
+  color: #FC6F61;
+}
+.content-page .list {
+  padding-top: 64rpx;
+  
+  display: flex;
+  flex-direction: column;
+}
+.content-page .list .detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin-bottom: 32rpx;
+}
+.content-page .list .detail .name {
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #404040;
+}
+.content-page .list .detail .value {
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #A6A6A6;
+
+  max-width: 404rpx;
+  text-align: right;
+}

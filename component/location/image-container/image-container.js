@@ -13,7 +13,7 @@ Component({
   data: {
 		locations: [
 			{
-				image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/location-rest-area.png",
+        image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/location-rest-area.png",
 				tag: "休息区",
 				index: 1,
 			},

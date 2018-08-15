@@ -1,0 +1,31 @@
+<!--pages/user/server/reserve/reserve.wxml-->
+<view class='content-page'>
+  <view class='content'>
+    <view class='img'></view>
+    <view class='info'>
+      <view>
+        <text class='headline'>STEM Meeting Up</text>
+      </view>     
+      <text class='cost'>免费</text>
+    </view>
+  </view>
+  <view class='list'>
+    <view class='detail'>
+      <text class='name'>活动时间</text>
+      <text class='value'>2018-07-31</text>
+    </view>
+    <view class='detail'>
+      <text class='name'>活动场地</text>
+      <text class='value'>朝阳区青年路甘露园中街天鹅湾南区底商雅成三里2号楼107室</text>
+    </view>
+    <view class='detail'>
+      <text class='name'>手机号码</text>
+      <text class='value'>166 4533 8272</text>
+    </view>
+    <view class='detail'>
+      <text class='name'>提交时间</text>
+      <text class='value'>2018-07-24 11:30</text>
+    </view>
+  </view>
+  
+</view>

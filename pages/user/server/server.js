@@ -1,4 +1,4 @@
-// pages/user/user.js
+// pages/user/server/server.js
 Page({
 
   /**
@@ -64,9 +64,15 @@ Page({
   
   },
 
-  myServer: function (event) {
+  reserveDetail: function(event) {
     wx.navigateTo({
-      url: 'server/server',
+      url: 'reserve/reserve',
+    })
+  },
+
+  activityDetail: function(event) {
+    wx.navigateTo({
+      url: 'acti/acti',
     })
   }
 })

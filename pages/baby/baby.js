@@ -62,5 +62,11 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  showRecord: function(evevt) {
+    wx.navigateTo({
+      url: 'record/record',
+    })
   }
 })

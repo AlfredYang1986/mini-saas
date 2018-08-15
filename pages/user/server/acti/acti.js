@@ -1,4 +1,4 @@
-// pages/user/user.js
+// pages/user/server/acti/acti.js
 Page({
 
   /**
@@ -62,11 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-
-  myServer: function (event) {
-    wx.navigateTo({
-      url: 'server/server',
-    })
   }
 })

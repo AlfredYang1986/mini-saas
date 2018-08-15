@@ -2,10 +2,28 @@
 Page({
 
   /**
-   * 页面的初始数据
+   * 页面的初始数据d
    */
   data: {
-    image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png"
+    brandIntro:{
+      headImg:"",
+      sum:"“彩色方块的转动中感受魔方的魅力”",
+      wordOne:"场景式教学",
+      wordTwo:"先进教育理念",
+      wordThree:"专业研发团队",
+      title:"成立于2013年",
+      content: "由经验丰富的欧美专业外教团队及国内少儿教育专家联合负责课程研发和授课；与美国常青藤暑期院校联盟、中央美术学院、中央戏剧学院众多国外大学、研究单位和教育专家合作课程，推出创新素质模块化课程。",
+      honor:"荣誉墙",
+    },
+    honorDetail:[{
+      honorImage: "",
+      honorTime: "2014",
+      honorName: "全国青少年编程创新大赛",
+    },{
+        honorImage: "",
+        honorTime: "2015",
+        honorName: "STEM银河主题赛",
+    }]
   },
 
   /**

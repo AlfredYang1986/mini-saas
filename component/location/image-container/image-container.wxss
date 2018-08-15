@@ -1,68 +1,70 @@
 /* component/location-banner/image-container/image-container.wxss */
 
 .loc-img {
-
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .loc-img .content-page {
-	display: flex;
-	flex-wrap: nowrap;
-	flex-direction: column;
-	justify-content: flex-start;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .loc-img .content-item {
-	display: flex;
-	flex-wrap: nowrap;
-	flex-direction: column;
-	justify-content: flex-start;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .loc-img .content-row {
-	display: flex;
-	flex-wrap: nowrap;
-	flex-direction: row;
-	justify-content: flex-start;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .loc-img .content-row-span {
-	display: flex;
-	flex-wrap: nowrap;
-	flex-direction: row;
-	justify-content: space-between;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .loc-img .content-row .loc-detail {
+  width: 100%;
+  margin-top: 228rpx;
 
+  display: flex;
+  justify-content: center;
 }
 
 .loc-img .loc-detail .loc-detail-img {
-	width: 750rpx;
-	height: 464rpx;
-	
-	background-size: cover;
-	background-repeat: no-repeat;
+  width: 670rpx;
+  height: 414rpx;
+  background-repeat: no-repeat;
 
-	display: flex;
-	flex-wrap: nowrap;
-	flex-direction: column;
-	justify-content: flex-end;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: green;
 }
 
 .loc-img .loc-detail-img .loc-tag {
-	font-family: PingFangSC-Regular;
-	font-size: 28rpx;
-	color: #FFFFFF;
-
-	padding-top: 4rpx;
-	padding-left: 16rpx;
-	padding-right: 16rpx;
-	padding-bottom: 4rpx;
-
-	background: #0000007F;
-	border-radius: 8rpx;
-
-	margin-bottom: 20rpx;
-	margin-left: 40rpx;
-	margin-right: 40rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #fff;
+  padding-top: 4rpx;
+  padding-left: 16rpx;
+  padding-right: 16rpx;
+  padding-bottom: 4rpx;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
 }

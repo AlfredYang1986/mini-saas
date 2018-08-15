@@ -104,8 +104,8 @@
 }
 
 .c-loc-detail .c-loc-facilities {
-	margin-left: 48rpx;
-	margin-right: 48rpx;
+	margin-left: 60rpx;
+	margin-right: 60rpx;
 	margin-top: 88rpx;
   margin-bottom: 98rpx;
   

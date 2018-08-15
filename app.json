@@ -13,7 +13,12 @@
     "pages/brand/details/details",
     "pages/classes/apply/apply",
     "pages/baby/baby",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/server/server",
+    "pages/user/server/server",
+    "pages/user/server/reserve/reserve",
+    "pages/user/server/acti/acti",
+    "pages/baby/record/record"
   ],
   "window": {
     "backgroundTextStyle": "light",

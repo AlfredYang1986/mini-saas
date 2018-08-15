@@ -1,6 +1,6 @@
 <!--component/location-banner/image-container/image-container.wxml-->
 <view class="loc-img">
-  <scroll-view class="content-item" scroll-x style="width: 100%">
+  <scroll-view class="content-item" scroll-x style="width: 88%;">
     <view class="content-row" >
 			<view class="loc-detail" wx:for="{{locations}}" >
 				<view class="loc-detail-img" style="background-image: url('{{item.image}}')" >
