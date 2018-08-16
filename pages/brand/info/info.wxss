@@ -7,14 +7,29 @@
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
+
+  background: #FFFFFF;
+  box-shadow: 0 -4px 10px 0 rgba(173,186,222,0.20);
+
+  padding-top: 34rpx;
 }
 
 .brand-component {
 	width: 100%;
 }
-.brand-logo {
-  margin: 30px auto;
-  width: 220px;
+.brand-logo  {
+  height: 300rpx;
+  padding-bottom: 36rpx;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-position: left bottom;
+  background-size: cover;
+}
+.brand-logo image {
+  min-width: 200px;
+  width: auto;
   height: 80px;
-  background: red;
 }

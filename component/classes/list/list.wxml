@@ -3,10 +3,6 @@
 	<view class="content-page">
 		<view class="content-item">
 			<view class="content-row-span">
-				<text class="title">
-        全部课程 
-       <image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png"></image>
-        </text>
 				<!-- <text class="more">更多</text> -->
 			</view>
 				<view class="content-row cls-container ">

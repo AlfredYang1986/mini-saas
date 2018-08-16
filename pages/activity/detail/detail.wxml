@@ -1,12 +1,12 @@
 <!--pages/activity/activity.wxml-->
-<view class="acti-container">
+<view class="acti-container" id='acti'>
   <view class="acti-component">
     <actiimg></actiimg>
   </view>
-  <view class="acti-component">
+  <view class="acti-component" wx:if='{{hide}}'>
     <actiabout isCourse='false'></actiabout>
   </view>
-  <view class="acti-component" bindtap='applyDetail'>
+  <view class="acti-component" wx:if='{{hide}}'>
     <actilstc></actilstc>
   </view>
   <!-- <view class="acti-component">
@@ -15,18 +15,19 @@
   <view class="acti-component">
 		<actitp></actitp>
 	</view> -->
-  <view class='acti-component'>
+  <view class='acti-component' id='local' style='display:block;' wx:if='{{hide}}'>
     <actilocal></actilocal>
   </view>
   <view class="acti-component" bindtap='applyList'>
     <actibtn></actibtn>
   </view>
-  <view class='apply' wx:if="{{show}}" animation='{{animationData}}'>
+</view>
+ <view class='apply modal' wx:if="{{show}}" animation='{{animationData}}' catchtouchmove="true">
     <view class='write'>
       <view class='block'>
-        <view class='title'>宝宝概况</view>
+        <view class='title'  bindtap='hideModal'>宝宝概况</view>
         <view class='option'>
-          <view class='sex'>
+          <view class='sex active' >
             <image class='ico'></image>
             小公主
           </view>
@@ -36,11 +37,13 @@
           </view>
         </view>
         <view class='birth'>
-          <view class='time'>
+          <view class='time' bindtap='selectTime'>
             <text>生日</text>
             <text>{{year}}年{{month}}月{{day}}日</text>
           </view>
-          <!-- <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+          <view class='data-select' wx:if="{{showTime}}">
+            <view class='select' bindtap='hideTime'>完成</view>
+             <picker-view indicator-style="height: 50px;" style="width: 100%; height: 180px;" value="{{value}}" bindchange="bindChange">
             <picker-view-column>
               <view wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>
             </picker-view-column>
@@ -50,17 +53,16 @@
             <picker-view-column>
               <view wx:for="{{days}}" style="line-height: 50px">{{item}}日</view>
             </picker-view-column>
-          </picker-view> -->
+          </picker-view>
+          </view>
         </view>
       </view>
-      <view class='block'>
-        <view class='title'>联系方式</view>
+      <view class='block'wx:if="{{showOthers}}">
+        <view class='title'  bindtap='hideModal'>联系方式</view>
         <view class='num'>
             <input  type="number" placeholder-style="font-family: PingFangSC-Regular;font-size: 14px;color: #D9D9D9;" placeholder="请输入" focus="{{focus}}" />
         </view>
       </view>
-      <view class='submit' bindtap='hideModal'>申请体验</view>
+      <view class='submit' bindtap='showSuccess' wx:if="{{showOthers}}">申请体验</view>
     </view>
   </view>
-
-</view>

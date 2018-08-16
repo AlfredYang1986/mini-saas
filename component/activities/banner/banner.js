@@ -17,7 +17,7 @@ Component({
 				title: "ZHANGLU",
 				time: "16",
 				district: "this is",
-				image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png",
+        image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E6%B4%BB%E5%8A%A81.png",
 				price: 134
 			},
 			{
@@ -25,7 +25,7 @@ Component({
 				title: "嘀嗒杯科学魔方小组赛",
 				time: "25",
 				district: "海淀区",
-				image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png",
+        image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E6%B4%BB%E5%8A%A82.png",
 				price: 154
 			},
 			{
@@ -33,7 +33,7 @@ Component({
 				title: "嘀嗒杯科学魔方小组赛",
 				time: "28日",
 				district: "东城区",
-				image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png",
+        image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E6%B4%BB%E5%8A%A82.png",
 				price: 154
 			}
 		]

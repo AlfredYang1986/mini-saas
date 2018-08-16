@@ -1,0 +1,31 @@
+<!--component/classes/cla-card/cla-card.wxml-->
+  <view class='matter-list bg-white' wx:if="{{claCard}}">
+      <view class='bg-img' style='background:url("{{claCard.bgurl}}")'>
+      <block wx:if="{{isOver == 'false'}}">
+        <view class='start-time'>
+          <text>{{claCard.start}}</text>
+        </view>
+         <view class='progress end'>
+          <text>{{claCard.progress}}</text>
+        </view>
+      </block>
+      <block wx:else>
+          <view class='start-time'>
+        </view>
+         <view class='progress end'>
+          <text>{{claCard.progress}}</text>
+        </view>
+      </block>
+      </view>
+      <progress percent="30" color="#bbb" />
+      <view class='class-info'>
+        <text class='cla-name'>{{claCard.name}}</text>
+        <block> 
+        <text class='cla-num'>{{claCard.num}}</text>
+        </block>
+        
+      </view>
+      <block>
+          <text class='cla-time'>{{claCard.time}}</text>
+      </block>
+    </view>

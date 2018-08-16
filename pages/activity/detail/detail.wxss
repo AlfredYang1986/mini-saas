@@ -15,11 +15,12 @@
   border: 1px solid rgb(151,151,151);
 }
 .apply {
-  
 }
 .write {
   height: auto;
-  background: #FFF;
+  background: #fff;
+
+  z-index: 500;
 
   display: flex;
   flex-direction: column;
@@ -27,7 +28,7 @@
   padding-left: 38rpx;
   padding-right: 38rpx;
   /* transform: translateY(-100%); */
-  margin-top: -100%;
+  margin-top: -848rpx;
 }
 .write .block {
   display: flex;
@@ -90,6 +91,25 @@
   padding-top: 36rpx;
   padding-bottom: 36rpx;
 }
+.write .block .birth .data-select {
+  display: flex;
+  flex-direction: column;
+}
+.write .block .birth .data-select .select {
+  background: #FAFAFA;
+  text-align: right;
+  font-family: PingFangSC-Medium;
+  font-size: 17px;
+  color: #80AEFF;
+
+  padding-top: 24rpx;
+  padding-right: 24rpx;
+  padding-bottom: 24rpx;
+
+  margin-top: 48rpx;
+  margin-bottom: 20rpx;
+
+  }
 .write .block .num input {
   background: #FFFFFF;
   border: 1px solid #D9D9D9;
@@ -107,4 +127,7 @@
   text-align: center;
   padding-top: 32rpx;
   padding-bottom: 32rpx;
+}
+.active {
+  background: #FCE0DE;
 }

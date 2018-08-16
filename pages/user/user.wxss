@@ -44,7 +44,7 @@ justify-content: space-between;
 .content-page .func .server image {
   width: 18px;
   height: 18px;
-  background: green;
+  background: #fff;
 }
 .content-page .func .server text {
   padding-left: 34rpx;

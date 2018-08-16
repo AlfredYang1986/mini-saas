@@ -3,8 +3,10 @@
 	<view class="content-page">
 		<view class="content-item">
 			<view class="content-row-span">
-				<text class="title">附近场地 5</text>
-				<!-- <text class="more">更多{{locations.length}}个</text> -->
+      <view class='big-title'>
+        <text class="title">附近场地 5</text>
+         <image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png"></image>
+      </view>				
 			</view>
       
 		</view>

@@ -3,7 +3,18 @@
 .loc-banner {
 
 }
+ .content-row-span .big-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 
+  margin-bottom: 38rpx;
+}
+ .content-row-span .big-title image {
+   width: 16rpx;
+   height: 26rpx;
+ }
 .loc-banner .content-page {
 	display: flex;
 	flex-direction: column;
@@ -41,7 +52,7 @@
   color: #404040;
   margin-left: 40rpx;
   margin-top: 6d0rpx;
-  margin-bottom: 38rpx;
+  margin-right: 16rpx;
 }
 
 .loc-banner .content-row-span .more {

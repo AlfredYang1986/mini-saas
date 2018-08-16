@@ -1,0 +1,44 @@
+/* component/activities/card/card.wxss */
+ .matter-list {
+  width: 502rpx;
+  min-height: 296rpx;
+  height: auto;
+  background: linear-gradient(-180deg, rgba(86,162,221,0.42) 0%, rgba(39,56,162,0.79) 100%);
+  border-radius: 8rpx;
+  box-shadow: 0 4px 10px 0 rgba(39,53,128,0.45);
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+ .matter-list .info {
+  display: flex;
+  flex-direction: column;
+}
+.matter-list .info .name {
+  margin-left: 32rpx;
+  margin-top: 72rpx;
+
+font-family: SFProText-Semibold;
+font-size: 16px;
+color: #FFFFFF;
+}
+.matter-list .info .address {
+  margin-left: 32rpx;
+  margin-top: 16rpx;
+
+font-family: PingFangSC-Regular;
+font-size: 13px;
+color: #FFFFFF;
+}
+.matter-list .num {
+  margin-right: 32rpx;
+  margin-bottom: 32rpx;
+
+font-family: PingFangSC-Regular;
+font-size: 11px;
+color: #FFFFFF;
+}
+.matter-list .item:nth-child(2) {
+  align-self: flex-end;
+}

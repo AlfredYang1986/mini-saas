@@ -17,7 +17,6 @@ for (let i = 1; i <= 31; i++) {
 }
 
 
-
 Page({
 
   /**
@@ -25,6 +24,9 @@ Page({
    */
   data: {
     show: false,
+    hide: true,
+    showTime:false,
+    showOthers: true,
     animationData: {},
     years: years,
     year: date.getFullYear(),
@@ -98,32 +100,28 @@ Page({
   onShareAppMessage: function () {
   
   },
-  applyDetail: function (event) {
-    wx.navigateTo({
-      url: '/pages/activity/apply/apply'
-    })
-  },
+
   applyList: function (e) {
-    console.log("isisis");
     // 用that取代this，防止不必要的情况发生
     var that = this;
     // 创建一个动画实例
     var animation = wx.createAnimation({
       // 动画持续时间
-      duration: 100,
+      duration: 500,
       // 定义动画效果，当前是匀速
       timingFunction: 'linear'
     })
     // 将该变量赋值给当前动画
     that.animation = animation
     // 先在y轴偏移，然后用step()完成一个动画
-    animation.translateY(200).step()
+    animation.translateY(300).step()
     // 用setData改变当前动画
     that.setData({
       // 通过export()方法导出数据
       animationData: animation.export(),
       // 改变view里面的Wx：if
-      show: true
+      show: true,
+      hide: false,
     })
     // 设置setTimeout来改变y轴偏移量，实现有感觉的滑动
     setTimeout(function () {
@@ -131,17 +129,19 @@ Page({
       that.setData({
         animationData: animation.export()
       })
-    }, 0)
+    }, 100)
+
+
   },
 
   hideModal: function (e) {
     var that = this;
     var animation = wx.createAnimation({
-      duration: 1000,
+      duration: 500,
       timingFunction: 'linear'
     })
     that.animation = animation
-    animation.translateY(200).step()
+    animation.translateY(300).step()
     that.setData({
       animationData: animation.export()
 
@@ -150,8 +150,29 @@ Page({
       animation.translateY(0).step()
       that.setData({
         animationData: animation.export(),
-        show: false
+        show: false,
+        hide: true,
       })
-    }, 200)
+    }, 100)
+  },
+
+  showSuccess:function(evevt) {
+    wx.navigateTo({
+      url: '../success/success',
+    })
+  },
+
+  selectTime:function(event) {
+    this.setData({
+      showTime:true,
+      showOthers: false,
+    })
+  },
+
+  hideTime:function(event) {
+    this.setData({
+      showTime:false,
+      showOthers:true,
+    })
   }
 })

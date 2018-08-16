@@ -17,7 +17,7 @@ Component({
 				lecture: "授课方式",
 				title: "科学初级课程",
 				bundary: "6-12岁",
-				image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png",
+        image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E8%AF%BE%E7%A8%8B%20A%20pic%402x.png",
 				price: 134
 			},
 			{
@@ -25,7 +25,7 @@ Component({
 				lecture: "授课方式",
 				title: "嘀嗒杯科学中级课程",
 				bundary: "6-12岁",
-				image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png",
+        image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E8%AF%BE%E7%A8%8B%20B%20pic%402x.png",
 				price: 154
 			},
 			{
@@ -33,7 +33,7 @@ Component({
 				lecture: "授课方式",
 				title: "嘀嗒杯科学高级课程",
 				bundary: "6-12岁",
-				image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png",
+        image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E8%AF%BE%E7%A8%8B%20C%20pic%402x.png",
 				price: 154
 			},
       {
@@ -41,7 +41,7 @@ Component({
         lecture: "授课方式",
         title: "嘀嗒杯科学高级课程",
         bundary: "6-12岁",
-        image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png",
+        image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E8%AF%BE%E7%A8%8B%20X%20pic%402x.png",
         price: 154
       }
 		]	

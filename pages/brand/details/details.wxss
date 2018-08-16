@@ -11,10 +11,13 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
+
+  background-attachment: fixed;
 }
 .intro {
   width: 670rpx;
-  height: 540rpx;
+  min-height: 540rpx;
+  height: auto;
   background: #FFFFFF;
   border-radius: 8rpx;
   background: #FFFFFF;
@@ -31,10 +34,9 @@
   align-items: center;
 
 }
-.intro .head-img {
+.intro .head-img image {
   width: 482rpx;
   height: 104rpx;
-  background: #000000;
   box-shadow: 0 4px 9px 0 rgba(19,27,53,0.30);
 
   margin-top: 88rpx;
@@ -58,6 +60,15 @@
   padding-left: 32rpx;
   padding-right: 32rpx;
 
+}
+.intro .key-word .key-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.intro .key-word .key-block image {
+  width: 2rpx;
+  height: 46rpx;
 }
 .intro .key-word text {
   font-family: SFProText-Regular;
@@ -142,7 +153,6 @@ margin-bottom: 64rpx;
 .honor .show .show-detail image {
   width: 140rpx;
   height: 140rpx;
-  background: red;
   margin-left: 66rpx;
   margin-right: 66rpx; 
   margin-top: 34rpx;
@@ -150,7 +160,7 @@ margin-bottom: 64rpx;
 }
 .honor .show .show-detail text {
 font-family: PingFangSC-Regular;
-font-size: 11px;
+font-size: 22rpx;
 color: #A6A6A6;
 text-align: center;
 }

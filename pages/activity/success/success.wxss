@@ -1,0 +1,46 @@
+/* pages/activity/success/success.wxss */
+.content-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+}
+.content-page .block {
+  width: 560rpx;
+  height: 292rpx;
+
+  opacity: 0.9;
+  background: rgba(128,174,255,0.9);
+  border-radius: 4px;
+
+  margin-top: 400rpx;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content-page .block .icon {
+  width: 72rpx;
+  height: 72rpx;
+  background: red;
+
+  margin-top: 32rpx;
+  margin-bottom: 48rpx;
+}
+.content-page .block .status {
+  font-family: SFProText-Medium;
+  font-size: 18px;
+  color: #FFFFFF;
+  text-align: center;
+}
+.content-page .block .text {
+  font-family: SFProText-Regular;
+  font-size: 15px;
+  color: #FFFFFF;
+  text-align: center;
+
+  margin-top: 16rpx;
+}

@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    user:{
+      img:"https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/avatar%402x.jpg",
+      name:"KIM",
+    }
   },
 
   /**

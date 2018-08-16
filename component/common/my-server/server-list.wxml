@@ -1,0 +1,10 @@
+<!--component/common/my-server/server-list.wxml-->
+<view class='content-page'>
+  <view class='block' bindtap='reserveDetail'>
+    <view class='img'>预约</view>
+    <view class='info'>
+      <text class='head'>Pro.A 初级课程入门</text>
+      <text class='cost'>免费</text>
+    </view>
+  </view>
+</view>

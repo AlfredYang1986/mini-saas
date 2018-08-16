@@ -7,7 +7,6 @@
     "pages/classes/lst/lst",
     "pages/classes/detail/detail",
     "pages/activity/detail/detail",
-    "pages/activity/apply/apply",
     "pages/index/index",
     "pages/logs/logs",
     "pages/brand/details/details",
@@ -18,7 +17,9 @@
     "pages/user/server/server",
     "pages/user/server/reserve/reserve",
     "pages/user/server/acti/acti",
-    "pages/baby/record/record"
+    "pages/baby/record/record",
+    "pages/activity/success/success",
+    "pages/classes/success/success"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -3,10 +3,11 @@
 	<view class="content-page">
 		<view class="content-item">
 			<view class="content-row-span">
-				<text class="title">
-        课程 
-       <image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png"></image>
-        </text>
+      <view class='big-title'>
+        <text class="title"> 课程  </text>
+        <image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%403x.png" class='icon'></image>
+      </view>
+				
 				<!-- <text class="more">更多</text> -->
 			</view>
 				<view class="content-row cls-container ">

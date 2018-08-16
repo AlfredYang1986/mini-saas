@@ -33,9 +33,18 @@
 	font-size: 48rpx;
 	color: #404040;
 	margin-left: 40rpx;
+  /*  */
+  margin-right: 16rpx;
+  
+}
+.class-banner .content-row-span .big-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
   margin-bottom: 38rpx;
 }
-
 .class-banner .content-row-span .more {
 	font-family: SFProText-Medium;
 	font-size: 26rpx;
@@ -154,4 +163,8 @@ t
   color: #80AEFF !important;
   font-size: 28rpx;
   font-family: PingFangSC-Medium;
+}
+.icon {
+  width: 16rpx;
+  height: 26rpx;
 }

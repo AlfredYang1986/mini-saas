@@ -3,19 +3,30 @@
 	<view class="clsdet-component">
 		<clsimg ></clsimg>
 	</view>
-  <view class="clsdet-component">
+  <view class="clsdet-component"  wx:if='{{hide}}'>
     <clstitle ></clstitle>
   </view>
-  <view class="clsdet-component">
+  <view class="clsdet-component"  wx:if='{{hide}}'>
     <clsabout ></clsabout>
   </view>
-  <!-- <view class="clsdet-component">
+  <!-- <view class="clsdet-component" >
     <clsloc ></clsloc>
   </view> -->
-  <view class='clsdet-component'>
+  <view class='clsdet-component'  wx:if='{{hide}}'>
     <clslocal></clslocal>
   </view>
-  <view class="clsdet-component" bindtap='applyDetail'>
+  <view class="clsdet-component" bindtap='applyDetail'  wx:if='{{hide}}'>
     <clsbtn ></clsbtn>
   </view>
 </view>
+<view class='apply modal' wx:if="{{show}}" animation='{{animationData}}' catchtouchmove="true">
+    <view class='write'>
+      <view class='block'wx:if="{{showOthers}}">
+        <view class='title'  bindtap='hideModal'>联系方式</view>
+        <view class='num'>
+            <input  type="number" placeholder-style="font-family: PingFangSC-Regular;font-size: 14px;color: #D9D9D9;" placeholder="请输入" focus="{{focus}}" />
+        </view>
+      </view>
+      <view class='submit' bindtap='showSuccess' wx:if="{{showOthers}}">立即报名</view>
+    </view>
+  </view>

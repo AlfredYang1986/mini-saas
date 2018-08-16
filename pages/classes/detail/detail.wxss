@@ -11,3 +11,118 @@
 .clsdet-component {
 	width: 100%;
 }
+.write {
+  height: auto;
+  background: #fff;
+
+  z-index: 500;
+
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 38rpx;
+  padding-right: 38rpx;
+  /* transform: translateY(-100%); */
+  /* margin-top: 200px; */
+}
+.write .block {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 30rpx;
+  margin-top: 48rpx;
+}
+.write .block .title {
+  font-family: SFProText-Medium;
+  font-size: 16px;
+  color: #404040;
+
+  margin-bottom: 30rpx;
+}
+.write .block .option {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.write .block .option .sex {
+  width: 324rpx;
+  height: 116rpx;
+  border: 1px solid #d9d9d9;
+  border-radius: 8rpx;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.write .block .option .sex:nth-last-child(2) {
+  margin-right: 28rpx;
+}
+.write .block .option .sex .ico {
+  width: 40rpx;
+  height: 42rpx;
+  background: green;
+  border-radius: 50%;
+
+  margin-right: 16rpx;
+}
+.write .block .birth {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 30rpx;
+}
+.write .block .time {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  background: #FFFFFF;
+  border: 1px solid #D9D9D9;
+  border-radius: 4px;
+
+  padding-left: 34rpx;
+  padding-right: 34rpx;
+  padding-top: 36rpx;
+  padding-bottom: 36rpx;
+}
+.write .block .birth .data-select {
+  display: flex;
+  flex-direction: column;
+}
+.write .block .birth .data-select .select {
+  background: #FAFAFA;
+  text-align: right;
+  font-family: PingFangSC-Medium;
+  font-size: 17px;
+  color: #80AEFF;
+
+  padding-top: 24rpx;
+  padding-right: 24rpx;
+  padding-bottom: 24rpx;
+
+  margin-top: 48rpx;
+  margin-bottom: 20rpx;
+
+  }
+.write .block .num input {
+  background: #FFFFFF;
+  border: 1px solid #D9D9D9;
+  border-radius: 4px;
+  padding: 36rpx 34rpx;
+}
+.write .submit {
+  margin-top: 16rpx;
+  margin-bottom: 40rpx;
+
+  background-image: linear-gradient(-90deg, #8CB6FF 0%, #5F93ED 100%);
+  border-radius: 8rpx;
+  box-shadow: 0 4px 8px 0 rgba(52,96,201,0.48);
+
+  text-align: center;
+  padding-top: 32rpx;
+  padding-bottom: 32rpx;
+}
+.active {
+  background: #FCE0DE;
+}

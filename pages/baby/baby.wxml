@@ -8,20 +8,14 @@
       <text class='day'>02</text>
       <text class='month'>8月</text>
     </view>
-    <view class='matter-list'>
-      <view class='info item'>
-        <text class='name'>STEM Meeting Up</text>
-        <text class='address'>朝阳区青年路甘露园中街</text>
-      </view>
-      <text class='num item'>23人参加</text>
-    </view>
+    <acti-card></acti-card>
   </view>
   <view class='list' bindtap='showRecord'>
     <view class='time-list'>
       <text class='day'>05</text>
       <text class='month'>8月</text>
     </view>
-    <view class='matter-list bg-white'>
+    <!-- <view class='matter-list bg-white'>
       <view class='bg-img'>
         <view class='start-time item'>
           <text>10:00开始</text>
@@ -35,7 +29,8 @@
         <text class='cla-name'>Pro.C高级课程实操</text>
         <text class='cla-num'>13课时</text>
       </view>
-    </view>
+    </view> -->
+    <cla-card isOver='false'></cla-card>
   </view>
   <view class='over'>
     <view class='over-title'>已结束</view>
@@ -46,7 +41,8 @@
       <text class='day'>16</text>
       <text class='month'>3月</text>
     </view>
-    <view class='matter-list bg-white'>
+    <cla-card over='true'></cla-card>
+    <!-- <view class='matter-list bg-white'>
       <view class='bg-img'>
         <view class='start-time item'>
         </view>
@@ -59,6 +55,6 @@
         <text class='cla-name'>Pro.C高级课程实操</text>
       </view>
       <text class='cla-time'>2018.01.18-2018.03.16</text>
-    </view>
+    </view> -->
   </view>
 </view>

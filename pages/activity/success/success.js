@@ -1,10 +1,11 @@
-// pages/baby/baby.js
+// pages/activity/success/success.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+  
   },
 
   /**
@@ -63,9 +64,9 @@ Page({
   
   },
 
-  showRecord: function(evevt) {
+  returnDetail:function(event) {
     wx.navigateTo({
-      url: 'record/record',
+      url: '../detail/detail',
     })
   }
 })

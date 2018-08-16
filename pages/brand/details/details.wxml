@@ -1,15 +1,23 @@
 <!--pages/brand/details/details.wxml-->
-<view class='page-content'  style="background-image: url('{{}}')">
+<view class='page-content'  style="background-image: url('{{bgImg}}')">
   <view class='intro' wx:if='{{brandIntro}}'>
-    <view class='head-img'></view>
+    <view class='head-img'>
+      <image src='{{brandIntro.headImg}}'></image>
+    </view>
     <view class='sum'>{{brandIntro.sum}}</view>
     <view class='key-word'>
-      <view class='border'></view>
-      <view class='border'></view>
-      <view class='border'></view>
-      <text>{{brandIntro.wordOne}}</text>
+      <view class='key-block'>
+        <image src='{{brandIntro.icon}}'></image>
+        <text>{{brandIntro.wordOne}}</text>
+      </view>
+      <view class='key-block'>
+        <image src='{{brandIntro.icon}}'></image>
       <text>{{brandIntro.wordTwo}}</text>
+      </view>
+      <view class='key-block'>
+        <image src='{{brandIntro.icon}}'></image>
       <text>{{brandIntro.wordThree}}</text>
+      </view>
     </view>
   </view>
   <view class='setup'>
@@ -20,11 +28,11 @@
   <view class='honor'>
     <view class='border'></view>
     <view class='title'>{{brandIntro.honor}}</view>
-    <view class='show' wx:for='{{honorDetail}}'>
-      <view class='show-detail'>
-        <image></image>
-        <text>{{honorDetail.time}}</text>
-        <text>{{honorDetail.name}}</text>
+    <view class='show'>
+      <view class='show-detail' wx:for='{{honorDetail}}'>
+        <image src="{{item.honorUrl}}"></image>
+        <text>{{item.honorTime}}</text>
+        <text>{{item.honorName}}</text>
       </view>
     </view>
   </view>
