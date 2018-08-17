@@ -66,9 +66,16 @@ Page({
   onShareAppMessage: function () {
   
   },
+
   showBrandDetail: function (event) {
     wx.navigateTo({
       url: '/pages/brand/details/details'
+    })
+  },
+
+  showClsDetail: function (event) {
+    wx.navigateTo({
+      url: '/pages/classes/detail/detail'
     })
   }
 })

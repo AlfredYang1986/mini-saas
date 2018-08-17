@@ -1,0 +1,8 @@
+<!--component/activities/acti-list/acti-list.wxml-->
+<view class='list'>
+    <view class='time-list color-white' wx:if="{{list}}">
+      <text class='day'>{{list.day}}</text>
+      <text class='month'>{{list.month}}</text>
+    </view>
+    <acti-card></acti-card>
+</view>

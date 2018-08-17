@@ -1,17 +1,15 @@
 <!--pages/brand/brand.wxml-->
 <view class='content-page'>
-  <view class='brand-logo' bindtap='showBrandDetail' style='background-image:url("{{brand.logobg}}")'>
-    <image src='{{brand.logourl}}'></image>
+    <brand-logo bindtap="showBrandDetail"></brand-logo>
+    <view class="brand-container" wx:if="{{brand}}"> 
+    <view class="brand-component">
+      <activity-banner class="activity-banner"></activity-banner>
+    </view>
+    <view class="brand-component component-margin-top">
+      <class-banner isList="false" class="class-banner" bindtap="showClsDetail"></class-banner>
+    </view>
+    <view class="brand-component component-margin-top">
+      <location-banner class="location-banner"></location-banner>
+    </view>
   </view>
-<view class="brand-container" wx:if="{{brand}}"> 
-  <view class="brand-component">
-    <activity-banner class="activity-banner"></activity-banner>
-  </view>
-  <view class="brand-component component-margin-top">
-    <class-banner class="class-banner"></class-banner>
-  </view>
-  <view class="brand-component component-margin-top">
-    <location-banner class="location-banner"></location-banner>
-  </view>
-</view>
 </view>

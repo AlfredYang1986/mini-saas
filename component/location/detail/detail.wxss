@@ -30,6 +30,10 @@
 	flex-wrap: nowrap;
 	flex-direction: column;
 	justify-content: space-around;
+} 
+.c-loc-detail .content-mid image {
+  width: 16rpx;
+  height: 26epx;
 }
 
 .c-loc-detail .content-row {
@@ -82,8 +86,8 @@
 
 
 .c-loc-detail .c-loc-icon image {
-	width: 56rpx;
-	height: 64rpx;
+	width: 20rpx;
+	height: 30rpx;
 }
 
 .c-loc-detail .c-loc-des {

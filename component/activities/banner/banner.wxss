@@ -23,6 +23,19 @@
 	justify-content: space-between;
 	margin-bottom: 20rpx;
 }
+.class-banner .content-row-span .big-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin-bottom: 38rpx;
+}
+.act-banner .content-row-span image {
+  width: 16rpx;
+  height: 26rpx;
+  margin-left: 16rpx;
+}
 
 .act-banner .content-row-span .title {
 	font-family: SFProText-Medium;

@@ -1,0 +1,8 @@
+<!--component/classes/cla-list/cla-list.wxml-->
+<view class='list' bindtap='showRecord'>
+    <view class='time-list'>
+      <text class='day'>05</text>
+      <text class='month'>8月</text>
+    </view>
+    <cla-card isOver='false'></cla-card>
+</view>

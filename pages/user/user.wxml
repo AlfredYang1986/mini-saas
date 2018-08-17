@@ -1,23 +1,10 @@
 <!--pages/user/user.wxml-->
 <view class='content-page' wx:if="{{user}}">
   <view class='head'>
-    <view class='head-img' style='background:url("{{user.img}}")'></view>
+    <view class='head-img'><image src='{{user.img}}'></image></view>
     <view class='head-name'>{{user.name}}</view>
   </view>
   <view class='func'>
-    <view class='server' bindtap='myServer'>
-    <view>
-      <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_myservice%403x.png'></image>
-      <text>我的服务</text>
-    </view>
-    <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
-    </view>
-    <view class='server'>
-     <view>
-      <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_help%403x.png'></image>
-      <text>帮助</text>
-    </view>
-      <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
-    </view>
+    <user-info bindtap="myServer"></user-info>
   </view>
 </view>

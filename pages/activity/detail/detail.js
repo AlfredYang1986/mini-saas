@@ -141,7 +141,7 @@ Page({
       timingFunction: 'linear'
     })
     that.animation = animation
-    animation.translateY(300).step()
+    animation.translateY(100).step()
     that.setData({
       animationData: animation.export()
 
@@ -173,6 +173,12 @@ Page({
     this.setData({
       showTime:false,
       showOthers:true,
+    })
+  },
+
+  showmap: function(event) {
+    wx.navigateTo({
+      url: '/pages/locations/detail/map/map',
     })
   }
 })

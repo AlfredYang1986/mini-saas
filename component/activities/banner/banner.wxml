@@ -3,7 +3,10 @@
 	<view class="content-page">
 		<view class="content-item">
 			<view class="content-row-span" bindtap='showActiDetail'>
-				<text class="title">本月活动</text>
+      <view class='big-title'>
+        <text class="title">本月活动</text>
+        <image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png" class='icon'></image>
+      </view>				       
 			</view>
 		  <scroll-view class="" scroll-x style="width: 100%" bindtap='showActiDetail'>
 				<view class="content-row">

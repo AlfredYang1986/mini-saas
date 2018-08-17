@@ -4,7 +4,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    isOver: {
+      type: String,
+      value: 'true',
+    }
   },
 
   /**
@@ -18,7 +21,6 @@ Component({
       num:"13课时",
       bgurl:"https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E6%B4%BB%E5%8A%A82.png",
       time:"2018.01.18-2018.03.16",
-
     }
   },
 

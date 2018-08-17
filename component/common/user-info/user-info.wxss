@@ -1,1 +1,22 @@
 /* component/common/user-info/user-info.wxss */
+ .server {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+
+margin-bottom: 96rpx;
+}
+.server .icon {
+  width: 18px;
+  height: 18px;
+  background: #fff;
+}
+.server text {
+  padding-left: 34rpx;
+}
+.server .enter {
+  width: 16rpx;
+  height: 26rpx;
+  margin-top: 10rpx;
+}

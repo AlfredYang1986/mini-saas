@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "cla-list":"/component/classes/cla-card/cla-card"
+  }
+}

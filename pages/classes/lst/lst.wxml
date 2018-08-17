@@ -1,22 +1,4 @@
 <!--pages/class-lst/class-lst.wxml-->
 <view class="cls-lst">
-		<!-- <view class="content-item" wx:for="{{classes}}" bindtap='showClsDetail'>
-			<view class="cls-img" style="background-image:url('{{item.image}}')"></view>
-
-			<view class="content-row">
-				<text class="title">{{item.category}} | {{item.title}}</text>
-			</view>
-
-			<view class="content-row-span">
-				<view class="content-row">
-					<text class="sub-title">{{item.bundary}} {{item.lecture}}</text>
-				</view>
-				<view class="price-container content-row">
-					<text class="price">¥{{item.price}}</text>	
-					<text class="price-des">/课时</text>	
-				</view>
-			</view>
-
-		</view> -->
-    <class-lst  bindtap='showClsDetail'></class-lst>
+    <class-lst isList="true" bindtap='showClsDetail'></class-lst>
 </view>

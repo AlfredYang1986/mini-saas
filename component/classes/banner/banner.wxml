@@ -1,33 +1,40 @@
 <!--component/class-banner/class-banner.wxml-->
 <view class="class-banner">
-	<view class="content-page">
-		<view class="content-item">
-			<view class="content-row-span">
-      <view class='big-title'>
-        <text class="title"> 课程  </text>
-        <image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%403x.png" class='icon'></image>
-      </view>
-				
-				<!-- <text class="more">更多</text> -->
-			</view>
-				<view class="content-row cls-container ">
-					<view class="cls-detail" wx:for="{{classes}}">
-						<view class="cls-img" style="background-image: url('{{item.image}}')" ></view>
-            <view class='cls-content'>
-              <view class="cls-subtitle content-row">
-              <text class='content-name'>{{item.category}}</text>
-							<text class='content-age'>{{item.bundary}}</text>
-              </view>
-
-              <view class="cls-title content-row">
-                <text>{{item.title}}</text>
-              </view>
-            </view>
-						
-
-					</view>
+  <view class="content-page">
+    <view class="content-item">
+      <view class="content-row-span">
+        <view class='big-title'>
+          <block wx:if="{{isList == 'false'}}">
+            <text class="title"> 课程  </text>
+            <image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png" class='icon'></image>
+          </block>
         </view>
-      <button type="default" class='brand-button'  bindtap='showClasses'> 查看全部课程</button>
-		</view>
-	</view>
+
+
+        <!-- <text class="more">更多</text> -->
+      </view>
+      <view class="content-row cls-container ">
+        <view class="cls-detail" wx:for="{{classes}}">
+          <view class="cls-img" style="background-image: url('{{item.image}}')"></view>
+          <view class='cls-content'>
+            <view class="cls-subtitle content-row">
+              <text class='content-name'>{{item.category}}</text>
+              <text class='content-age'>{{item.bundary}}</text>
+            </view>
+
+            <view class="cls-title content-row">
+              <text>{{item.title}}</text>
+            </view>
+          </view>
+
+
+        </view>
+      </view>
+      <block wx:if="{{isList == 'false'}}">
+        <button type="default" class='brand-button' bindtap='showClasses'>
+          查看全部课程
+        </button>
+      </block>
+    </view>
+  </view>
 </view>

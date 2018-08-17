@@ -4,7 +4,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    isList: {
+      type: String,
+      value: 'true',
+    }
   },
 
   /**
@@ -15,7 +18,7 @@ Component({
 			{
 				category: "编程",
 				lecture: "授课方式",
-				title: "科学初级课程",
+        title: "Pro.A 初级课程入门",
 				bundary: "6-12岁",
         image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E8%AF%BE%E7%A8%8B%20A%20pic%402x.png",
 				price: 134
@@ -23,7 +26,7 @@ Component({
 			{
 				category: "编程",
 				lecture: "授课方式",
-				title: "嘀嗒杯科学中级课程",
+        title: "Pro.A 初级课程入门",
 				bundary: "6-12岁",
         image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E8%AF%BE%E7%A8%8B%20B%20pic%402x.png",
 				price: 154
@@ -31,7 +34,7 @@ Component({
 			{
 				category: "编程",
 				lecture: "授课方式",
-				title: "嘀嗒杯科学高级课程",
+        title: "Pro.A 初级课程入门",
 				bundary: "6-12岁",
         image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E8%AF%BE%E7%A8%8B%20C%20pic%402x.png",
 				price: 154
@@ -39,7 +42,7 @@ Component({
       {
         category: "编程",
         lecture: "授课方式",
-        title: "嘀嗒杯科学高级课程",
+        title: "Pro.A 初级课程入门",
         bundary: "6-12岁",
         image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E8%AF%BE%E7%A8%8B%20X%20pic%402x.png",
         price: 154

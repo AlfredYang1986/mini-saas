@@ -20,7 +20,6 @@
   height: auto;
   background: #FFFFFF;
   border-radius: 8rpx;
-  background: #FFFFFF;
   box-shadow: 0 4px 10px 0 rgba(173,186,222,0.20);
 
    margin-left: 20rpx; 
@@ -37,7 +36,8 @@
 .intro .head-img image {
   width: 482rpx;
   height: 104rpx;
-  box-shadow: 0 4px 9px 0 rgba(19,27,53,0.30);
+  /* background: none; */
+  /* box-shadow: 0 4px 9px 0 rgba(19,27,53,0.30); */
 
   margin-top: 88rpx;
   margin-left: 96rpx;

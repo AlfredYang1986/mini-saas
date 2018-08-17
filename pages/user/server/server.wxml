@@ -1,17 +1,4 @@
 <!--pages/user/server/server.wxml-->
 <view class='content-page'>
-  <view class='block' bindtap='reserveDetail'>
-    <view class='img' style='background:url("https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E6%B4%BB%E5%8A%A82.png")'></view>
-    <view class='info'>
-      <text class='head'>Pro.A 初级课程入门</text>
-      <text class='cost'>免费</text>
-    </view>
-  </view>
-  <view class='block' bindtap='activityDetail'>
-    <view class='img' style='background:url("https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E6%B4%BB%E5%8A%A81.png")'></view>
-    <view class='info'>
-      <text class='head'>STEM Meeting Up</text>
-      <text class='cost'>免费</text>
-    </view>
-  </view>
+  <server-list  bindtap='activityDetail'></server-list>
 </view>

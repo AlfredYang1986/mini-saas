@@ -1,40 +1,7 @@
 <!--pages/baby/record/record.wxml-->
 <view class='content-page'>
   <text class='title'>成长记录</text>
-  <view class='block'>
-    <view class='line'>
-      <view class='time'>
-        <text class='day'>22</text>
-        <text class='month'>7月</text>
-      </view>     
-      <text class='progress'>课时 11</text>
-    </view>
-    <view class='image'>
-      <image></image>
-      <image></image>
-      <image></image>
-    </view>
-    <view class='intro'>
-      <text>Baby在课上的表现情况，课程目标完成情况，需要完成的内容</text>
-      <text class='hour'>14:00</text>
-    </view>
-  </view>
-  <view class='block'>
-    <view class='line'>
-      <view class='time'>
-        <text class='day'>22</text>
-        <text class='month'>7月</text>
-      </view>     
-      <text class='progress'>课时 11</text>
-    </view>
-    <view class='image'>
-      <image></image>
-      <image></image>
-      <image></image>
-    </view>
-    <view class='intro'>
-      <text>Baby在课上的表现情况，课程目标完成情况，需要完成的内容</text>
-      <text class='hour'>14:00</text>
-    </view> 
-  </view>
+
+  <grow-record></grow-record>  
+  
 </view>

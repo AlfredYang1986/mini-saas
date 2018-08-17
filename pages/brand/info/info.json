@@ -3,6 +3,7 @@
     "brand-banner": "/component/brand/banner/banner",
     "activity-banner": "/component/activities/banner/banner",
     "class-banner": "/component/classes/banner/banner",        
-    "location-banner": "/component/location/banner/banner"
-  }
+    "location-banner": "/component/location/banner/banner",
+    "brand-logo":"/component/common/brand-logo/brand-logo"
+   }
 }

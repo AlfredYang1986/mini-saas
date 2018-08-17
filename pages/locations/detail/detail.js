@@ -62,5 +62,12 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  showmap: function(event) {
+    console.log(111);
+    wx.navigateTo({
+      url: 'map/map',
+    })
   }
 })

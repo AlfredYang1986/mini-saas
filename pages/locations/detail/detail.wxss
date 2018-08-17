@@ -6,13 +6,9 @@
   justify-content: space-between;
   box-sizing: border-box;
 
-  background: red;
+  background: url("https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/1.png");
   height: 350rpx;
 }
-
 .location-component {
 	width: 100%;
-}
-.location-container .bg-img {
- 
 }

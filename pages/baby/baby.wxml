@@ -3,58 +3,27 @@
   <text class='headline'>Baby</text>
   <text class='title'>即将开始</text>
   <view class='image'></view>
-  <view class='list' bindtap='showRecord'>
-    <view class='time-list color-white'>
-      <text class='day'>02</text>
-      <text class='month'>8月</text>
-    </view>
-    <acti-card></acti-card>
-  </view>
+
+  <acti-list  bindtap='showRecord'></acti-list>
+
   <view class='list' bindtap='showRecord'>
     <view class='time-list'>
       <text class='day'>05</text>
       <text class='month'>8月</text>
     </view>
-    <!-- <view class='matter-list bg-white'>
-      <view class='bg-img'>
-        <view class='start-time item'>
-          <text>10:00开始</text>
-        </view>
-        <view class='progress item'>
-          <text>已学习12/30</text>
-        </view>
-      </view>
-      <progress percent="30" color="#bbb" />
-      <view class='class-info'>
-        <text class='cla-name'>Pro.C高级课程实操</text>
-        <text class='cla-num'>13课时</text>
-      </view>
-    </view> -->
     <cla-card isOver='false'></cla-card>
   </view>
+  
   <view class='over'>
     <view class='over-title'>已结束</view>
     <view class='border'></view>
   </view>
+
   <view class='list' bindtap='showRecord'>
     <view class='time-list'>
       <text class='day'>16</text>
       <text class='month'>3月</text>
     </view>
-    <cla-card over='true'></cla-card>
-    <!-- <view class='matter-list bg-white'>
-      <view class='bg-img'>
-        <view class='start-time item'>
-        </view>
-        <view class='progress item'>
-          <text>已学习12/30</text>
-        </view>
-      </view>
-      <progress percent="30" color="#bbb" />
-      <view class='class-info'>
-        <text class='cla-name'>Pro.C高级课程实操</text>
-      </view>
-      <text class='cla-time'>2018.01.18-2018.03.16</text>
-    </view> -->
+    <cla-card isOver='true'></cla-card>
   </view>
 </view>

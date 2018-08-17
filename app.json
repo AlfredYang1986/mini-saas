@@ -19,7 +19,8 @@
     "pages/user/server/acti/acti",
     "pages/baby/record/record",
     "pages/activity/success/success",
-    "pages/classes/success/success"
+    "pages/classes/success/success",
+    "pages/locations/detail/map/map"
   ],
   "window": {
     "backgroundTextStyle": "light",

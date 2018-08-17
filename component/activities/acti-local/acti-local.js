@@ -4,7 +4,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    isActi: {
+      type: String,
+      value: 'false',
+    }
   },
 
   /**
@@ -31,9 +34,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    showLocations: function (event) {
+    showmap: function (event) {
       wx.navigateTo({
-        url: '/pages/locations/lst/lst'
+        url: '/pages/locations/detail/map/map'
       })
     }
   }

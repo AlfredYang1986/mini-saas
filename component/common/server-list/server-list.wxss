@@ -1,0 +1,36 @@
+/* component/common/server-list/server-list.wxss */
+/* pages/user/server/server.wxss */
+ .block {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  padding-bottom: 32rpx;
+  padding-top: 32rpx;
+  border-bottom: 1px solid #E0E0E0; 
+}
+ .block .img {
+  width: 254rpx;
+  height: 156rpx;
+  background: red;
+
+  margin-right: 32rpx;
+  border-radius: 8rpx;
+}
+ .block .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+ .block .info .head {
+  font-family: PingFangSC-Medium;
+  font-size: 16px;
+  color: #404040;
+
+  margin-bottom: 16rpx;
+}
+.block .info .cost {
+  font-family: SFProText-Regular;
+  font-size: 14px;
+  color: #737373;
+}

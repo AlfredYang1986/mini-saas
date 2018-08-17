@@ -42,6 +42,12 @@
   font-family: SFProText-Medium;
   color: #404040;
 }
+.loc-banner .content-row-span .select {
+  font-family: SFProText-Medium;
+  font-size: 13px;
+  color: #80AEFF;
+  text-align: right;
+}
 
 .loc-banner .content-row-span .more {
 	font-family: PingFangSC-Medium;

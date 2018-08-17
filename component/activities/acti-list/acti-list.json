@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "acti-card":"/component/activities/acti-card/acti-card"
+  }
+}

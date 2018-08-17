@@ -1,0 +1,19 @@
+<!--component/common/grow-record/grow-record.wxml-->
+<view class='block' wx:for="{{record}}">
+    <view class='line'>
+      <view class='time'>
+        <text class='day'>{{item.day}}</text>
+        <text class='month'>{{item.month}}</text>
+      </view>     
+      <text class='progress'>{{item.progress}}</text>
+    </view>
+    <view class='image'>
+      <image src='{{item.url1}}'></image>
+      <image src='{{item.url2}}'></image>
+      <image src='{{item.url3}}'></image>
+    </view>
+    <view class='intro'>
+      <text>{{item.intro}}</text>
+      <text class='hour'>{{item.hour}}</text>
+    </view>
+  </view>

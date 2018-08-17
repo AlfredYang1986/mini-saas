@@ -10,14 +10,15 @@
 
   margin-top: 54rpx;
 }
-.content-page .head .head-img {
+.content-page .head .head-img image {
   width: 144rpx;
   height: 144rpx;
-  background: red;
+  background: #fff;
   border-radius: 50%;
   box-shadow: 0 6px 10px 0 rgba(19,34,59,0.10);
 
   margin-bottom: 32rpx;
+  background-position: center;
 }
 .content-page .head .head-name {
 font-family: SFProText-Bold;
@@ -32,7 +33,7 @@ margin-right: 66rpx;
 width: auto;
 
 padding-top: 96rpx;
-border-top: 1px solid #E0E0E0;
+border-top: 0.5px solid #f0f0f0;
 }
 .content-page .func .server {
 display: flex;

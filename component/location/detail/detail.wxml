@@ -47,7 +47,7 @@
 				<text class="address">{{address}}</text>
 			</view>
 			<view class="c-loc-icon content-mid">
-				<image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_guide%402x.png"></image>
+				<image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter_theme%402x.png"></image>
 			</view>
 		</view>
 

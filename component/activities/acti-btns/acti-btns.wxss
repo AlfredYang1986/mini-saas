@@ -41,6 +41,7 @@
 	flex-wrap: nowrap;
 	flex-direction: row;
 	justify-content: space-around;
+  background: #fff;
 }
 
 .actibtn .content-row-span {

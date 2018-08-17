@@ -1,13 +1,20 @@
 /* pages/activity/activity.wxss */
 .acti-container {
-  height: 100%;
+  height:500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
+  overflow-y: auto;
 }
-
+.btn {
+  position: fixed;
+  background: #fff;
+  width: 100%;
+  height: 100px;
+  bottom: 30rpx;
+}
 .acti-component {
 	width: 100%;
 }
@@ -28,7 +35,7 @@
   padding-left: 38rpx;
   padding-right: 38rpx;
   /* transform: translateY(-100%); */
-  margin-top: -848rpx;
+  margin-top: -748rpx;
 }
 .write .block {
   display: flex;
@@ -66,7 +73,7 @@
 .write .block .option .sex .ico {
   width: 40rpx;
   height: 42rpx;
-  background: green;
+  background: #fff;
   border-radius: 50%;
 
   margin-right: 16rpx;

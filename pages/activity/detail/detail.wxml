@@ -9,30 +9,25 @@
   <view class="acti-component" wx:if='{{hide}}'>
     <actilstc></actilstc>
   </view>
-  <!-- <view class="acti-component">
-		<actiloc></actiloc>
-	</view>
-  <view class="acti-component">
-		<actitp></actitp>
-	</view> -->
   <view class='acti-component' id='local' style='display:block;' wx:if='{{hide}}'>
-    <actilocal></actilocal>
-  </view>
-  <view class="acti-component" bindtap='applyList'>
-    <actibtn></actibtn>
+    <actilocal isActi="true" bindtap="showmap"></actilocal>
   </view>
 </view>
+
+  <view class="acti-component btn" bindtap='applyList' wx:if='{{hide}}'>
+    <actibtn></actibtn>
+  </view>
  <view class='apply modal' wx:if="{{show}}" animation='{{animationData}}' catchtouchmove="true">
     <view class='write'>
       <view class='block'>
         <view class='title'  bindtap='hideModal'>宝宝概况</view>
         <view class='option'>
           <view class='sex active' >
-            <image class='ico'></image>
+            <image class='ico' src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/shape_female_normal%403x.png'></image>
             小公主
           </view>
           <view class='sex'>
-            <image class='ico'></image>
+            <image class='ico' src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/shape_male_normal%403x.png'></image>
             <text>小王子</text>
           </view>
         </view>

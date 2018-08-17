@@ -3,6 +3,9 @@
 .loc-banner {
 
 }
+ .content-row-span{
+   padding-top: 50rpx;
+ }
  .content-row-span .big-title {
   display: flex;
   flex-direction: row;
@@ -66,8 +69,8 @@
 }
 
 .loc-banner .loc-lst {
-	margin-left: 16rpx;
-	margin-right: 16rpx;
+	margin-left: 26rpx;
+	margin-right: 26rpx;
 }
 
 .loc-banner .loc-panel .loc-detail-container {

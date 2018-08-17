@@ -1,0 +1,8 @@
+<!--component/common/server-list/server-list.wxml-->
+<view class='block' wx:for="{{info}}">
+    <view class='img' style='background:url("{{item.img}}")'></view>
+    <view class='info'>
+      <text class='head'>{{item.head}}</text>
+      <text class='cost'>{{item.cost}}</text>
+    </view>
+  </view>
