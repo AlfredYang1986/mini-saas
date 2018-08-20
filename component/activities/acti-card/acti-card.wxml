@@ -1,8 +1,13 @@
 <!--component/activities/card/card.wxml-->
 <view class='matter-list'wx:if="{{actiCard}}" style='background-image:url("{{actiCard.href}}")'>
+  <view class='mask'>
       <view class='info item'>
         <text class='name'>{{actiCard.name}}</text>
-        <text class='address'>{{actiCard.address}}</text>
+        <view class='address'>
+          <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_location%402x.png' class='local-icon'></image>
+          <text class='address-text'>{{actiCard.address}}</text>
+        </view>
       </view>
-      <text class='num item'>{{actiCard.num}} 人参加</text>
+      <text class='num item'>{{actiCard.num}}</text>
+  </view>
  </view>

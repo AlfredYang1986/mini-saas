@@ -6,24 +6,13 @@
 
   <acti-list  bindtap='showRecord'></acti-list>
 
-  <view class='list' bindtap='showRecord'>
-    <view class='time-list'>
-      <text class='day'>05</text>
-      <text class='month'>8月</text>
-    </view>
-    <cla-card isOver='false'></cla-card>
-  </view>
+  <cla-list wx:if="{{falsee}}" isOver="{{falsee.value}}" bindtap="showRecord"></cla-list>
   
   <view class='over'>
     <view class='over-title'>已结束</view>
     <view class='border'></view>
   </view>
 
-  <view class='list' bindtap='showRecord'>
-    <view class='time-list'>
-      <text class='day'>16</text>
-      <text class='month'>3月</text>
-    </view>
-    <cla-card isOver='true'></cla-card>
-  </view>
+  <cla-list wx:if="{{truee}}" isOver="{{truee.value}}" bindtap="showRecord"></cla-list>
+
 </view>

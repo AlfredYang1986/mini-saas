@@ -6,7 +6,7 @@
       <activity-banner class="activity-banner"></activity-banner>
     </view>
     <view class="brand-component component-margin-top">
-      <class-banner isList="false" class="class-banner" bindtap="showClsDetail"></class-banner>
+      <class-banner isList="false" class="class-banner"></class-banner>
     </view>
     <view class="brand-component component-margin-top">
       <location-banner class="location-banner"></location-banner>

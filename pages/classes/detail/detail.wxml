@@ -1,21 +1,28 @@
 <!--pages/class-lst/class-detail/class-detail.wxml-->
 <view class="clsdet-container">
+
 	<view class="clsdet-component">
 		<clsimg ></clsimg>
 	</view>
+
   <view class="clsdet-component"  wx:if='{{hide}}'>
     <clstitle ></clstitle>
   </view>
+
   <view class="clsdet-component"  wx:if='{{hide}}'>
     <clsabout ></clsabout>
   </view>
+
   <view class='clsdet-component'  wx:if='{{hide}}'>
     <clslocal isActi="false"></clslocal>
   </view>
+
 </view>
-<view class="clsdet-component btn" bindtap='applyDetail'  wx:if='{{hide}}'>
+
+<cover-view class="clsdet-component btn" bindtap='applyDetail'  wx:if='{{hide}}'>
     <clsbtn ></clsbtn>
-</view>
+</cover-view>
+
 <view class='apply' wx:if="{{show}}" animation='{{animationData}}' catchtouchmove="true">
     <view class='write'>
       <view class='block'wx:if="{{showOthers}}">

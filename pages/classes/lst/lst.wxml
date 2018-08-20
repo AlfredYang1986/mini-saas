@@ -1,4 +1,4 @@
 <!--pages/class-lst/class-lst.wxml-->
 <view class="cls-lst">
-    <class-lst isList="true" bindtap='showClsDetail'></class-lst>
+    <class-lst isList="true"></class-lst>
 </view>

@@ -58,6 +58,11 @@ Component({
       wx.navigateTo({
         url: '/pages/classes/lst/lst'
       })
+    },
+    showClsDetail: function (event) {
+      wx.navigateTo({
+        url: '/pages/classes/detail/detail'
+      })
     }
   }
 })

@@ -2,14 +2,14 @@
 <view class="act-banner">
 	<view class="content-page">
 		<view class="content-item">
-			<view class="content-row-span" bindtap='showActiDetail'>
+			<view class="content-row-span">
       <view class='big-title'>
         <text class="title">本月活动</text>
         <image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png" class='icon'></image>
       </view>				       
 			</view>
-		  <scroll-view class="" scroll-x style="width: 100%" bindtap='showActiDetail'>
-				<view class="content-row">
+		  <scroll-view class="" scroll-x style="width: 100%">
+				<view class="content-row"  bindtap='showActiDetail'>
 					<view class="act-img" wx:for="{{activities}}">
 						<view class="act-detail" style="background-image: url('{{item.image}}')" >
               <view class='title-time'>{{item.time}}

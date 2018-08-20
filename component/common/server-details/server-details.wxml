@@ -1,7 +1,7 @@
 <!--pages/user/server/reserve/reserve.wxml-->
 <view class='content-page'>
   <view class='content'>
-    <view class='img'  style='background:url("{{info.img}}")'></view>
+    <view class='img'  style='background-image:url("{{info.img}}")'></view>
     <view class='info'>
       <view>
         <text class='headline'>{{info.head}}</text>

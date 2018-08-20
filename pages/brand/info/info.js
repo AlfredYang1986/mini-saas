@@ -73,9 +73,5 @@ Page({
     })
   },
 
-  showClsDetail: function (event) {
-    wx.navigateTo({
-      url: '/pages/classes/detail/detail'
-    })
-  }
+  
 })

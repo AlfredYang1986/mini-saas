@@ -5,6 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    falsee:{
+      value:"false",
+    },
+    truee:{
+      value:"true",
+    }
   },
 
   /**

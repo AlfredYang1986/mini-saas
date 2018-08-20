@@ -3,13 +3,32 @@
   width: 502rpx;
   min-height: 296rpx;
   height: auto;
-  background: linear-gradient(-180deg, rgba(86,162,221,0.42) 0%, rgba(39,56,162,0.79) 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   border-radius: 8rpx;
   box-shadow: 0 4px 10px 0 rgba(39,53,128,0.45);
+
+  
+}
+.matter-list .mask {
+  background: linear-gradient(-180deg, rgba(86,162,221,0.42) 0%, rgba(39,56,162,0.79) 100%);
+   width: 502rpx;
+  min-height: 296rpx;
+  height: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 8rpx;
 
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+}
+.matter-list .mask .info .local-icon {
+  width: 22rpx !important;
+  height: 26rpx !important;
+  margin-right: 8rpx;
 }
  .matter-list .info {
   display: flex;
@@ -26,6 +45,9 @@ color: #FFFFFF;
 .matter-list .info .address {
   margin-left: 32rpx;
   margin-top: 16rpx;
+
+  display: flex;
+  align-items: center;
 
 font-family: PingFangSC-Regular;
 font-size: 13px;

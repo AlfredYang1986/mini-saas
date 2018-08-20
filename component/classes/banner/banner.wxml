@@ -5,15 +5,12 @@
       <view class="content-row-span">
         <view class='big-title'>
           <block wx:if="{{isList == 'false'}}">
-            <text class="title"> 课程  </text>
+            <text class="title"  bindtap='showClasses'> 课程  </text>
             <image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png" class='icon'></image>
           </block>
         </view>
-
-
-        <!-- <text class="more">更多</text> -->
       </view>
-      <view class="content-row cls-container ">
+      <view class="content-row cls-container " bindtap="showClsDetail">
         <view class="cls-detail" wx:for="{{classes}}">
           <view class="cls-img" style="background-image: url('{{item.image}}')"></view>
           <view class='cls-content'>

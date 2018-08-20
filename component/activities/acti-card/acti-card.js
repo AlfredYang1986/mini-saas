@@ -14,7 +14,7 @@ Component({
     actiCard:{
       name:"STEM Meeting Up",
       address:"朝阳区青年路甘露园中街",
-      num:"23",
+      num:"23人参加",
       href:"https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E6%B4%BB%E5%8A%A81.png",
     }
   },

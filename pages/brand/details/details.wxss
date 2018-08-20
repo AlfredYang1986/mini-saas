@@ -2,7 +2,7 @@
 .page-content {
   width: auto;
   min-height: 1000rpx; 
-  height: auto;
+  height: 100%;
   padding-left: 20rpx;
   padding-right: 20rpx;
   background: #666;

@@ -25,7 +25,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "wechat",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -36,23 +36,21 @@
         "selectedIconPath": "./utils/image/icon_tabbar_grow_selected@2x.png",
         "color": "#A6A6A6",
         "selectedColor": "#FF0000",
-        "text": "成长"
+        "margin-top":"10px"
       },
       {
         "pagePath": "pages/brand/info/info",
         "iconPath": "./utils/image/icon_tabbar_home_normal@2x.png",
         "selectedIconPath": "./utils/image/icon_tabbar_home_selected@2x.png",
         "color": "#A6A6A6",
-        "selectedColor": "#FF0000",
-        "text": "品牌"
+        "selectedColor": "#FF0000"
       },
       {
         "pagePath": "pages/user/user",
         "iconPath": "./utils/image/icon_tabbar_user_normal@2x.png",
         "selectedIconPath": "./utils/image/icon_tabbar_user_selected@2x.png",
         "color": "#A6A6A6",
-        "selectedColor": "#FF0000",
-        "text": "我的"
+        "selectedColor": "#FF0000"
       }
     ]
   }

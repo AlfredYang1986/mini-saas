@@ -7,16 +7,19 @@
         <text class="title">附近场地 5</text>
          <image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png"></image>
       </view>				
-			</view>
-      
+			</view> 
 		</view>
 		
-		<view class="content-item loc-place-holder"></view>
 
 		<view class="content-item loc-lst">
 			<view class="loc-panel" wx:for="{{[locations[0]]}}" bindtap='showLocations' >
 				<view class="loc-detail-container">
-         <map id="map" longitude="113.324520" latitude="23.099994" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 200px;"></map>
+         <map id="map" longitude="113.324520" latitude="23.099994" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" bindregionchange="regionchange" show-location style="width: 100%; height: 200px;">
+          <cover-view class='img-wrap'>
+              <cover-image  class='cover-image' src='/utiles/image/tab-btn-1.png'></cover-image>
+            </cover-view>
+         </map>
+         
 					<view class="content-row-span loc-card">
 						<view>
 							<view class="content-row">

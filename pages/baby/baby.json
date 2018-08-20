@@ -1,7 +1,6 @@
 {
   "usingComponents": {
     "acti-card": "/component/activities/acti-card/acti-card",
-    "cla-card":"/component/classes/cla-card/cla-card",
     "acti-list":"/component/activities/acti-list/acti-list",
     "cla-list":"/component/classes/cla-list/cla-list"
       }

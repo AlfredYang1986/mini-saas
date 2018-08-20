@@ -36,7 +36,6 @@
 
 .loc-img .content-row .loc-detail {
   width: 100%;
-  margin-top: 228rpx;
 
   display: flex;
   justify-content: center;
@@ -46,12 +45,13 @@
   width: 670rpx;
   height: 414rpx;
   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
 
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
   justify-content: flex-end;
-  background: green;
 }
 
 .loc-img .loc-detail-img .loc-tag {

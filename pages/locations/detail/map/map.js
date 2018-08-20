@@ -1,28 +1,16 @@
 Page({
   data: {
     markers: [{
-      iconPath: "/resources/others.png",
+      iconPath: "/utils/image/icon_location_selected@2x.png",
       id: 0,
       latitude: 23.099994,
       longitude: 113.324520,
-      width: 50,
-      height: 50
-    }],
-    polyline: [{
-      points: [{
-        longitude: 113.3245211,
-        latitude: 23.10229
-      }, {
-        longitude: 113.324520,
-        latitude: 23.21229
-      }],
-      color: "#FF0000DD",
-      width: 2,
-      dottedLine: true
+      width: 28,
+      height: 39
     }],
     controls: [{
       id: 1,
-      iconPath: '/resources/location.png',
+      iconPath: '/resources/icon_location_normal@2x.png',
       position: {
         left: 0,
         top: 300 - 50,

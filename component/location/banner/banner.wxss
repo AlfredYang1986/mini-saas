@@ -1,8 +1,5 @@
 /* component/location-banner/location-banner.wxss */
 
-.loc-banner {
-
-}
  .content-row-span{
    padding-top: 50rpx;
  }
@@ -69,6 +66,7 @@
 }
 
 .loc-banner .loc-lst {
+  margin-top: 32rpx;
 	margin-left: 26rpx;
 	margin-right: 26rpx;
 }
@@ -125,4 +123,20 @@
 .loc-banner .loc-panel .arraw-container image {
 	width: 16rpx;
 	height: 26rpx;
+}
+
+.img-wrap {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    opacity: 1;
+}
+.cover-image {
+  background: url('https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/1.png');
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 800px;
+
 }

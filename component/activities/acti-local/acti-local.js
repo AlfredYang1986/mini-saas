@@ -27,7 +27,17 @@ Component({
         title: "甘露园",
         address: "青年路甘露园中街天鹅南区"
       },
-    ]
+    ],
+  },
+
+  regionchange(e) {
+    console.log(e.type)
+  },
+  markertap(e) {
+    console.log(e.markerId)
+  },
+  controltap(e) {
+    console.log(e.controlId)
   },
 
   /**
