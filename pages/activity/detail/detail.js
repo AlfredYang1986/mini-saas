@@ -16,7 +16,7 @@ for (let i = 1; i <= 31; i++) {
   days.push(i)
 }
 
-
+var id;
 Page({
 
   /**
@@ -35,6 +35,15 @@ Page({
     days: days,
     day: 2,
     value: [9999, 1, 1],
+    array:[{
+      img:"https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/shape_female_normal%403x.png",
+      text: "小公主",
+    },
+    {
+      img:"https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/shape_male_normal%403x.png",
+      text:"小王子",
+    }],
+    id:0,
   },
 
    bindChange: function(e) {
@@ -107,14 +116,14 @@ Page({
     // 创建一个动画实例
     var animation = wx.createAnimation({
       // 动画持续时间
-      duration: 500,
+      duration: 200,
       // 定义动画效果，当前是匀速
       timingFunction: 'linear'
     })
     // 将该变量赋值给当前动画
     that.animation = animation
     // 先在y轴偏移，然后用step()完成一个动画
-    animation.translateY(300).step()
+    animation.translateY(500).step()
     // 用setData改变当前动画
     that.setData({
       // 通过export()方法导出数据
@@ -180,5 +189,13 @@ Page({
     wx.navigateTo({
       url: '/pages/locations/detail/map/map',
     })
+  },
+
+  choseColor:function(e) {
+    var id = e.currentTarget.dataset.id;  //获取自定义的ID值
+    this.setData({
+      id: id
+    })
+
   }
 })

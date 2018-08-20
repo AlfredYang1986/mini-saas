@@ -22,10 +22,9 @@
   flex-direction: column;
   align-items: center;
 }
-.content-page .block .icon {
+.content-page .block .icon image {
   width: 72rpx;
   height: 72rpx;
-  background: red;
 
   margin-top: 32rpx;
   margin-bottom: 48rpx;

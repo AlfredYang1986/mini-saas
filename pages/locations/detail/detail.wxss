@@ -6,7 +6,9 @@
   justify-content: space-between;
   box-sizing: border-box;
 
-  background: url('https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/map.png');
+  background-image: url('https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E5%9C%B0%E5%9B%BE%E6%9B%BF%E6%8D%A2%202.png');
+  background-position: center;
+  background-size: cover;
   height: 300rpx;
 }
 .location-component {

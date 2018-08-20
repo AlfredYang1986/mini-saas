@@ -104,11 +104,11 @@ Page({
   hideModal: function (e) {
     var that = this;
     var animation = wx.createAnimation({
-      duration: 500,
+      duration: 200,
       timingFunction: 'linear'
     })
     that.animation = animation
-    animation.translateY(100).step()
+    animation.translateY(300).step()
     that.setData({
       animationData: animation.export()
 

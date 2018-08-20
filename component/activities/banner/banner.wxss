@@ -96,6 +96,7 @@
   color: #fff;
   font-size: 60rpx;
   font-family: SFProText-Semibold;
+  text-shadow: 0 2px 2px rgba(21,28,89,0.42);
 
 }
 .title-mask {

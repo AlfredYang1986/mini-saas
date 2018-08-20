@@ -24,13 +24,9 @@
       <view class='block'>
         <view class='title'  bindtap='hideModal'>宝宝概况</view>
         <view class='option'>
-          <view class='sex active' >
-            <image class='ico' src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/shape_female_normal%403x.png'></image>
-            小公主
-          </view>
-          <view class='sex'>
-            <image class='ico' src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/shape_male_normal%403x.png'></image>
-            <text>小王子</text>
+          <view class='sex' bindtap='choseColor'  wx:for="{{array}}" data-id="{{index}}" style="{{index == id?'background-color:#FCE0DE;':'baciground-color:#fff;'}}">
+            <image class='ico' src='{{item.img}}'></image>
+            <text>{{item.text}}</text>
           </view>
         </view>
         <view class='birth'>
@@ -40,7 +36,7 @@
           </view>
           <view class='data-select' wx:if="{{showTime}}">
             <view class='select' bindtap='hideTime'>完成</view>
-             <picker-view indicator-style="height: 50px;" style="width: 100%; height: 180px;" value="{{value}}" bindchange="bindChange">
+             <picker-view indicator-style="height: 50px;" style="width: 100%; height: 180px;text-align:center;" value="{{value}}" bindchange="bindChange">
             <picker-view-column>
               <view wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>
             </picker-view-column>
