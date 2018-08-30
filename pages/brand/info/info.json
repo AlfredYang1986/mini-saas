@@ -4,6 +4,8 @@
     "activity-banner": "/component/activities/banner/banner",
     "class-banner": "/component/classes/banner/banner",        
     "location-banner": "/component/location/banner/banner",
-    "brand-logo":"/component/common/brand-logo/brand-logo"
+    "brand-logo":"/component/common/brand-logo/brand-logo",
+    "brand-top":"/component/brand/brand-top/brand-top",
+    "brand-detail":"/component/brand/brand-detail/brand-detail"
    }
 }

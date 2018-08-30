@@ -1,5 +1,19 @@
 <!--pages/baby/baby.wxml-->
 <view class='content-page'>
+  <view class='headline'>
+    <text>Kent</text>
+    <image></image>
+  </view>
+  <view class='soon-class'>
+    <text class='title'>即将开始</text>
+    <soon-class  bindtap='showRecord'></soon-class>
+  </view>
+  <view class='all-class'>
+    <text class='title'>全部课程</text>
+    <all-class bindtap="showRecord"></all-class>
+  </view>
+</view>
+<!-- <view class='content-page'>
   <text class='headline'>Baby</text>
   <text class='title'>即将开始</text>
   <view class='image'></view>
@@ -15,4 +29,4 @@
 
   <cla-list wx:if="{{truee}}" isOver="{{truee.value}}" bindtap="showRecord"></cla-list>
 
-</view>
+</view> -->

@@ -1,0 +1,82 @@
+/* component/common/all-class/all-class.wxss */
+.all-card {
+  height: 356rpx;
+  padding: 32rpx;
+  margin-top: 32rpx;
+  margin-bottom: 16rpx;
+
+  background: #595959;
+  box-shadow: 0 4px 10px 0 rgba(173,186,222,0.60);
+  border-radius: 4px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.date {
+  display: flex;
+  flex-direction: column;
+}
+.date .is-end {
+  width: 120rpx;
+  height: 40rpx;
+  background: #fff;
+  border-radius: 8rpx;
+
+  margin-bottom: 16rpx;
+
+  font-family: SFProText-Regular;
+  font-size: 11px;
+  color: #80AEFF;
+  text-align: center;
+  line-height: 40rpx;
+}
+.date .while {
+  display: flex;
+  flex-direction: row;
+}
+.date .while text {
+  font-size: 13px;
+  color: #FFFFFF;
+}
+.date .while .day {
+  margin-right: 8rpx;
+  font-family: SFProText-Medium;
+}
+.date .while .week {
+  margin-right: 16rpx;
+  font-family: SFProText-Regular;
+}
+.date .while .time {
+  font-family: SFProText-Medium;
+}
+.class-info .sort {
+  opacity: 0.7;
+  font-family: SFProText-Medium;
+  font-size: 13px;
+  color: #FFFFFF;
+  margin-bottom: 8rpx;
+}
+.class-info .name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 16rpx;
+}
+.class-info .name .class-name {
+  font-family: SFProText-Medium;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+.class-info .name .progress {
+  font-family: PingFangSC-Regular;
+  font-size: 13px;
+  color: #FFFFFF;
+}
+.class-info .bar {
+  height: 16rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+}

@@ -1,0 +1,61 @@
+/* component/common/soon-class/soon-class.wxss */
+.soon-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding-left: 34rpx;
+  padding-right: 48rpx;
+
+  height: 154rpx;
+  background: #FFFFFF;
+  box-shadow: 0 8px 20px 0 rgba(173,186,222,0.20);
+  border-radius: 4px;
+}
+.soon-card .date {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.date .day {
+  font-family: SFProText-Medium;
+  font-size: 24px;
+  color: #404040;
+  
+  padding-right: 6rpx;
+}
+.date .month {
+  font-family: PingFangSC-Regular;
+  font-size: 11px;
+  color: #404040;
+  padding-right: 48rpx;
+}
+.location {
+  display: flex;
+  flex-direction: column;
+}
+.location .name {
+  font-family: SFProText-Semibold;
+  font-size: 16px;
+  color: #404040;
+
+  padding-bottom: 16rpx;
+}
+.location .local {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.location .local image {
+  background: #E0E0E0;
+  width: 22rpx;
+  height: 26rpx;
+
+  margin-right: 8rpx;
+}
+.location .local text {
+  font-family: PingFangSC-Regular;
+  font-size: 13px;
+  color: rgb(75, 54, 54);
+}

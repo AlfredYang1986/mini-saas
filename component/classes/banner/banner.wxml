@@ -2,7 +2,7 @@
 <view class="class-banner">
   <view class="content-page">
     <view class="content-item">
-      <view class="content-row-span">
+      <view class="content-row-span"> 
         <view class='big-title'>
           <block wx:if="{{isList == 'false'}}">
             <text class="title"  bindtap='showClasses'> 课程  </text>

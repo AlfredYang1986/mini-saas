@@ -1,0 +1,29 @@
+<!--component/common/all-class/all-class.wxml-->
+<view class='all-card' wx:for="{{card}}">
+  <view class='date'>
+    <block wx:if="{{item.isOver == '0'}}">
+      <view class='is-end'>下次课时</view>
+      <view class='while'>
+        <text class='day'>{{item.day}}</text>
+        <text class='week'>{{item.week}}</text>
+        <text class='time'>{{item.time}}</text>
+      </view>
+    </block>
+    <block wx:if="{{item.isOver == '1'}}">
+     <view class='is-end'>已结束</view>
+      <view class='while'>
+        <text class='day'>{{item.start}}-{{item.end}}</text>
+      </view>
+    </block>
+  </view>
+  <view class='class-info'>
+    <text class='sort'>{{item.sort}}</text>
+    <view class='name'>
+      <text class='class-name'>{{item.className}}</text>
+      <text class='progress'>{{item.progress}}</text>
+    </view>
+    <view class='bar'>
+      <progress percent="{{item.percent}}" stroke-width="8" backgroundColor="rgba(255,255,255,0.4)" activeColor="white"/>
+    </view>
+  </view>
+</view>

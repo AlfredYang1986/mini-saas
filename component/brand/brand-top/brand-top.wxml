@@ -1,0 +1,13 @@
+<!--component/brand/brand-top/brand-top.wxml-->
+<view class='content-page'>
+  <view class='info'>
+    <text class='title'>PRO科学空间</text>
+    <text class='intro'>「彩色方块的转动中感受魔方的魅力」</text>
+    <view class='list'>
+      <text>场景教学</text> |
+      <text>先进理念</text> |
+      <text>专业团队</text>
+    </view>
+  </view>
+  <image class='logo'></image>
+</view>

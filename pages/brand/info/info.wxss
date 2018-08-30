@@ -1,4 +1,29 @@
 /* pages/brand/brand.wxss */
+.swiper-tab{  
+    width: 100%;  
+    height: auto;
+    border-bottom: 2rpx solid #eee;  
+    text-align: left;  
+    line-height: 80rpx;
+    background: #fff;
+    font-size: 14px;
+
+    margin-left: 40rpx;
+    margin-right: 40rpx;
+}  
+.on{ 
+  color: #dd2727;  
+  border-bottom: 4rpx solid rgba(128,174,255,1);
+}  
+.swiper-tab-list{  
+  display: inline-block;  
+  width: 154rpx;  
+  font-family: PingFangSC-Medium;
+  font-size: 36rpx;
+  color: #80AEFF;
+  letter-spacing: 2rpx;
+  margin-right: 80rpx;
+}
 
 .brand-container {
   height: 100%;

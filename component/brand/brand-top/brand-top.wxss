@@ -1,0 +1,46 @@
+/* component/brand/brand-top/brand-top.wxss */
+.content-page {
+  padding-left: 58rpx;
+  padding-right: 40rpx;
+  padding-top: 56rpx;
+  padding-bottom: 80rpx;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+}
+.info .title {
+  font-family: SFProText-Medium;
+  font-size: 20px;
+  color: #404040;
+
+  margin-bottom: 16rpx;
+}
+.info .intro {
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #404040;
+  margin-left: -16rpx;
+  margin-bottom: 16rpx;
+  }
+.info .list {
+margin-left: -10rpx;
+font-family: PingFangSC-Medium;
+font-size: 13px;
+color: #A6A6A6;
+}
+.info .list text {
+  padding: 0 10rpx;
+}
+.logo {
+  width: 144rpx;
+  height: 144rpx;
+  background: red;
+  box-shadow: 0 4px 10px 0 rgba(173,186,222,0.37);
+  border-radius: 4px;  
+}

@@ -2,6 +2,8 @@
   "usingComponents": {
     "acti-card": "/component/activities/acti-card/acti-card",
     "acti-list":"/component/activities/acti-list/acti-list",
-    "cla-list":"/component/classes/cla-list/cla-list"
+    "cla-list":"/component/classes/cla-list/cla-list",
+    "soon-class":"/component/common/soon-class/soon-class",
+    "all-class":"/component/common/all-class/all-class"
       }
   }

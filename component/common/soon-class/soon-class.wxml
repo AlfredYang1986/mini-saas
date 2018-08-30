@@ -1,0 +1,14 @@
+<!--component/common/soon-class/soon-class.wxml-->
+<view class='soon-card'>
+  <view class='date'>
+    <view class='day'>02</view>
+    <view class='month'>8月</view>
+  </view>
+  <view class='location'>
+    <text class='name'>STEM Meeting Up</text>
+    <view class='local'>
+      <image></image>
+      <text>朝阳区青年路甘露园中街</text>
+    </view>
+  </view>
+</view>

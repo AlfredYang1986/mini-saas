@@ -1,4 +1,44 @@
-/* pages/baby/baby.wxss */
+.content-page {
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  padding-top: 30px;
+}
+.headline {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 40px;
+}
+.headline text {
+  font-family: SFProText-Bold;
+  font-size: 48rpx;
+  color: #0D0D0D;
+}
+.headline image {
+  width: 52rpx;
+  height: 40rpx;
+  background-color: red;
+}
+.soon-class {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 80rpx;
+}
+.soon-class .title,.all-class .title {
+  font-family: PingFangSC-Medium;
+  font-size: 36rpx;
+  color: #404040;
+
+  padding-bottom: 32rpx;
+}
+
+/* pages/baby/baby.wxss
 .content-page {
   min-height: 800rpx;
   height: auto;
@@ -53,4 +93,4 @@ color: #404040;
   height: 1px;
   background: #E0E0E0;
   transform: translateY(30rpx);
-}
+} */
