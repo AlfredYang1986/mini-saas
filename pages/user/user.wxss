@@ -3,6 +3,11 @@
   display: flex;
   flex-direction: column;
 }
+.content-page .scan image {
+  width: 36rpx;
+  height: 36rpx;
+  padding-left: 64rpx; 
+}
 .content-page .head {
   display: flex;
   flex-direction: column;
@@ -28,8 +33,8 @@ color: #404040;
 margin-bottom: 48rpx;
 }
 .content-page .func {
-margin-left: 66rpx;
-margin-right: 66rpx;
+margin-left: 40rpx;
+margin-right: 40rpx;
 width: auto;
 
 padding-top: 96rpx;

@@ -22,7 +22,6 @@
 .headline image {
   width: 52rpx;
   height: 40rpx;
-  background-color: red;
 }
 .soon-class {
   display: flex;

@@ -9,5 +9,5 @@
       <text>专业团队</text>
     </view>
   </view>
-  <image class='logo'></image>
+  <image class='logo' src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/logo.png'></image>
 </view>

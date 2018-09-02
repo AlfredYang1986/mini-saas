@@ -40,7 +40,6 @@ color: #A6A6A6;
 .logo {
   width: 144rpx;
   height: 144rpx;
-  background: red;
   box-shadow: 0 4px 10px 0 rgba(173,186,222,0.37);
   border-radius: 4px;  
 }

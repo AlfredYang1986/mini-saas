@@ -1,5 +1,9 @@
 <!--pages/user/user.wxml-->
 <view class='content-page' wx:if="{{user}}">
+  <view class='scan'>  
+    <view bindtap="click"><image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_scan%402x.png'></image></view>  
+    <view>{{show}}</view>  
+  </view>
   <view class='head'>
     <view class='head-img'><image src='{{user.img}}'></image></view>
     <view class='head-name'>{{user.name}}</view>

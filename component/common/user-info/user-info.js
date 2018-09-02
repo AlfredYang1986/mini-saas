@@ -17,11 +17,6 @@ Component({
       name:"我的服务",
       enter:"https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png"
     },
-    {
-        icon: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_help%403x.png",
-        name: "帮助",
-        enter: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png"
-      }
     ]
   },
 

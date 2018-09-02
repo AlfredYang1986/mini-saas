@@ -10,8 +10,8 @@
   border-bottom: 1px solid #E0E0E0; 
 }
  .block .img {
-  width: 254rpx;
-  height: 156rpx;
+  width: 194rpx;
+  height: 260rpx;
   /* background: red; */
 
   margin-right: 32rpx;
@@ -24,7 +24,7 @@
  .block .info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
 }
  .block .info .head {
   font-family: PingFangSC-Medium;
@@ -33,8 +33,32 @@
 
   margin-bottom: 16rpx;
 }
-.block .info .cost {
-  font-family: SFProText-Regular;
+.info .head .sort {
+  font-family: PingFangSC-Medium;
+  font-size: 13px;
+  color: #4C6899;
+  margin-bottom: 4rpx;
+}
+.info .head .name {
+  font-family: SFProText-Bold;
+  font-size: 16px;
+  color: #404040;
+  margin-bottom: 16rpx;
+}
+.info .head .time {
+  font-family: PingFangSC-Regular;
   font-size: 14px;
-  color: #737373;
+  color: #313131;
+  line-height: 16px;
+}
+.info .time .date {
+  margin-right: 8rpx;
+}
+.info .time .week {
+  margin-right: 16rpx;
+}
+.info .cost {
+  font-family: SFProText-Bold;
+  font-size: 14px;
+  color: #FC9361;
 }

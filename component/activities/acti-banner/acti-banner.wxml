@@ -1,0 +1,28 @@
+<!--component/activities/acti-banner/acti-banner.wxml-->
+<view class='content-page'>
+  <view class='title'>
+    <text>本周活动</text>
+    <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
+  </view>
+  <scroll-view class="scroll-x" scroll-x style="width: 100%">
+    <view class='content'>
+      <view class='list'  wx:for="{{activityInfo}}"   bindtap='showActiDetail'>
+      <view class='list-detail' style="background-image: url('{{item.url}}')" >
+        <view class='info'>
+          <view class='sort'>展览</view>
+          <view class='name'>{{item.name}}</view>
+          <view class='time'>
+            <text class='date'>{{item.date}}</text>
+            <text class='week'>{{item.week}}</text>
+            <text class='local'>{{item.local}}</text>
+          </view>
+        </view>
+        <view class='apply'>
+          <view class='price'><text>￥{{item.price}}</text>起</view>
+          <text class='btn'>立即报名</text>
+        </view>
+      </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

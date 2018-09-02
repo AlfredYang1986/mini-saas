@@ -20,7 +20,8 @@
     "pages/baby/record/record",
     "pages/activity/success/success",
     "pages/classes/success/success",
-    "pages/locations/detail/map/map"
+    "pages/locations/detail/map/map",
+    "pages/locations/facilities/facilities"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -36,7 +37,7 @@
         "selectedIconPath": "./utils/image/icon_tabbar_grow_selected@2x.png",
         "color": "#A6A6A6",
         "selectedColor": "#FF0000",
-        "margin-top":"10px"
+        "margin-top": "10px"
       },
       {
         "pagePath": "pages/brand/info/info",

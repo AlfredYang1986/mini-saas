@@ -1,11 +1,9 @@
 <!--pages/locations/location-detail.wxml-->
-<view class="location-container" bindtap='showmap'>
-  
-</view>
+<view class="location-container" bindtap='showmap'></view>
 <view class="location-component">
   <location-images></location-images>
 </view>
-<view class="location-component">
+<view class="location">
   <location-details></location-details>
 </view>
 

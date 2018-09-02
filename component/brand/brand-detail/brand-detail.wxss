@@ -79,7 +79,6 @@
 .achievement .content .list image {
   width: 158rpx;
   height: 134rpx;
-  background: red;
 
   margin-bottom: 60rpx;
 }

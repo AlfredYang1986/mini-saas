@@ -15,12 +15,20 @@ Component({
       {
       img:"https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E6%B4%BB%E5%8A%A82.png",
       head:"Pro.A 初级课程入门",
-      cost:"免费",
+      cost:"￥免费",
+      sort:"展览",
+      date:"08/12",
+      week:"周四",
+      local:"朝阳区",
     },
     {
       img: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E6%B4%BB%E5%8A%A81.png",
       head: "STEM Meeting Up",
       cost: "免费",
+      sort: "展览",
+      date: "08/12",
+      week: "周四",
+      local: "东城区",
     },
     ]
   },

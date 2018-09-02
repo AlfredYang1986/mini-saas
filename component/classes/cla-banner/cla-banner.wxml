@@ -1,0 +1,22 @@
+<!--component/classes/cla-banner/cla-banner.wxml-->
+<view class='content-page'>
+  <view class='title'  bindtap='showClasses'>
+    <text>课程</text>
+    <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
+  </view>
+  <view class='content'>
+    <view class='list' wx:for="{{classInfo}}" bindtap='showClsDetail'>
+      <view class='cover' style="background-image: url('{{item.url}}')"></view>
+      <view class='class-info'>
+        <view class='info'>
+          <text class='sort'>{{item.sort}}</text>
+          <text class='name'>{{item.name}}</text>
+        </view>
+        <view class='suit'>
+          <text class='age'>{{item.age}}</text>
+          <view class='price'><text>￥{{item.price}}</text>/课时</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

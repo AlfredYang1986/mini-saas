@@ -1,9 +1,4 @@
 /* component/location-banner/location-detail/location-detail.wxss */
-
-.c-loc-detail {
-
-}
-
 .c-loc-detail .content-page {
 	display: flex;
 	flex-wrap: nowrap;
@@ -17,7 +12,16 @@
 	flex-direction: column;
 	justify-content: flex-start;
 }
+.c-loc-detail .bg-color {
+  width: 96rpx;
+  height: 96rpx;
+  background: #f0f5fd;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-between;
+}
 .c-loc-detail .content-align-center {
 	display: flex;
 	flex-wrap: nowrap;

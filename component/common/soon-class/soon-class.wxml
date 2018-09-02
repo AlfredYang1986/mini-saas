@@ -7,7 +7,7 @@
   <view class='location'>
     <text class='name'>STEM Meeting Up</text>
     <view class='local'>
-      <image></image>
+      <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_location%402x.png'></image>
       <text>朝阳区青年路甘露园中街</text>
     </view>
   </view>

@@ -5,7 +5,7 @@ flex-direction: row;
 justify-content: space-between;
 align-items: center;
 
-margin-bottom: 96rpx;
+/* margin-bottom: 96rpx; */
 }
 .server .icon {
   width: 18px;
@@ -13,7 +13,9 @@ margin-bottom: 96rpx;
   background: #fff;
 }
 .server text {
-  padding-left: 34rpx;
+  font-family: SFProText-Medium;
+  font-size: 16px;
+  color: #404040;
 }
 .server .enter {
   width: 16rpx;

@@ -48,7 +48,6 @@
   align-items: center;
 }
 .location .local image {
-  background: #E0E0E0;
   width: 22rpx;
   height: 26rpx;
 

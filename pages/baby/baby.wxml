@@ -2,7 +2,7 @@
 <view class='content-page'>
   <view class='headline'>
     <text>Kent</text>
-    <image></image>
+    <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_addkid%402x.png'></image>
   </view>
   <view class='soon-class'>
     <text class='title'>即将开始</text>

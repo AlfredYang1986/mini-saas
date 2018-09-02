@@ -24,7 +24,8 @@ Component({
       sort: "3D打印",
       className: "Pro.X 综合课程专业",
       progress: "已学习12/30",
-      percent:"30"
+      percent:"30",
+      url:"https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E8%AF%BE%E7%A8%8B%20X%20pic%402x.png"
     }, {
         isOver:"1",
         day: "08/12",
@@ -35,7 +36,8 @@ Component({
         sort: "编程",
         className: "Pro.B 中级课程进阶",
         progress: "已学习30/30",
-        percent:"100"
+        percent:"100",
+        url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E8%AF%BE%E7%A8%8B%20B%20pic%402x.png"
       },],
   },
 

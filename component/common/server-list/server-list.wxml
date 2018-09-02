@@ -2,7 +2,15 @@
 <view class='block' wx:for="{{info}}">
     <view class='img' style='background-image:url("{{item.img}}")'></view>
     <view class='info'>
-      <text class='head'>{{item.head}}</text>
+      <view class='head'>
+        <view class='sort'>{{item.sort}}</view>
+        <view class='name'>{{item.head}}</view>
+        <view class='time'>
+          <text class='date'>{{item.date}}</text>
+          <text class='week'>{{item.week}}</text>
+          <text class='local'>{{item.local}}</text>
+        </view>
+      </view>
       <text class='cost'>{{item.cost}}</text>
     </view>
   </view>

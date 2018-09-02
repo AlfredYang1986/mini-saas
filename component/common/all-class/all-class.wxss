@@ -1,17 +1,24 @@
 /* component/common/all-class/all-class.wxss */
 .all-card {
   height: 356rpx;
-  padding: 32rpx;
   margin-top: 32rpx;
   margin-bottom: 16rpx;
 
-  background: #595959;
   box-shadow: 0 4px 10px 0 rgba(173,186,222,0.60);
   border-radius: 4px;
-
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.card-bg {
+  height: 292rpx;
+  padding: 32rpx;
+  margin-bottom: 16rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  background-color: rgba(100,100,255,0.9)
 }
 .date {
   display: flex;

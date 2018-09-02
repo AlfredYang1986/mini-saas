@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "faci-list":"/component/location/faci-list/faci-list"
+  }
+}

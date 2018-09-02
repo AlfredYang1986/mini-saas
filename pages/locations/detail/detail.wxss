@@ -13,6 +13,7 @@
 }
 .location-component {
 	width: 100%;
+  margin-top: -50px;
 }
 .map-bottom {
   position: absolute;

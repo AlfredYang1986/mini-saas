@@ -1,0 +1,14 @@
+/* pages/locations/facilities/facilities.wxss */
+.content-page {
+  display: flex;
+  flex-direction: column;
+
+  padding: 40rpx;
+  margin-top: 28rpx;
+}
+.title {
+  font-family: SFProText-Medium;
+  font-size: 18px;
+  color: #0D0D0D;
+  margin-bottom: 80rpx; 
+}

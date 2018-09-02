@@ -1,0 +1,47 @@
+/* component/location/faci-list/faci-list.wxss */
+.list {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 66rpx;
+}
+.list .list-title {
+  font-family: SFProText-Regular;
+  font-size: 14px;
+  color: #404040;
+
+  margin-bottom: 48rpx;
+}
+.items {
+  
+  margin-bottom: 10rpx;
+  
+  display: flex;
+  flex-direction: row;
+}
+.items .item {
+  width: 96rpx;
+  height: 96rpx;
+  opacity: 0.4;
+  background: #DBE6FA;
+
+  margin-right: 74rpx;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.items .item .img {
+  width: 48rpx;
+  height: 48rpx;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.items .item .name {
+  font-family: SFProText-Regular;
+  font-size: 11px;
+  color: #A6A6A6;
+}

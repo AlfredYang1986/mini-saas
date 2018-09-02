@@ -1,0 +1,91 @@
+/* component/classes/cla-banner/cla-banner.wxss */
+.content-page {
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  padding-top: 60rpx;
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 32rpx;
+}
+.title text {
+  font-family: PingFangSC-Medium;
+  font-size: 36rpx;
+  color: #404040;
+}
+.title image {
+  width: 14rpx;
+  height: 26rpx;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+}
+.content .list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 48rpx;
+  width: 100%；
+}
+.content .list .cover {
+  width: 260rpx;
+  height: 160rpx;
+  background: red;
+  border-radius: 8rpx;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.list .class-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 32rpx;
+  width: 55%;
+}
+.class-info .info {
+  display: flex;
+  flex-direction: column;
+}
+.class-info .info .sort {
+  font-family: SFProText-Medium;
+  font-size: 26rpx;
+  color: #4C6899;
+}
+.class-info .info .name {
+  font-family: SFProText-Medium;
+  font-size: 32rpx;
+  color: #404040;
+}
+
+.class-info .suit {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.class-info .suit .age {
+  font-family: SFProText-Regular;
+  font-size: 26rpx;
+  color: #A6A6A6;
+}
+.class-info .suit .price {
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color: #FC9361;
+  align-items: center;
+}
+.class-info .suit .price text {
+  font-family: SFProText-Medium;
+  font-size: 32rpx;
+  color: #FC9361;
+}
+

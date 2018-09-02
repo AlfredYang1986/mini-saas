@@ -16,25 +16,15 @@
     <text class='title'>教学成就</text>
     <scroll-view class="" scroll-x style="width: 100%">
     <view class='content'>
-      <view class='list'>
-        <image></image>
-        <text class='time'>2014</text>
-        <text class='name'>全国青少年编程创新大赛</text>
+      <view class='list' wx:for="{{teach}}">
+        <image src="{{item.src}}"></image>
+        <text class='time'>{{item.time}}</text>
+        <text class='name'>{{item.name}}</text>
       </view>
       <view class='list'>
         <image></image>
-        <text class='time'>2018</text>
-        <text class='name'>STEM银河主题赛</text>
-      </view>
-      <view class='list'>
-        <image></image>
-        <text class='time'>2018</text>
-        <text class='name'>STEM银河主题赛</text>
-      </view>
-      <view class='list'>
-        <image></image>
-        <text class='time'>2018</text>
-        <text class='name'>STEM银河主题赛</text>
+        <text class='time'></text>
+        <text class='name'></text>
       </view>
     </view>
     </scroll-view>
@@ -43,17 +33,9 @@
     <text class='title'>资质认证</text>
     <scroll-view class="" scroll-x style="width: 100%">
     <view class='content'>
-      <view class='list'>
+      <view class='list' wx:for="{{attest}}">
         <image></image>
-        <text class='name'>国家艺术人才培养示范基地</text>
-      </view>
-      <view class='list'>
-        <image></image>
-        <text class='name'>北京十大艺术教育机构</text>
-      </view>
-      <view class='list'>
-        <image></image>
-        <text class='name'>北京十大艺术教育机构</text>
+        <text class='name'>{{item.name}}</text>
       </view>
     </view>
     </scroll-view>

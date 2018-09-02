@@ -1,0 +1,10 @@
+<!--component/location/faci-list/faci-list.wxml-->
+<view class='list' wx:for="{{list}}">
+    <view class='list-title'>{{item.title}}</view>
+    <view class='items'>
+       <view class='item' wx:for="{{item.items}}">
+        <view class='img' style='background-image:url("{{item.iamge}}")'></view>
+        <view class='name'>{{item.name}}</view>
+       </view>
+    </view>
+</view>
