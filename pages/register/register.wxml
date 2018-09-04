@@ -1,0 +1,20 @@
+<view class='content-page'>
+  <view class='title'>手机号验证</view>
+  <view class="section">
+  <text>手机号码</text>
+  <input placeholder="请输入手机号码" type="number" maxlength="11" bindinput="inputPhoneNum" auto-focus='true' />
+ 
+</view>
+<view class="section">
+  <view class='test'>
+    <text>短信验证</text>
+    <text wx:if='{{send}}' class='sendMsg' bindtap='sendMsg'>验证码</text>
+    <text wx:if="{{alreadySend}}" class="sendMsg" bindtap="sendMsg">重新获取({{second+"s"}})</text>
+  </view>
+  <input placeholder="短信验证码" type="number" maxlength="6" bindinput="addCode" />
+</view>
+<button type="{{buttonType}}" disabled="{{disabled}}" bindtap="showInfo" class='login'>登录</button>
+</view>
+
+
+

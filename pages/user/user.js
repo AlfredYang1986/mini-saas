@@ -99,5 +99,10 @@ Page({
     wx.navigateTo({
       url: '/pages/user/server/server',
     })
+  },
+  register:function(event) {
+    wx.navigateTo({
+      url: '/pages/register/register',
+    })
   }
 })
