@@ -21,6 +21,25 @@
 .clsdet-component {
 	width: 100%;
 }
+
+.swiper-tab{  
+    width: 100%;  
+    border-bottom: 2rpx solid #eee;  
+    text-align: center;  
+    line-height: 80rpx;
+    background: #fff;
+    font-size: 14px;
+}  
+.on{ 
+  color: #dd2727;  
+  border-bottom: 5rpx solid #dd2727;
+}  
+.swiper-tab-list{  
+  font-size: 29rpx;  
+    display: inline-block;  
+    width: 49.5%;  
+    color: #333; 
+}
 .write {
   height: 100%;
   background: #fff;
@@ -135,4 +154,77 @@
 }
 .active {
   background: #FCE0DE;
+}
+
+.long-dec{
+  padding-left: 20rpx;
+  margin-top: 20rpx;
+  display: -webkit-box;/*关键属性*/
+  font-size:28rpx;
+  color:#cfcfd0;
+  line-height: 40rpx;
+  word-break: break-all;
+  -webkit-box-orient: vertical;/* 关键属性 */
+  -webkit-line-clamp:1;/* 关键属性 */
+  overflow: hidden;/* 关键属性 */
+}
+.long-dec .text {
+  width: 100%;
+  opacity: 0;
+  height: 2rpx;
+  overflow: hidden;
+}
+.hide{
+ display: -webkit-box;
+}
+.show{
+ display: block;
+}
+.arrow{
+ width: 26rpx;
+ height: 14rpx;
+  margin-top: 14rpx;
+}
+.weui-loadmore {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* padding-bottom: 52rpx; */
+  padding-top: 52rpx;
+  
+}
+.company-detail {
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+.weui-loadmore__tips {
+  font-family: PingFangSC-Medium;
+  font-size: 16px;
+  color: #404040;
+}
+/* .content {
+  display: flex;
+  flex-direction: column;
+} */
+.content .title {
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  color: #404040;
+
+  margin-bottom: 16rpx;
+}
+.lists {
+  margin-bottom: 40rpx;
+} 
+.lists .list {
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #737373;
+  letter-spacing: 1px;
+
+  margin-bottom: 16rpx;
+  display: block;
 }

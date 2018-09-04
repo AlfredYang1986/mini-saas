@@ -3,15 +3,15 @@
 	<view class="content-item about-margin">
     <block wx:if="{{isCourse == 'false'}}">
       <view class="content-row-span">
-        <text class="about-title">活动详情</text>
-        <view class="content-row about-title-des">
+        <text class="about-title">活动内容</text>
+        <!-- <view class="content-row about-title-des">
           <image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_time%402x.png"></image>
           <text>45分钟</text>
-        </view>
+        </view> -->
       </view>
     </block>
     <block wx:else>
-		  <text class="about-title">课程详情</text>
+		  <text class="about-title">课程目标</text>
     </block>
 
 		<block wx:if="{{!expending}}">
@@ -26,7 +26,7 @@
 			<text class="about-des-all">{{des}}</text>
 		</block>
 
-		<view class="content-row about-bonus" wx:if="{{bonus.length > 0}}">
+		<!-- <view class="content-row about-bonus" wx:if="{{bonus.length > 0}}">
 			<image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_gift%402x.png"></image>
 			<text>{{bonus}}</text>
 		</view>
@@ -34,7 +34,26 @@
 		<view class="content-row about-bonus" wx:if="{{fee.length > 0}}">
 			<image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_fee%402x.png"></image>
 			<text>{{fee}}</text>
-		</view>
-	
+		</view> -->
+    <block wx:if="{{isCourse == 'false'}}">
+      <view class="content-row-span">
+        <text class="about-title">与孩子互动</text>
+      </view>
+      <view class="about-des">
+				<text>{{child}}</text>
+			</view>
+      <view class='explan'>
+        <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_gift%402x.png'></image>
+        <text>您的宝贝将获得自己制作的机器人</text>
+      </view>
+    </block>
+    <block wx:else>
+			 <view class="content-row-span">
+        <text class="about-title">课程内容</text>
+      </view>
+      <view class="about-des">
+				<text>{{classes}}</text>
+			</view>
+		</block>
 	</view>
 </view>

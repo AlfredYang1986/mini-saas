@@ -7,7 +7,7 @@
           <view class="title">全部场地<text>5</text></view>
           <view class='btn'>
             <text>查看场地详情</text>
-            <image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png"></image>
+            <image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter_theme%402x.png"></image>
           </view>
         </view>				
 			</view> 

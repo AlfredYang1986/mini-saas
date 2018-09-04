@@ -1,9 +1,4 @@
 /* component/location-banner/location-banner.wxss */
-
-.loc-banner {
-
-}
-
 .loc-banner .content-page {
 	display: flex;
 	flex-direction: column;
@@ -43,13 +38,27 @@
   font-family: SFProText-Medium;
   color: #404040;
 }
+.loc-banner .content-row-span .title text {
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #A6A6A6;  
+  margin-left: 12rpx;
+}
 .loc-banner .content-row-span .select {
+  display: flex;
+  flex-direction: row;
+}
+.loc-banner .content-row-span .select .other {
   font-family: SFProText-Medium;
   font-size: 13px;
   color: #80AEFF;
   text-align: right;
 }
-
+.loc-banner .content-row-span.select .img {
+  width: 8rpx;
+  height: 16rpx; 
+  background-image: url("https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter_theme%402x.png");
+}
 .loc-banner .content-row-span .more {
 	font-family: PingFangSC-Medium;
 	font-size: 13px;

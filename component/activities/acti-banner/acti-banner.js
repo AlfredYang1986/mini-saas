@@ -46,5 +46,10 @@ Component({
         url: '/pages/activity/detail/detail'
       })
     },
+    showLst:function(event) {
+      wx:wx.navigateTo({
+        url: '/pages/activity/lst/lst',
+      })
+    }
   }
 })

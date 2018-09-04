@@ -1,0 +1,9 @@
+/* pages/activity/lst/lst.wxss */
+.content-page {
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  padding-top: 40rpx;
+}

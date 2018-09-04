@@ -50,6 +50,7 @@
   background-size: cover;
   box-shadow: 0 9px 13px 0 rgba(173,186,222,0.62);
   border-radius: 8rpx;
+  background: #FFFFFF;
 }
 .list .info {
   display: flex;

@@ -36,6 +36,11 @@
   display: flex;
   flex-direction: column;
 }
+.content-page .content .info .sort {
+  font-family: PingFangSC-Medium;
+  font-size: 13px;
+  color: #4C6899;
+}
 .content-page .content .info .headline {
   font-family: PingFangSC-Semibold;
   font-size: 32rpx;

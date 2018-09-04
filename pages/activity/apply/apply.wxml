@@ -1,0 +1,69 @@
+<view class="content-page">
+  <view class='con'>
+  <view class='list' bindtap="showPlace">
+    <text class='name'>体验场地</text>
+    <view class='select'>
+      <text>请选择</text>
+      <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
+    </view>
+  </view>
+
+  <view class='list border-bottom' bindtap="showTime">
+    <text class='name'>体验时间</text>
+    <view class='select'>
+      <text>请选择</text>
+      <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
+    </view>
+  </view>
+
+   <view class='list border-bottom' >
+    <text class='name'>孩子信息</text>
+    <view class='select'>
+      <text class='child'>添加孩子</text>
+      <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_add%402x.png' class='add'></image>
+    </view>
+  </view>
+  
+   <view class='list'>
+    <text class='name'>联系方式</text>
+    <view class='select'>
+      <text></text>
+      <image></image>
+    </view>
+  </view>
+  </view>
+
+<view class="modals modals-bottom-dialog" hidden="{{hideModal}}">
+  <view class="modals-cancel" bindtap="hideModal"></view>
+  <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
+    <view class='alert'>
+      <view class='title'  bindtap="hideModal">
+        <text>完成</text>
+      </view>
+      <view class='lists'>
+        <view class='list'>PROGWARTS-科学空间 青年路站</view>
+        <view class='list'>PROGWARTS-科学空间 五道口站</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="modals modals-bottom-dialog" hidden="{{hideModal}}">
+  <view class="modals-cancel" bindtap="hideModal"></view>
+  <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
+    <view class='alert'>
+      <view class='title'  bindtap="hideModal">
+        <text>完成</text>
+      </view>
+      <view class='lists'>
+        <view class='list'>8月12日</view>
+        <view class='list'>8月13日</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+  <view class='btn'>
+    <text>提交</text>
+  </view>
+</view>

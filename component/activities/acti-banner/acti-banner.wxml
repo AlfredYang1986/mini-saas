@@ -1,6 +1,6 @@
 <!--component/activities/acti-banner/acti-banner.wxml-->
 <view class='content-page'>
-  <view class='title'>
+  <view class='title' bindtap='showLst'>
     <text>本周活动</text>
     <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
   </view>

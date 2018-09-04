@@ -1,2 +1,33 @@
-<!--pages/classes/apply/apply.wxml-->
-<text>pages/classes/apply/apply.wxml</text>
+<view class="content-page">
+  <view class='list'>
+    <text class='name'>预约场地</text>
+    <view class='select'>
+      <text>请选择</text>
+      <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
+    </view>
+  </view>
+  <view class='list border-bottom'>
+    <text class='name'>预约日期</text>
+    <view class='select'>
+      <text>请选择</text>
+      <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
+    </view>
+  </view>
+   <view class='list'>
+    <text class='name'>孩子信息</text>
+    <view class='select'>
+      <text class='child'>添加孩子</text>
+      <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_add%402x.png' class='add'></image>
+    </view>
+  </view>
+   <view class='list'>
+    <text class='name'>联系方式</text>
+    <view class='select'>
+      <text></text>
+      <image></image>
+    </view>
+  </view>
+  <view class='btn'>
+    <text>提交</text>
+  </view>
+</view>

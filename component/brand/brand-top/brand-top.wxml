@@ -1,7 +1,10 @@
 <!--component/brand/brand-top/brand-top.wxml-->
 <view class='content-page'>
   <view class='info'>
-    <text class='title'>PRO科学空间</text>
+    <view class='title'>
+      <text>PRO科学空间</text>
+      <image class='img' src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/Combined%20Shape%402x.png"></image>
+    </view>
     <text class='intro'>「彩色方块的转动中感受魔方的魅力」</text>
     <view class='list'>
       <text>场景教学</text> |

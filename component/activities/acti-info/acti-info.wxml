@@ -1,0 +1,14 @@
+<!--component/activities/acti-info/acti-info.wxml-->
+<view class='content-page'>
+  <view class='sort'>类别</view>
+  <view class='name'>
+    <text>STEM Meeting Up</text>
+    <image class='share' src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_share.png'></image>
+  </view>
+  <view class='lists'>
+    <view class='list' wx:for="{{list}}">
+      <image class='img' src='{{item.img}}'></image>
+      <view class='des'>{{item.des}}</view>
+    </view>
+  </view>
+</view>

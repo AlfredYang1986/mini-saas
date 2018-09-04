@@ -1,0 +1,4 @@
+<!--pages/activity/lst/lst.wxml-->
+<view class='content-page'>
+  <server-list  bindtap='activityDetail'></server-list>
+</view>

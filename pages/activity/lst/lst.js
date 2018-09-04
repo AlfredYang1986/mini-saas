@@ -1,4 +1,4 @@
-// pages/server/server.js
+// pages/activity/lst/lst.js
 Page({
 
   /**
@@ -62,5 +62,11 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  activityDetail: function (event) {
+    wx.navigateTo({
+      url: '/pages/activity/detail/detail',
+    })
   }
 })

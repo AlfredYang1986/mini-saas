@@ -5,11 +5,33 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isFold: true,
     show: false,
     hide: true,
     showTime: false,
     showOthers: true,
     animationData: {},
+    tab:0,
+  },
+
+  showAll: function (e) {
+    this.setData({
+      isFold: !this.data.isFold,
+    })
+  },
+  tab_slide: function (e) {//滑动切换tab 
+    var that = this;
+    that.setData({ tab: e.detail.current });
+  },
+  tab_click: function (e) {//点击tab切换
+    var that = this;
+    if (that.data.tab === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        tab: e.target.dataset.current
+      })
+    }
   },
 
   /**
@@ -126,6 +148,11 @@ Page({
   showSuccess: function(event) {
     wx.navigateTo({
       url: '../success/success',
+    })
+  },
+  apply: function(event) {
+    wx:wx.navigateTo({
+      url: '/pages/classes/apply/apply',
     })
   }
 

@@ -6,6 +6,9 @@
     "actitp": "/component/activities/acti-timepick/acti-timepick",
     "actibtn": "/component/activities/acti-btns/acti-btns",
     "actilocal":"/component/activities/acti-local/acti-local",
-    "actilstc": "/component/activities/acti-lstc/acti-lstc"
+    "actilstc": "/component/activities/acti-lstc/acti-lstc",
+    "acti-carousel":"/component/activities/acti-carousel/acti-carousel",
+    "acti-info": "/component/activities/acti-info/acti-info",
+    "acti-remarks": "/component/activities/acti-remarks/acti-remarks"
   }
 }

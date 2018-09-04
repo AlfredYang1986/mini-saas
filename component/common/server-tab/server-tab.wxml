@@ -1,0 +1,11 @@
+<!--component/common/server-tab/server-tab.wxml-->
+<view class='content-page'>
+  <view class='block' bindtap='reserveDetail'  wx:for="{{list}}">
+    <view class='img' style='background-image:url("{{item.img}}")'></view>
+    <view class='info'>
+      <text class='sort'>{{item.sort}}</text>
+      <text class='head'>{{item.head}}</text>
+      <text class='cost'>{{item.cost}}</text>
+    </view>
+  </view>
+</view>

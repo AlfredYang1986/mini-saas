@@ -6,6 +6,8 @@
     "clsloc": "/component/common/loc-container/loc-container",
     "clslocal": "/component/activities/acti-local/acti-local",
     "clsbtn": "/component/activities/acti-btns/acti-btns",
-    "clsbtns": "/component/classes/btn-container/btn-container"
+    "clsbtns": "/component/classes/btn-container/btn-container",
+    "cls-info": "/component/classes/cls-info/cls-info",
+    "cls-remarks": "/component/activities/acti-remarks/acti-remarks"
   }
 }

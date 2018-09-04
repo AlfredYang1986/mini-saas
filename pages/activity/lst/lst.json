@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "server-list": "/component/common/server-list/server-list"
+  }
+}

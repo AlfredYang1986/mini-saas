@@ -3,12 +3,15 @@
   padding-left: 58rpx;
   padding-right: 40rpx;
   padding-top: 56rpx;
-  padding-bottom: 80rpx;
+  padding-bottom: 48rpx;
+  margin-bottom: 20rpx;
 
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+
+  border-bottom: 1px solid  #E5E5E5;
 }
 .info {
   display: flex;
@@ -17,9 +20,21 @@
 .info .title {
   font-family: SFProText-Medium;
   font-size: 20px;
-  color: #404040;
+  color: #80AEFF;
 
+  
   margin-bottom: 16rpx;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.info .title text{
+  margin-right: 16rpx;
+}
+.info .title .img {
+  width: 12rpx;
+  height: 18rpx;
 }
 .info .intro {
   font-family: PingFangSC-Regular;

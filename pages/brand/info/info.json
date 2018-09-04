@@ -5,7 +5,6 @@
     "class-banner": "/component/classes/cla-banner/cla-banner",        
     "location-banner": "/component/location/banner/banner",
     "brand-logo":"/component/common/brand-logo/brand-logo",
-    "brand-top":"/component/brand/brand-top/brand-top",
-    "brand-detail":"/component/brand/brand-detail/brand-detail"
+    "brand-top":"/component/brand/brand-top/brand-top"
    }
 }

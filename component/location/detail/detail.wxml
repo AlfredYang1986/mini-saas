@@ -41,8 +41,8 @@
 				<text>{{parking}}</text>
 			</view>
 		</view>
-		<view class="content-row-span c-loc-margin-32">
-			<view class="c-loc-address"  bindtap='showLocationList' >
+		<view class="content-row-span c-loc-margin-32"  bindtap='showLocationList'>
+			<view class="c-loc-address"  >
         <text class='name'>{{name}}</text>
 				<text class="address">{{address}}</text>
 			</view>

@@ -9,7 +9,7 @@ Page({
       logobg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/logo_bg.png",
       logourl:"https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/logo%403x.png",
     },
-    tab:1
+    tab:1,
   },
   tab_slide: function (e) {//滑动切换tab 
     var that = this;
@@ -30,7 +30,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          clientHeight: res.windowHeight
+        });
+      }
+    });
+    //获取可视窗口高度
   },
 
   /**
@@ -87,6 +95,15 @@ Page({
       url: '/pages/brand/details/details'
     })
   },
+  showLocations: function (event) {
+    wx.navigateTo({
+      url: '/pages/locations/detail/detail'
+    })
+  },
+  brandDetails: function (event) {
+    wx:wx.navigateTo({
+      url: '/pages/brand/detail/detail'
+    })
+  }
 
-  
 })

@@ -4,8 +4,9 @@
     <view class='img'  style='background-image:url("{{info.img}}")'></view>
     <view class='info'>
       <view>
+        <text class='sort'>{{info.sort}}</text>
         <text class='headline'>{{info.head}}</text>
-        <text class='age'>{{info.age}}</text>
+        <!-- <text class='age'>{{info.age}}</text> -->
       </view>     
       <text class='cost'>{{info.cost}}</text>
     </view>

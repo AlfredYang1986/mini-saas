@@ -4,11 +4,14 @@
 		<view class="content-item">
 			<view class="content-row-span">
         <block wx:if="{{isActi == 'true'}}">
-          <text class="title">活动场地</text>
+          <text class="title">全部场地</text>
         </block>
         <block wx:else>
-          <text class="title">最近场地</text>
-          <!-- <text class='select'>查看其它场地</text> -->
+          <view class="title">活动场地 <text>2</text></view>
+          <view class='select' bindtap="showLocationList"> 
+            <text class='other'>查看其它场地</text>
+            <view class="img" style='backgroung-image:url("https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter_theme%402x.png")'></view>
+          </view>
         </block>
 			</view>
 		</view>

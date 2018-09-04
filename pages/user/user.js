@@ -97,7 +97,7 @@ Page({
 
   myServer: function (event) {
     wx.navigateTo({
-      url: 'server/server',
+      url: '/pages/user/server/server',
     })
   }
 })

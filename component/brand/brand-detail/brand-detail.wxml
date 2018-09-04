@@ -1,5 +1,15 @@
 <!--component/brand/brand-detail/brand-detail.wxml-->
 <view class='content-page'>
+  <view class='head'>
+    <image class='logo' src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/logo.png'></image>
+    <text class='headline'>PRO科学空间</text>
+    <view class='des'>「彩色方块的转动中感受魔方的魅力」</view>
+    <view class='lists'>
+      <view class='list'>场景教学 | </view>
+      <view class='list'>先进理念 | </view>
+      <view class='list'>专业团队 | </view>
+    </view>
+  </view>
   <view class='time'>
     <text class='title'>成立时间</text>
     <text class='content'>2013年</text>

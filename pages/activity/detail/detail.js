@@ -23,6 +23,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isFold: true,
     show: false,
     hide: true,
     showTime:false,
@@ -45,7 +46,11 @@ Page({
     }],
     id:0,
   },
-
+  showAll: function (e) {
+    this.setData({
+      isFold: !this.data.isFold,
+    })
+  },
    bindChange: function(e) {
     const val = e.detail.value
     this.setData({
@@ -53,6 +58,20 @@ Page({
       month: this.data.months[val[1]],
       day: this.data.days[val[2]]
     })
+  },
+  tab_slide: function (e) {//滑动切换tab 
+    var that = this;
+    that.setData({ tab: e.detail.current });
+  },
+  tab_click: function (e) {//点击tab切换
+    var that = this;
+    if (that.data.tab === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        tab: e.target.dataset.current
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -86,7 +105,14 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    var that = this
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          clientHeight: res.windowHeight
+        });
+      }
+    });
   },
 
   /**
@@ -196,6 +222,11 @@ Page({
     this.setData({
       id: id
     })
+  },
 
+  applyPage:function(e) {
+    wx:wx.navigateTo({
+      url: '/pages/activity/apply/apply',
+    })
   }
 })

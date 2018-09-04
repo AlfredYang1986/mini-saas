@@ -1,10 +1,13 @@
-// component/activities/acti-alert/acti-alert.js
+// component/activities/acti-remarks/acti-remarks.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-
+    isRemarks: {
+      type: String,
+      value: 'true',
+    }
   },
 
   /**

@@ -48,6 +48,12 @@ Component({
       wx.navigateTo({
         url: '/pages/locations/detail/map/map'
       })
-    }
+    },
+
+    showLocationList: function (event) {
+      wx.navigateTo({
+        url: '/pages/locations/lst/lst'
+      })
+    },
   }
 })
