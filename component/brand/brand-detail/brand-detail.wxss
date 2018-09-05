@@ -121,8 +121,6 @@
 .achievement .content .list image {
   width: 158rpx;
   height: 134rpx;
-
-  margin-bottom: 60rpx;
 }
 .achievement .content .list .time {
   font-family: PingFangSC-Regular;

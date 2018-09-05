@@ -11,7 +11,7 @@
 <view class="company-detail">
   <view class="company-detail-content">
     <view class="weui-loadmore weui-loadmore_line"  bindtap="showAll">
-      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">活动计划</view>
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">体验计划</view>
       <image class="arrow" src="{{isFold?'https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_down.png':'https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_up.png'}}"></image>
     </view>
     <view class="long-dec {{isFold?'hide':'show'}}">

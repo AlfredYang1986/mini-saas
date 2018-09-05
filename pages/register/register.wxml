@@ -9,7 +9,7 @@
   <view class='test'>
     <text>短信验证</text>
     <text wx:if='{{send}}' class='sendMsg' bindtap='sendMsg'>验证码</text>
-    <text wx:if="{{alreadySend}}" class="sendMsg" bindtap="sendMsg">重新获取({{second+"s"}})</text>
+    <text wx:if="{{alreadySend}}" class="sendMsged" bindtap="sendMsg">重新获取({{second+"s"}})</text>
   </view>
   <input placeholder="短信验证码" type="number" maxlength="6" bindinput="addCode" />
 </view>

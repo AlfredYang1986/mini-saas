@@ -3,7 +3,7 @@
 	<view class="content-item about-margin">
     <block wx:if="{{isCourse == 'false'}}">
       <view class="content-row-span">
-        <text class="about-title">活动内容</text>
+        <text class="about-title">体验内容</text>
         <!-- <view class="content-row about-title-des">
           <image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_time%402x.png"></image>
           <text>45分钟</text>

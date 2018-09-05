@@ -1,9 +1,11 @@
 <!--component/classes/cla-banner/cla-banner.wxml-->
 <view class='content-page'>
+  <block wx:if="{{isList == 'false'}}">
   <view class='title'  bindtap='showClasses'>
     <text>课程</text>
     <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
   </view>
+  </block>
   <view class='content'>
     <view class='list' wx:for="{{classInfo}}" bindtap='showClsDetail'>
       <view class='cover' style="background-image: url('{{item.url}}')"></view>

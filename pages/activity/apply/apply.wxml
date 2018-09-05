@@ -27,8 +27,7 @@
    <view class='list'>
     <text class='name'>联系方式</text>
     <view class='select'>
-      <text></text>
-      <image></image>
+      <input placeholder="请输入手机号"></input>
     </view>
   </view>
   </view>
@@ -47,7 +46,7 @@
     </view>
   </view>
 </view>
-
+<!-- 
 <view class="modals modals-bottom-dialog" hidden="{{hideModal}}">
   <view class="modals-cancel" bindtap="hideModal"></view>
   <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
@@ -61,7 +60,7 @@
       </view>
     </view>
   </view>
-</view>
+</view> -->
 
   <view class='btn'>
     <text>提交</text>
