@@ -1,6 +1,7 @@
 // pages/info-two/info-two.js
-Page({
 
+var bmats = require('../../models/bm_attendee_schema.js');
+Page({
   /**
   * 页面的初始数据
   */
@@ -11,7 +12,8 @@ Page({
     disabled: true,
     buttonType: 'default',
     phoneNum: '',
-    code: '',
+    code: ''
+    // ats: attendee()
   },
 
 
@@ -187,7 +189,9 @@ Page({
   * 生命周期函数--监听页面显示
   */
   onShow: function () {
-
+    let tmp = bmats.attendee
+    console.log(tmp)
+    console.log(bmats.change2Json())
   },
 
   /**
