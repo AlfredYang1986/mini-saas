@@ -189,9 +189,10 @@ Page({
   * 生命周期函数--监听页面显示
   */
   onShow: function () {
-    let tmp = bmats.attendee
+    let tmp = bmats.queryAttendee()
+    // let tmp = bmats.attendee
     console.log(tmp)
-    console.log(bmats.change2Json())
+    // console.log(bmats.change2Json())
   },
 
   /**
