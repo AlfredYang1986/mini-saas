@@ -21,10 +21,10 @@
   box-shadow: 0 4px 10px 0 rgba(173,186,222,0.37);
   border-radius: 4px;
 
-  width: 144rpx;
-  height: 144rpx;
+  width: 160rpx;
+  height: 160rpx;
 
-  margin-bottom: 80rpx;
+  margin-bottom: 48rpx;
 }
 .head .headline {
   font-family: SFProText-Medium;
@@ -56,17 +56,17 @@
   margin-top: 48rpx;
 }
 .time .content {
-  font-family: SFProText-Regular;
-  font-size: 14px;
-  color: #737373;
-  margin-bottom: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #404040;
+  margin-bottom: 48rpx;
 }
 .title {
   font-family: SFProText-Medium;
-  font-size: 16px;
-  color: #404040;
+  font-size: 32rpx;
+  color: #0d0d0d;
 
-  margin-bottom: 32rpx;
+  margin-bottom: 49rpx;
   margin-right: 32rpx;
 }
 .story {
@@ -75,12 +75,11 @@
 }
 .story .content {
   font-family: PingFangSC-Regular;
-  font-size: 14px;
-  color: #737373;
-  letter-spacing: 1.08px;  
+  font-size: 28rpx;
+  color: #404040;
 
   padding-bottom: 48rpx;
-  margin-bottom: 48rpx;
+  margin-bottom: 49rpx;
   border-bottom: 1px solid #E5E5E5;
 }
 .team {
@@ -89,12 +88,11 @@
 }
 .team .content {
   font-family: PingFangSC-Regular;
-  font-size: 14px;
-  color: #737373;
-  letter-spacing: 1.08px;
+  font-size: 28rpx;
+  color: #404040;
 
   padding-bottom: 48rpx;
-  margin-bottom: 48rpx;
+  margin-bottom: 49rpx;
   border-bottom: 1px solid #E5E5E5;
 }
 .achievement {
@@ -115,22 +113,16 @@
   flex-direction: column;
   align-items: center;
 
-  margin-right: 100rpx;
-  margin-top: 44rpx;
+  margin-right: 80rpx;
 }
 .achievement .content .list image {
-  width: 158rpx;
-  height: 134rpx;
-}
-.achievement .content .list .time {
-  font-family: PingFangSC-Regular;
-  font-size: 11px;
-  color: #A6A6A6;
-  text-align: center;
+  margin-bottom: 12rpx;
+  width: 184rpx;
+  height: 122rpx;
 }
 .achievement .content .list .name {
   font-family: PingFangSC-Regular;
-  font-size: 11px;
+  font-size: 26rpx;
   color: #A6A6A6;
   text-align: center;
 }
@@ -138,7 +130,7 @@
   display: flex;
   flex-direction: column;
 
-  margin-top: 48rpx;
+  margin-top: 49rpx;
 }
 .attest .content {
   display: flex;
@@ -152,16 +144,14 @@
 }
 .attest .content .list image {
   background: #FFFFFF;
-  border: 3px solid #FCE7AC;
-  width: 192rpx;
-  height: 120rpx;
+  width: 186rpx;
+  height: 122rpx;
 
-  margin-bottom: 12rpx;
+  margin-bottom: 16rpx;
 }
 .attest .content .list .name {
-  width: 192rpx;
   font-family: PingFangSC-Regular;
-  font-size: 11px;
-  color: #916868;
+  font-size: 26rpx;
+  color: #A6A6A6;
   text-align: center;
 }

@@ -16,26 +16,26 @@ Component({
   data: {
     classInfo:[{
       url:
-"https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E8%AF%BE%E7%A8%8B%20A%20pic%402x.png",
+"https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_cover_trialclass_00.jpg",
       sort:"数理逻辑",
       name:"Pro.A 初级课程入门",
       age:"8-12岁",
       price:"160"
     }, {
-        url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E8%AF%BE%E7%A8%8B%20X%20pic%402x.png",
+        url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_cover_trialclass_01.jpg",
         sort: "LEGO",
         name: "Pro.A 初级课程入门",
         age: "8-12岁",
         price: "160"
       }, {
-        url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E8%AF%BE%E7%A8%8B%20B%20pic%402x.png",
+        url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_cover_trialclass_02.jpg",
 
         sort: "LEGO",
         name: "Pro.A 初级课程入门",
         age: "8-12岁",
         price: "160"
       }, {
-        url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E8%AF%BE%E7%A8%8B%20C%20pic%402x.png",
+        url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_cover_trialclass_03.jpg",
         sort: "LEGO",
         name: "Pro.A 初级课程入门",
         age: "8-12岁",

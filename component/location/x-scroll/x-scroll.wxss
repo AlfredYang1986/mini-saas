@@ -5,6 +5,8 @@
   flex-direction: column;
 }
 .content {
+  padding-bottom: 48rpx;
+  border-bottom: 1px solid #f2f2f2;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -14,7 +16,7 @@
 .content .list {
   margin-right: 32rpx;
   /* background: #000; */
-  max-height: 406rpx;
+  /* max-height: 406rpx; */
   min-width: 554rpx;
   border-radius: 8rpx;
 }
