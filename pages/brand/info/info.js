@@ -97,12 +97,12 @@ Page({
   },
   showLocations: function (event) {
     wx.navigateTo({
-      url: '/pages/locations/detail/detail'
+      url: '/pages/locations/details/details'
     })
   },
   brandDetails: function (event) {
     wx:wx.navigateTo({
-      url: '/pages/brand/detail/detail'
+      url: '/pages/brand/details/details'
     })
   }
 

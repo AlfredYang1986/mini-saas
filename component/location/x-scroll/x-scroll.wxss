@@ -1,0 +1,39 @@
+/* component/activities/acti-banner/acti-banner.wxss */
+.content-page {
+  padding-top: 80rpx;
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+	justify-content: flex-start;
+  align-items: flex-end;
+}
+.content .list {
+  margin-right: 32rpx;
+  /* background: #000; */
+  max-height: 406rpx;
+  min-width: 554rpx;
+  border-radius: 8rpx;
+}
+.content .list .list-detail{
+  min-height: 344rpx;
+  max-width: 554rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 8rpx;
+  
+}
+.content .list .title {
+  margin-top: 26rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 13px;
+  color: #A6A6A6;
+}

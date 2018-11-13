@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "x-scroll-banner": "/component/location/x-scroll/x-scroll"
+  }
+}

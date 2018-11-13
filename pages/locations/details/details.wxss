@@ -1,0 +1,35 @@
+/* pages/locations/details/details.wxss */
+.content-page {
+  padding: 40rpx;
+}
+.title-area {
+  display: flex;
+  flex-direction: column;
+}
+.title-area .title {
+  margin-bottom: 16rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 20px;
+  color: #0D0D0D;
+}
+.title-area .address {
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #404040;
+}
+.title-area .tags {
+  margin-top: 32rpx;
+  display: flex;
+  flex-direction: row;
+}
+.title-area .tags text {
+  margin-right: 26px;
+  padding: 4rpx 16rpx;
+  border: 1px solid #979797;
+  border-radius: 4px;
+
+  font-family: PingFangSC-Medium;
+  font-size: 11px;
+  color: #A6A6A6;
+  text-align: center;
+}

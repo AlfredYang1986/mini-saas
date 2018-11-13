@@ -1,0 +1,16 @@
+<!--pages/locations/details/details.wxml-->
+<view class='content-page'>
+  <view class='title-area'>
+    <view class='title'>{{title}}</view>
+    <view class='address'>{{address}}</view>
+    <view class='tags'>
+      <text  wx:for="{{tag}}">{{item}}</text>
+    </view>
+  </view>
+  <view class='show-img-area'>
+    <x-scroll-banner></x-scroll-banner>
+  </view>
+  <!-- <view class='traffic'>{{traffic}}</view> -->
+  <view class='school'></view>
+  <view class='facility'></view>
+</view>

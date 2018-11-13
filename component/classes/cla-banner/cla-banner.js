@@ -17,7 +17,7 @@ Component({
     classInfo:[{
       url:
 "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E8%AF%BE%E7%A8%8B%20A%20pic%402x.png",
-      sort:"LEGO",
+      sort:"数理逻辑",
       name:"Pro.A 初级课程入门",
       age:"8-12岁",
       price:"160"

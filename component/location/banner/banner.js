@@ -53,7 +53,7 @@ Component({
   methods: {
     showLocations: function (event) {
       wx.navigateTo({
-        url: '/pages/locations/detail/detail'
+        url: '/pages/locations/details/details'
       })
     }
   }

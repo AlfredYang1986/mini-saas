@@ -22,7 +22,6 @@
   font-size: 20px;
   color: #80AEFF;
 
-  
   margin-bottom: 16rpx;
 
   display: flex;
@@ -53,8 +52,8 @@ color: #A6A6A6;
   padding: 0 10rpx;
 }
 .logo {
-  width: 144rpx;
-  height: 144rpx;
+  width: 160rpx;
+  height: 160rpx;
   box-shadow: 0 4px 10px 0 rgba(173,186,222,0.37);
   border-radius: 4px;  
 }

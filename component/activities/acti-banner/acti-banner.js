@@ -12,12 +12,15 @@ Component({
    */
   data: {
     activityInfo:[{
-      name:"STEM Meeting Up",
+      name:"奇妙的宇宙VR之旅",
       date:"08/12",
       week:"周四",
       local:"朝阳区",
       price:"134",
       url:"https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E6%B4%BB%E5%8A%A81.png",
+      minAge: "4",
+      maxAge: "6",
+      sort: "展览",
     } 
     , {
         name: "STEM Meeting Up",
@@ -26,6 +29,9 @@ Component({
         local: "东城区",
         price: "134",
         url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E6%B4%BB%E5%8A%A82.png",
+        minAge: "4",
+        maxAge: "6",
+        sort: "讲座",
       }, {
         name: "STEM Meeting Up",
         date: "08/12",
@@ -33,6 +39,9 @@ Component({
         local: "昌平区",
         price: "134",
         url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E6%B4%BB%E5%8A%A82.png",
+        minAge: "4",
+        maxAge: "6",
+        sort: "展览",
       }
     ]
   },
