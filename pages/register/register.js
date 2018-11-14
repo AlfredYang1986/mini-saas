@@ -166,7 +166,10 @@ Page({
   },
   showInfo: function (event) {
     console.log("111");
-    wx.switchTab({
+    // wx.switchTab({
+    //   url: '/pages/brand/info/info',
+    // })
+    wx.navigateTo({
       url: '/pages/brand/info/info',
     })
   },
