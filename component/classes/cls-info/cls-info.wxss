@@ -3,8 +3,7 @@
   height: auto;
   padding-right: 40rpx;
   padding-left: 40rpx;
-  padding-top: 60rpx;
-  margin-bottom: 48rpx;
+  padding-top: 48rpx;
 
   display: flex;
   flex-direction: column;
@@ -12,9 +11,9 @@
 
 }
 .sort {
-  font-family: PingFangSC-Medium;
+  font-family: PingFangSC-Regular;
   font-size: 13px;
-  color: #4C6899;
+  color: #A6A6A6;
 }
 .name {
   display: flex;
@@ -22,12 +21,12 @@
   justify-content: space-between;
   align-items: center;
 
-  margin-bottom: 48rpx;
+  margin-bottom: 66rpx;
 }
 .name text {
-  font-family: SFProText-Bold;
+  font-family: PingFangSC-Medium;
   font-size: 20px;
-  color: #404040;
+  color: #0D0D0D;
 }
 .name .share {
   width: 40rpx;
@@ -44,14 +43,14 @@
   margin-bottom: 32rpx;
 }
 .list .img {
-  width: 32rpx;
-  height: 32rpx;
-  margin-right: 26rpx;
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 32rpx;
 }
 .list .des {
-  font-family: SFProText-Regular;
+  font-family: PingFangSC-Regular;
   font-size: 14px;
-  color: #737373;
+  color: #404040;
 }
 .tags {
   display: flex;

@@ -2,15 +2,21 @@
 <view class='content-page'>
   <view class='info'>
     <view class='title'>
-      <text>PRO科学空间</text>
-      <image class='img' src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/Combined%20Shape%402x.png"></image>
+      <text>{{title}}</text>
+      <image class='img' src="">{{img}}</image>
     </view>
-    <text class='intro'>「彩色方块的转动中感受魔方的魅力」</text>
-    <view class='list'>
-      <text>场景教学</text> |
-      <text>先进理念</text> |
-      <text>专业团队</text>
+    <text class='intro'>「{{subtitle}}」</text>
+    <view class='lists'>
+      <view class='list' wx:for="{{tags}}" wx:for-index="idx">
+        <view>
+          {{item}}
+          <block wx:if="{{idx<2}}">
+            <text class="separate"> | </text>
+          </block>
+        </view>
+      </view>
     </view>
+    
   </view>
   <image class='logo' src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/logo.png'></image>
 </view>

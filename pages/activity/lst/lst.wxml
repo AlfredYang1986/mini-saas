@@ -1,4 +1,11 @@
 <!--pages/activity/lst/lst.wxml-->
-<view class='content-page'>
+<!-- <view class='content-page'>
   <server-list  bindtap='activityDetail'></server-list>
+</view> -->
+
+<view class="cls-lst">
+    <acti-lst isList="true"></acti-lst>
+</view>
+<view class='notice'>
+  <text>更多精彩即将上线</text>
 </view>

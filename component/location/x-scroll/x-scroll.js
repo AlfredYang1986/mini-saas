@@ -13,13 +13,13 @@ Component({
   data: {
     activityInfo: [{
       title: "休息区",
-      url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E6%B4%BB%E5%8A%A81.png",
+      url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_campus_type_living.jpg",
     } , {
       title: "教学区",
-      url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E6%B4%BB%E5%8A%A82.png",
+        url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_campus_type_teaching.jpg",
     }, {
       title: "教学区",
-      url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E6%B4%BB%E5%8A%A82.png",
+        url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_campus_type_teaching.jpg",
     }
     ]
   },

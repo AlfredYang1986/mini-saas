@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/register/register",
     "pages/brand/info/info",
     "pages/brand/detail/detail",
     "pages/locations/lst/lst",

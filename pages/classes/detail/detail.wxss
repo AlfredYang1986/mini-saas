@@ -1,5 +1,6 @@
 /* pages/class-lst/class-detail/class-detail.wxss */
 .clsdet-container {
+  padding-bottom: 50px;
   height: 500px;
   display: flex;
   flex-direction: column;
@@ -21,7 +22,23 @@
 .clsdet-component {
 	width: 100%;
 }
-
+.clsdet-component .notices {
+  margin-top: 32rpx;
+  border-top: 2rpx solid #F2F2F2;
+  /* border-bottom: 2rpx solid #F2F2F2; */
+}
+.clsdet-component .scroll {
+  border-top: 2rpx solid #F2F2F2;
+  height:auto;
+  padding-right:40rpx;
+  padding-left:40rpx;
+}
+.clsdet-component .facility {
+  height:auto;
+  padding-right:40rpx;
+  padding-left:40rpx;
+  margin-bottom: 230rpx;
+}
 .swiper-tab{  
     width: 100%;  
     border-bottom: 2rpx solid #eee;  
@@ -29,11 +46,7 @@
     line-height: 80rpx;
     background: #fff;
     font-size: 14px;
-}  
-.on{ 
-  color: #dd2727;  
-  border-bottom: 5rpx solid #dd2727;
-}  
+} 
 .swiper-tab-list{  
   font-size: 29rpx;  
     display: inline-block;  
@@ -63,7 +76,7 @@
 }
 .write .block .title {
   font-family: SFProText-Medium;
-  font-size: 16px;
+  font-size: 32rpx;
   color: #404040;
 
   margin-bottom: 30rpx;

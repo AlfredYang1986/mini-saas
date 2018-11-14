@@ -8,6 +8,10 @@
     "clsbtn": "/component/activities/acti-btns/acti-btns",
     "clsbtns": "/component/classes/btn-container/btn-container",
     "cls-info": "/component/classes/cls-info/cls-info",
-    "cls-remarks": "/component/activities/acti-remarks/acti-remarks"
+    "cls-remarks": "/component/activities/acti-remarks/acti-remarks",
+    "cls-reward": "/component/classes/cla-reward/cla-reward",
+    "cls-notice": "/component/classes/cla-notices/cla-notice",
+    "cls-facility": "/component/common/facility/facility",
+    "cls-scroll": "/component/classes/cls-x-scroll/cls-x-scroll"
   }
 }

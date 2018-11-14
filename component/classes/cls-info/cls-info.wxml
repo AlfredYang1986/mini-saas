@@ -1,9 +1,9 @@
 <!--component/classes/cls-info/cls-info.wxml-->
 <view class='content-page'>
-  <view class='sort'>编程</view>
+  <view class='sort'>{{sort}}</view>
   <view class='name'>
-    <text>Pro.A 初级机器人课程入门</text>
-    <image class='share' src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_share.png'></image>
+    <text>{{name}}</text>
+    <!-- <image class='share' src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_share.png'></image> -->
   </view>
   <view class='lists'>
     <view class='list' wx:for="{{list}}">
@@ -11,9 +11,9 @@
       <view class='des'>{{item.des}}</view>
     </view>
   </view>
-  <view class='tags'>
+  <!-- <view class='tags'>
     <text class='tag'>趣味教学</text>
     <text class='tag'>自主研发</text>
     <text class='tag'>进口教具</text>
-  </view>
+  </view> -->
 </view>

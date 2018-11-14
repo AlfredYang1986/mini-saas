@@ -11,8 +11,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    title: "PRO科学空间站青年路站再长一点…",
-    address: "朝阳区东直门第三方大厦A座再长一点…",
+    title: "PRO科学空间站青年路站间站青年路间站青年路",
+    address: "朝阳区东直门第三方大厦A门第三",
     bgImg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_location.png",
     bgLiving: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_campus_type_living.jpg",
     bgIndoor: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_campus_type_indoor.jpg",

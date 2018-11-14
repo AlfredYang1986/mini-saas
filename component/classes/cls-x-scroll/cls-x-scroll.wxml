@@ -1,0 +1,12 @@
+<!--component/classes/cls-x-scroll/cls-x-scroll.wxml-->
+<view class='content-page'>
+  <text class='title'>校区展示</text>
+  <scroll-view class="scroll-x" scroll-x style="width: 100%">
+    <view class='content'>
+      <view class='list' wx:for="{{activityInfo}}" bindtap='showActiDetail'>
+        <view class='list-detail' style="background-image: url('{{item.url}}')" ></view>
+        <text class='title'>{{item.title}}</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

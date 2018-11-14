@@ -42,14 +42,20 @@
   margin-left: -16rpx;
   margin-bottom: 16rpx;
   }
-.info .list {
-margin-left: -10rpx;
-font-family: PingFangSC-Medium;
-font-size: 13px;
-color: #A6A6A6;
+.lists {
+  display: flex;
+  flex-direction: row;
 }
-.info .list text {
-  padding: 0 10rpx;
+.info .list {
+  margin-left: -10rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 13px;
+  color: #A6A6A6;
+
+}
+.info .lists .separate {
+  margin-left: 16rpx;
+  margin-right: 30rpx;
 }
 .logo {
   width: 160rpx;
