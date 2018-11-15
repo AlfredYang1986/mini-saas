@@ -19,10 +19,11 @@ for (let i = 1; i <= 31; i++) {
 var id;
 Page({
 
-  /**
+  /** 
    * 页面的初始数据
    */
   data: {
+    actv: null,
     isFold: true,
     show: false,
     hide: true,
@@ -77,7 +78,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let that = this
+    let callback = {
+      onSuccess: function (res) {
+        console.log("this is res")
+        console.log(res)
+        that.setData({
+          actv: res
+        })
+      },
+      onFail: function () {
+        // TODO : 报错 ...
+      }
+    }
+    var bmactv = require('../../../models/bm_actv_schema.js')
+    console.log(bmactv)
+    console.log("this is aaaaaa")
+    console.log(options.expid)
+    bmactv.queryActvInfo(options.expid, callback)
   },
 
   /**

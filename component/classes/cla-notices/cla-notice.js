@@ -4,7 +4,14 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    exp: {
+      type: "Array",
+      value: [],
+      observer: function (news, olds, path) {
+        console.log("this is in cla-notice .js")
+        console.log(news, olds)
+      }
+    }
   },
 
   /**

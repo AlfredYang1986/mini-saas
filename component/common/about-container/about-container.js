@@ -7,6 +7,14 @@ Component({
     isCourse: {
       type: String,
       value: 'true',
+    },
+    exp: {
+      type: "Array",
+      value: [],
+      observer: function (news, olds, path) {
+        console.log("this is in about-container .js")
+        console.log(news, olds)
+      }
     }
   },
 

@@ -3,7 +3,7 @@
   <brand-top bindtap="brandDetails"></brand-top>
   <view class="brand-container" wx:if="{{brand}}"> 
     <view class="brand-component">
-      <activity-banner class="activity-banner"></activity-banner>
+      <activity-banner class="activity-banner" actvs="{{actvs}}"></activity-banner>
     </view>
     <view class="brand-component component-margin-top">
       <class-banner isList="false"  exps="{{exps}}"  class="class-banner"></class-banner>

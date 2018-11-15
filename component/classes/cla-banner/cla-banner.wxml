@@ -8,7 +8,7 @@
     <view class='content'>
       <block wx:for="{{exps}}" >
         <view class='list' bindtap='showClsDetail' data-expid="{{item.id}}">
-          <view class='cover' style="background-image: url('{{item.url}}')"></view>
+          <view class='cover' style="background-image: url('{{item.SessionInfo.dealCover}}')"></view>
           <view class='class-info'>
             <view class='info'>
               <text class='sort'>{{item.SessionInfo.Cate.title}}</text>

@@ -1,4 +1,5 @@
 // pages/brand/brand.js
+var OSS = require('../../../models/ali-oss.js')
 Page({
 
   /**
@@ -12,6 +13,7 @@ Page({
     tab:1, 
     exps: null,
     name: "",
+    actvs: null,
   },
   tab_slide: function (e) {//滑动切换tab 
     var that = this;
@@ -40,13 +42,39 @@ Page({
         });
       }
     });
+    let client = new OSS({
+      region: 'oss-cn-beijing',
+      accessKeyId: 'LTAINO7wSDoWJRfN',
+      accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
+      bucket: 'bmsass'
+    });
     //获取可视窗口高度
     let callback = {
       onSuccess: function (res) {
-        console.log("this is res")
-        console.log(res)
+        let _originRes = res;
+       let newres =  _originRes.map((ele)=> {
+          let _originImg = ele.SessionInfo.cover;
+         ele.SessionInfo.dealCover = client.signatureUrl(_originImg);
+          return ele
+        })
         that.setData({
-          exps: res
+          exps: res,
+        })
+      },
+      onFail: function () {
+        // TODO : 报错 ...
+      }
+    };
+    let callbackActvs = {
+      onSuccess: function (res) {
+        let _originRes = res;
+        let newres = _originRes.map((ele) => {
+          let _originImg = ele.SessionInfo.cover;
+          ele.SessionInfo.dealCover = client.signatureUrl(_originImg);
+          return ele
+        })
+        that.setData({
+          actvs: res,
         })
       },
       onFail: function () {
@@ -55,10 +83,11 @@ Page({
     }
     var bmexp = require('../../../models/bm_exp_schema.js')
     bmexp.queryMultiExps(callback)
-    this.setData({
-      exps: null,
-      name: "张二呆"
-    })
+    var bmactvs = require('../../../models/bm_actv_schema.js')
+    bmactvs.queryMultiActvs(callbackActvs)
+    // this.setData({
+    //   exps: null,
+    // })
   },
 
   /**

@@ -4,7 +4,13 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    actvs: {
+      type: "Array",
+      value: [],
+      observer: function (news, olds, path) {
+       
+      }
+    }
   },
 
   /**
@@ -51,8 +57,10 @@ Component({
    */
   methods: {
     showActiDetail: function (event) {
+      let expid = event.currentTarget.dataset.expid;
+      console.log(event);
       wx.navigateTo({
-        url: '/pages/activity/detail/detail'
+        url: '/pages/activity/detail/detail?expid=' + expid
       })
     },
     showLst:function(event) {

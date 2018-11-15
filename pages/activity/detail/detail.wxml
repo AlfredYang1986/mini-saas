@@ -3,7 +3,7 @@
   <view class="acti-container" id='acti'>
     <view class="acti-component">
       <actiimg></actiimg>
-      <acti-carousel></acti-carousel>
+      <acti-carousel></acti-carousel> 
     </view>
     <view class='acti-component'>
       <acti-info></acti-info>
@@ -29,11 +29,11 @@
 <view class="clsdet-container">
 
 	<view class="clsdet-component">
-		<clsimg></clsimg>
+		<clsimg exp="{{actv}}"></clsimg>
 	</view>
 
   <view class='clsdet-component'>
-    <cls-info></cls-info>
+    <cls-info exp="{{actv}}"></cls-info>
   </view>
 
   <view class='clsdet-component'>

@@ -1,6 +1,6 @@
 // pages/class-lst/class-lst.js
 Page({ 
-
+ 
 	/**
 	 * 页面的初始数据
 	 */

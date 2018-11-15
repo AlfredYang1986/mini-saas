@@ -1,4 +1,4 @@
-// pages/class-lst/class-detail/class-detail.js
+// pages/class-lst/class-detail/class-detail.js 
 Page({
  
   /**
@@ -13,7 +13,6 @@ Page({
     animationData: {},
     tab:0,
     exp: null,
-    name: "",
   },
 
   showAll: function (e) {
@@ -40,7 +39,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    debugger
     let that = this
     let callback = {
       onSuccess: function (res) {
@@ -56,6 +54,8 @@ Page({
     }
     var bmexp = require('../../../models/bm_exp_schema.js')
     console.log(bmexp)
+    console.log("this is nnnnnn")
+    console.log(options.expid)
     bmexp.queryExpInfo(options.expid, callback)
   },
 

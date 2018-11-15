@@ -1,18 +1,33 @@
 // pages/activity/lst/lst.js
 Page({
-
+ 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    actvs: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    let that = this
+    let callback = {
+      onSuccess: function (res) {
+        console.log("this is res")
+        console.log(res)
+        that.setData({
+          actvs: res
+        })
+      },
+      onFail: function () {
+        // TODO : 报错 ...
+      }
+    }
+    var bmactvs = require('../../../models/bm_actv_schema.js')
+    console.log(bmactvs)
+    bmactvs.queryMultiActvs(callback)
   },
 
   /**

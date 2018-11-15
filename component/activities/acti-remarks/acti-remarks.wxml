@@ -2,8 +2,8 @@
 <view class='content about-margin'>
 <!-- <block wx:if="{{isRemarks == 'true'}}"> -->
   <view class='title'>将为宝贝提供</view>
-  <view class='lists' wx:for="{{remarks}}">
-    <text class='list'>· {{item}}</text>
+  <view class='lists'>
+    <text class='list'>{{exp.SessionInfo.inc}}</text>
   </view>
 <!-- </block> -->
 <!-- <block wx:else>

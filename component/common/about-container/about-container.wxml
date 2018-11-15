@@ -12,10 +12,10 @@
 
 		<block wx:if="{{!expending}}">
 			<view class="about-des">
-				<text>{{des}}</text>
-        <view class="about-des-more">
+				<text>{{exp.SessionInfo.description}}</text>
+        <!-- <view class="about-des-more">
 					<text>更多</text>
-				</view>
+				</view> -->
 			</view>
 		</block>
 		<block wx:else>
@@ -26,7 +26,7 @@
         <text class="about-title">与孩子互动</text>
       </view>
       <view class="about-des">
-				<text>{{child}}</text>
+				<text>{{exp.SessionInfo.play_children}}</text>
 			</view>
 	</view>
 </view>

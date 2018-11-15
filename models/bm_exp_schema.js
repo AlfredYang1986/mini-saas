@@ -1,7 +1,7 @@
 import { JsonApiDataStore } from '../miniprogram_npm/jsonapi-datastore/index.js'
 
 var bmstore = new JsonApiDataStore();
-var bmmulti = new JsonApiDataStore();
+var bmmulti = new JsonApiDataStore(); 
 
 function guid() {
   function s4() {
