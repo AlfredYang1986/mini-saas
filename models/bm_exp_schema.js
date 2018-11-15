@@ -9,7 +9,7 @@ function queryMultiObjects() {
 
   let query_yard_payload = this.genMultiQuery();
   let rd = this.bmmulti.sync(query_yard_payload);
-  let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()));
+  let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()))
   console.log("rdrdrdrd");
   console.log(rd);
 }
@@ -45,4 +45,9 @@ function genMultiQuery() {
       }
     ]
   }
+}
+
+module.exports = {
+  genMultiQuery: genMultiQuery,
+  queryMultiObjects: queryMultiObjects
 }

@@ -60,7 +60,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // let tmp = bmexp.genMultiQuery() 
+    console.log(bmexp)
+    // let tmp = bmexp.queryAttendee()
     console.log("this is exp lst")
   },
 
