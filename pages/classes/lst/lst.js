@@ -1,5 +1,6 @@
 // pages/class-lst/class-lst.js
-Page({
+var bmexp = require('../../../models/bm_exp_schema.js');
+Page({ 
 
   /**
    * 页面的初始数据
@@ -59,7 +60,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    // let tmp = bmexp.genMultiQuery() 
+    console.log("this is exp lst")
   },
 
   /**
@@ -95,6 +97,10 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  showInfo: function (event) {
+    console.log("111");
   },
 
   showClsDetail: function (event) {

@@ -1,4 +1,4 @@
-// pages/info-two/info-two.js
+// pages/info-two/info-two.js 
 
 var bmats = require('../../models/bm_attendee_schema.js');
 Page({

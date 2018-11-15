@@ -2,6 +2,7 @@
 import { JsonApiDataStore } from '../miniprogram_npm/jsonapi-datastore/index.js'
 
 var store = new JsonApiDataStore();
+console.log(store);
 
 const bm_attendee_parload = {
   data: {
@@ -93,7 +94,7 @@ const bm_attendee_parload = {
     }
   }]
 }
-
+console.log(bm_attendee_parload)
 var query_payload = 
 {
   data: {
@@ -103,11 +104,11 @@ var query_payload =
       res: "BmAttendee"
     },
     relationships: {
-      EqCond: {
+      Eqcond: {
         data: [
           {
             id: "2",
-            type: "EqCond"
+            type: "Eqcond"
           }
         ]
       }
@@ -116,7 +117,7 @@ var query_payload =
   included: [
     {
       id: "2",
-      type: "EqCond",
+      type: "Eqcond",
       attributes: {
         key: "id",
         val: "5be26fc38fb8074f030892f9"
@@ -126,11 +127,14 @@ var query_payload =
 }
 
 function attendee() {
+  console.log(store.sync(bm_attendee_parload))
   return store.sync(bm_attendee_parload)
+  // 把json字符串变为可点的对象
 }
 
 function change2Json() {
   let tmp = attendee()
+  console.log(tmp)
   let bk = tmp.serialize()
   console.log(bk)
   return JSON.stringify(bk)
@@ -139,7 +143,8 @@ function change2Json() {
 function queryAttendee() {
   let rd = store.sync(query_payload)
   let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()))
-  let inc = rd.EqCond[0].serialize()
+  console.log(rd_tmp)
+  let inc = rd.Eqcond[0].serialize()
   rd_tmp['included'] = [inc.data]
   let dt = JSON.stringify(rd_tmp)
   wx.request({
@@ -157,10 +162,10 @@ function queryAttendee() {
       console.log(result)
     },
     fail(res) {
-      console.log('fail')
+      console.log('fail!!!')
     },
     complete() {
-      console.log('complete')
+      console.log('complete!!!')
     }
   })
 }
