@@ -1,0 +1,25 @@
+<!--component/classes/cla-notices/cla-notice.wxml-->
+<view class='content-page'>
+  <view class='bring'>
+    <view class='title-area'>
+      <image class='title-img' src='{{bringImg}}'></image>
+      <text class='title-text'>{{bringTitle}}</text>
+    </view>
+    <view class='lists'>
+      <view class='list' wx:for="{{bringList}}">
+        <text class='dot'>・</text> <text class='name'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='notice'>
+    <view class='title-area'>
+      <image class='title-img' src='{{noticeImg}}'></image>
+      <text class='title-text'>{{noticeTitle}}</text>
+    </view>
+    <view class='lists'>
+      <view class='list' wx:for="{{noticeList}}">
+        <text class='dot'>・</text> <text class='name'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+</view>

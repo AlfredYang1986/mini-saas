@@ -13,7 +13,7 @@ Component({
   data: {
     images: [
       {
-        url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E8%AF%BE%E7%A8%8B%20B%20pic%402x.png"
+        url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_cover_trialclass_01.jpg"
       }
     ]
   },

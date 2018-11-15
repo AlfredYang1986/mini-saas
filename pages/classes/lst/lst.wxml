@@ -2,3 +2,6 @@
 <view class="cls-lst">
     <class-lst isList="true"></class-lst>
 </view>
+<view class='notice'>
+  <text>更多精选即将上线</text>
+</view>

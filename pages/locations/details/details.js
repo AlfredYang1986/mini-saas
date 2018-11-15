@@ -9,6 +9,42 @@ Page({
     address: "朝阳区东直门外大街第三方大厦A座 1101室",
     tag: ["购物中心", "室内"],
     traffic: "距地铁6号线潞城站B口步行500m",
+    schoolTags: [{
+        img: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_campus_%20certification.jpg",
+        name: "儿童适宜标准"  
+      },
+      {
+        img: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_campus_%20certification.jpg",
+        name: "儿童适宜标准"
+      }
+    ],
+    facilities: [
+      {
+        image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_camear%402x.png",
+        name: "实时监控"
+      },
+      {
+        image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_entranceguard%402x.png",
+        name: "门禁"
+      },
+      {
+        image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_emergency%402x.png",
+        name: "急救包"
+      },
+      {
+        image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_floor%402x.png",
+        name: "防摔地板"
+      },
+      {
+        image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_emergency%402x.png",
+        name: "急救包"
+      },
+      {
+        image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_floor%402x.png",
+        name: "防摔地板"
+      },
+    ]
+
   },
 
   /**

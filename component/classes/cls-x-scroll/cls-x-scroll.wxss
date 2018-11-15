@@ -1,12 +1,16 @@
 /* component/activities/acti-banner/acti-banner.wxss */
 .content-page {
-  padding-top: 80rpx;
+  padding-top: 49rpx;
   display: flex;
   flex-direction: column;
 }
+.title {
+  margin-bottom: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  color: #0D0D0D;
+}
 .content {
-  padding-bottom: 48rpx;
-  border-bottom: 1px solid #f2f2f2;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -14,15 +18,15 @@
   align-items: flex-end;
 }
 .content .list {
-  margin-right: 32rpx;
+  margin-right: 16rpx;
   /* background: #000; */
   /* max-height: 406rpx; */
-  min-width: 554rpx;
+  min-width: 280rpx;
   border-radius: 8rpx;
 }
 .content .list .list-detail{
-  min-height: 344rpx;
-  max-width: 554rpx;
+  min-height: 174rpx;
+  max-width: 280rpx;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -36,6 +40,6 @@
 .content .list .title {
   margin-top: 26rpx;
   font-family: PingFangSC-Regular;
-  font-size: 13px;
+  font-size: 26rpx;
   color: #A6A6A6;
 }

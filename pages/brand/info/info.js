@@ -102,7 +102,7 @@ Page({
   },
   brandDetails: function (event) {
     wx:wx.navigateTo({
-      url: '/pages/brand/details/details'
+      url: '/pages/brand/detail/detail'
     })
   }
 

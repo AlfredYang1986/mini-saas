@@ -2,46 +2,43 @@
 <view class="clsdet-container">
 
 	<view class="clsdet-component">
-		<clsimg ></clsimg>
+		<clsimg></clsimg>
 	</view>
 
   <view class='clsdet-component'>
     <cls-info></cls-info>
   </view>
 
-<view class="company-detail">
-  <view class="company-detail-content">
-    <view class="weui-loadmore weui-loadmore_line"  bindtap="showAll">
-      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">活动计划</view>
-      <image class="arrow" src="{{isFold?'https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_down.png':'https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_up.png'}}"></image>
-    </view>
-    <view class="long-dec {{isFold?'hide':'show'}}">
-      <view class="acti-component">
-          <!-- <acti-remarks isRemarks="false"></acti-remarks> -->
-            <text class='text'>魅力魔方，一个集观测、动作、思维于一体的过程。</text>
-            <view class='lists'>
-              <text class='list'>· 初识机器人原理</text>
-              <text class='list'>· 了解基本结构</text>
-              <text class='list'>· 了解编程语言</text>
-              <text class='list'>· 动手搭建自己的机器人</text>
-            </view>    
-
-      </view>
-    </view>
-  </view>
-</view>
-  
   <view class='clsdet-component'>
-        <view class="clsdet-component"  wx:if='{{hide}}'>
-          <clsabout ></clsabout>
-        </view>
+    <cls-reward></cls-reward>
   </view>
-  <!-- <view class="clsdet-component"  wx:if='{{hide}}'>
-    <clstitle ></clstitle>
-  </view> -->
 
-  <view class='clsdet-component'  wx:if='{{hide}}'>
-    <clslocal isActi="false"></clslocal>
+  <view class='clsdet-component'>
+    <view class="clsdet-component" wx:if='{{hide}}'>
+      <clsabout ></clsabout>
+    </view>
+  </view>
+
+  <view class='clsdet-component'>
+    <cls-remarks></cls-remarks>
+  </view>
+
+  <view class='clsdet-component'>
+    <view class='notices'>
+      <cls-notice></cls-notice>
+    </view>
+  </view>
+
+   <view class='clsdet-component'>
+    <view class='scroll'>
+      <cls-scroll></cls-scroll>
+    </view>
+  </view>
+
+  <view class='clsdet-component'>
+    <view class='facility'>
+      <cls-facility></cls-facility>
+    </view>
   </view>
 
 </view>

@@ -1,23 +1,17 @@
 <!--component/activities/acti-remarks/acti-remarks.wxml-->
 <view class='content about-margin'>
-<block wx:if="{{isRemarks == 'true'}}">
-  <view class='title'>备注</view>
-  <view class='lists'>
-    <text class='list'>· 我们将为您提供饮品</text>
-    <text class='list'>· 请您携带自备物品</text>
-    <text class='list'>· 活动需家长陪同</text> 
+<!-- <block wx:if="{{isRemarks == 'true'}}"> -->
+  <view class='title'>将为宝贝提供</view>
+  <view class='lists' wx:for="{{remarks}}">
+    <text class='list'>· {{item}}</text>
   </view>
-  <view class='explan'>
-      <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_fee%402x.png'></image>
-      <text>本次体验不收任何额外费用</text>
-  </view>
-</block>
-<block wx:else>
+<!-- </block> -->
+<!-- <block wx:else>
   <view class='lists'>
     <text class='list'>· 初识机器人原理</text>
     <text class='list'>· 了解基本结构</text>
     <text class='list'>· 了解编程语言</text>
     <text class='list'>· 动手搭建自己的机器人</text>
   </view>
-</block>
+</block> -->
 </view>

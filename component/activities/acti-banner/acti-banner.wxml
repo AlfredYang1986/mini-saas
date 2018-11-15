@@ -2,7 +2,7 @@
 <view class='content-page'>
   <view class='title' bindtap='showLst'>
     <text>精彩活动</text>
-    <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
+    <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_chevron_right_dark%402x.png'></image>
   </view>
   <scroll-view class="scroll-x" scroll-x style="width: 100%">
     <view class='content'>

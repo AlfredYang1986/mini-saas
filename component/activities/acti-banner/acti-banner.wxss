@@ -20,8 +20,8 @@
   color: #0d0d0d;
 }
 .title image {
-  width: 14rpx;
-  height: 26rpx;
+  width: 44rpx;
+  height: 44rpx;
 }
 .content {
   display: flex;

@@ -28,9 +28,9 @@
   align-items: center;
 }
  .content-row-span .big-title .btn image {
-   width: 13rpx;
-   height: 26rpx;
-   margin-left: 40rpx;
+   width: 44rpx;
+   height: 44rpx;
+   /* margin-left: 40rpx; */
  }
 .loc-banner .content-page {
 	display: flex;
@@ -71,16 +71,27 @@
   flex-direction: column;
   justify-content: center;
   border-radius: 8rpx;
+
+  background-size: cover;
+  background-position: center right;
 }
 .bg-image .subtitle {
   font-family: PingFangSC-Medium;
   font-size: 14px;
   color: #0D0D0D;
+  max-width: 460rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .bg-image .address {
   font-family: PingFangSC-Regular;
   font-size: 13px;
   color: #A6A6A6;
+  max-width: 460rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .show-image {
   margin-bottom: 80rpx;
