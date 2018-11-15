@@ -40,6 +40,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    debugger
     let that = this
     let callback = {
       onSuccess: function (res) {
@@ -55,11 +56,7 @@ Page({
     }
     var bmexp = require('../../../models/bm_exp_schema.js')
     console.log(bmexp)
-    bmexp.queryExpInfo(callback)
-    this.setData({
-      exp: null,
-      name: "张二呆"
-    })
+    bmexp.queryExpInfo(options.expid, callback)
   },
 
   /**

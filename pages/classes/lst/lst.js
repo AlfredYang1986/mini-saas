@@ -6,7 +6,6 @@ Page({
 	 */
 	data: {
 		exps: null,
-    name:"",
 	},
 
 	/**
@@ -28,10 +27,6 @@ Page({
 		}
 		var bmexps = require('../../../models/bm_exp_schema.js')
 		bmexps.queryMultiExps(callback)
-		this.setData({
-			exps: null,
-			name: "张二呆"
-		})
 	},
 
 	/**

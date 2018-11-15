@@ -1,10 +1,8 @@
 <!--pages/class-lst/class-lst.wxml-->
 <view class="cls-lst">
 <view>{{exps}}</view>
-	<class-lst isList="true" exps="{{exps}}" ></class-lst>
-	<!-- <view wx:for="{{exps}}"> {{item.id}} </view> -->
-	<!-- <view> Hello {{name}}! </view> -->
-  <!-- <view> Hello {{exps.length}}! </view> -->
+	<class-lst isList="true" exps="{{exps}}" >
+  </class-lst>
 </view>
 <view class='notice'>
 	<text>更多精选即将上线</text>

@@ -2,7 +2,6 @@ import { JsonApiDataStore } from '../miniprogram_npm/jsonapi-datastore/index.js'
 
 var bmstore = new JsonApiDataStore();
 var bmmulti = new JsonApiDataStore();
-var expid;
 
 function guid() {
   function s4() {
@@ -48,10 +47,10 @@ function queryMultiExps(callback) {
 	})
 }
 
-function queryExpInfo(callback) {
+function queryExpInfo(expid, callback) {
     bmstore.reset();
 
-    let query_yard_payload = genIdQuery();
+    let query_yard_payload = genIdQuery(expid);
     let rd = bmstore.sync(query_yard_payload);
     let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()));
 
@@ -60,26 +59,24 @@ function queryExpInfo(callback) {
     let dt = JSON.stringify(rd_tmp);
 
     wx.request({
-    url: '/api/v1/findreservable/0',
-    data: dt,
-    method: 'post',
-    header: {
-        'Content-Type': 'application/json', // 默认值
-        'Accept': 'application/json',
-        'Authorization': 'bearer ce6af788112b26331e9789b0b2606cce'
-    },
-    success(res) {
-        console.log(res.data)
-        let result = bmmulti.sync(res.data)
+      url: 'http://192.168.100.174:8080/api/v1/findreservable/0',
+      data: dt,
+      method: 'post',
+      header: {
+          'Content-Type': 'application/json', // 默认值
+          'Accept': 'application/json',
+          'Authorization': 'bearer ce6af788112b26331e9789b0b2606cce'
+      },
+      success(res) {
+        let result = bmstore.sync(res.data)
         callback.onSuccess(result)
-    },
-    fail(err) {
-        console.log(err)
-        callback.onFail(err)
-    },
-    complete() {
-        console.log('complete!!!')
-    }
+      },
+      fail(err) {
+          callback.onFail(err)
+      },
+      complete() {
+          console.log('complete!!!')
+      }
     })
 }
 
@@ -116,7 +113,7 @@ function genMultiExps() {
     }
 }
 
-function genIdQuery() {
+function genIdQuery(tmpid) {
   let eq = guid();
   return {
     data: {
@@ -142,7 +139,7 @@ function genIdQuery() {
             type: "Eqcond",
             attributes: {
                 key: "id",
-                val: expid
+                val: tmpid
             }
         }
     ]

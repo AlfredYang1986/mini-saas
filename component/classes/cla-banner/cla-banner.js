@@ -62,8 +62,9 @@ Component({
       })
     },
     showClsDetail: function (event) {
+      let expid = event.currentTarget.dataset.expid;
       wx.navigateTo({
-        url: '/pages/classes/detail/detail'
+        url: '/pages/classes/detail/detail?expid=' + expid
       })
     }
   }
