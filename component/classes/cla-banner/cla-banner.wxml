@@ -1,4 +1,5 @@
 <!--component/classes/cla-banner/cla-banner.wxml-->
+<view>{{exps.length}}</view>
 <view class='content-page'>
   <block wx:if="{{isList == 'false'}}">
     <view class='title'>

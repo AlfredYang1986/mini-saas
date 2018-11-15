@@ -1,7 +1,10 @@
 {
   "pages": [
-    "pages/register/register",
+    
     "pages/brand/info/info",
+    
+    "pages/register/register",
+
     "pages/brand/detail/detail",
     "pages/locations/lst/lst",
     "pages/locations/detail/detail",
