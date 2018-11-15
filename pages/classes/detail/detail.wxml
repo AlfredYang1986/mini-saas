@@ -1,6 +1,6 @@
 <!--pages/class-lst/class-detail/class-detail.wxml-->
 <view class="clsdet-container">
-
+  <view>{{exp}}</view>
 	<view class="clsdet-component">
 		<clsimg></clsimg>
 	</view>

@@ -1,6 +1,6 @@
 // pages/class-lst/class-detail/class-detail.js
 Page({
-
+ 
   /**
    * 页面的初始数据
    */
@@ -12,6 +12,8 @@ Page({
     showOthers: true,
     animationData: {},
     tab:0,
+    exp: null,
+    name: "",
   },
 
   showAll: function (e) {
@@ -38,7 +40,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    let that = this
+    let callback = {
+      onSuccess: function (res) {
+        console.log("this is res")
+        console.log(res)
+        that.setData({
+          exp: res
+        })
+      },
+      onFail: function () {
+        // TODO : 报错 ...
+      }
+    }
+    var bmexp = require('../../../models/bm_exp_schema.js')
+    console.log(bmexp)
+    bmexp.queryExpInfo(callback)
+    this.setData({
+      exp: null,
+      name: "张二呆"
+    })
   },
 
   /**

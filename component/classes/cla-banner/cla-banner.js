@@ -12,6 +12,7 @@ Component({
       type:"Array",
       value:[],
       observer:function(news,olds,path){
+        console.log("this is in component .js")
         console.log(news,olds)
       }
     }

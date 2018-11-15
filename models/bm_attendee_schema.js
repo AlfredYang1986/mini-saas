@@ -2,7 +2,6 @@
 import { JsonApiDataStore } from '../miniprogram_npm/jsonapi-datastore/index.js'
 
 var store = new JsonApiDataStore();
-console.log(store);
 
 const bm_attendee_parload = {
   data: {
@@ -94,7 +93,6 @@ const bm_attendee_parload = {
     }
   }]
 }
-console.log(bm_attendee_parload)
 var query_payload = 
 {
   data: {
@@ -127,16 +125,13 @@ var query_payload =
 }
 
 function attendee() {
-  console.log(store.sync(bm_attendee_parload))
   return store.sync(bm_attendee_parload)
   // 把json字符串变为可点的对象
 }
 
 function change2Json() {
   let tmp = attendee()
-  console.log(tmp)
   let bk = tmp.serialize()
-  console.log(bk)
   return JSON.stringify(bk)
 }
 
@@ -156,9 +151,7 @@ function queryAttendee() {
       'Authorization': 'bearer ce6af788112b26331e9789b0b2606cce'
     },
     success(res) {
-      console.log(res.data)
       let result = store.sync(res.data)
-      console.log(result)
     },
     fail(res) {
       console.log('fail!!!')
@@ -168,9 +161,6 @@ function queryAttendee() {
     }
   })
 }
-
-console.log(attendee)
-
 module.exports = {
   attendee: attendee(),
   change2Json: change2Json,

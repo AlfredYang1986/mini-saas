@@ -1,50 +1,12 @@
 // pages/class-lst/class-lst.js
-
-var helloData = {
-	name: 'WeChat'
-  }
 Page({ 
 
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-		// classes: [
-		// 	{
-		// 		category: "编程",
-		// 		lecture: "授课方式",
-		// 		title: "嘀嗒杯科学初级课程",
-		// 		bundary: "6-12岁",
-		// 		image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png",
-		// 		price: 134
-		// 	},
-		// 	{
-		// 		category: "编程",
-		// 		lecture: "授课方式",
-		// 		title: "嘀嗒杯科学中级课程",
-		// 		bundary: "6-12岁",
-		// 		image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png",
-		// 		price: 154
-		// 	},
-		// 	{
-		// 		category: "编程",
-		// 		lecture: "授课方式",
-		// 		title: "嘀嗒杯科学高级课程",
-		// 		bundary: "6-12岁",
-		// 		image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png",
-		// 		price: 184
-		// 	},
-		// 	{
-		// 		category: "编程",
-		// 		lecture: "授课方式",
-		// 		title: "嘀嗒杯科学高级课程",
-		// 		bundary: "6-12岁",
-		// 		image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/someclassdemo.png",
-		// 		price: 184
-		// 	},
-		// ] 
 		exps: null,
-		name: "张呆呆"
+    name:"",
 	},
 
 	/**
@@ -54,6 +16,8 @@ Page({
 		let that = this
 		let callback = {
 			onSuccess: function(res) {
+        console.log("this is res")
+        console.log(res)
 				that.setData({
 					exps: res
 				})
@@ -62,8 +26,8 @@ Page({
 				// TODO : 报错 ...
 			}
 		}
-		var bmexp = require('../../../models/bm_exp_schema.js')
-		bmexp.queryMultiExps(callback)
+		var bmexps = require('../../../models/bm_exp_schema.js')
+		bmexps.queryMultiExps(callback)
 		this.setData({
 			exps: null,
 			name: "张二呆"
@@ -120,7 +84,6 @@ Page({
 	},
 
 	showInfo: function (event) {
-		console.log("111");
 	},
 
 	showClsDetail: function (event) {

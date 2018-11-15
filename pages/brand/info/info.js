@@ -9,7 +9,9 @@ Page({
       logobg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/logo_bg.png",
       logourl:"https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/logo%403x.png",
     },
-    tab:1,
+    tab:1, 
+    exps: null,
+    name: "",
   },
   tab_slide: function (e) {//滑动切换tab 
     var that = this;
@@ -39,6 +41,24 @@ Page({
       }
     });
     //获取可视窗口高度
+    let callback = {
+      onSuccess: function (res) {
+        console.log("this is res")
+        console.log(res)
+        that.setData({
+          exps: res
+        })
+      },
+      onFail: function () {
+        // TODO : 报错 ...
+      }
+    }
+    var bmexp = require('../../../models/bm_exp_schema.js')
+    bmexp.queryMultiExps(callback)
+    this.setData({
+      exps: null,
+      name: "张二呆"
+    })
   },
 
   /**
