@@ -120,7 +120,7 @@ var query_payload =
       type: "Eqcond",
       attributes: {
         key: "id",
-        val: "5be26fc38fb8074f030892f9"
+        val: "5be92a238fb80762403a4712"
       }
     }
   ]
@@ -143,7 +143,6 @@ function change2Json() {
 function queryAttendee() {
   let rd = store.sync(query_payload)
   let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()))
-  console.log(rd_tmp)
   let inc = rd.Eqcond[0].serialize()
   rd_tmp['included'] = [inc.data]
   let dt = JSON.stringify(rd_tmp)
