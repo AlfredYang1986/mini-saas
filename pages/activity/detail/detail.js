@@ -100,8 +100,8 @@ Page({
       
     }
     var bmactv = require('../../../models/bm_actv_schema.js')
-    console.log(options.expid)
-    bmactv.queryActvInfo(options.expid, callback)
+    console.log(options.actvid)
+    bmactv.queryActvInfo(options.actvid, callback)
   },
 
   /**

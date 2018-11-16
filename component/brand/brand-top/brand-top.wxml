@@ -1,16 +1,16 @@
 <!--component/brand/brand-top/brand-top.wxml-->
-<view class='content-page'>
+<view class='content-page' bindtap="brandDetails" data-brandid="{{item.id}}">
   <view class='info'>
     <view class='title'>
-      <text>{{title}}</text>
+      <text>{{brand.title}}</text>
       <image class='img' src="">{{img}}</image>
     </view>
-    <text class='intro'>「{{subtitle}}」</text>
+    <text class='intro'>「{{brand.slogan}}」</text>
     <view class='lists'>
-      <view class='list' wx:for="{{tags}}" wx:for-index="idx">
+      <view class='list' wx:for="{{brand.brand_tags}}" wx:for-index="idx">
         <view>
           {{item}}
-          <block wx:if="{{idx<2}}">
+          <block wx:if="{{idx<3}}">
             <text class="separate"> | </text>
           </block>
         </view>
@@ -18,5 +18,7 @@
     </view>
     
   </view>
-  <image class='logo' src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/logo.png'></image>
+  <view class='logo-area'>
+    <image class='logo' src='{{brand.newLogo}}'></image>
+  </view>
 </view>

@@ -1,6 +1,6 @@
 <!--pages/brand/brand.wxml-->
 <view class='content-page'>
-  <brand-top bindtap="brandDetails"></brand-top>
+  <brand-top brand="{{brandInfo}}"></brand-top>
   <view class="brand-container" wx:if="{{brand}}"> 
     <view class="brand-component">
       <activity-banner class="activity-banner" actvs="{{actvs}}"></activity-banner>

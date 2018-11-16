@@ -13,7 +13,7 @@ Page({
     tab:1, 
     exps: null,
     actvs: null,
-    // brand: null,
+    brandInfo: null,
   },
   tab_slide: function (e) {//滑动切换tab 
     var that = this;
@@ -81,27 +81,25 @@ Page({
         // TODO : 报错 ...
       }
     }
-    // let callbackBrand = {
-    //   onSuccess: function (res) {
-    //     console.log("this is brand res")
-    //     console.log(res)
-    //     that.setData({
-    //       brand: res,
-    //     })
-    //   },
-    //   onFail: function () {
-    //     // TODO : 报错 ...
-    //   }
-    // }
+    let callbackBrand = {
+      onSuccess: function (res) {
+        let logo = res.logo;
+        res.newLogo = client.signatureUrl(logo);
+        that.setData({
+          brandInfo: res,
+        })
+      },
+      onFail: function (err) {
+        // TODO : 报错 ...
+        console.log(err)
+      }
+    }
     var bmexp = require('../../../models/bm_exp_schema.js')
     bmexp.queryMultiExps(callback)
     var bmactvs = require('../../../models/bm_actv_schema.js')
     bmactvs.queryMultiActvs(callbackActvs)
-    // var bmbrand = require('../../../models/bm_brand_schema.js')
-    // bmbrand.queryBrand(callbackBrand)
-    // this.setData({
-    //   exps: null,
-    // })
+    var bmbrand = require('../../../models/bm_brand_schema.js')
+    bmbrand.queryBrand(options.brandid,callbackBrand)
   },
 
   /**
@@ -163,10 +161,5 @@ Page({
       url: '/pages/locations/details/details'
     })
   },
-  brandDetails: function (event) {
-    wx:wx.navigateTo({
-      url: '/pages/brand/detail/detail'
-    })
-  }
 
 })

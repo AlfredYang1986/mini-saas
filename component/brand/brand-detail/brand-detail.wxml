@@ -2,10 +2,10 @@
 <view class='content-page'>
   <view class='head'>
     <image class='logo' src='{{logo}}'></image>
-    <text class='headline'>{{title}}</text>
-    <view class='des'>「 {{subtitle}} 」</view>
+    <text class='headline'>{{brand.title}}</text>
+    <view class='des'>「 {{brand.slogan}} 」</view>
     <view class='lists'>
-      <view class='list' wx:for="{{tags}}" wx:for-index="idx">
+      <view class='list' wx:for="{{brand.brand_tags}}" wx:for-index="idx">
         {{item}}
         <block wx:if="{{idx < 2}}">
           <text class='separate'> | </text> 
@@ -19,19 +19,19 @@
   </view>
   <view class='story'>
     <text class='title'>初心故事</text>
-    <text class='content'>{{story}}</text>
+    <text class='content'>{{brand.foundStory}}</text>
   </view>
   <view class='team'>
     <text class='title'>师资阵容</text>
-    <text class='content'>{{team}}</text>
+    <text class='content'>{{brand.edu_idea}}</text>
   </view>
   <view class='achievement'>
     <text class='title'>教学成就</text>
     <scroll-view class="" scroll-x style="width: 100%">
     <view class='content'>
-      <view class='list' wx:for="{{teach}}">
-        <image src="{{item.src}}"></image>
-        <text class='name'>{{item.time}}{{item.name}}</text>
+      <view class='list' wx:for="{{brand.Honors}}">
+        <image src="{{item.dealImg}}"></image>
+        <text class='name'>{{item.tag}}</text>
       </view>
     </view>
     </scroll-view>
@@ -40,9 +40,9 @@
     <text class='title'>资质认证</text>
     <scroll-view class="" scroll-x style="width: 100%">
     <view class='content'>
-      <view class='list' wx:for="{{attest}}">
-        <image src='{{item.img}}'></image>
-        <text class='name'>{{item.name}}</text>
+      <view class='list' wx:for="{{brand.Certifications}}">
+        <image src='{{item.dealImg}}'></image>
+        <text class='name'>{{item.tag}}</text>
       </view>
     </view>
     </scroll-view>

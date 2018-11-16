@@ -57,6 +57,11 @@
   margin-left: 16rpx;
   margin-right: 30rpx;
 }
+.logo-area {
+  margin-left: 52rpx;
+  width: 160rpx;
+  height: 160rpx;
+}
 .logo {
   width: 160rpx;
   height: 160rpx;

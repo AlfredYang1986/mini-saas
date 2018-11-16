@@ -80,10 +80,10 @@ function genMultiActvs() {
   }
 }
 
-function queryActvInfo(expid, callback) {
+function queryActvInfo(actvid, callback) {
   bmstore.reset();
 
-  let query_yard_payload = genIdQuery(expid);
+  let query_yard_payload = genIdQuery(actvid);
   let rd = bmstore.sync(query_yard_payload);
   let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()));
 

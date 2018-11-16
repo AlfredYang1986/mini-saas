@@ -57,10 +57,10 @@ Component({
    */
   methods: {
     showActiDetail: function (event) {
-      let expid = event.currentTarget.dataset.expid;
+      let actvid = event.currentTarget.dataset.actvid;
       console.log(event);
       wx.navigateTo({
-        url: '/pages/activity/detail/detail?expid=' + expid
+        url: '/pages/activity/detail/detail?actvid=' + actvid
       })
     },
     showLst:function(event) {

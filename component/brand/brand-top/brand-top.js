@@ -4,7 +4,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    brand: {
+      type: "Array",
+      value: [],
+      observer: function (news, olds, path) {}
+    }
   },
 
   /**
@@ -21,6 +25,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    brandDetails: function (event) {
+      let brandid = event.currentTarget.dataset.brandid;
+      wx: wx.navigateTo({
+        url: '/pages/brand/detail/detail?brandid' + brandid
+      })
+    }
   }
 })
