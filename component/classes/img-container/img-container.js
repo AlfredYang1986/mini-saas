@@ -8,7 +8,7 @@ Component({
       type: "Array",
       value: [],
       observer: function (news, olds, path) {
-        console.log("this is in cla-banner .js")
+        console.log("this is in img-container .js")
         console.log(news, olds)
       }
     }

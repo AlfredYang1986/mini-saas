@@ -5,14 +5,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    brand: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    let that = this
+    let callback = {
+      onSuccess: function (res) {
+        console.log("this is brand res")
+        cosole.log(res)
+        that.setData({
+          brand: res
+        })
+      },
+      onFail: function () {
+        // TODO : 报错 ...
+      }
+    }
+    // var bmbrand = require('../../../models/bm_brand_schema.js')
+    // console.log(options.expid)
+    // bmbrand.queryBrand(options.expid, callback)
   },
 
   /**

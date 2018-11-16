@@ -1,4 +1,5 @@
 // pages/class-lst/class-lst.js
+var OSS = require('../../../models/ali-oss.js')
 Page({ 
  
 	/**
@@ -12,11 +13,21 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		let that = this
+    let client = new OSS({
+      region: 'oss-cn-beijing',
+      accessKeyId: 'LTAINO7wSDoWJRfN',
+      accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
+      bucket: 'bmsass'
+    });
+		let that = this;
 		let callback = {
 			onSuccess: function(res) {
-        console.log("this is res")
-        console.log(res)
+        let _originRes = res;
+        let newres = _originRes.map((ele) => {
+          let _originImg = ele.SessionInfo.cover;
+          ele.SessionInfo.dealCover = client.signatureUrl(_originImg);
+            return ele
+        })
 				that.setData({
 					exps: res
 				})

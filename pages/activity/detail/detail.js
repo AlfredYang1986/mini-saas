@@ -17,6 +17,9 @@ for (let i = 1; i <= 31; i++) {
 }
 
 var id;
+
+var OSS = require('../../../models/ali-oss.js')
+
 Page({
 
   /** 
@@ -78,22 +81,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let client = new OSS({
+      region: 'oss-cn-beijing',
+      accessKeyId: 'LTAINO7wSDoWJRfN',
+      accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
+      bucket: 'bmsass'
+    });
     let that = this
     let callback = {
       onSuccess: function (res) {
-        console.log("this is res")
-        console.log(res)
+        let _originRes = res;
+        let _originImg = res.SessionInfo.cover;
+        res.SessionInfo.dealCover = client.signatureUrl(_originImg);
         that.setData({
           actv: res
         })
       },
-      onFail: function () {
-        // TODO : 报错 ...
-      }
+      
     }
     var bmactv = require('../../../models/bm_actv_schema.js')
-    console.log(bmactv)
-    console.log("this is aaaaaa")
     console.log(options.expid)
     bmactv.queryActvInfo(options.expid, callback)
   },

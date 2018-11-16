@@ -1,31 +1,3 @@
-<!--pages/activity/activity.wxml-->
-<!-- <view class='contain-page'>
-  <view class="acti-container" id='acti'>
-    <view class="acti-component">
-      <actiimg></actiimg>
-      <acti-carousel></acti-carousel> 
-    </view>
-    <view class='acti-component'>
-      <acti-info></acti-info>
-    </view>
-  </view>
-
-  <view class='acti-component'>
-    <view class="acti-component" wx:if='{{hide}}'>
-      <actiabout isCourse='false'></actiabout>
-    </view>
-    <view class='acti-component'>
-      <acti-remarks></acti-remarks>
-    </view>
-    <view class="acti-component" wx:if='{{hide}}'>
-      <actilstc></actilstc>
-    </view>
-  </view>
-  <view class='acti-component local'wx:if='{{hide}}'>
-    <actilocal isActi="false"></actilocal>
-  </view>
-</view> -->
-
 <view class="clsdet-container">
 
 	<view class="clsdet-component">
@@ -37,34 +9,34 @@
   </view>
 
   <view class='clsdet-component'>
-    <cls-reward></cls-reward>
+    <cls-reward exp="{{actv}}"></cls-reward>
   </view>
 
   <view class='clsdet-component'>
     <view class="clsdet-component" wx:if='{{hide}}'>
-      <clsabout ></clsabout>
+      <clsabout exp="{{actv}}"></clsabout>
     </view>
   </view>
 
   <view class='clsdet-component'>
-    <cls-remarks></cls-remarks>
+    <cls-remarks exp="{{actv}}"></cls-remarks>
   </view>
 
   <view class='clsdet-component'>
     <view class='notices'>
-      <cls-notice></cls-notice>
+      <cls-notice exp="{{actv}}"></cls-notice>
     </view>
   </view>
 
    <view class='clsdet-component'>
     <view class='scroll'>
-      <cls-scroll></cls-scroll>
+      <cls-scroll exp="{{actv}}"></cls-scroll>
     </view>
   </view>
 
   <view class='clsdet-component'>
     <view class='facility'>
-      <cls-facility></cls-facility>
+      <cls-facility exp="{{actv}}"></cls-facility>
     </view>
   </view>
 

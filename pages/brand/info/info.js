@@ -12,8 +12,8 @@ Page({
     },
     tab:1, 
     exps: null,
-    name: "",
     actvs: null,
+    // brand: null,
   },
   tab_slide: function (e) {//滑动切换tab 
     var that = this;
@@ -52,10 +52,10 @@ Page({
     let callback = {
       onSuccess: function (res) {
         let _originRes = res;
-       let newres =  _originRes.map((ele)=> {
+        let newres =  _originRes.map((ele)=> {
           let _originImg = ele.SessionInfo.cover;
-         ele.SessionInfo.dealCover = client.signatureUrl(_originImg);
-          return ele
+          ele.SessionInfo.dealCover = client.signatureUrl(_originImg);
+            return ele
         })
         that.setData({
           exps: res,
@@ -71,7 +71,7 @@ Page({
         let newres = _originRes.map((ele) => {
           let _originImg = ele.SessionInfo.cover;
           ele.SessionInfo.dealCover = client.signatureUrl(_originImg);
-          return ele
+            return ele
         })
         that.setData({
           actvs: res,
@@ -81,10 +81,24 @@ Page({
         // TODO : 报错 ...
       }
     }
+    // let callbackBrand = {
+    //   onSuccess: function (res) {
+    //     console.log("this is brand res")
+    //     console.log(res)
+    //     that.setData({
+    //       brand: res,
+    //     })
+    //   },
+    //   onFail: function () {
+    //     // TODO : 报错 ...
+    //   }
+    // }
     var bmexp = require('../../../models/bm_exp_schema.js')
     bmexp.queryMultiExps(callback)
     var bmactvs = require('../../../models/bm_actv_schema.js')
     bmactvs.queryMultiActvs(callbackActvs)
+    // var bmbrand = require('../../../models/bm_brand_schema.js')
+    // bmbrand.queryBrand(callbackBrand)
     // this.setData({
     //   exps: null,
     // })
