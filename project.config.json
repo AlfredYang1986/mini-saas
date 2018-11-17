@@ -13,7 +13,7 @@
 		"uglifyFileName": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.9",
+	"libVersion": "2.4.0",
 	"appid": "wx6129e48a548c52b8",
 	"projectname": "mini-saas",
 	"condition": {

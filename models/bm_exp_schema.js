@@ -57,6 +57,7 @@ function queryExpInfo(expid, callback) {
     let inc = rd.Eqcond[0].serialize();
     rd_tmp['included'] = [inc.data];
     let dt = JSON.stringify(rd_tmp);
+    let token = wx.getStorageSync('dd_token');
 
     wx.request({
       url: 'http://192.168.100.174:8080/api/v1/findreservable/0',
@@ -65,7 +66,7 @@ function queryExpInfo(expid, callback) {
       header: {
           'Content-Type': 'application/json', // 默认值
           'Accept': 'application/json',
-          'Authorization': 'bearer ce6af788112b26331e9789b0b2606cce'
+          'Authorization': 'bearer ' + token
       },
       success(res) {
         let result = bmstore.sync(res.data)
