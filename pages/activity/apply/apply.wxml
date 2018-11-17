@@ -33,10 +33,17 @@
       </view>
     </view>
     <view class='list border-bottom'>
-      <checkbox-group bindchange="checkboxChange">
-        <!-- <label class="checkbox" wx:for="{{checkItems}}">
-          <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
-        </label> -->
+      <checkbox-group bindchange="checkboxChange" class="child-info">
+        <label class="checkbox" class='child-info-list'>
+          <view>
+            <checkbox value="{{item.name}}" checked="{{item.checked}}"/>
+            <text>zhangli</text>
+          </view>
+          <view>
+            <text>男生</text>
+            <text>8岁</text>
+          </view>
+        </label>
       </checkbox-group>
     </view>
   </view>

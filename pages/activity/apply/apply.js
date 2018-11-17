@@ -9,6 +9,8 @@ let course_name;
 let except_time;
 let kids;
 let address;
+let detailSort = wx.getStorageSync('detailSort');
+let detailName = wx.getStorageSync('detailName');
 Page({
 
   /**
@@ -19,7 +21,7 @@ Page({
     hideTime: true,
     hideChild: true,
     animationData: {},
-    array: ['男', '女'],
+    array: ['女', '男'],
     address:[
       "地址1",
       "地址2",
@@ -30,7 +32,7 @@ Page({
       { name: '其他', value: '其他' },
     ],
     checkItems: [
-      { name: 'USA', value: '美国'},
+      { name: 'USA', value: '美国', check: true},
       { name: 'CHN', value: '中国'},
       { name: 'BRA', value: '巴西' },
       { name: 'JPN', value: '日本' },
@@ -43,6 +45,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("this is appiy option")
+    console.log(options)
     var lm = require('../../../models/bm_kids_schema.js');
     lm.loadAllKidOnStrage();
   },
@@ -205,17 +209,11 @@ Page({
   },
 
   bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value
     })
-    if (e.detail.value = 1) {
-      gender = 1
-    } else if (e.detail.value = 0) {
-      gender = 0
-    } else {
-      dob = e.detail.value
-    }
+    gender = parseInt(e.detail.value);
+    console.log(gender)
   },
 
   bindAddressChange: function(e) {
@@ -227,10 +225,11 @@ Page({
   },
 
   bindDateChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       date: e.detail.value
     })
+    dob = new Date(e.detail.value).getTime();
+    console.log(dob)
   },
 
   bindExceptDateChange: function (e) {
@@ -293,9 +292,8 @@ Page({
         console.log('push apply error');
       }
     }
-
     var ay = require('../../../models/bm_apply_schema.js');
-    ay.pushApply(except_time, "活动", contact, 1, kids, callback);
+    ay.pushApply(except_time, detailName, contact, detailSort, kids, callback);
     
   
     

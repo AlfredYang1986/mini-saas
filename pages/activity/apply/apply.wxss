@@ -46,6 +46,23 @@
   color: #D9D9D9;
   text-align: right;
 }
+.list .child-info {
+  width: 100%;
+}
+.list .child-info-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.list .child-info-list text {
+  margin-left: 16rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #404040;
+}
+.list .child-info-list checkbox {
+  margin-right: 16rpx;
+}
 .border-bottom {
   border-bottom: 1px solid rgba(0,0,0,0.05);
   padding-bottom: 56rpx;

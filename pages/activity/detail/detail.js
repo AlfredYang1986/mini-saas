@@ -20,6 +20,8 @@ var id;
 
 var OSS = require('../../../models/ali-oss.js')
 
+let detailSort;
+let detailName;
 Page({
 
   /** 
@@ -55,7 +57,7 @@ Page({
       isFold: !this.data.isFold,
     })
   },
-   bindChange: function(e) {
+  bindChange: function(e) {
     const val = e.detail.value
     this.setData({
       year: this.data.years[val[0]],
@@ -90,6 +92,13 @@ Page({
     let that = this
     let callback = {
       onSuccess: function (res) {
+        console.log(res)
+        detailSort = res.status;
+        detailName = res.SessionInfo.title;
+        console.log(detailSort)
+        console.log(detailName)
+        wx.setStorageSync('detailSort', detailSort);
+        wx.setStorageSync('detailName', detailName);
         let _originRes = res;
         let _originImg = res.SessionInfo.cover;
         res.SessionInfo.dealCover = client.signatureUrl(_originImg);
@@ -100,7 +109,6 @@ Page({
       
     }
     var bmactv = require('../../../models/bm_actv_schema.js')
-    console.log(options.actvid)
     bmactv.queryActvInfo(options.actvid, callback)
   },
 
@@ -248,9 +256,12 @@ Page({
     })
   },
 
-  applyPage:function(e) {
+  applyPage:function(event) {
+    console.log(event)
+    let that = this;
+    let childid = event.currentTarget.dataset.id;
     wx:wx.navigateTo({
-      url: '/pages/activity/apply/apply',
+      url: '/pages/activity/apply/apply?childid=' + childid,
     })
   }
 })
