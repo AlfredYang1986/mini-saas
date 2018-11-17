@@ -1,4 +1,14 @@
 // pages/activity/apply/apply.js
+let nickname;
+let name;
+let dob;
+let gender;
+let guardian_role;
+let contact;
+let course_name;
+let except_time;
+let kids;
+let address;
 Page({
 
   /**
@@ -10,10 +20,22 @@ Page({
     hideChild: true,
     animationData: {},
     array: ['男', '女'],
+    address:[
+      "地址1",
+      "地址2",
+    ],
     items: [
-      { name: 'mom', value: '妈妈', checked: 'true' },
-      { name: 'dad', value: '爸爸', },
-      { name: 'other', value: '其他' },
+      { name: '妈妈', value: '妈妈', },
+      { name: '爸爸', value: '爸爸', },
+      { name: '其他', value: '其他' },
+    ],
+    checkItems: [
+      { name: 'USA', value: '美国'},
+      { name: 'CHN', value: '中国'},
+      { name: 'BRA', value: '巴西' },
+      { name: 'JPN', value: '日本' },
+      { name: 'ENG', value: '英国' },
+      { name: 'TUR', value: '法国' },
     ]
   },
 
@@ -187,6 +209,21 @@ Page({
     this.setData({
       index: e.detail.value
     })
+    if (e.detail.value = 1) {
+      gender = 1
+    } else if (e.detail.value = 0) {
+      gender = 0
+    } else {
+      dob = e.detail.value
+    }
+  },
+
+  bindAddressChange: function(e) {
+    this.setData({
+      index: e.detail.value
+    })
+    address = e.detail.value
+    console.log(address)
   },
 
   bindDateChange: function (e) {
@@ -196,34 +233,73 @@ Page({
     })
   },
 
+  bindExceptDateChange: function (e) {
+    this.setData({
+      date: e.detail.value
+    })
+    let except_dob = new Date(e.detail.value).getTime();
+    except_time = except_dob;
+    console.log(except_time)
+  },
+
+
   radioChange: function (e) {
     console.log('radio发生change事件，携带value值为：', e.detail.value)
+    guardian_role = e.detail.value
+    
+  },
+
+  checkboxChange: function (e) {
+    console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+  },
+  
+  
+  bindKeyInput: function (e) {
+    nickname = e.detail.value;
+    console.log(nickname)
+  },
+
+  inputTel: function(e) {
+    contact = e.detail.value;
+    console.log(contact)
+  },
+
+  queryAttendedKids: function () {
+    // var lm = require('../../../models/bm_kids_schema.js');
+    // let kids = lm.queryAllLocalKids();
+    // if (kids.length == 0) {
+    //   lm.genOneKid( nickname, 'chuichui', new Date().getTime(), 1, '父亲')
+    //   kids = lm.queryAllLocalKids();
+    // }
+    var ks = require('../../../models/bm_kids_schema.js');
+    let kids = ks.queryAllLocalKids();
+    if (kids.length == 0) {
+      ks.genOneKid(nickname, 'name', dob, gender, guardian_role)
+      kids = ks.queryAllLocalKids();
+    }
+    console.log(kids)
+    kids = kids
+    return kids;
   },
 
   onCommitApply: function() {
-    let kids = this.queryAttendedKids()
+    let kids = this.queryAttendedKids();
     let callback = {
-      onSuccess: function() {
+      onSuccess: function (res) {
         console.log('push apply success');
+        console.log(res)
       },
-      onFail: function() {
+      onFail: function () {
         console.log('push apply error');
       }
     }
-  
-    console.log('commit apply');
-    var lm = require('../../../models/bm_apply_schema.js');
-    lm.pushApply(0, "yang", "1372020856", 0, kids, callback);
-  },
 
+    var ay = require('../../../models/bm_apply_schema.js');
+    ay.pushApply(except_time, "活动", contact, 1, kids, callback);
+    
+  
+    
+  },
   // TODO: 这是一个假的，你需要从你的输入中读取这些值
-  queryAttendedKids: function() {
-    var lm = require('../../../models/bm_kids_schema.js');
-    let kids = lm.queryAllLocalKids();
-    if (kids.length == 0) {
-      lm.genOneKid('yixin', 'chuichui', new Date().getTime(), 1, '父亲')
-      kids = lm.queryAllLocalKids();
-    }
-    return kids;
-  }
+  
 })
