@@ -67,10 +67,6 @@ function codeSuccess(code, callback) {
   })
 }
 
-function queryUserPhone(callback) {
-
-}
-
 function genApplyeePushQuery(uinfo) {
   let g = 2;
   if (uinfo.gender == 1) g = 1
@@ -86,8 +82,8 @@ function genApplyeePushQuery(uinfo) {
         pic: uinfo.avatarUrl,
         regi_phone: "",
         wechat_bind_phone: "",
+        wechat_openid: wx.getStorageSync('dd_open_id'),
         gender: g,
-        wechat_code: wx.getStorageSync('code'),
       },
       relationships: {
 
@@ -107,6 +103,7 @@ function guid() {
 }
 
 function pushApplee(openid, uinfo, callback) {
+  bmstore.reset();
   let query_payload = genApplyeePushQuery(uinfo);
   let result = bmstore.sync(query_payload);
 
@@ -124,6 +121,7 @@ function pushApplee(openid, uinfo, callback) {
     },
     success(res) {
       let result = bmstore.sync(res.data);
+      wx.setStorageSync("dd_id", result.id);
       wx.setStorageSync("dd_token", result.token);
       console.log(result);
       callback.onPushSuccess(result);
@@ -138,10 +136,80 @@ function pushApplee(openid, uinfo, callback) {
   })
 }
 
+function genQueryUserById() {
+  let eq = guid();
+  return {
+    data: {
+      id: guid(),
+        type: "Request",
+          attributes: {
+        res: "BmApplyee"
+      },
+      relationships: {
+        Eqcond: {
+          data: [
+            {
+              id: eq,
+              type: "Eqcond"
+            }
+          ]
+        }
+      }
+    },
+    included: [
+      {
+        id: eq,
+        type: "Eqcond",
+        attributes: {
+          key: "id",
+          val: wx.getStorageSync("dd_id")
+        }
+      }
+    ]
+  }
+}
+
+function queryPushedApplee(callback) {
+  bmstore.reset();
+  let query_payload = genQueryUserById();
+  let rd = bmstore.sync(query_payload);
+
+  let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()));
+  let inc = rd.Eqcond[0].serialize()
+  rd_tmp['included'] = [inc.data]
+  let dt = JSON.stringify(rd_tmp)
+
+  wx.request({
+    url: 'http://192.168.100.174:8080/api/v1/findapplyee/0',
+    data: dt,
+    method: 'post',
+    header: {
+      'Content-Type': 'application/json', // 默认值
+      'Accept': 'application/json',
+      'Authorization': 'bearer ' + wx.getStorageSync('dd_token')
+    },
+    success(res) {
+      let result = bmstore.sync(res.data);
+      wx.setStorageSync("dd_id", result.id);
+      wx.setStorageSync("dd_token", result.token);
+      console.log(result);
+      callback.onQueryCurSuccess(result);
+    },
+    fail(err) {
+      console.log('fail!!!')
+      callback.onQueryCurFail(err);
+    },
+    complete() {
+      console.log('complete!!!')
+    }
+  })
+}
+
 module.exports = {
   checkWechatSession: checkWechatSession,
   wechatLogin: loginWithWechat,
   queryBasicInfo: queryUserBasicInfo,
   pushApplee: pushApplee,
   codeSuccess: codeSuccess,
+  queryCurApplyee: queryPushedApplee,
 }

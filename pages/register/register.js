@@ -192,13 +192,15 @@ Page({
         // 查看是否授权
         let cb = {
           onUserInfoSuccess: function(res) {
-            console.log(res);
-            let openid = wx.getStorageSync('dd_open_id');
-            console.log('openid: ' + openid);
-            // query user info jump to next 
+            lm.queryCurApplyee(this);
+          },
+          onQueryCurSuccess: function() {
             wx.redirectTo({
               url: '/pages/brand/info/info',
             })
+          },
+          onQueryCurFail: function() {
+            console.log('query cur user error');
           }
         }
         lm.queryBasicInfo(cb);
