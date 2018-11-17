@@ -205,6 +205,10 @@ function queryPushedApplee(callback) {
   })
 }
 
+function queryLocalApplyee() {
+  return bmstore.find('BmApplyee', wx.getStorageSync('dd_id'));
+}
+
 module.exports = {
   checkWechatSession: checkWechatSession,
   wechatLogin: loginWithWechat,
@@ -212,4 +216,5 @@ module.exports = {
   pushApplee: pushApplee,
   codeSuccess: codeSuccess,
   queryCurApplyee: queryPushedApplee,
+  queryLocalApplyee: queryLocalApplyee
 }
