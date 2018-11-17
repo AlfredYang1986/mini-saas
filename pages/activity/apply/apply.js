@@ -13,7 +13,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var lm = require('../../../models/bm_kids_schema.js');
+    lm.loadAllKidOnStrage();
   },
 
   /**
@@ -123,4 +124,31 @@ Page({
       animationData: this.animation.export(),
     })
   },
+
+  onCommitApply: function() {
+    let kids = this.queryAttendedKids()
+    let callback = {
+      onSuccess: function() {
+        console.log('push apply success');
+      },
+      onFail: function() {
+        console.log('push apply error');
+      }
+    }
+  
+    console.log('commit apply');
+    var lm = require('../../../models/bm_apply_schema.js');
+    lm.pushApply(0, "yang", "1372020856", 0, kids, callback);
+  },
+
+  // TODO: 这是一个假的，你需要从你的输入中读取这些值
+  queryAttendedKids: function() {
+    var lm = require('../../../models/bm_kids_schema.js');
+    let kids = lm.queryAllLocalKids();
+    if (kids.length == 0) {
+      lm.genOneKid('yixin', 'chuichui', new Date().getTime(), 1, '父亲')
+      kids = lm.queryAllLocalKids();
+    }
+    return kids;
+  }
 })
