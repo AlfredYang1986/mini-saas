@@ -5,8 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hideModal: true, //模态框的状态  true-隐藏  false-显示
+    hidePlace: true, //模态框的状态  true-隐藏  false-显示
+    hideTime: true,
+    hideChild: true,
     animationData: {},
+    array: ['男', '女'],
+    items: [
+      { name: 'mom', value: '妈妈', checked: 'true' },
+      { name: 'dad', value: '爸爸', },
+      { name: 'other', value: '其他' },
+    ]
   },
 
   /**
@@ -68,7 +76,7 @@ Page({
   showPlace: function () {
     var that = this;
     that.setData({
-      hideModal: false
+      hidePlace: false
     })
     var animation = wx.createAnimation({
       duration: 600,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
@@ -79,10 +87,11 @@ Page({
       that.fadeIn();//调用显示动画
     }, 200)
   },
+
   showTime: function () {
     var that = this;
     that.setData({
-      hideModal: false
+      hideTime: false
     })
     var animation = wx.createAnimation({
       duration: 600,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
@@ -93,8 +102,24 @@ Page({
       that.fadeIn();//调用显示动画
     }, 200)
   },
+
+  addChild: function() {
+    var that = this;
+    that.setData({
+      hideChild: false
+    })
+    var animation = wx.createAnimation({
+      duration: 600,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
+      timingFunction: 'ease',//动画的效果 默认值是linear
+    })
+    this.animation = animation
+    setTimeout(function () {
+      that.fadeIn();//调用显示动画
+    }, 200)
+  },
+
   // 隐藏遮罩层
-  hideModal: function () {
+  hidePlace: function () {
     var that = this;
     var animation = wx.createAnimation({
       duration: 800,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
@@ -104,7 +129,39 @@ Page({
     that.fadeDown();//调用隐藏动画   
     setTimeout(function () {
       that.setData({
-        hideModal: true
+        hidePlace: true
+      })
+    }, 720)//先执行下滑动画，再隐藏模块
+
+  },
+
+  hideTime: function () {
+    var that = this;
+    var animation = wx.createAnimation({
+      duration: 800,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
+      timingFunction: 'ease',//动画的效果 默认值是linear
+    })
+    this.animation = animation
+    that.fadeDown();//调用隐藏动画   
+    setTimeout(function () {
+      that.setData({
+        hideTime: true
+      })
+    }, 720)//先执行下滑动画，再隐藏模块
+
+  },
+
+  hideChild: function () {
+    var that = this;
+    var animation = wx.createAnimation({
+      duration: 800,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
+      timingFunction: 'ease',//动画的效果 默认值是linear
+    })
+    this.animation = animation
+    that.fadeDown();//调用隐藏动画   
+    setTimeout(function () {
+      that.setData({
+        hideChild: true
       })
     }, 720)//先执行下滑动画，再隐藏模块
 
@@ -123,4 +180,22 @@ Page({
       animationData: this.animation.export(),
     })
   },
+
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+  },
+
+  bindDateChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      date: e.detail.value
+    })
+  },
+
+  radioChange: function (e) {
+    console.log('radio发生change事件，携带value值为：', e.detail.value)
+  }
 })

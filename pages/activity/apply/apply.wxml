@@ -3,7 +3,7 @@
   <view class='list' bindtap="showPlace">
     <text class='name'>体验场地</text>
     <view class='select'>
-      <text>请选择</text>
+      <text>PROGWARTS-科学空间 青年路站</text>
       <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
     </view>
   </view>
@@ -11,7 +11,7 @@
   <view class='list border-bottom' bindtap="showTime">
     <text class='name'>体验时间</text>
     <view class='select'>
-      <text>请选择</text>
+      <text>任意时间</text>
       <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
     </view>
   </view>
@@ -19,7 +19,7 @@
    <view class='list border-bottom' >
     <text class='name'>孩子信息</text>
     <view class='select'>
-      <text class='child'>添加孩子</text>
+      <text class='child' bindtap="addChild">添加孩子</text>
       <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_add%402x.png' class='add'></image>
     </view>
   </view>
@@ -32,8 +32,10 @@
   </view>
   </view>
 
-<view class="modals modals-bottom-dialog" hidden="{{hideModal}}">
-  <view class="modals-cancel" bindtap="hideModal"></view>
+
+
+<view class="modals modals-bottom-dialog" hidden="{{hidePlace}}">
+  <view class="modals-cancel" bindtap="hidePlace"></view>
   <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
     <view class='alert'>
       <view class='title'  bindtap="hideModal">
@@ -46,9 +48,9 @@
     </view>
   </view>
 </view>
-<!-- 
-<view class="modals modals-bottom-dialog" hidden="{{hideModal}}">
-  <view class="modals-cancel" bindtap="hideModal"></view>
+
+<view class="modals modals-bottom-dialog" hidden="{{hideTime}}">
+  <view class="modals-cancel" bindtap="hideTime"></view>
   <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
     <view class='alert'>
       <view class='title'  bindtap="hideModal">
@@ -60,7 +62,60 @@
       </view>
     </view>
   </view>
-</view> -->
+</view>
+
+<view class="modals modals-bottom-dialog" hidden="{{hideChild}}">
+  <view class="modals-cancel" bindtap="hideChild"></view>
+  <view class="bottom-dialog-body bottom-pos child-modal" animation="{{animationData}}">
+    <view class='alert'>
+
+      <view class='child-title'>
+        <text class='title-text'>孩子信息</text>
+        <text class='subtitle-text'>您的隐私非常重要，信息不会被透露</text>
+      </view> 
+
+      <view class='base-info'>
+        <view class='base-info-list'>
+          <text class='info-title'>昵称</text>
+          <input placeholder='请输入' class='nickinput'></input>
+        </view>
+        <view class='base-info-list'>
+          <text class='info-title'>性别</text>
+          <view class="section">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="picker select">
+               <text>{{array[index]}}</text>
+               <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class='base-info-list'>
+          <text class='info-title'>生日</text>
+          <view class="section">
+            <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+              <view class="picker select">
+                <text>{{date}}</text>
+                <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+      <view class='rela'>
+        <text class='rela-title'>您与孩子关系</text>
+        <radio-group class="radio-group rela-radio-group" bindchange="radioChange">
+          <label class="radio rela-radio" wx:for="{{items}}">
+            <radio value="{{item.name}}" checked="{{item.checked}}" class='redio-dot'/>{{item.value}}
+          </label>
+        </radio-group>
+      </view>
+
+      <button class='save-child'>完成</button>
+    </view>
+  </view>
+</view>
 
   <view class='btn'>
     <text>提交</text>
