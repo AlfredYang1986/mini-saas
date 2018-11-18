@@ -7,7 +7,9 @@ Component({
     brand: {
       type: "Array",
       value: [],
-      observer: function (news, olds, path) {}
+      observer: function (news, olds, path) {
+        console.log(news)
+      }
     }
   },
 

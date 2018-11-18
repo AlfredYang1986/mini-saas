@@ -8,8 +8,8 @@
     <view class="brand-component component-margin-top">
       <class-banner isList="false"  exps="{{exps}}"  class="class-banner"></class-banner>
     </view>
-    <view class="brand-component component-margin-top" bindtap='showLocations'>
-      <location-banner class="location-banner"></location-banner>
+    <view class="brand-component component-margin-top" >
+      <location-banner class="location-banner" yard="{{yardInfo}}"></location-banner>
     </view>
   </view>
 </view>

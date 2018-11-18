@@ -8,6 +8,7 @@ let contact;
 let course_name;
 let except_time;
 let kids;
+let kid;
 let address;
 let detailSort = wx.getStorageSync('detailSort');
 let detailName = wx.getStorageSync('detailName');
@@ -23,8 +24,7 @@ Page({
     animationData: {},
     array: ['女', '男'],
     address:[
-      "地址1",
-      "地址2",
+      wx.getStorageSync('yardname')
     ],
     items: [
       { name: '妈妈', value: '妈妈', },
@@ -38,19 +38,48 @@ Page({
       { name: 'JPN', value: '日本' },
       { name: 'ENG', value: '英国' },
       { name: 'TUR', value: '法国' },
-    ]
+    ],
+    kid: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("this is appiy option")
-    console.log(options)
-    var lm = require('../../../models/bm_kids_schema.js');
-    lm.loadAllKidOnStrage();
+    
   },
 
+  addchild: function() {
+    kid = wx.getStorageSync('kids')
+    let data = [];
+    debugger
+    JSON.parse(kid).map((ele) => {
+      console.log(ele)
+      let dob = new Date(ele.data.attributes.dob);
+      let dn = new Date();
+      let age = dn.getFullYear() - dob.getFullYear();
+      ele.data.attributes.age = age;
+
+      let gender = ele.data.attributes.gender;
+      console.log('this is gender' + gender)
+      if (gender == 0) {
+        ele.data.attributes.genders = '女'
+      } else if (gender == 1) {
+        ele.data.attributes.genders = '男'
+      }
+      console.log(ele)
+
+      data.push(ele);
+    })
+    console.log("this is dataaaaaaa")
+    console.log(data)
+    this.setData({
+      // kid: JSON.stringify(kid)
+      kid: data
+    })
+    console.log(kid)
+    // var lm = require('../../../models/bm_kids_schema.js');
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -62,7 +91,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+   
   },
 
   /**
@@ -264,21 +293,17 @@ Page({
   },
 
   queryAttendedKids: function () {
-    // var lm = require('../../../models/bm_kids_schema.js');
-    // let kids = lm.queryAllLocalKids();
-    // if (kids.length == 0) {
-    //   lm.genOneKid( nickname, 'chuichui', new Date().getTime(), 1, '父亲')
-    //   kids = lm.queryAllLocalKids();
-    // }
-    var ks = require('../../../models/bm_kids_schema.js');
+
+    let ks = require('../../../models/bm_kids_schema.js');
     let kids = ks.queryAllLocalKids();
-    if (kids.length == 0) {
-      ks.genOneKid(nickname, 'name', dob, gender, guardian_role)
+    // if (kids.length == 0) {
+      ks.genOneKid(nickname, 'nickname', dob, gender, guardian_role)
       kids = ks.queryAllLocalKids();
-    }
-    console.log(kids)
+      ks.saveAllKidOnStorage();
+    // }
+    this.addchild();
     kids = kids
-    return kids;
+    return kids
   },
 
   onCommitApply: function() {
@@ -287,6 +312,7 @@ Page({
       onSuccess: function (res) {
         console.log('push apply success');
         console.log(res)
+        alert("提交成功")
       },
       onFail: function () {
         console.log('push apply error');

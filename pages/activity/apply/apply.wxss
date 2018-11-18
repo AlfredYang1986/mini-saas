@@ -63,6 +63,7 @@
 .list .child-info-list checkbox {
   margin-right: 16rpx;
 }
+
 .border-bottom {
   border-bottom: 1px solid rgba(0,0,0,0.05);
   padding-bottom: 56rpx;

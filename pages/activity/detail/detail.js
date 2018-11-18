@@ -92,21 +92,22 @@ Page({
     let that = this
     let callback = {
       onSuccess: function (res) {
-        console.log(res)
+        
         detailSort = res.status;
         detailName = res.SessionInfo.title;
-        console.log(detailSort)
-        console.log(detailName)
         wx.setStorageSync('detailSort', detailSort);
         wx.setStorageSync('detailName', detailName);
         let _originRes = res;
         let _originImg = res.SessionInfo.cover;
         res.SessionInfo.dealCover = client.signatureUrl(_originImg);
+        res.SessionInfo.yardname = wx.getStorageSync('yardname');
+        res.SessionInfo.yardtag = wx.getStorageSync('yardtag');
+        console.log(res)
         that.setData({
           actv: res
         })
+
       },
-      
     }
     var bmactv = require('../../../models/bm_actv_schema.js')
     bmactv.queryActvInfo(options.actvid, callback)

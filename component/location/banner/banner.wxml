@@ -1,5 +1,5 @@
 <!--component/location-banner/location-banner.wxml-->
-<view class="loc-banner">
+<view class="loc-banner" bindtap='showLocations' data-brandid="{{item.id}}">
 	<view class="content-page">
 		<view class="content-item">
 			<view class="content-row-span">
@@ -13,14 +13,14 @@
 			</view> 
 		</view>
     <view class='bg-image' style='background-image: url("{{bgImg}}")'>
-      <text class='subtitle'>{{title}}</text>
-      <text class='address'>{{address}}</text>
+      <text class='subtitle'>{{yard.title}}</text>
+      <text class='address'>{{yard.address}}</text>
     </view>
     <view class='show-image'>
-      <image src='{{bgLiving}}' class='img-1'></image>
+      <image src='{{yard.cover1}}' class='img-1'></image>
       <view class='img-list'>
-        <image src='{{bgIndoor}}' class='img-2'></image>
-        <image src='{{bgOutdoor}}' class='img-2'></image>
+        <image src='{{yard.cover2}}' class='img-2'></image>
+        <image src='{{yard.cover3}}' class='img-2'></image>
       </view>
     </view>
 	</view>

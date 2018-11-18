@@ -40,7 +40,7 @@ function queryLocalKidByID(kidid) {
 function saveAllKidOnStorage() {
   let kids = queryAllLocalKids();
   let result = [];
-  for (let idx = 0; idx < kid.length; idx++) {
+  for (let idx = 0; idx < kids.length; idx++) {
     result.push(kids[idx].serialize());
   }
   wx.setStorage({

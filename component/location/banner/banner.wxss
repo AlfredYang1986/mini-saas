@@ -109,11 +109,13 @@
   width: 418rpx;
   height: 276rpx;
   border-radius: 8rpx;
+  background-color: #ddd;
 }
 .show-image .img-2 {
   width: 236rpx;
   height: 124rpx;
   border-radius: 8rpx;
+  background-color: #ddd;
 }
 /* .loc-banner .content-row-span .more {
 	font-family: PingFangSC-Medium;

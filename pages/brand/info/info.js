@@ -83,6 +83,7 @@ Page({
     }
     let callbackBrand = {
       onSuccess: function (res) {
+        console.log(res)
         let logo = res.logo;
         res.newLogo = client.signatureUrl(logo);
         that.setData({
@@ -94,12 +95,48 @@ Page({
         console.log(err)
       }
     }
+
+    let callbackYard = {
+      onSuccess: function (res) {
+        let tagimgs = res.Tagimgs;
+        let newimgs = tagimgs.map((ele) => {
+          let tagImg = ele.img;
+          ele.dealImg = client.signatureUrl(tagImg);
+          return ele
+        })
+
+        res.cover1 = res.Tagimgs[0].dealImg;
+        res.cover2 = res.Tagimgs[1].dealImg;
+        res.cover3 = res.Tagimgs[2].dealImg;
+
+        wx.setStorage({
+          key: "yardname",
+          data: res.title
+        })
+        wx.setStorage({
+          key: 'yardtag',
+          data: res.Tagimgs,
+        })
+        console.log(res)
+        that.setData({
+          yardInfo: res,
+        })
+      },
+      onFail: function (err) {
+        // TODO : 报错 ...
+        console.log(err)
+      }
+    }
+
     var bmexp = require('../../../models/bm_exp_schema.js')
     bmexp.queryMultiExps(callback)
     var bmactvs = require('../../../models/bm_actv_schema.js')
     bmactvs.queryMultiActvs(callbackActvs)
     var bmbrand = require('../../../models/bm_brand_schema.js')
     bmbrand.queryBrand(options.brandid,callbackBrand)
+    var bmyard = require('../../../models/bm_yard_schema.js')
+    bmyard.queryYard(options.yardid, callbackYard)
+
   },
 
   /**
@@ -156,10 +193,6 @@ Page({
       url: '/pages/brand/details/details'
     })
   },
-  showLocations: function (event) {
-    wx.navigateTo({
-      url: '/pages/locations/details/details'
-    })
-  },
+  
 
 })

@@ -54,6 +54,7 @@ Page({
         let _originRes = res;
         let _originImg = res.SessionInfo.cover;
         res.SessionInfo.dealCover = client.signatureUrl(_originImg);
+        res.SessionInfo.yardtag = wx.getStorageSync('yardtag');
         that.setData({
           exp: res
         })

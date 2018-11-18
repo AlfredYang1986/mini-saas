@@ -4,7 +4,13 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    yard: {
+      type: "Array",
+      value: [],
+      observer: function (news, olds, path) {
+        console.log(news)
+      }
+    }
   },
 
   /**
@@ -61,6 +67,13 @@ Component({
       wx.navigateTo({
         url: '/pages/locations/details/details'
       })
-    }
+    },
+
+    showLocations: function (event) {
+      let yardid = event.currentTarget.dataset.yardid;
+      wx.navigateTo({
+        url: '/pages/locations/details/details?yardid=' + yardid 
+      })
+    },
   }
 })
