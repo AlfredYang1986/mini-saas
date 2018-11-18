@@ -37,7 +37,7 @@
 .content .list .cover {
   width: 260rpx;
   height: 160rpx;
-  background: red;
+  background: #ddd;
   border-radius: 8rpx;
   overflow: hidden;
   background-size: cover;

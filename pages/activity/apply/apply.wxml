@@ -27,24 +27,37 @@
   <view class='child-info'>
     <view class='list ' >
       <text class='name'>孩子信息</text>
-      <view class='select'>
-        <text class='child' bindtap="addChild">添加孩子</text>
+      <view class='select'  bindtap="addChild">
+        <text class='child'>添加孩子</text>
         <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_add%402x.png' class='add'></image>
       </view>
     </view>
     <view class='list border-bottom' >
-      <checkbox-group bindchange="checkboxChange" class="child-info">
-        <label class="checkbox" class='child-info-list'  wx:for='{{kid}}'>
+      <!-- <checkbox-group bindchange="checkboxChange" class="child-info">
+        <label class="checkbox" class='child-info-list'  wx:for='{{kids}}'>
           <view >
-            <checkbox value="{{item.data.attributes.name}}" checked="{{item.checked}}"/>
-            <text>{{item.data.attributes.name}}</text>
+            <checkbox value="{{item.name}}" checked="{{item.checked}}"/>
+            <text>{{item.name}}</text>
           </view>
           <view>
-            <text>{{item.data.attributes.genders}}生</text>
-            <text>{{item.data.attributes.age}}岁</text>
+            <text>{{item.genders}}生</text>
+            <text>{{item.age}}岁</text>
           </view>
         </label>
-      </checkbox-group>
+      </checkbox-group> -->
+      <radio-group class="child-info" bindchange="selectChildChange">
+        
+        <label class="radio rela-radio child-info-list" wx:for='{{kids}}'>
+          <view> 
+            <radio value="{{item.id}}" checked="{{item.checked}}" class='redio-dot'/>
+            <text>{{item.name}}</text>
+          </view>
+          <view>
+          <text>{{item.genders}}生</text>
+          <text>{{item.age}}岁</text>
+        </view>
+        </label>
+        </radio-group>
     </view>
   </view>
 
@@ -143,7 +156,7 @@
 </view>
 
 
-  <button type='submit' class='save-child'  bindtap='onCommitApply'>提交</button>
+  <button type='submit' class='save-child' data-childid="{{childid}}"  bindtap='onCommitApply'>提交</button>
   <!-- <view class='btn'>
     <text>提交</text>
   </view> -->

@@ -18,7 +18,7 @@
   width: 254rpx;
   height: 156rpx;
   border-radius: 8rpx;
-  background: red;
+  background: #ddd;
 
   margin-right: 32rpx;
 }

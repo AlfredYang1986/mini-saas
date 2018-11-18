@@ -32,7 +32,7 @@
 }
 .content .list {
   margin-right: 32rpx;
-  background: #000;
+  background: #ddd;
   min-height: 306rpx;
   min-width: 542rpx;
   border-radius: 8rpx;

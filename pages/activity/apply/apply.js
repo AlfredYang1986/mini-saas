@@ -10,8 +10,8 @@ let except_time;
 let kids;
 let kid;
 let address;
-let detailSort = wx.getStorageSync('detailSort');
-let detailName = wx.getStorageSync('detailName');
+let detailSort = wx.getStorageSync('actvDetailSort');
+let detailName = wx.getStorageSync('actvDetailName');
 Page({
 
   /**
@@ -39,21 +39,22 @@ Page({
       { name: 'ENG', value: '英国' },
       { name: 'TUR', value: '法国' },
     ],
-    kid: null,
+    kids: null,
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    wx.removeStorageSync('kids')
   },
 
-  addchild: function() {
-    kid = wx.getStorageSync('kids')
+  addchilds: function() {
+    let kidinfo = wx.getStorageSync('kids')
+    console.log(kidinfo)
     let data = [];
-    debugger
-    JSON.parse(kid).map((ele) => {
+    JSON.parse(kidinfo).map((ele) => {
       console.log(ele)
       let dob = new Date(ele.data.attributes.dob);
       let dn = new Date();
@@ -74,11 +75,9 @@ Page({
     console.log("this is dataaaaaaa")
     console.log(data)
     this.setData({
-      // kid: JSON.stringify(kid)
       kid: data
     })
     console.log(kid)
-    // var lm = require('../../../models/bm_kids_schema.js');
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -91,7 +90,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-   
+    wx.removeStorageSync('kids')
   },
 
   /**
@@ -277,8 +276,16 @@ Page({
     
   },
 
+  selectChildChange: function (e) {
+    kid = [];
+    let ks = require('../../../models/bm_kids_schema.js');
+    let selectedKid = ks.queryLocalKidByID(e.detail.value)
+    kid.push(selectedKid);
+    console.log(kid)
+  },
+
   checkboxChange: function (e) {
-    console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+    console.log( e.detail.value)
   },
   
   
@@ -293,33 +300,60 @@ Page({
   },
 
   queryAttendedKids: function () {
-
     let ks = require('../../../models/bm_kids_schema.js');
-    let kids = ks.queryAllLocalKids();
+    // let kids = ks.queryAllLocalKids();
     // if (kids.length == 0) {
-      ks.genOneKid(nickname, 'nickname', dob, gender, guardian_role)
-      kids = ks.queryAllLocalKids();
-      ks.saveAllKidOnStorage();
+    ks.genOneKid(nickname, 'nickname', dob, gender, guardian_role)
+    ks.saveAllKidOnStorage();
+    // this.addchilds();
+    // let kidinfo = wx.getStorageSync('kids')
+    // console.log(kidinfo)
+    kids = ks.queryAllLocalKids();
+    console.log(kids)
+    let data = [];
+    let that = this;
+    kids.map((ele) => {
+      let dob = new Date(ele.dob);
+      let dn = new Date();
+      let age = dn.getFullYear() - dob.getFullYear();
+      ele.age = age;
+
+      let gender = ele.gender;
+      console.log('this is gender' + gender)
+      if (gender == 0) {
+        ele.genders = '女'
+      } else if (gender == 1) {
+        ele.genders = '男'
+      }
+      data.push(ele);
+      that.setData({
+        kids: data
+      })
+    })
     // }
-    this.addchild();
-    kids = kids
+    // kids = kids
     return kids
   },
 
-  onCommitApply: function() {
-    let kids = this.queryAttendedKids();
+  onCommitApply: function(event) {
+    // let kids = this.queryAttendedKids();
+    console.log(event)
+    let childid = event.currentTarget.dataset.childid;
     let callback = {
       onSuccess: function (res) {
         console.log('push apply success');
         console.log(res)
-        alert("提交成功")
+        
+        // wx.navigateTo({
+        //   url: '/pages/activity/detail/detail?childid=' + childid,
+        // })
       },
       onFail: function () {
         console.log('push apply error');
       }
     }
     var ay = require('../../../models/bm_apply_schema.js');
-    ay.pushApply(except_time, detailName, contact, detailSort, kids, callback);
+    ay.pushApply(except_time, detailName, contact, detailSort, kid, callback);
     
   
     

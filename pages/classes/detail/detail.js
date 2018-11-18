@@ -2,6 +2,8 @@
 
 var OSS = require('../../../models/ali-oss.js')
 
+let classDetailSort;
+let classDetailName;
 Page({
  
   /**
@@ -51,10 +53,15 @@ Page({
     let that = this;
     let callback = {
       onSuccess: function (res) {
+        classDetailSort = res.status;
+        classDetailName = res.SessionInfo.title;
+        wx.setStorageSync('detailSort', classDetailSort);
+        wx.setStorageSync('detailName', classDetailName);
         let _originRes = res;
         let _originImg = res.SessionInfo.cover;
         res.SessionInfo.dealCover = client.signatureUrl(_originImg);
         res.SessionInfo.yardtag = wx.getStorageSync('yardtag');
+        res.SessionInfo.yardname = wx.getStorageSync('yardname');
         that.setData({
           exp: res
         })

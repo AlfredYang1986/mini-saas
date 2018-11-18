@@ -63,7 +63,7 @@ margin-right: 4rpx;
   height: 202rpx;
   width: 100%;
   border-radius: 8rpx;
-  background: red;
+  background: #ddd;
   background-size: cover;
   background-position: center;
 

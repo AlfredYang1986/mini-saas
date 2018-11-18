@@ -20,8 +20,8 @@ var id;
 
 var OSS = require('../../../models/ali-oss.js')
 
-let detailSort;
-let detailName;
+let actvDetailSort;
+let actvDetailName;
 Page({
 
   /** 
@@ -93,10 +93,10 @@ Page({
     let callback = {
       onSuccess: function (res) {
         
-        detailSort = res.status;
-        detailName = res.SessionInfo.title;
-        wx.setStorageSync('detailSort', detailSort);
-        wx.setStorageSync('detailName', detailName);
+        actvDetailSort = res.status;
+        actvDetailName = res.SessionInfo.title;
+        wx.setStorageSync('detailSort', actvDetailSort);
+        wx.setStorageSync('detailName', actvDetailName);
         let _originRes = res;
         let _originImg = res.SessionInfo.cover;
         res.SessionInfo.dealCover = client.signatureUrl(_originImg);

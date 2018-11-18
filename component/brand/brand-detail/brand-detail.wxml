@@ -1,7 +1,7 @@
 <!--component/brand/brand-detail/brand-detail.wxml-->
 <view class='content-page'>
   <view class='head'>
-    <image class='logo' src='{{logo}}'></image>
+    <image class='logo' src='{{brand.newLogo}}'></image>
     <text class='headline'>{{brand.title}}</text>
     <view class='des'>「 {{brand.slogan}} 」</view>
     <view class='lists'>

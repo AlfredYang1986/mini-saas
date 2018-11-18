@@ -24,6 +24,8 @@ Page({
     let that = this
     let callback = {
       onSuccess: function (res) {
+        let logo = res.logo;
+        res.newLogo = client.signatureUrl(logo);
         let honors = res.Honors;
         let newHonors = honors.map((ele) => {
           let honorsImg = ele.img;
