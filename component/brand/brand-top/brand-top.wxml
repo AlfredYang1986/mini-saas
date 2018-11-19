@@ -3,7 +3,7 @@
   <view class='info'>
     <view class='title'>
       <text>{{brand.title}}</text>
-      <image class='img' src="">{{img}}</image>
+      <image class='img' src="{{img}}"></image>
     </view>
     <text class='intro'>「{{brand.slogan}}」</text>
     <view class='lists'>

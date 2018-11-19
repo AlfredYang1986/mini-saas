@@ -215,8 +215,8 @@ Page({
         console.log('登陆，获取Code失败')
       },
     }
-    lm.wechatLogin(callback);
-    // lm.checkWechatSession(callback);
+    // lm.wechatLogin(callback);
+    lm.checkWechatSession(callback);
   },
   bindGetUserInfo(e) {
     console.log(e.detail.userInfo);

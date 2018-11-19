@@ -31,6 +31,12 @@
 .list .select {
   width: 100%;
   text-align: right;
+  height:25px;
+  display:flex;
+  flex-direction:row;
+  justify-content:flex-end;
+  align-items:center;
+
 }
 .list .select text {
   font-family: PingFangSC-Regular;
@@ -39,8 +45,8 @@
   margin-right: 16rpx;
 }
 .list .select image {
-  width: 8rpx;
-  height: 16rpx;
+  width: 12rpx;
+  height: 24rpx;
   /* background: red; */
 }
 .list .select .child {
@@ -241,6 +247,7 @@
   text-align: center;
   color: #fff;
 }
+button::after{ border: none; }
 .alert {
   display: flex;
   flex-direction: column;

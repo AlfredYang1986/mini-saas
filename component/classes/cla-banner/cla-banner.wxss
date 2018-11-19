@@ -20,8 +20,8 @@
   color: #0D0D0D;
 }
 .title image {
-  width: 14rpx;
-  height: 26rpx;
+  width: 44rpx;
+  height: 44rpx;
 }
 .content {
   display: flex;
@@ -59,11 +59,13 @@
   font-family: SFProText-Medium;
   font-size: 22rpx;
   color: #a6a6a6;
+  font-weight: 700;
 }
 .class-info .info .name {
   font-family: SFProText-Medium;
   font-size: 32rpx;
   color: #404040;
+  font-weight: 700;
 }
 
 .class-info .suit {

@@ -21,6 +21,7 @@
   border-radius: 8rpx;
 }
 .content .list .list-detail{
+  margin-bottom: 24rpx;
   min-height: 344rpx;
   max-width: 554rpx;
   display: flex;

@@ -52,7 +52,8 @@
   flex-direction: column;
   justify-content: flex-end;
 
-  background-color: rgba(0,0,0,0.1)
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 8rpx;
   
 }
 .list .info {
@@ -66,7 +67,7 @@
 }
 .list .info .sort {
   margin-right: 16rpx;
-  padding: 4rpx 16rpx;
+  padding: 0 16rpx;
   background-color: #FFFFFF;
   color: #737373;
   font-family: PingFangSC-Medium;
