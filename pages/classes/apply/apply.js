@@ -7,11 +7,12 @@ let guardian_role;
 let contact;
 let course_name;
 let except_time;
-let kids;
+let classkids;
 let kid;
 let address;
 let detailSort = wx.getStorageSync('detailSort');
 let detailName = wx.getStorageSync('detailName');
+let yardname;
 Page({
 
   /**
@@ -23,9 +24,7 @@ Page({
     hideChild: true,
     animationData: {},
     array: ['女', '男'],
-    address: [
-      wx.getStorageSync('yardname')
-    ],
+    address: null,
     items: [
       { name: '妈妈', value: '妈妈', },
       { name: '爸爸', value: '爸爸', },
@@ -39,7 +38,7 @@ Page({
       { name: 'ENG', value: '英国' },
       { name: 'TUR', value: '法国' },
     ],
-    kids: null,
+    classkids: [],
 
   },
 
@@ -47,38 +46,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.removeStorageSync('kids')
-  },
-
-  addchilds: function () {
-    let kidinfo = wx.getStorageSync('kids')
-    console.log(kidinfo)
-    let data = [];
-    JSON.parse(kidinfo).map((ele) => {
-      console.log(ele)
-      let dob = new Date(ele.data.attributes.dob);
-      let dn = new Date();
-      let age = dn.getFullYear() - dob.getFullYear();
-      ele.data.attributes.age = age;
-
-      let gender = ele.data.attributes.gender;
-      console.log('this is gender' + gender)
-      if (gender == 0) {
-        ele.data.attributes.genders = '女'
-      } else if (gender == 1) {
-        ele.data.attributes.genders = '男'
-      }
-      console.log(ele)
-
-      data.push(ele);
-    })
-    console.log("this is dataaaaaaa")
-    console.log(data)
+    wx.removeStorageSync('kids');
+    yardname = wx.getStorageSync('yardname');
+    let yard = [];
+    yard.push(yardname);
     this.setData({
-      kid: data
+      address: yard,
     })
-    console.log(kid)
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -90,7 +66,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.removeStorageSync('kids')
+    classkids = [];
+    let ks = require('../../../models/bm_kids_schema.js');
+    ks.bmstoreReset();
   },
 
   /**
@@ -127,36 +105,7 @@ Page({
   onShareAppMessage: function () {
 
   },
-  // 显示遮罩层
-  showPlace: function () {
-    var that = this;
-    that.setData({
-      hidePlace: false
-    })
-    var animation = wx.createAnimation({
-      duration: 600,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
-      timingFunction: 'ease',//动画的效果 默认值是linear
-    })
-    this.animation = animation
-    setTimeout(function () {
-      that.fadeIn();//调用显示动画
-    }, 200)
-  },
-
-  showTime: function () {
-    var that = this;
-    that.setData({
-      hideTime: false
-    })
-    var animation = wx.createAnimation({
-      duration: 600,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
-      timingFunction: 'ease',//动画的效果 默认值是linear
-    })
-    this.animation = animation
-    setTimeout(function () {
-      that.fadeIn();//调用显示动画
-    }, 200)
-  },
+  /* 显示遮罩层 */
 
   addChild: function () {
     var that = this;
@@ -174,38 +123,6 @@ Page({
   },
 
   // 隐藏遮罩层
-  hidePlace: function () {
-    var that = this;
-    var animation = wx.createAnimation({
-      duration: 800,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
-      timingFunction: 'ease',//动画的效果 默认值是linear
-    })
-    this.animation = animation
-    that.fadeDown();//调用隐藏动画   
-    setTimeout(function () {
-      that.setData({
-        hidePlace: true
-      })
-    }, 720)//先执行下滑动画，再隐藏模块
-
-  },
-
-  hideTime: function () {
-    var that = this;
-    var animation = wx.createAnimation({
-      duration: 800,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
-      timingFunction: 'ease',//动画的效果 默认值是linear
-    })
-    this.animation = animation
-    that.fadeDown();//调用隐藏动画   
-    setTimeout(function () {
-      that.setData({
-        hideTime: true
-      })
-    }, 720)//先执行下滑动画，再隐藏模块
-
-  },
-
   hideChild: function () {
     var that = this;
     var animation = wx.createAnimation({
@@ -305,14 +222,13 @@ Page({
     // if (kids.length == 0) {
     ks.genOneKid(nickname, 'nickname', dob, gender, guardian_role)
     ks.saveAllKidOnStorage();
-    // this.addchilds();
-    // let kidinfo = wx.getStorageSync('kids')
-    // console.log(kidinfo)
-    kids = ks.queryAllLocalKids();
-    console.log(kids)
+    classkids = ks.queryAllLocalKids();
+    console.log("this is query local classkids")
+    console.log(classkids)
+    
     let data = [];
     let that = this;
-    kids.map((ele) => {
+    classkids.map((ele) => {
       let dob = new Date(ele.dob);
       let dn = new Date();
       let age = dn.getFullYear() - dob.getFullYear();
@@ -327,12 +243,11 @@ Page({
       }
       data.push(ele);
       that.setData({
-        kids: data
+        classkids: data
       })
     })
     // }
-    // kids = kids
-    return kids
+    // return kids
   },
 
   onCommitApply: function (event) {
@@ -354,8 +269,6 @@ Page({
     }
     var ay = require('../../../models/bm_apply_schema.js');
     ay.pushApply(except_time, detailName, contact, detailSort, kid, callback);
-
-
 
   },
   // TODO: 这是一个假的，你需要从你的输入中读取这些值

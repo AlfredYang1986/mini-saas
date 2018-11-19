@@ -12,6 +12,7 @@ let kid;
 let address;
 let detailSort = wx.getStorageSync('actvDetailSort');
 let detailName = wx.getStorageSync('actvDetailName');
+let yardname;
 Page({
 
   /**
@@ -23,9 +24,7 @@ Page({
     hideChild: true,
     animationData: {},
     array: ['女', '男'],
-    address:[
-      wx.getStorageSync('yardname')
-    ],
+    address: null,
     items: [
       { name: '妈妈', value: '妈妈', },
       { name: '爸爸', value: '爸爸', },
@@ -47,38 +46,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.removeStorageSync('kids')
-  },
-
-  addchilds: function() {
-    let kidinfo = wx.getStorageSync('kids')
-    console.log(kidinfo)
-    let data = [];
-    JSON.parse(kidinfo).map((ele) => {
-      console.log(ele)
-      let dob = new Date(ele.data.attributes.dob);
-      let dn = new Date();
-      let age = dn.getFullYear() - dob.getFullYear();
-      ele.data.attributes.age = age;
-
-      let gender = ele.data.attributes.gender;
-      console.log('this is gender' + gender)
-      if (gender == 0) {
-        ele.data.attributes.genders = '女'
-      } else if (gender == 1) {
-        ele.data.attributes.genders = '男'
-      }
-      console.log(ele)
-
-      data.push(ele);
-    })
-    console.log("this is dataaaaaaa")
-    console.log(data)
+    wx.removeStorageSync('kids');
+    yardname = wx.getStorageSync('yardname');
+    let yard = [];
+    yard.push(yardname);
     this.setData({
-      kid: data
+      address: yard,
     })
-    console.log(kid)
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -90,7 +66,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.removeStorageSync('kids')
+    let ks = require('../../../models/bm_kids_schema.js');
+    ks.bmstoreReset();
   },
 
   /**
@@ -305,9 +282,6 @@ Page({
     // if (kids.length == 0) {
     ks.genOneKid(nickname, 'nickname', dob, gender, guardian_role)
     ks.saveAllKidOnStorage();
-    // this.addchilds();
-    // let kidinfo = wx.getStorageSync('kids')
-    // console.log(kidinfo)
     kids = ks.queryAllLocalKids();
     console.log(kids)
     let data = [];
@@ -335,10 +309,9 @@ Page({
     return kids
   },
 
-  onCommitApply: function(event) {
+  onCommitApply: function() {
     // let kids = this.queryAttendedKids();
-    console.log(event)
-    let childid = event.currentTarget.dataset.childid;
+    // let childid = event.currentTarget.dataset.childid;
     let callback = {
       onSuccess: function (res) {
         console.log('push apply success');
@@ -354,9 +327,6 @@ Page({
     }
     var ay = require('../../../models/bm_apply_schema.js');
     ay.pushApply(except_time, detailName, contact, detailSort, kid, callback);
-    
-  
-    
   },
   // TODO: 这是一个假的，你需要从你的输入中读取这些值
   

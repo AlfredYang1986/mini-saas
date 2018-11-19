@@ -28,8 +28,12 @@ function genOneKid(name, nick_name, dob, gender, guardian_role) {
   bmstore.sync(kid)
 }
 
+function bmstoreReset() {
+  return bmstore.reset();
+}
+
 function queryAllLocalKids() {
-  // bmstore.reset();
+  // bmstore.reset()
   return bmstore.findAll('BmKid');
 }
 
@@ -67,5 +71,6 @@ module.exports = {
   loadAllKidOnStrage: loadAllKidOnStrage,
   queryAllLocalKids: queryAllLocalKids,
   queryLocalKidByID: queryLocalKidByID,
-  saveAllKidOnStorage: saveAllKidOnStorage
+  saveAllKidOnStorage: saveAllKidOnStorage,
+  bmstoreReset: bmstoreReset
 }

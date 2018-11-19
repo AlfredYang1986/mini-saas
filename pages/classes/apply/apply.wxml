@@ -47,7 +47,7 @@
       </checkbox-group> -->
       <radio-group class="child-info" bindchange="selectChildChange">
         
-        <label class="radio rela-radio child-info-list" wx:for='{{kids}}'>
+        <label class="radio rela-radio child-info-list" wx:for='{{classkids}}'>
           <view> 
             <radio value="{{item.id}}" checked="{{item.checked}}" class='redio-dot'/>
             <text>{{item.name}}</text>
