@@ -10,8 +10,8 @@ let except_time;
 let kids;
 let kid;
 let address;
-let detailSort = wx.getStorageSync('actvDetailSort');
-let detailName = wx.getStorageSync('actvDetailName');
+let detailSort = wx.getStorageSync('detailSort');
+let detailName = wx.getStorageSync('detailName');
 let yardname;
 Page({
 
