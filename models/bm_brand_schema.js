@@ -24,8 +24,9 @@ function queryBrand(brandid, callback) {
   let dt = JSON.stringify(rd_tmp);
   let token = wx.getStorageSync('dd_token')
 
+  let config = require('./bm_config.js')
   wx.request({
-    url: 'http://192.168.100.174:8080/api/v1/findbrand/0',
+    url: config.bm_service_host + '/api/v1/findbrand/0',
     data: dt,
     method: 'post',
     header: {

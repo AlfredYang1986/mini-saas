@@ -58,8 +58,10 @@ function pushApply(except_time, course_name, contact, course_type, kids, callbac
   rd_tmp['included'] = inc;
   let dt = JSON.stringify(rd_tmp);
   console.log(dt);
+
+  let config = require("./bm_config.js");
   wx.request({
-    url: 'http://192.168.100.174:8080/api/v1/pushapply/0',
+    url: config.bm_service_host + '/api/v1/pushapply/0',
     data: dt,
     method: 'post',
     header: {

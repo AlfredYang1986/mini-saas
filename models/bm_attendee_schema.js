@@ -141,8 +141,10 @@ function queryAttendee() {
   let inc = rd.Eqcond[0].serialize()
   rd_tmp['included'] = [inc.data]
   let dt = JSON.stringify(rd_tmp)
+
+  let config = require('./bm_config.js');
   wx.request({
-    url: 'http://192.168.100.174:8080/api/v1/findattendee/0', //仅为示例，并非真实的接口地址
+    url: config.bm_service_host + '/api/v1/findattendee/0', //仅为示例，并非真实的接口地址
     data: dt,
     method: 'post',
     header: {

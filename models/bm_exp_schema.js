@@ -22,15 +22,17 @@ function queryMultiExps(callback) {
 	let inc = rd.Eqcond[0].serialize()
 	rd_tmp['included'] = [inc.data]
 	let dt = JSON.stringify(rd_tmp)
+  let token = wx.getStorageSync('dd_token');
 
+  var config = require('./bm_config.js')
 	wx.request({
-		url: 'http://192.168.100.174:8080/api/v1/findreservablemulti/0',
+    url: config.bm_service_host + '/api/v1/findreservablemulti/0',
 		data: dt,
 		method: 'post',
 		header: {
 		  'Content-Type': 'application/json', // 默认值
 		  'Accept': 'application/json',
-		  'Authorization': 'bearer ce6af788112b26331e9789b0b2606cce'
+      'Authorization': 'bearer ' + token
 		},
 		success(res) {
 		  console.log(res.data)
@@ -58,9 +60,10 @@ function queryExpInfo(expid, callback) {
     rd_tmp['included'] = [inc.data];
     let dt = JSON.stringify(rd_tmp);
     let token = wx.getStorageSync('dd_token');
-
+  
+    var config = require('./bm_config.js')
     wx.request({
-      url: 'http://192.168.100.174:8080/api/v1/findreservable/0',
+      url: config.bm_service_host + '/api/v1/findreservable/0',
       data: dt,
       method: 'post',
       header: {

@@ -1,5 +1,5 @@
 import { JsonApiDataStore } from '../miniprogram_npm/jsonapi-datastore/index.js'
- 
+
 var bmstore = new JsonApiDataStore();
 var bmmulti = new JsonApiDataStore();
 
@@ -25,9 +25,10 @@ function queryMultiActvs(callback) {
   let token = wx.getStorageSync('dd_token');
   console.log('token: ' + token)
 
+  let config = require('./bm_config.js')
   wx.request({
     method: 'POST',
-    url: 'http://192.168.100.174:8080/api/v1/findreservablemulti/0',
+    url: config.bm_service_host + '/api/v1/findreservablemulti/0',
     header: {
       'Content-Type': 'application/json', // 默认值
       'Accept': 'application/json',
@@ -95,8 +96,9 @@ function queryActvInfo(actvid, callback) {
   let token = wx.getStorageSync('dd_token');
   console.log('token: ' + token)
 
+  let config = require('./bm_config.js');
   wx.request({
-    url: 'http://192.168.100.174:8080/api/v1/findreservable/0',
+    url: config.bm_service_host + '/api/v1/findreservable/0',
     data: dt,
     method: 'post',
     header: {

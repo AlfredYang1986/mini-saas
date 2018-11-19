@@ -1,4 +1,5 @@
 import { JsonApiDataStore } from '../miniprogram_npm/jsonapi-datastore/index.js'
+import { bm_service_host } from './bm_config.js'
 
 var bmstore = new JsonApiDataStore();
 
@@ -110,8 +111,9 @@ function pushApplee(openid, uinfo, callback) {
   let rd_tmp = JSON.parse(JSON.stringify(result.serialize()));
   let dt = JSON.stringify(rd_tmp);
 
+  let config = require('./bm_config.js');
   wx.request({
-    url: 'http://192.168.100.174:8080/api/v1/pushapplyee/0',
+    url: config.bm_service_host + '/api/v1/pushapplyee/0',
     data: dt,
     method: 'post',
     header: {
@@ -179,8 +181,9 @@ function queryPushedApplee(callback) {
   rd_tmp['included'] = [inc.data]
   let dt = JSON.stringify(rd_tmp)
 
+  let config = require('./bm_config.js');
   wx.request({
-    url: 'http://192.168.100.174:8080/api/v1/findapplyee/0',
+    url: config.bm_service_host + '/api/v1/findapplyee/0',
     data: dt,
     method: 'post',
     header: {
