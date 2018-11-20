@@ -1,6 +1,6 @@
-// pages/info-two/info-two.js
+// pages/info-two/info-two.js 
 
-var bmats = require('../../models/bm_attendee_schema.js');
+// var bmats = require('../../models/bm_attendee_schema.js');
 Page({
   /**
   * 页面的初始数据
@@ -12,10 +12,11 @@ Page({
     disabled: true,
     buttonType: 'default',
     phoneNum: '',
-    code: ''
+    code: '',
     // ats: attendee()
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    isChecking: true
   },
-
 
   // 手机号部分
   inputPhoneNum: function (e) {
@@ -165,7 +166,7 @@ Page({
     
   },
   showInfo: function (event) {
-    console.log("111");
+    // console.log("111");
     // wx.switchTab({
     //   url: '/pages/brand/info/info',
     // })
@@ -178,7 +179,61 @@ Page({
   * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
-
+    var lm = require('../../models/bm_applyee_schema.js');
+    let that = this
+    let callback = {
+      onLoginSuccess: function() {
+        // TODO: seem to do nothing. login sucess, and push applyee
+        that.setData({
+          isChecking: false
+        })
+      },
+      onSessionSuccess: function() {
+        // 查看是否授权
+        let cb = {
+          onUserInfoSuccess: function(res) {
+            lm.queryCurApplyee(this);
+          },
+          onQueryCurSuccess: function() {
+            wx.redirectTo({
+              url: '/pages/brand/info/info',
+            })
+          },
+          onQueryCurFail: function() {
+            console.log('query cur user error');
+          }
+        }
+        lm.queryBasicInfo(cb);
+      },
+      onSessionFail: function() {
+        lm.loginWithWechat(this)
+      },
+      onCodeSuccess: function(code) {
+        lm.codeSuccess(code, this);
+      },
+      onCodeFail: function() {
+        console.log('登陆，获取Code失败')
+      },
+    }
+    lm.wechatLogin(callback);
+    // lm.checkWechatSession(callback);
+  },
+  bindGetUserInfo(e) {
+    console.log(e.detail.userInfo);
+    // TODO: seem to do nothing. login sucess, and push applyee
+    let callback = {
+      onPushSuccess: function() {
+        wx.redirectTo({
+          url: '/pages/brand/info/info',
+        })
+      },
+      onPushFail: function() {
+        console.log('push failed');
+      }
+    }
+    let openid = wx.getStorageSync('dd_open_id')
+    var lm = require('../../models/bm_applyee_schema.js');
+    lm.pushApplee(openid, e.detail.userInfo, callback);
   },
 
   /**
@@ -192,9 +247,10 @@ Page({
   * 生命周期函数--监听页面显示
   */
   onShow: function () {
-    let tmp = bmats.queryAttendee()
+    // console.log(bmats)
+    // let tmp = bmats.queryAttendee()
     // let tmp = bmats.attendee
-    console.log(tmp)
+    // console.log(tmp)
     // console.log(bmats.change2Json())
   },
 

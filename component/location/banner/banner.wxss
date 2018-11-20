@@ -14,12 +14,12 @@
   align-items: center;
 
   font-family: PingFangSC-Medium;
-  font-size: 18px;
+  font-size: 36rpx;
   color: #0D0D0D;
 }
 .big-title .btn {
   font-family: PingFangSC-Regular;
-  font-size: 13px;
+  font-size: 26rpx;
   color: #A6A6A6;
   text-align: right;
 
@@ -77,7 +77,7 @@
 }
 .bg-image .subtitle {
   font-family: PingFangSC-Medium;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #0D0D0D;
   max-width: 460rpx;
   overflow: hidden;
@@ -86,7 +86,7 @@
 }
 .bg-image .address {
   font-family: PingFangSC-Regular;
-  font-size: 13px;
+  font-size: 26rpx;
   color: #A6A6A6;
   max-width: 460rpx;
   overflow: hidden;
@@ -109,11 +109,13 @@
   width: 418rpx;
   height: 276rpx;
   border-radius: 8rpx;
+  background-color: #ddd;
 }
 .show-image .img-2 {
   width: 236rpx;
   height: 124rpx;
   border-radius: 8rpx;
+  background-color: #ddd;
 }
 /* .loc-banner .content-row-span .more {
 	font-family: PingFangSC-Medium;

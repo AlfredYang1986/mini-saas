@@ -1,43 +1,42 @@
 <!--pages/class-lst/class-detail/class-detail.wxml-->
 <view class="clsdet-container">
-
-	<view class="clsdet-component">
-		<clsimg></clsimg>
-	</view>
-
-  <view class='clsdet-component'>
-    <cls-info></cls-info>
+  <view class="clsdet-component">
+    <clsimg exp="{{exp}}"></clsimg>
   </view>
 
   <view class='clsdet-component'>
-    <cls-reward></cls-reward>
+    <cls-info exp="{{exp}}"></cls-info>
+  </view>
+
+  <view class='clsdet-component'>
+    <cls-reward exp="{{exp}}"></cls-reward>
   </view>
 
   <view class='clsdet-component'>
     <view class="clsdet-component" wx:if='{{hide}}'>
-      <clsabout ></clsabout>
+      <clsabout exp="{{exp}}"></clsabout>
     </view>
   </view>
 
   <view class='clsdet-component'>
-    <cls-remarks></cls-remarks>
+    <cls-remarks exp="{{exp}}"></cls-remarks>
   </view>
 
   <view class='clsdet-component'>
     <view class='notices'>
-      <cls-notice></cls-notice>
+      <cls-notice exp="{{exp}}"></cls-notice>
     </view>
   </view>
 
    <view class='clsdet-component'>
     <view class='scroll'>
-      <cls-scroll></cls-scroll>
+      <cls-scroll exp="{{exp}}"></cls-scroll>
     </view>
   </view>
 
   <view class='clsdet-component'>
     <view class='facility'>
-      <cls-facility></cls-facility>
+      <cls-facility exp="{{exp}}"></cls-facility>
     </view>
   </view>
 

@@ -27,4 +27,5 @@
 
 	background-size: cover;
 	background-repeat: no-repeat;
+  background-color: #ddd;
 }

@@ -7,6 +7,13 @@ Component({
     isList: {
       type: String,
       value: 'true',
+    },
+    exps:{
+      type:"Array",
+      value:[],
+      observer:function(news,olds,path){
+       console.log(news)
+      }
     }
   },
 
@@ -54,8 +61,9 @@ Component({
       })
     },
     showClsDetail: function (event) {
+      let expid = event.currentTarget.dataset.expid;
       wx.navigateTo({
-        url: '/pages/classes/detail/detail'
+        url: '/pages/classes/detail/detail?expid=' + expid
       })
     }
   }

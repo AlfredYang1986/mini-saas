@@ -4,7 +4,13 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    brand: {
+      type: "Array",
+      value: [],
+      observer: function (news, olds, path) {
+        console.log(news)
+      }
+    }
   },
 
   /**
@@ -12,7 +18,7 @@ Component({
    */
   data: {
     title: "PRO科学空间",
-    img: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/Combined%20Shape%402x.png",
+    img: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_brand_detail%402x.png",
     subtitle: "彩色方块的转动中感受魔方的魅力",
     tags: ["场景教学", "先进理念", "专业团队"]
   },
@@ -21,6 +27,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    brandDetails: function (event) {
+      let brandid = event.currentTarget.dataset.brandid;
+      wx: wx.navigateTo({
+        url: '/pages/brand/detail/detail?brandid' + brandid
+      })
+    }
   }
 })

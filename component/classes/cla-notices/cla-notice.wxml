@@ -6,8 +6,9 @@
       <text class='title-text'>{{bringTitle}}</text>
     </view>
     <view class='lists'>
-      <view class='list' wx:for="{{bringList}}">
-        <text class='dot'>・</text> <text class='name'>{{item}}</text>
+      <view class='list'>
+        <!-- <text class='dot'>・</text>  -->
+        <text class='name'>{{exp.SessionInfo.carrying}}</text>
       </view>
     </view>
   </view>
@@ -17,8 +18,9 @@
       <text class='title-text'>{{noticeTitle}}</text>
     </view>
     <view class='lists'>
-      <view class='list' wx:for="{{noticeList}}">
-        <text class='dot'>・</text> <text class='name'>{{item}}</text>
+      <view class='list'>
+        <!-- <text class='dot'>・</text>  -->
+        <text class='name'>{{exp.SessionInfo.notice}}</text>
       </view>
     </view>
   </view>

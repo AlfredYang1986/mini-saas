@@ -1,10 +1,14 @@
 // pages/locations/details/details.js
+
+var OSS = require('../../../models/ali-oss.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    yard: null,
     title: "PRO科学空间站青年路站",
     address: "朝阳区东直门外大街第三方大厦A座 1101室",
     tag: ["购物中心", "室内"],
@@ -51,7 +55,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    let client = new OSS({
+      region: 'oss-cn-beijing',
+      accessKeyId: 'LTAINO7wSDoWJRfN',
+      accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
+      bucket: 'bmsass'
+    });
+    let that = this
+    let callback = {
+      onSuccess: function (res) {
+        let tagimgs = res.Tagimgs;
+        let newimgs = tagimgs.map((ele) => {
+          let tagImg = ele.img;
+          ele.dealImg = client.signatureUrl(tagImg);
+          return ele
+        })
+        console.log(res)
+        that.setData({
+          yard: res
+        })
+      },
+      onFail: function () {
+        // TODO : 报错 ...
+      }
+    }
+    var bmyard = require('../../../models/bm_yard_schema.js')
+    bmyard.queryYard(options.yardid, callback)
   },
 
   /**

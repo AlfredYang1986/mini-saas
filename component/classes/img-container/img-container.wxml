@@ -2,8 +2,8 @@
 <view class="clsdet-img">
   <scroll-view class="content-item" scroll-x style="width: 100%">
     <view class="content-row" >
-			<view class="clsdet-detail" wx:for="{{images}}" >
-				<view class="clsdet-detail-img" style="background-image: url('{{item.url}}')" >
+			<view class="clsdet-detail">
+				<view class="clsdet-detail-img" style="background-image: url('{{exp.SessionInfo.dealCover}}')" >
 				</view>
       </view>
     </view>

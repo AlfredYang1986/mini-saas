@@ -1,7 +1,8 @@
 <!--pages/class-lst/class-lst.wxml-->
 <view class="cls-lst">
-    <class-lst isList="true"></class-lst>
+	<class-lst isList="true" exps="{{exps}}" >
+  </class-lst>
 </view>
 <view class='notice'>
-  <text>更多精选即将上线</text>
-</view>
+	<text>更多精选即将上线</text>
+</view> 

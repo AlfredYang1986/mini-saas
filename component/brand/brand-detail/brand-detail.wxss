@@ -14,7 +14,7 @@
   align-items: center;
 
   padding-bottom: 48rpx;
-  border-bottom: 1px solid #E5E5E5;
+  border-bottom: 1rpx solid #f2f2f2;
 }
 .head .logo {
   background: #FFFFFF;
@@ -30,6 +30,7 @@
   font-family: SFProText-Medium;
   font-size: 20px;
   color: #404040;
+  font-weight: 700;
 
   margin-bottom: 16rpx;
 }
@@ -46,6 +47,8 @@
 }
 .lists .separate {
   margin: 0 18rpx;
+  font-weight: 200;
+  color: f2f2f2;
 }
 .lists .list {
   font-family: PingFangSC-Medium;
@@ -68,6 +71,7 @@
   font-family: SFProText-Medium;
   font-size: 32rpx;
   color: #0d0d0d;
+  font-weight: 700;
 
   margin-bottom: 49rpx;
   margin-right: 32rpx;
@@ -83,7 +87,7 @@
 
   padding-bottom: 48rpx;
   margin-bottom: 49rpx;
-  border-bottom: 1px solid #E5E5E5;
+  border-bottom: 1rpx solid #f2f2f2;
 }
 .team {
   display: flex;
@@ -96,7 +100,7 @@
 
   padding-bottom: 48rpx;
   margin-bottom: 49rpx;
-  border-bottom: 1px solid #E5E5E5;
+  border-bottom: 1rpx solid #f2f2f2;
 }
 .achievement {
   display: flex;
@@ -109,7 +113,7 @@
 
   padding-bottom: 48rpx;
   margin-bottom: 48rpx;
-  border-bottom: 1px solid #E5E5E5;
+  border-bottom: 1rpx solid #E5E5E5;
 }
 .achievement .content .list {
   display: flex;

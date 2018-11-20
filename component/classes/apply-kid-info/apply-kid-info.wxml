@@ -1,0 +1,15 @@
+<!--component/classes/apply-kid-info/apply-kid-info.wxml-->
+<view class='list border-bottom' wx:for='{{kid}}'>
+  <checkbox-group bindchange="checkboxChange" class="child-info" >
+    <label class="checkbox" class='child-info-list'>
+      <view>
+        <checkbox value="{{item.name}}" checked="{{item.checked}}"/>
+        <text>{{item.name}}</text>
+      </view>
+      <view>
+        <text>{{item.gender}}</text>
+        <text>{{item.dob}}</text>
+      </view>
+    </label>
+  </checkbox-group>
+</view>

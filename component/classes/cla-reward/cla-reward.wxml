@@ -5,8 +5,9 @@
     <view class='reward-content'>
       <text class='title'>{{title}}</text>
       <view class='reward-list'>
-        <view class='list-content' wx:for="{{reward}}">
-          <text class='list-dot'>・</text><text>{{item}}</text>
+        <view class='list-content'>
+          <!-- <text class='list-dot'>・</text> -->
+          <text>{{exp.SessionInfo.acquisition}}</text>
         </view>
       </view>
     </view>

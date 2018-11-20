@@ -1,4 +1,4 @@
-<view class='content-page'>
+<!-- <view class='content-page'>
   <view class='title'>手机号验证</view>
   <view class="section">
   <text>手机号码</text>
@@ -14,7 +14,20 @@
   <input placeholder="短信验证码" type="number" maxlength="6" bindinput="addCode" />
 </view>
 <button type="{{buttonType}}" disabled="{{disabled}}" bindtap="showInfo" class='login'>登录</button>
-</view>
+</view> -->
 
+<view class='bkg'>
+
+  <block wx:if='{{isChecking}}'>
+    <button wx:if='{{canIUse}}' open-type="getUserInfo" disabled bindgetuserinfo="bindGetUserInfo">授权登录</button>
+    <view wx:else>请升级微信版本</view>
+  </block>
+
+  <block wx:else>
+    <button wx:if='{{canIUse}}' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+    <view wx:else>请升级微信版本</view>
+  </block>
+
+</view>
 
 

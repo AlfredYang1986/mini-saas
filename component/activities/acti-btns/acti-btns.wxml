@@ -3,10 +3,10 @@
 	<cover-view class="content-row-mid ">
 		<cover-view class="content-item-mid actibtn-bkg">
       <cover-view class="content-row-span ">
-      <cover-image class='btn-bg'   src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/btn-iamge.png'></cover-image>
+      <cover-image class='btn-bg'   src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/btn_jion%402x.png'></cover-image>
         <cover-view class="content-row">
-          <cover-view class="acti-price">¥{{price}}</cover-view>
-          <cover-view class="acti-price-des">起</cover-view>
+          <cover-view class="acti-price">¥免费</cover-view>
+          <!-- <cover-view class="acti-price-des">起</cover-view> -->
         </cover-view>
         <cover-view class="content-row">
           <cover-view class="acti-nav">立即报名</cover-view>

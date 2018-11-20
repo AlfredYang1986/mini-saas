@@ -1,18 +1,44 @@
 // pages/activity/lst/lst.js
+var OSS = require('../../../models/ali-oss.js')
 Page({
-
+ 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    actvs: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    let client = new OSS({
+      region: 'oss-cn-beijing',
+      accessKeyId: 'LTAINO7wSDoWJRfN',
+      accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
+      bucket: 'bmsass'
+    });
+    let that = this;
+    let callback = {
+      onSuccess: function (res) {
+        let _originRes = res;
+        let newres = _originRes.map((ele) => {
+          let _originImg = ele.SessionInfo.cover;
+          ele.SessionInfo.dealCover = client.signatureUrl(_originImg);
+            return ele
+        })
+        that.setData({
+          actvs: res
+        })
+      },
+      onFail: function () {
+        // TODO : 报错 ...
+      }
+    }
+    var bmactvs = require('../../../models/bm_actv_schema.js')
+    console.log(bmactvs)
+    bmactvs.queryMultiActvs(callback)
   },
 
   /**

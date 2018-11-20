@@ -93,7 +93,6 @@ const bm_attendee_parload = {
     }
   }]
 }
-
 var query_payload = 
 {
   data: {
@@ -127,12 +126,12 @@ var query_payload =
 
 function attendee() {
   return store.sync(bm_attendee_parload)
+  // 把json字符串变为可点的对象
 }
 
 function change2Json() {
   let tmp = attendee()
   let bk = tmp.serialize()
-  console.log(bk)
   return JSON.stringify(bk)
 }
 
@@ -142,8 +141,10 @@ function queryAttendee() {
   let inc = rd.Eqcond[0].serialize()
   rd_tmp['included'] = [inc.data]
   let dt = JSON.stringify(rd_tmp)
+
+  let config = require('./bm_config.js');
   wx.request({
-    url: 'http://192.168.100.174:8080/api/v1/findattendee/0', //仅为示例，并非真实的接口地址
+    url: config.bm_service_host + '/api/v1/findattendee/0', //仅为示例，并非真实的接口地址
     data: dt,
     method: 'post',
     header: {
@@ -152,21 +153,16 @@ function queryAttendee() {
       'Authorization': 'bearer ce6af788112b26331e9789b0b2606cce'
     },
     success(res) {
-      console.log(res.data)
       let result = store.sync(res.data)
-      console.log(result)
     },
     fail(res) {
-      console.log('fail')
+      console.log('fail!!!')
     },
     complete() {
-      console.log('complete')
+      console.log('complete!!!')
     }
   })
 }
-
-console.log(attendee)
-
 module.exports = {
   attendee: attendee(),
   change2Json: change2Json,

@@ -1,15 +1,14 @@
-// component/class-banner/img-containger/img-container.js
+// component/classes/apply-kid-info/apply-kid-info.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    exp: {
+    kid: {
       type: "Array",
       value: [],
       observer: function (news, olds, path) {
-        console.log("this is in img-container .js")
-        console.log(news, olds)
+        console.log(news)
       }
     }
   },
@@ -18,11 +17,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    images: [
-      {
-        url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_cover_trialclass_01.jpg"
-      }
-    ]
+
   },
 
   /**

@@ -48,7 +48,7 @@
  .block .image image {
   width: 212rpx;
   height: 212rpx;
-  background: red;
+  background: #ddd;
 } 
 .block .intro {
   margin-top: 32rpx;

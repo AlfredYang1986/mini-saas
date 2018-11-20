@@ -7,6 +7,14 @@ Component({
     isRemarks: {
       type: String,
       value: 'true',
+    },
+    exp: {
+      type: "Array",
+      value: [],
+      observer: function (news, olds, path) {
+        console.log("this is in acti-remarks .js")
+        console.log(news, olds)
+      }
     }
   },
 

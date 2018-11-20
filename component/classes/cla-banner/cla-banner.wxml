@@ -3,25 +3,28 @@
   <block wx:if="{{isList == 'false'}}">
     <view class='title'>
       <text>精选体验课</text>
+      <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_chevron_right_dark%402x.png'></image>
     </view>
   </block>
-  <view class='content'>
-    <view class='list' wx:for="{{classInfo}}" bindtap='showClsDetail'>
-      <view class='cover' style="background-image: url('{{item.url}}')"></view>
-      <view class='class-info'>
-        <view class='info'>
-          <text class='sort'>{{item.sort}}</text>
-          <text class='name'>{{item.name}}</text>
+    <view class='content'>
+      <block wx:for="{{exps}}" >
+        <view class='list' bindtap='showClsDetail' data-expid="{{item.id}}">
+          <view class='cover' style="background-image: url('{{item.SessionInfo.dealCover}}')"></view>
+          <view class='class-info'>
+            <view class='info'>
+              <text class='sort'>{{item.SessionInfo.Cate.title}}</text>
+              <text class='name'>{{item.SessionInfo.title}}</text>
+            </view>
+            <view class='suit'>
+              <text class='age'>{{item.SessionInfo.alb}} - {{item.SessionInfo.aub}} 岁</text>
+              <!-- <view class='price'><text>￥{{item.price}}</text>/课时</view> -->
+            </view>
+          </view>
         </view>
-        <view class='suit'>
-          <text class='age'>{{item.age}}</text>
-          <!-- <view class='price'><text>￥{{item.price}}</text>/课时</view> -->
-        </view>
-      </view>
+      </block>
+      
     </view>
-  </view>
   <block wx:if="{{isList == 'false'}}">
     <a class='showClasses' bindtap='showClasses'>更多精选体验课</a>
   </block>
-  
 </view>

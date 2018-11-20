@@ -1,4 +1,5 @@
 // pages/brand/brand.js
+var OSS = require('../../../models/ali-oss.js')
 Page({
 
   /**
@@ -9,7 +10,10 @@ Page({
       logobg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/logo_bg.png",
       logourl:"https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/logo%403x.png",
     },
-    tab:1,
+    tab:1, 
+    exps: null,
+    actvs: null,
+    brandInfo: null,
   },
   tab_slide: function (e) {//滑动切换tab 
     var that = this;
@@ -38,7 +42,101 @@ Page({
         });
       }
     });
+    let client = new OSS({
+      region: 'oss-cn-beijing',
+      accessKeyId: 'LTAINO7wSDoWJRfN',
+      accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
+      bucket: 'bmsass'
+    });
     //获取可视窗口高度
+    let callback = {
+      onSuccess: function (res) {
+        let _originRes = res;
+        let newres =  _originRes.map((ele)=> {
+          let _originImg = ele.SessionInfo.cover;
+          ele.SessionInfo.dealCover = client.signatureUrl(_originImg);
+            return ele
+        })
+        that.setData({
+          exps: res,
+        })
+      },
+      onFail: function () {
+        // TODO : 报错 ...
+      }
+    };
+    let callbackActvs = {
+      onSuccess: function (res) {
+        let _originRes = res;
+        let newres = _originRes.map((ele) => {
+          let _originImg = ele.SessionInfo.cover;
+          ele.SessionInfo.dealCover = client.signatureUrl(_originImg);
+            return ele
+        })
+        that.setData({
+          actvs: res,
+        })
+      },
+      onFail: function () {
+        // TODO : 报错 ...
+      }
+    }
+    let callbackBrand = {
+      onSuccess: function (res) {
+        console.log(res)
+        let logo = res.logo;
+        res.newLogo = client.signatureUrl(logo);
+        that.setData({
+          brandInfo: res,
+        })
+      },
+      onFail: function (err) {
+        // TODO : 报错 ...
+        console.log(err)
+      }
+    }
+
+    let callbackYard = {
+      onSuccess: function (res) {
+        let tagimgs = res.Tagimgs;
+        let newimgs = tagimgs.map((ele) => {
+          let tagImg = ele.img;
+          ele.dealImg = client.signatureUrl(tagImg);
+          return ele
+        })
+
+        res.cover1 = res.Tagimgs[0].dealImg;
+        res.cover2 = res.Tagimgs[1].dealImg;
+        res.cover3 = res.Tagimgs[2].dealImg;
+
+        wx.setStorage({
+          key: "yardname",
+          data: res.title
+        })
+        wx.setStorage({
+          key: 'yardtag',
+          data: res.Tagimgs,
+        })
+        console.log(res)
+        that.setData({
+          yardInfo: res,
+        })
+      },
+      onFail: function (err) {
+        // TODO : 报错 ...
+        console.log(err)
+      }
+    }
+
+    var bmexp = require('../../../models/bm_exp_schema.js')
+    bmexp.queryMultiExps(callback)
+    var bmactvs = require('../../../models/bm_actv_schema.js')
+    bmactvs.queryMultiActvs(callbackActvs)
+    var bmbrand = require('../../../models/bm_brand_schema.js')
+    bmbrand.queryBrand(options.brandid,callbackBrand)
+    var bmyard = require('../../../models/bm_yard_schema.js')
+    bmyard.queryYard(options.yardid, callbackYard)
+
   },
 
   /**
@@ -95,15 +193,6 @@ Page({
       url: '/pages/brand/details/details'
     })
   },
-  showLocations: function (event) {
-    wx.navigateTo({
-      url: '/pages/locations/details/details'
-    })
-  },
-  brandDetails: function (event) {
-    wx:wx.navigateTo({
-      url: '/pages/brand/detail/detail'
-    })
-  }
+  
 
 })

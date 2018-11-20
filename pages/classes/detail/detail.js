@@ -1,6 +1,11 @@
-// pages/class-lst/class-detail/class-detail.js
-Page({
+// pages/class-lst/class-detail/class-detail.js 
 
+var OSS = require('../../../models/ali-oss.js')
+
+let classDetailSort;
+let classDetailName;
+Page({
+ 
   /**
    * 页面的初始数据
    */
@@ -12,6 +17,7 @@ Page({
     showOthers: true,
     animationData: {},
     tab:0,
+    exp: null,
   },
 
   showAll: function (e) {
@@ -38,7 +44,35 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    let client = new OSS({
+      region: 'oss-cn-beijing',
+      accessKeyId: 'LTAINO7wSDoWJRfN',
+      accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
+      bucket: 'bmsass'
+    });
+    let that = this;
+    let callback = {
+      onSuccess: function (res) {
+        classDetailSort = res.status;
+        classDetailName = res.SessionInfo.title;
+        wx.setStorageSync('detailSort', classDetailSort);
+        wx.setStorageSync('detailName', classDetailName);
+        let _originRes = res;
+        let _originImg = res.SessionInfo.cover;
+        res.SessionInfo.dealCover = client.signatureUrl(_originImg);
+        res.SessionInfo.yardtag = wx.getStorageSync('yardtag');
+        res.SessionInfo.yardname = wx.getStorageSync('yardname');
+        that.setData({
+          exp: res
+        })
+      },
+      onFail: function () {
+        // TODO : 报错 ...
+      }
+    }
+    var bmexp = require('../../../models/bm_exp_schema.js')
+    console.log(options.expid)
+    bmexp.queryExpInfo(options.expid, callback)
   },
 
   /**

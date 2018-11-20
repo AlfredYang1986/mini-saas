@@ -17,12 +17,18 @@ for (let i = 1; i <= 31; i++) {
 }
 
 var id;
+
+var OSS = require('../../../models/ali-oss.js')
+
+let actvDetailSort;
+let actvDetailName;
 Page({
 
-  /**
+  /** 
    * 页面的初始数据
    */
   data: {
+    actv: null,
     isFold: true,
     show: false,
     hide: true,
@@ -51,7 +57,7 @@ Page({
       isFold: !this.data.isFold,
     })
   },
-   bindChange: function(e) {
+  bindChange: function(e) {
     const val = e.detail.value
     this.setData({
       year: this.data.years[val[0]],
@@ -77,7 +83,34 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let client = new OSS({
+      region: 'oss-cn-beijing',
+      accessKeyId: 'LTAINO7wSDoWJRfN',
+      accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
+      bucket: 'bmsass'
+    });
+    let that = this
+    let callback = {
+      onSuccess: function (res) {
+        
+        actvDetailSort = res.status;
+        actvDetailName = res.SessionInfo.title;
+        wx.setStorageSync('detailSort', actvDetailSort);
+        wx.setStorageSync('detailName', actvDetailName);
+        let _originRes = res;
+        let _originImg = res.SessionInfo.cover;
+        res.SessionInfo.dealCover = client.signatureUrl(_originImg);
+        res.SessionInfo.yardname = wx.getStorageSync('yardname');
+        res.SessionInfo.yardtag = wx.getStorageSync('yardtag');
+        console.log(res)
+        that.setData({
+          actv: res
+        })
 
+      },
+    }
+    var bmactv = require('../../../models/bm_actv_schema.js')
+    bmactv.queryActvInfo(options.actvid, callback)
   },
 
   /**
@@ -224,9 +257,12 @@ Page({
     })
   },
 
-  applyPage:function(e) {
+  applyPage:function(event) {
+    console.log(event)
+    let that = this;
+    let childid = event.currentTarget.dataset.id;
     wx:wx.navigateTo({
-      url: '/pages/activity/apply/apply',
+      url: '/pages/activity/apply/apply?childid=' + childid,
     })
   }
 })

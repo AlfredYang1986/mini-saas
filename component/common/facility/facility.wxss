@@ -26,7 +26,7 @@
   margin-bottom: 16rpx;
   width: 48rpx;
   height: 48rpx;
-  background: red;
+  background: #ddd;
 }
 .facility-detail text {
   font-family: PingFangSC-Regular;

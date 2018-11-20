@@ -35,7 +35,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 8rpx;
-  
+  background-color: #ddd;
 }
 .content .list .title {
   margin-top: 26rpx;

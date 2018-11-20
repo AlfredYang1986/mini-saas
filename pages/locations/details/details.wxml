@@ -1,18 +1,18 @@
 <!--pages/locations/details/details.wxml-->
-<view class='content-page'>
+<view class='content-page' yard='{{yard}}'>
   <view class='title-area'>
-    <view class='title'>{{title}}</view>
-    <view class='address'>{{address}}</view>
+    <view class='title'>{{yard.title}}</view>
+    <view class='address'>{{yard.address}}</view>
     <view class='tags'>
-      <text  wx:for="{{tag}}">{{item}}</text>
+      <text>{{yard.attribute}}</text>
     </view>
   </view>
   <view class='show-img-area'>
-    <x-scroll-banner></x-scroll-banner>
+    <x-scroll-banner tagimgs="{{yard.Tagimgs}}"></x-scroll-banner>
   </view>
   <view class='content'>
     <text class='subtitle'>交通路线</text>
-    <text class='address'>{{traffic}}</text>
+    <text class='address'>{{yard.traffic_info}}</text>
   </view>
   <view class='content'>
     <text class='subtitle'>校区认证</text>
