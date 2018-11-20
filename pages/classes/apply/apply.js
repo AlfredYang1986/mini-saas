@@ -7,12 +7,13 @@ let guardian_role;
 let contact;
 let course_name;
 let except_time;
-let classkids;
+let kids;
 let kid;
 let address;
 let detailSort = wx.getStorageSync('detailSort');
 let detailName = wx.getStorageSync('detailName');
 let yardname;
+let haveChild = true;
 Page({
 
   /**
@@ -30,6 +31,7 @@ Page({
       { name: '爸爸', value: '爸爸', },
       { name: '其他', value: '其他' },
     ],
+    deleteImg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_delete%20copy%402x.png",
     checkItems: [
       { name: 'USA', value: '美国', check: true },
       { name: 'CHN', value: '中国' },
@@ -38,8 +40,9 @@ Page({
       { name: 'ENG', value: '英国' },
       { name: 'TUR', value: '法国' },
     ],
-    classkids: [],
-
+    kids: null,
+    nowDate: '',
+    haveChild: true,
   },
 
   /**
@@ -50,9 +53,14 @@ Page({
     yardname = wx.getStorageSync('yardname');
     let yard = [];
     yard.push(yardname);
+    let date = this.getNowFormatDate();
+    haveChild = true;
     this.setData({
       address: yard,
+      nowDate: date,
+      haveChild: true
     })
+
   },
 
   /**
@@ -66,7 +74,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    classkids = [];
     let ks = require('../../../models/bm_kids_schema.js');
     ks.bmstoreReset();
   },
@@ -105,12 +112,27 @@ Page({
   onShareAppMessage: function () {
 
   },
-  /* 显示遮罩层 */
 
-  addChild: function () {
+  getNowFormatDate: function () {
+    var date = new Date();
+    var seperator1 = "-";
+    var seperator2 = ":";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+      month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+      strDate = "0" + strDate;
+    }
+    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
+    return currentdate;
+  },
+  // 显示遮罩层
+  showPlace: function () {
     var that = this;
     that.setData({
-      hideChild: false
+      hidePlace: false
     })
     var animation = wx.createAnimation({
       duration: 600,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
@@ -122,7 +144,76 @@ Page({
     }, 200)
   },
 
+  showTime: function () {
+    var that = this;
+    that.setData({
+      hideTime: false
+    })
+    var animation = wx.createAnimation({
+      duration: 600,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
+      timingFunction: 'ease',//动画的效果 默认值是linear
+    })
+    this.animation = animation
+    setTimeout(function () {
+      that.fadeIn();//调用显示动画
+    }, 200)
+  },
+
+
+
+  addChild: function () {
+    if (haveChild) {
+      var that = this;
+      that.setData({
+        hideChild: false
+      })
+      var animation = wx.createAnimation({
+        duration: 600,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
+        timingFunction: 'ease',//动画的效果 默认值是linear
+      })
+      this.animation = animation
+      setTimeout(function () {
+        that.fadeIn();//调用显示动画
+      }, 200)
+    } else {
+      console.log("请先删除当前孩子")
+    }
+
+  },
+
   // 隐藏遮罩层
+  hidePlace: function () {
+    var that = this;
+    var animation = wx.createAnimation({
+      duration: 800,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
+      timingFunction: 'ease',//动画的效果 默认值是linear
+    })
+    this.animation = animation
+    that.fadeDown();//调用隐藏动画   
+    setTimeout(function () {
+      that.setData({
+        hidePlace: true
+      })
+    }, 720)//先执行下滑动画，再隐藏模块
+
+  },
+
+  hideTime: function () {
+    var that = this;
+    var animation = wx.createAnimation({
+      duration: 800,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
+      timingFunction: 'ease',//动画的效果 默认值是linear
+    })
+    this.animation = animation
+    that.fadeDown();//调用隐藏动画   
+    setTimeout(function () {
+      that.setData({
+        hideTime: true
+      })
+    }, 720)//先执行下滑动画，再隐藏模块
+
+  },
+
   hideChild: function () {
     var that = this;
     var animation = wx.createAnimation({
@@ -216,48 +307,78 @@ Page({
     console.log(contact)
   },
 
+  deleteChild: function (e) {
+    let ks = require('../../../models/bm_kids_schema.js');
+    ks.bmstoreReset()
+    haveChild = true;
+    this.setData({
+      kids: null,
+      haveChild: true
+    })
+  },
+
   queryAttendedKids: function () {
     let ks = require('../../../models/bm_kids_schema.js');
     // let kids = ks.queryAllLocalKids();
     // if (kids.length == 0) {
-    ks.genOneKid(nickname, 'nickname', dob, gender, guardian_role)
-    ks.saveAllKidOnStorage();
-    classkids = ks.queryAllLocalKids();
-    console.log("this is query local classkids")
-    console.log(classkids)
-    
-    let data = [];
     let that = this;
-    classkids.map((ele) => {
-      let dob = new Date(ele.dob);
-      let dn = new Date();
-      let age = dn.getFullYear() - dob.getFullYear();
-      ele.age = age;
+    if (nickname != undefined && nickname != '' && dob != undefined && gender != undefined) {
+      ks.genOneKid(nickname, 'realnickname', dob, gender, guardian_role)
+      ks.saveAllKidOnStorage();
+      kids = ks.queryAllLocalKids();
+      console.log(kids)
+      let data = [];
+      kids.map((ele) => {
+        let dob = new Date(ele.dob);
+        let dn = new Date();
+        let age = dn.getFullYear() - dob.getFullYear();
+        ele.age = age;
 
-      let gender = ele.gender;
-      console.log('this is gender' + gender)
-      if (gender == 0) {
-        ele.genders = '女'
-      } else if (gender == 1) {
-        ele.genders = '男'
-      }
-      data.push(ele);
-      that.setData({
-        classkids: data
+        let gender = ele.gender;
+        console.log('this is gender' + gender)
+        if (gender == 0) {
+          ele.genders = '女'
+        } else if (gender == 1) {
+          ele.genders = '男'
+        }
+        data.push(ele);
+        haveChild = false;
+        kids = data;
+        that.setData({
+          kids: data,
+          haveChild: false
+        })
       })
-    })
+    } else {
+      wx.showModal({
+        title: '添加失败',
+        content: '还有没填好的地方哦',
+        success: function (res) {
+          if (res.confirm) {
+            that.addChild();
+          } else {
+            console.log('用户点击取消')
+          }
+
+        }
+      })
+    }
     // }
+    // kids = kids
     // return kids
   },
 
-  onCommitApply: function (event) {
+  onCommitApply: function (e) {
     // let kids = this.queryAttendedKids();
-    console.log(event)
-    let childid = event.currentTarget.dataset.childid;
+    // let childid = event.currentTarget.dataset.childid;
     let callback = {
       onSuccess: function (res) {
-        console.log('push apply success');
-        console.log(res)
+        wx.showToast({
+          title: '提交成功',
+          icon: 'success',
+          duration: 2000,
+          mask: true
+        })
 
         // wx.navigateTo({
         //   url: '/pages/activity/detail/detail?childid=' + childid,
@@ -267,9 +388,12 @@ Page({
         console.log('push apply error');
       }
     }
+    // kid = [];
+    // let ks = require('../../../models/bm_kids_schema.js');
+    // let selectedKid = ks.queryLocalKidByID(e.detail.value)
+    // kid.push(selectedKid);
     var ay = require('../../../models/bm_apply_schema.js');
-    ay.pushApply(except_time, detailName, contact, detailSort, kid, callback);
-
+    ay.pushApply(except_time, detailName, contact, detailSort, kids, callback);
   },
   // TODO: 这是一个假的，你需要从你的输入中读取这些值
 

@@ -75,6 +75,7 @@
 
 .actibtn .acti-nav {
 	font-family: PingFangSC-Medium;
+  font-weight: 700;
 	font-size: 32rpx;
 	color: #fff;
 

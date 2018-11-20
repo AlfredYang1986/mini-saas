@@ -31,6 +31,10 @@ function genOneKid(name, nick_name, dob, gender, guardian_role) {
 function bmstoreReset() {
   return bmstore.reset();
 }
+function bmstoreDestroy() {
+  let kids = queryAllLocalKids();
+  return bmstore.destroy(kids);
+}
 
 function queryAllLocalKids() {
   // bmstore.reset()
@@ -72,5 +76,6 @@ module.exports = {
   queryAllLocalKids: queryAllLocalKids,
   queryLocalKidByID: queryLocalKidByID,
   saveAllKidOnStorage: saveAllKidOnStorage,
-  bmstoreReset: bmstoreReset
+  bmstoreReset: bmstoreReset,
+  bmstoreDestroy: bmstoreDestroy
 }

@@ -16,7 +16,7 @@
 }
 .title text {
   font-family: PingFangSC-Medium;
-  font-size: 18px;
+  font-size: 36rpx;
   color: #0D0D0D;
 }
 .title image {

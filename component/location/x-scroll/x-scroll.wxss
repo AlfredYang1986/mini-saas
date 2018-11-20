@@ -6,7 +6,7 @@
 }
 .content {
   padding-bottom: 48rpx;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1rpx solid #f2f2f2;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;

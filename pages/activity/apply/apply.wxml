@@ -2,20 +2,24 @@
   <view class='con'>
   <view class='list'>
     <text class='name'>选择校区</text>
-      <view class="section">
-        <picker bindchange="bindAddressChange" value="{{index}}" range="{{address}}">
+      <!-- <view class="section">
+        <picker bindchange="bindAddressChange" value="0" range="{{address}}">
           <view class="picker select">
             <text>{{address[index]}}</text>
             <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
           </view>
         </picker>
+      </view> -->
+      <view class='section school'>
+        <text>{{address[0]}}</text>
+        <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
       </view>
   </view>
 
   <view class='list border-bottom'>
     <text class='name'>期望时间</text>
     <view class='section'>
-      <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindExceptDateChange">
+      <picker mode="date" value="{{date}}" start="{{nowDate}}" end="2050-01-01" bindchange="bindExceptDateChange">
         <view class="picker select">
           <text>{{date}}</text>
           <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
@@ -25,14 +29,17 @@
   </view>
 
   <view class='child-info'>
-    <view class='list ' >
+    <view class='list child-info-border' >
       <text class='name'>孩子信息</text>
-      <view class='select'  bindtap="addChild">
-        <text class='child'>添加孩子</text>
-        <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_add%402x.png' class='add'></image>
+      <view class='select' wx:if="{{haveChild}}">
+        <!-- <text class='child'>添加孩子</text> -->
+        <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_add%402x.png' class='add'  ></image>
+        <view>
+          <button class='child' bindtap="addChild">添加孩子</button>
+        </view>
       </view>
     </view>
-    <view class='list border-bottom' >
+    <view class='radio-list' >
       <!-- <checkbox-group bindchange="checkboxChange" class="child-info">
         <label class="checkbox" class='child-info-list'  wx:for='{{kids}}'>
           <view >
@@ -45,19 +52,19 @@
           </view>
         </label>
       </checkbox-group> -->
-      <radio-group class="child-info" bindchange="selectChildChange">
-        
+      <radio-group class="child-info-radio" bindchange="selectChildChange">        
         <label class="radio rela-radio child-info-list" wx:for='{{kids}}'>
           <view> 
-            <radio value="{{item.id}}" checked="{{item.checked}}" class='redio-dot'/>
+            <radio value="{{item.id}}" checked="checked" class='redio-dot'/>
             <text>{{item.name}}</text>
           </view>
-          <view>
-          <text>{{item.genders}}生</text>
-          <text>{{item.age}}岁</text>
-        </view>
+          <view class='child-delete-area'>
+            <text>{{item.genders}}生</text>
+            <text>{{item.age}}岁</text>
+            <image  bindtap="deleteChild" src='{{deleteImg}}'></image>
+          </view>
         </label>
-        </radio-group>
+      </radio-group>
     </view>
   </view>
 
@@ -130,7 +137,7 @@
         <view class='base-info-list'>
           <text class='info-title'>生日</text>
           <view class="section">
-            <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+            <picker mode="date" value="{{date}}" start="1990-01-01" end="{{nowDate}}" bindchange="bindDateChange">
               <view class="picker select">
                 <text>{{date}}</text>
                 <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>

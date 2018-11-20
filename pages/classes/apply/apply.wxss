@@ -25,6 +25,16 @@
   text-align: right;
   width: 100%;
 }
+.list .school image {
+  width: 12rpx;
+  height: 24rpx;
+}
+.list .school text {
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #404040;
+  margin-right: 16rpx;
+}
 .list .section picker {
   width: 100%;
 }
@@ -41,7 +51,7 @@
 .list .select text {
   font-family: PingFangSC-Regular;
   font-size: 14px;
-  color: #D9D9D9;
+  color: #404040;
   margin-right: 16rpx;
 }
 .list .select image {
@@ -50,6 +60,16 @@
   /* background: red; */
 }
 .list .select .child {
+  margin: 0;
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  color: #80AEFF;
+  background: none;
+  padding-left: 8rpx;
+  padding-right: 0;
+  text-align: right;
+}
+.list .select .child text {
   font-family: PingFangSC-Medium;
   font-size: 14px;
   color: #80AEFF;
@@ -61,29 +81,53 @@
 .list .select input {
   font-family: PingFangSC-Regular;
   font-size: 14px;
-  color: #D9D9D9;
+  color: #404040;
   text-align: right;
 }
-.list .child-info {
+.child-info {
+  border-bottom: 1rpx solid rgba(0,0,0,0.05);
+  margin-bottom: 56rpx;
+}
+.radio-list .child-info-radio {
   width: 100%;
 }
-.list .child-info-list {
+.radio-list .child-info-list {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 56rpx;
 }
-.list .child-info-list text {
+.radio-list .child-info-list radio {
+  display: none;
+}
+.radio-list .child-info-list text {
   margin-left: 16rpx;
   font-family: PingFangSC-Regular;
   font-size: 14px;
   color: #404040;
 }
-.list .child-info-list checkbox {
+.child-info-list .child-delete-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.radio-list .child-info-list image {
+  margin-left: 40rpx;
+  width: 36rpx;
+  height: 36rpx;
+}
+.radio-list .child-info-list checkbox {
   margin-right: 16rpx;
+}
+.radio-list {
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .border-bottom {
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1rpx solid rgba(0,0,0,0.05);
   padding-bottom: 56rpx;
   margin-bottom: 56rpx;
 }
@@ -191,7 +235,7 @@
   text-align: right;
   font-family: PingFangSC-Regular;
   font-size: 28rpx;
-  color: #A6A6A6;
+  color: #404040;
 }
 .base-info .select {
   font-family: PingFangSC-Regular;
@@ -202,6 +246,7 @@
 .base-info .select text {
   padding-bottom: 5px;
   line-height: 44rpx;
+  color:#404040;
 }
 .base-info .select image {
   margin-top: 5px;
@@ -246,7 +291,7 @@
 
   text-align: center;
   color: #fff;
-  
+  font-weight: 700;
 }
 button::after{ border: none; }
 .alert {
