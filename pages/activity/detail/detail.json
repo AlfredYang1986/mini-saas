@@ -22,6 +22,7 @@
     "cls-reward": "/component/classes/cla-reward/cla-reward",
     "cls-notice": "/component/classes/cla-notices/cla-notice",
     "cls-facility": "/component/common/facility/facility",
-    "cls-scroll": "/component/classes/cls-x-scroll/cls-x-scroll"
+    "cls-scroll": "/component/classes/cls-x-scroll/cls-x-scroll",
+    "cls-images": "/component/location/image-container/image-container"
   }
 }

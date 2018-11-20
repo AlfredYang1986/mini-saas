@@ -1,5 +1,7 @@
 <view class="clsdet-container">
-
+ <!-- <view class="clsdet-component">
+		<cls-images></cls-images>
+	</view> -->
 	<view class="clsdet-component">
 		<clsimg exp="{{actv}}"></clsimg>
 	</view>

@@ -222,7 +222,7 @@
   line-height: 44rpx;
 }
 .base-info-list .section {
-  width: 100%;
+  width: 80%;
   text-align: right;
 }
 .base-info .info-title {

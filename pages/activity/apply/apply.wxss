@@ -222,11 +222,11 @@
   line-height: 44rpx;
 }
 .base-info-list .section {
-  width: 100%;
+  width: 80%;
   text-align: right;
 }
 .base-info .info-title {
-  min-width: 30px;
+  min-width: 80rpx;
   font-family: PingFangSC-Medium;
   font-size: 28rpx;
   color: #0D0D0D;

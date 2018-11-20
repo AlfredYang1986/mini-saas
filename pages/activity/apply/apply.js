@@ -5,13 +5,12 @@ let dob;
 let gender;
 let guardian_role;
 let contact;
-let course_name;
 let except_time;
 let kids;
 let kid;
 let address;
-let detailSort = wx.getStorageSync('detailSort');
-let detailName = wx.getStorageSync('detailName');
+let detailSort;
+let detailName;
 let yardname;
 let haveChild = true;
 Page({
@@ -51,6 +50,8 @@ Page({
   onLoad: function (options) {
     wx.removeStorageSync('kids');
     yardname = wx.getStorageSync('yardname');
+    detailSort = wx.getStorageSync('detailSort');
+    detailName = wx.getStorageSync('detailName'); 
     let yard = [];
     yard.push(yardname);
     let date = this.getNowFormatDate();
@@ -371,6 +372,7 @@ Page({
   onCommitApply: function(e) {
     // let kids = this.queryAttendedKids();
     // let childid = event.currentTarget.dataset.childid;
+    if (except_time != undefined && detailName != undefined && contact != undefined && detailSort != undefined && kids != undefined);
     let callback = {
       onSuccess: function (res) {
         wx.showToast({

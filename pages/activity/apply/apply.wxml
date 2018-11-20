@@ -71,7 +71,7 @@
    <view class='list'>
     <text class='name'>联系方式</text>
     <view class='select'>
-      <input placeholder="请输入手机号" bindinput="inputTel"></input>
+      <input placeholder="请输入手机号" bindinput="inputTel" type='number'></input>
     </view>
   </view>
   </view>
@@ -120,11 +120,11 @@
 
       <view class='base-info'>
         <view class='base-info-list'>
-          <text class='info-title' >名字</text>
-          <input placeholder='请输入'  bindinput="bindKeyInput" class='nickinput' name="nickname"></input>
+          <text class='info-title' >孩子名字</text>
+          <input placeholder='请填写孩子姓名'  bindinput="bindKeyInput" class='nickinput' name="nickname"></input>
         </view>
         <view class='base-info-list'>
-          <text class='info-title'>性别</text>
+          <text class='info-title'>孩子性别</text>
           <view class="section">
             <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
               <view class="picker select">
@@ -135,7 +135,7 @@
           </view>
         </view>
         <view class='base-info-list'>
-          <text class='info-title'>生日</text>
+          <text class='info-title'>孩子生日</text>
           <view class="section">
             <picker mode="date" value="{{date}}" start="1990-01-01" end="{{nowDate}}" bindchange="bindDateChange">
               <view class="picker select">
