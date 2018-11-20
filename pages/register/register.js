@@ -15,7 +15,8 @@ Page({
     code: '',
     // ats: attendee()
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    isChecking: true
+    isChecking: true,
+    showModal: false
   },
 
   // 手机号部分
@@ -215,8 +216,8 @@ Page({
         console.log('登陆，获取Code失败')
       },
     }
-    lm.wechatLogin(callback);
-    // lm.checkWechatSession(callback);
+    // lm.wechatLogin(callback);
+    lm.checkWechatSession(callback);
   },
   bindGetUserInfo(e) {
     console.log(e.detail.userInfo);
@@ -231,10 +232,33 @@ Page({
         console.log('push failed');
       }
     }
+
+    // this.setData({
+    //   showModal: !this.data.showModal
+    // })
     let openid = wx.getStorageSync('dd_open_id')
     var lm = require('../../models/bm_applyee_schema.js');
     lm.pushApplee(openid, e.detail.userInfo, callback);
   },
+  // getPhoneNumber(e) {
+  //   debugger
+  //   console.log(e.detail.errMsg)
+  //   console.log(e.detail.iv)
+  //   console.log(e.detail.encryptedData)
+  // },
+
+  //确定按钮点击事件
+  // modalBindaconfirm: function () {
+  //   this.setData({
+  //     showModal: !this.data.showModal,
+  //   })
+  // },
+  //取消按钮点击事件
+  // modalBindcancel: function () {
+  //   this.setData({
+  //     showModal: !this.data.showModal,
+  //   })
+  // },
 
   /**
   * 生命周期函数--监听页面初次渲染完成

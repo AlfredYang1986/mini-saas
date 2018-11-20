@@ -13,6 +13,7 @@ function guid() {
 
 function genApplyeePushQuery(except_time, course_name, contact, course_type) {
   let now = new Date().getTime()
+  let config = require('./bm_config.js')
   return {
     data: {
       id: guid(),
@@ -20,7 +21,7 @@ function genApplyeePushQuery(except_time, course_name, contact, course_type) {
       attributes: {
         apply_time: now,
         except_time: except_time,
-        brandId: "5be6a00b8fb80736e2ec9ba5",
+        brandId: config.bm_baizao_id,
         courseName: course_name,
         contact: contact,
         courseType: course_type,

@@ -49,6 +49,7 @@ function queryBrand(brandid, callback) {
 
 function genIdQuery(tmpid) {
   let eq = guid();
+  let config = require('./bm_config.js')
   return {
     data: {
       id: guid(),
@@ -73,7 +74,7 @@ function genIdQuery(tmpid) {
         type: "Eqcond",
         attributes: {
           key: "id",
-          val: '5be6a00b8fb80736e2ec9ba5'
+          val: config.bm_baizao_id
         }
       }
     ]
