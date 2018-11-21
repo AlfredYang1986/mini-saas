@@ -10,7 +10,7 @@ Component({
       observer: function (news, olds, path) {
 
       }
-    }
+    },
   },
 
   /**
@@ -88,12 +88,13 @@ Component({
       var lm = require('../../models/bm_applyee_schema.js');
       lm.pushApplee(openid, e.detail.userInfo, callback);
     },
-    // getPhoneNumber(e) {
-    //   debugger
-    //   console.log(e.detail.errMsg)
-    //   console.log(e.detail.iv)
-    //   console.log(e.detail.encryptedData)
-    // },
+    getPhoneNumber(e) {
+      if (e.detail.errMsg == "getPhoneNumber:ok") {
+        var lm = require('../../models/bm_applyee_schema.js');
+        let result = lm.decryptedPhoneNumber(e.detail.encryptedData, e.detail.iv)
+        console.log(result)
+      }
+    },
 
     //确定按钮点击事件
     // modalBindaconfirm: function () {
