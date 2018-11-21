@@ -10,6 +10,8 @@
   </scroll-view> -->
   <swiper 
       autoplay="{{autoplay}}" 
+      indicator-dots="{{indicatorDots}}"
+      indicator-active-color="{{pointerColor}}"
       circular="{{circular}}" 
       interval="{{interval}}"
       duration="{{duration}}" >

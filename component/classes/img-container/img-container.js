@@ -22,7 +22,7 @@ Component({
     autoplay: true,
     circular: true,
     pointerColor: "#FFFFFF",
-    interval: 5000,
+    interval: 2000,
     duration: 1000,
     images: [
       {
