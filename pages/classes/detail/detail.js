@@ -57,6 +57,15 @@ Page({
         classDetailName = res.SessionInfo.title;
         wx.setStorageSync('detailSort', classDetailSort);
         wx.setStorageSync('detailName', classDetailName);
+        let tagimgs =res.SessionInfo.Tagimgs
+        let newTagimgs = tagimgs.map((ele) => {
+          let tagimg = ele.img;
+          if (tagimg !== ""){
+            ele.dealImg = client.signatureUrl(tagimg);
+          }
+          return ele
+        })
+        res.SessionInfo.Tagimgs = newTagimgs;
         let _originRes = res;
         let _originImg = res.SessionInfo.cover;
         res.SessionInfo.dealCover = client.signatureUrl(_originImg);
