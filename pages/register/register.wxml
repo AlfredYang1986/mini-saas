@@ -1,21 +1,3 @@
-<!-- <view class='content-page'>
-  <view class='title'>手机号验证</view>
-  <view class="section">
-  <text>手机号码</text>
-  <input placeholder="请输入手机号码" type="number" maxlength="11" bindinput="inputPhoneNum" auto-focus='true' />
- 
-</view>
-<view class="section">
-  <view class='test'>
-    <text>短信验证</text>
-    <text wx:if='{{send}}' class='sendMsg' bindtap='sendMsg'>验证码</text>
-    <text wx:if="{{alreadySend}}" class="sendMsged" bindtap="sendMsg">重新获取({{second+"s"}})</text>
-  </view>
-  <input placeholder="短信验证码" type="number" maxlength="6" bindinput="addCode" />
-</view>
-<button type="{{buttonType}}" disabled="{{disabled}}" bindtap="showInfo" class='login'>登录</button>
-</view> -->
-
 <view class='bkg'>
 
   <block wx:if='{{isChecking}}'>
@@ -30,7 +12,7 @@
   <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">登陆</button> -->
 
   <!--弹窗-->
-  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <!-- <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
     <view class="modal-dialog" wx:if="{{showModal}}">
       <view class="modal-title">添加数量</view>
       <view class="modal-content">
@@ -43,7 +25,7 @@
       <view class="btn-cancel" bindtap="modalBindcancel" data-status="cancel">取消</view>
       <view class="btn-confirm" bindtap="modalBindaconfirm" data-status="confirm">确定</view>
     </view>
-  </view>
+  </view> -->
 
 </view>
 

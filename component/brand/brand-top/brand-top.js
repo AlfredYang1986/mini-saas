@@ -5,8 +5,8 @@ Component({
    */
   properties: {
     brand: {
-      type: "Array",
-      value: [],
+      type: "Object",
+      value: null,
       observer: function (news, olds, path) {
         console.log(news)
       }
@@ -17,10 +17,10 @@ Component({
    * 组件的初始数据
    */
   data: {
-    title: "PRO科学空间",
-    img: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_brand_detail%402x.png",
-    subtitle: "彩色方块的转动中感受魔方的魅力",
-    tags: ["场景教学", "先进理念", "专业团队"]
+    // title: "PRO科学空间",
+    // img: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_brand_detail%402x.png",
+    // subtitle: "彩色方块的转动中感受魔方的魅力",
+    // tags: ["场景教学", "先进理念", "专业团队"]
   },
 
   /**
