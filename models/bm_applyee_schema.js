@@ -16,7 +16,6 @@ function checkWechatSession(callback) {
 }
 
 function loginWithWechat(callback) {
-  debugger
   wx.login({
     success(res) {
       if (res.code) {
