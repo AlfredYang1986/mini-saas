@@ -1,5 +1,7 @@
 {
   "usingComponents": {
     "class-lst": "/component/classes/cla-banner/cla-banner"
-  }
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }
