@@ -14,10 +14,10 @@ Page({
 	 */
 	onLoad: function (options) {
     let client = new OSS({
-      region: 'oss-cn-beijing',
-      accessKeyId: 'LTAINO7wSDoWJRfN',
-      accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
-      bucket: 'bmsass'
+		region: 'oss-cn-beijing',
+		accessKeyId: 'LTAINO7wSDoWJRfN',
+		accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
+		bucket: 'bmsass'
     });
 		let that = this;
 		let callback = {
@@ -38,6 +38,9 @@ Page({
 		}
 		var bmexps = require('../../../models/bm_exp_schema.js')
 		bmexps.queryMultiExps(callback)
+
+		wx.stopPullDownRefresh();
+		wx.hideNavigationBarLoading();
 	},
 
 	/**
@@ -72,7 +75,8 @@ Page({
 	 * 页面相关事件处理函数--监听用户下拉动作
 	 */
 	onPullDownRefresh: function () {
-	
+	    wx.showNavigationBarLoading();
+    	this.onLoad();
 	},
 
 	/**

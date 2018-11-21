@@ -30,6 +30,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "百造科技空间",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f7f7f7",
+    "enablePullDownRefresh": true
   }
 }
