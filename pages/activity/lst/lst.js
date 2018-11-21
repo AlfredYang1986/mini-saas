@@ -39,6 +39,9 @@ Page({
     var bmactvs = require('../../../models/bm_actv_schema.js')
     console.log(bmactvs)
     bmactvs.queryMultiActvs(callback)
+    
+    wx.stopPullDownRefresh();
+		wx.hideNavigationBarLoading();
   },
 
   /**
@@ -73,7 +76,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    wx.showNavigationBarLoading();
+    this.onLoad();
   },
 
   /**
