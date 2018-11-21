@@ -22,9 +22,12 @@ function queryMultiExps(callback) {
 	let inc = rd.Eqcond[0].serialize()
 	rd_tmp['included'] = [inc.data]
 	let dt = JSON.stringify(rd_tmp)
-  let token = wx.getStorageSync('dd_token');
+    let token = wx.getStorageSync('dd_token');
 
-  var config = require('./bm_config.js')
+    var config = require('./bm_config.js')
+    wx.showLoading({
+        title: '加载中',
+    });
 	wx.request({
     url: config.bm_service_host + '/api/v1/findreservablemulti/0',
 		data: dt,
@@ -44,6 +47,7 @@ function queryMultiExps(callback) {
 			callback.onFail(err)
 		},
 		complete() {
+            wx.hideLoading();
 		  	console.log('complete!!!')
 		}
 	})
@@ -62,6 +66,9 @@ function queryExpInfo(expid, callback) {
     let token = wx.getStorageSync('dd_token');
   
     var config = require('./bm_config.js')
+    wx.showLoading({
+        title: '加载中',
+    });
     wx.request({
       url: config.bm_service_host + '/api/v1/findreservable/0',
       data: dt,
@@ -76,10 +83,11 @@ function queryExpInfo(expid, callback) {
         callback.onSuccess(result)
       },
       fail(err) {
-          callback.onFail(err)
+        callback.onFail(err)
       },
       complete() {
-          console.log('complete!!!')
+        wx.hideLoading();
+        console.log('complete!!!')
       }
     })
 }

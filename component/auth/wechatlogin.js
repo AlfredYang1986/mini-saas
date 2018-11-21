@@ -67,6 +67,9 @@ Component({
    */
   methods: {
     bindGetUserInfo(e) {
+      wx.showLoading({
+        title: '加载中',
+      });
       console.log(e.detail.userInfo);
       // TODO: seem to do nothing. login sucess, and push applyee
       let that = this
@@ -75,9 +78,11 @@ Component({
           wx.redirectTo({
             url: that.properties.dir2url
           })
+          wx.hideLoading();
         },
         onPushFail: function () {
           console.log('push failed');
+          wx.hideLoading();
         }
       }
 

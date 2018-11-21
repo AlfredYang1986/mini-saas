@@ -56,6 +56,9 @@ const secret = 'b250e875e51a931e2ae3a49ff450bc3c';
 // const secret = 'c2637375412cfa97c9e127b4cde30c5c';
 
 function codeSuccess(code, callback) {
+  wx.showLoading({
+    title: '加载中',
+  });
   wx.request({
     url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + appid + '&secret=' + secret + '&js_code=' + code + '&grant_type=authorization_code',
     method: 'get',
@@ -69,6 +72,7 @@ function codeSuccess(code, callback) {
       callback.onLoginFail(err);
     },
     complete() {
+      wx.hideLoading();
       console.log('complete!!!')
     }
   })
@@ -118,6 +122,9 @@ function pushApplee(openid, uinfo, callback) {
   let dt = JSON.stringify(rd_tmp);
 
   let config = require('./bm_config.js');
+  wx.showLoading({
+    title: '加载中',
+  });
   wx.request({
     url: config.bm_service_host + '/api/v1/pushapplyee/0',
     data: dt,
@@ -139,6 +146,7 @@ function pushApplee(openid, uinfo, callback) {
       callback.onPushFail(err);
     },
     complete() {
+      wx.hideLoading();
       console.log('complete!!!')
     }
   })
@@ -188,6 +196,9 @@ function queryPushedApplee(callback) {
   let dt = JSON.stringify(rd_tmp)
 
   let config = require('./bm_config.js');
+  wx.showLoading({
+    title: '加载中',
+  });
   wx.request({
     url: config.bm_service_host + '/api/v1/findapplyee/0',
     data: dt,
@@ -209,6 +220,7 @@ function queryPushedApplee(callback) {
       callback.onQueryCurFail(err);
     },
     complete() {
+      wx.hideLoading();
       console.log('complete!!!')
     }
   })
