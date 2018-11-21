@@ -1,6 +1,6 @@
 <!--component/classes/cls-info/cls-info.wxml-->
 <view class='content-page'>
-  <view class='sort'>{{exp.SessionInfo.Cate.subtitle}}</view>
+  <view class='sort'>{{exp.SessionInfo.Cate.title}}</view>
   <view class='name'>
     <text>{{exp.SessionInfo.title}}</text>
     <!-- <image class='share' src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_share.png'></image> -->
