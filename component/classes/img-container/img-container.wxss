@@ -3,7 +3,17 @@
 
 }
 
-.clsdet-img .content-item {
+.clsdet-img swiper {
+	width: 750rpx;
+	height: 504rpx;
+}
+
+.clsdet-img swiper .slide-image{
+	width: 750rpx;
+	height: 504rpx;
+}
+
+/* .clsdet-img .content-item {
 	display: flex;
 	flex-wrap: nowrap;
 	flex-direction: column;
@@ -27,5 +37,6 @@
 
 	background-size: cover;
 	background-repeat: no-repeat;
-  background-color: #ddd;
-}
+    background-color: #ddd;
+} */
+

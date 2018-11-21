@@ -13,11 +13,17 @@ Component({
       }
     }
   },
-
+  
   /**
    * 组件的初始数据
    */
   data: {
+    indicatorDots: true,
+    autoplay: true,
+    circular: true,
+    pointerColor: "#FFFFFF",
+    interval: 5000,
+    duration: 1000,
     images: [
       {
         url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_cover_trialclass_01.jpg"
