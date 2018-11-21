@@ -34,6 +34,8 @@ Page({
     kids: null,
     nowDate: '',
     haveChild: true,
+    exp_date: '',
+    nickname: '',
   },
 
   /**
@@ -158,7 +160,7 @@ Page({
     if(haveChild) {
       var that = this;
       that.setData({
-        hideChild: false
+        hideChild: false,
       })
       var animation = wx.createAnimation({
         duration: 600,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
@@ -263,7 +265,7 @@ Page({
 
   bindExceptDateChange: function (e) {
     this.setData({
-      date: e.detail.value
+      exp_date: e.detail.value
     })
     let except_dob = new Date(e.detail.value).getTime();
     except_time = except_dob;
@@ -362,32 +364,43 @@ Page({
   },
 
   onCommitApply: function(e) {
-    // let kids = this.queryAttendedKids();
-    // let childid = event.currentTarget.dataset.childid;
-    if (except_time != undefined && detailName != undefined && contact != undefined && detailSort != undefined && kids != undefined);
-    let callback = {
-      onSuccess: function (res) {
-        wx.showToast({
-          title: '提交成功',
-          icon: 'success',
-          duration: 2000,
-          mask: true
-        })
-        
-        // wx.navigateTo({
-        //   url: '/pages/activity/detail/detail?childid=' + childid,
-        // })
-      },
-      onFail: function () {
-        console.log('push apply error');
+    let that = this;
+    if (except_time != undefined && detailName != undefined && contact != undefined && contact != '' && detailSort != undefined && kids != undefined) {
+      let callback = {
+        onSuccess: function (res) {
+          wx.navigateBack({
+            delta: 1
+          })
+
+          wx.showToast({
+            title: '提交成功',
+            icon: 'success',
+            duration: 2000,
+            mask: true
+          })
+          
+        },
+        onFail: function () {
+          console.log('push apply error');
+        }
       }
+      // kid = [];
+      // let ks = require('../../../models/bm_kids_schema.js');
+      // let selectedKid = ks.queryLocalKidByID(e.detail.value)
+      // kid.push(selectedKid);
+      var ay = require('../../../models/bm_apply_schema.js');
+      ay.pushApply(except_time, detailName, contact, detailSort, kids, callback);
+    } else {
+      wx.showModal({
+        title: '提交失败',
+        content: '还有没填好的地方哦',
+        success: function (res) {
+          if (res.confirm) {} 
+          else {}
+        }
+      })
     }
-    // kid = [];
-    // let ks = require('../../../models/bm_kids_schema.js');
-    // let selectedKid = ks.queryLocalKidByID(e.detail.value)
-    // kid.push(selectedKid);
-    var ay = require('../../../models/bm_apply_schema.js');
-    ay.pushApply(except_time, detailName, contact, detailSort, kids, callback);
+    
   },
   // TODO: 这是一个假的，你需要从你的输入中读取这些值
   
