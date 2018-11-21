@@ -1,11 +1,26 @@
 <!--component/class-banner/img-containger/img-container.wxml-->
 <view class="clsdet-img">
-  <scroll-view class="content-item" scroll-x style="width: 100%">
+  <!-- <scroll-view class="content-item" scroll-x style="width: 100%">
     <view class="content-row" >
 			<view class="clsdet-detail">
 				<view class="clsdet-detail-img" style="background-image: url('{{exp.SessionInfo.dealCover}}')" >
 				</view>
       </view>
     </view>
-  </scroll-view>
+  </scroll-view> -->
+  <swiper 
+      autoplay="{{autoplay}}" 
+      indicator-dots="{{indicatorDots}}"
+      indicator-active-color="{{pointerColor}}"
+      circular="{{circular}}" 
+      interval="{{interval}}"
+      duration="{{duration}}" >
+    <block wx:for="{{exp.SessionInfo.Tagimgs}}">
+      <block wx:if="{{item.dealImg!=null}}" >
+        <swiper-item>
+          <image src="{{item.dealImg}}" class="slide-image"/>
+        </swiper-item>
+      </block>
+    </block>
+  </swiper>
 </view>

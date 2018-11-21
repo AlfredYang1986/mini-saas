@@ -1,77 +1,135 @@
-/* pages/register/register.wxss */
-.content-page {
+.content {
   display: flex;
   flex-direction: column;
-
-  padding-top: 68rpx;
-  padding-left: 80rpx;
-  padding-right: 80rpx;
-}
-.title {
-  margin-bottom: 80rpx;
-  font-family: PingFangSC-Medium;
-  font-size: 22px;
-  color: #0D0D0D;
-}
-.section {
-  margin-bottom: 80rpx;
-}
-.section text {
-  font-family: PingFangSC-Regular;
-  font-size: 16px;
-  color: #737373;
-  margin-bottom: 38rpx;
   align-items: center;
+  justify-content: center;
 }
-.section input {
-  border-bottom: 1px solid #E0E0E0;
-  font-family: SFProText-Regular;
-font-size: 14px;
-color: #D9D9D9;
-margin-top: 38rpx;
-padding-bottom:22rpx; 
+.logo image {
+  margin-top: 228rpx;
+  margin-bottom: 450rpx;
+  width: 750rpx;
+  height: 170rpx;
+  background: #ddd;
 }
-.section .test {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: -35rpx;
-}
-.sendMsg {
-  background: #80AEFF;
-  border-radius: 100px;
-  width: 250rpx;
-  height: 64rpx;
-  text-align: center;
-  line-height: 64rpx;
+.btn {
+  padding: 26rpx 170rpx;
+  background-image: linear-gradient(-123deg, #F78065 0%, #E4534A 100%);
+  box-shadow: 0 6px 8px 0 rgba(235,57,54,0.17);
+  border-radius: 60rpx;
   font-family: PingFangSC-Medium;
   font-size: 14px;
-  color: #B2B2B2;
-}
-.sendMsged {
-  background:  #F2F2F2;
-  border-radius: 100px;
-  width: 250rpx;
-  height: 64rpx;
-  text-align: center;
-  line-height: 64rpx;
-  font-family: PingFangSC-Medium;
-  font-size: 14px;
-  color: #B2B2B2;
-}
-.login {
-  background-image: linear-gradient(-90deg, #D9E7FF 0%, #C5D8F9 100%);
-  border-radius: 24px;
-  width: 590rpx;
-  height: 96rpx;
-  line-height: 96rpx;
-
-  font-family: SFProText-Medium;
-  font-size: 16px;
   color: #FFFFFF;
 }
 
-.show-btn {
-  margin-top: 100rpx;
-  color: #22cc22;
+/*mask*/
+.drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
 }
+/*content*/
+.drawer_box {
+  /* width: 670rpx; */
+  margin: 60rpx 40rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 30%;
+  left: 0;
+  z-index: 1001;
+  background: #fff;
+  margin: -150px 50rpx 0 40rpx;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bg-img image {
+  margin-bottom: 160rpx;
+  width: 670rpx;
+  height: 662rpx;
+}
+wechatlogin button {
+  background: none;
+  padding: 0;
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  color: #FFFFFF;
+  margin: 0;
+  display: flex;
+}
+button::after{
+  border:none;
+  background: none;
+  padding: 0;
+  color: #FFFFFF;
+}
+.btn_ok{
+  margin-bottom: 94rpx;
+  /* padding: 26rpx 144rpx; */
+  width: 510rpx;
+  height: 92rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(-123deg, #F78065 0%, #E4534A 100%);
+  box-shadow: 0 6px 8px 0 rgba(235,57,54,0.17);
+  border-radius: 60rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  color: #FFFFFF;
+}
+.small-img image {
+  height: 88rpx;
+  width: 160rpx;
+}
+.top{
+    padding-top:8px;
+}
+.bottom {
+    padding-bottom:8px;
+}
+.title {
+    height: 30px;
+    line-height: 30px;
+    width: 160rpx;
+    text-align: center;
+    display: inline-block;
+    font: 300 28rpx/30px "microsoft yahei";
+}
+.input_base {
+    border: 2rpx solid #ccc;
+    padding-left: 10rpx;
+    margin-right: 50rpx;
+}
+.input_h30{
+    height: 30px;
+    line-height: 30px;
+}
+.input_h60{
+    height: 60px;
+}
+.input_view{
+    font: 12px "microsoft yahei";
+    background: #fff;
+    color:#000;
+    line-height: 30px;
+}
+input {
+    font: 12px "microsoft yahei";
+    background: #fff;
+    color:#000 ;
+}
+radio{
+    margin-right: 20px;
+}
+.grid { display: -webkit-box; display: box; }
+.col-0 {-webkit-box-flex:0;box-flex:0;}
+.col-1 {-webkit-box-flex:1;box-flex:1;}
+.fl { float: left;}
+.fr { float: right;}

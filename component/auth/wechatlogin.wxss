@@ -1,5 +1,25 @@
 /* component/auth/wechatlogin.wxss */
-
+.btn_ok{
+  margin-bottom: 94rpx;
+  /* padding: 26rpx 144rpx; */
+  width: 510rpx;
+  height: 92rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(-123deg, #F78065 0%, #E4534A 100%);
+  box-shadow: 0 6px 8px 0 rgba(235,57,54,0.17);
+  border-radius: 60rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  color: #FFFFFF;
+}
+button::after{
+  border:none;
+  background: none;
+  padding: 0;
+  color: #FFFFFF;
+}
 .modal-mask {
   width: 100%;
   height: 100%;

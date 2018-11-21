@@ -1,7 +1,7 @@
 <!--pages/preregister/preregister.wxml-->
 <view class='content-page'>
   <view class='logo'>
-    <image src=''></image>
+    <image src='{{logo}}'></image>
   </view>
   <view class='alert'>
     <view class='child-title'>
@@ -12,7 +12,7 @@
     <view class='base-info'>
       <view class='base-info-list'>
         <text class='info-title' >孩子名字</text>
-        <input placeholder='请填写孩子姓名'  bindinput="bindKeyInput" class='nickinput' name="nickname"></input>
+        <input placeholder='请填写孩子姓名'  bindinput="nameInput" class='nickinput' name="nickname"></input>
       </view>
       <view class='base-info-list'>
         <text class='info-title'>孩子性别</text>
@@ -49,13 +49,13 @@
     <view class='base-info'>
       <view class='base-info-list'>
         <text class='info-title' >联系方式</text>
-        <input placeholder='请填写联系方式'  bindinput="bindKeyInput" class='nickinput' name="nickname" type="number"></input>
+        <input placeholder='请填写联系方式'  bindinput="contactInput" class='nickinput' name="nickname" type="number"></input>
       </view>
     </view>
     
 
     <view bindtap="hideChild">
-      <button class='save-child' bindtap='queryAttendedKids' >完成</button>
+      <button class='save-child' bindtap='onCommitApply' >完成</button>
     </view>
   </view>
 </view>
