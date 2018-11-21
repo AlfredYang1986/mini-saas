@@ -49,21 +49,62 @@ function queryUserBasicInfo(callback) {
   })
 }
 
-const appid = 'wx6129e48a548c52b8';
-const secret = 'b250e875e51a931e2ae3a49ff450bc3c';
-// const appid = 'wx79138b2ee5288cc2';
-// const secret = 'c2637375412cfa97c9e127b4cde30c5c';
+function genOpenIdQuery(code) {
+  let eq = guid()
+  return  {
+      data: {
+        id: guid(),
+        type: "Request",
+        attributes: {
+          res: "BmWeChatInfo"
+        },
+        relationships: {
+          Eqcond: {
+            data: [
+              {
+                id: eq,
+                type: "Eqcond"
+              }
+            ]
+          }
+        }
+      },
+      included: [
+        {
+          id: eq,
+          type: "Eqcond",
+          attributes: {
+            key: "code",
+            val: code
+          }
+        }
+      ]
+    }
+}
+
 
 function codeSuccess(code, callback) {
   wx.showLoading({
     title: '加载中',
   });
+
+  let req = genOpenIdQuery(code)
+  let rd = bmstore.sync(req);
+  let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()))
+
+  let inc = rd.Eqcond[0].serialize()
+  rd_tmp['included'] = [inc.data]
+  let dt = JSON.stringify(rd_tmp)
+
+  let config = require('./bm_config.js')
   wx.request({
-    url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + appid + '&secret=' + secret + '&js_code=' + code + '&grant_type=authorization_code',
-    method: 'get',
+    url: config.bm_service_host + '/api/v1/findwechatinfo/0',
+    method: 'post',
+    data: dt,
     success(res) {
-      wx.setStorageSync('dd_open_id', res.data.openid)
-      wx.setStorageSync('dd_session_key', res.data.session_key)
+      let result = bmstore.sync(res.data)
+      wx.setStorageSync('dd_open_id', result.OpenId)
+      wx.setStorageSync('dd_session_key', result.SessionKey)
       callback.onLoginSuccess(res);
     },
     fail(err) {
