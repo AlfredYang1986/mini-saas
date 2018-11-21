@@ -10,16 +10,9 @@ Page({
     showModalStatus: false,
     bgImg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_popup.jpg",
     smImg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_logo_popup%402x.png",
-  },
 
-  /**
-    * 显示弹窗
-    */
-  buttonTap: function (e) {
-    this.setData({
-      modalHidden: false
-    })
-    
+    redir: '/brand/info/info',
+    customid: ''
   },
 
   util: function (currentStatu) {
@@ -95,7 +88,19 @@ Page({
   * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
-    
+    let tmp = options.redir
+    if (tmp) {
+      this.setData({
+        redir: tmp,
+      })
+      console.log('hahaha')
+    }
+    let tid = options.reservalbeid
+    if (tid) {
+      this.setData({
+        cutomid: options.reservalbeid,
+      })
+    }
   },
 
   /**
