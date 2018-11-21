@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/preregister/preregister",
     "pages/register/register",
+    "pages/preregister/preregister",
     "pages/brand/info/info",
     "pages/brand/detail/detail",
     "pages/locations/lst/lst",

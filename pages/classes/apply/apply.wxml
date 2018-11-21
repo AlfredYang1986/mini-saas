@@ -71,7 +71,7 @@
    <view class='list'>
     <text class='name'>联系方式</text>
     <view class='select'>
-      <input placeholder="请输入手机号" bindinput="inputTel"></input>
+      <input placeholder="请输入手机号" bindinput="inputTel" type='number'></input>
     </view>
   </view>
   </view>

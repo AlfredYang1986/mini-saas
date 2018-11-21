@@ -10,7 +10,7 @@
         <view class='bg-image' style="background-image: url('{{item.SessionInfo.dealCover}}')" >
           <view class='list-detail'>
             <view class='info'>
-              <view class='sort'>{{item.SessionInfo.Cate.subtitle}}</view>
+              <view class='sort'>{{item.SessionInfo.Cate.title}}</view>
               <view class='age'>{{item.SessionInfo.alb}} - {{item.SessionInfo.aub}} 岁</view>
             </view>
             <view class='apply'>
