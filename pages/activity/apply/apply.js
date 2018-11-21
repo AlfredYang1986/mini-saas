@@ -31,14 +31,6 @@ Page({
       { name: '其他', value: '其他' },
     ],
     deleteImg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_delete%20copy%402x.png",
-    checkItems: [
-      { name: 'USA', value: '美国', check: true},
-      { name: 'CHN', value: '中国'},
-      { name: 'BRA', value: '巴西' },
-      { name: 'JPN', value: '日本' },
-      { name: 'ENG', value: '英国' },
-      { name: 'TUR', value: '法国' },
-    ],
     kids: null,
     nowDate: '',
     haveChild: true,
@@ -323,7 +315,7 @@ Page({
     // let kids = ks.queryAllLocalKids();
     // if (kids.length == 0) {
     let that = this;
-    if (nickname != undefined && nickname != '' && dob != undefined && gender != undefined ) {
+    if (nickname != undefined && nickname != '' && dob != undefined && gender != undefined && guardian_role != undefined && guardian_role != null ) {
       ks.genOneKid(nickname, 'realnickname', dob, gender, guardian_role)
       ks.saveAllKidOnStorage();
       kids = ks.queryAllLocalKids();

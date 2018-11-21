@@ -1,12 +1,12 @@
 <!--component/auth/wechatlogin.wxml-->
 <!-- <text>component/auth/wechatlogin.wxml</text> -->
 <block wx:if='{{isChecking}}'>
-  <button wx:if='{{canIUse}}' open-type="getUserInfo" disabled bindgetuserinfo="bindGetUserInfo">授权登录</button>
+  <button  class="btn_ok"  wx:if='{{canIUse}}' open-type="getUserInfo" disabled bindgetuserinfo="bindGetUserInfo">授权发现更多精彩</button>
   <view wx:else>请升级微信版本</view>
 </block>
 
 <block wx:else>
-  <button wx:if='{{canIUse}}' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+  <button  class="btn_ok"  wx:if='{{canIUse}}' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权发现更多精彩</button>
   <view wx:else>请升级微信版本</view>
 </block>
 

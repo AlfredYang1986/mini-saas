@@ -1,0 +1,63 @@
+<!--pages/preregister/preregister.wxml-->
+<view class='content-page'>
+  <view class='logo'>
+    <image src='{{logo}}'></image>
+  </view>
+  <view class='alert'>
+    <view class='child-title'>
+      <text class='title-text'>孩子信息</text>
+      <text class='subtitle-text'>您的隐私非常重要，信息将严格保密</text>
+    </view> 
+
+    <view class='base-info'>
+      <view class='base-info-list'>
+        <text class='info-title' >孩子名字</text>
+        <input placeholder='请填写孩子姓名'  bindinput="nameInput" class='nickinput' name="nickname"></input>
+      </view>
+      <view class='base-info-list'>
+        <text class='info-title'>孩子性别</text>
+        <view class="section"> 
+          <radio-group class="radio-group rela-radio-group" bindchange="sexChange">
+            <label class="radio rela-radio-left" wx:for="{{sexItems}}">
+              <radio value="{{item.name}}" checked="{{item.checked}}" class='redio-dot'/>{{item.value}}
+            </label>
+          </radio-group>
+        </view>
+      </view>
+      <view class='base-info-list'>
+        <text class='info-title'>孩子生日</text>
+        <view class="section">
+          <picker mode="date" value="{{date}}" start="1990-01-01" end="{{nowDate}}" bindchange="bindDateChange">
+            <view class="picker select">
+              <text>{{date}}</text>
+              <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class='rela'>
+      <text class='rela-title'>您与孩子关系</text>
+      <radio-group class="radio-group rela-radio-group" bindchange="relaChange">
+        <label class="radio rela-radio" wx:for="{{relaItems}}">
+          <radio value="{{item.name}}" checked="{{item.checked}}" class='redio-dot'/>{{item.value}}
+        </label>
+      </radio-group>
+    </view>
+    
+    <view class='base-info'>
+      <view class='base-info-list'>
+        <text class='info-title' >联系方式</text>
+        <input placeholder='请填写联系方式'  bindinput="contactInput" class='nickinput' name="nickname" type="number"></input>
+      </view>
+    </view>
+    
+
+    <view bindtap="hideChild">
+      <button class='save-child' bindtap='onCommitApply' >完成</button>
+    </view>
+  </view>
+</view>
+
+
