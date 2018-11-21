@@ -3,7 +3,7 @@
   <block wx:if="{{isList == 'false'}}">
     <view class='title'>
       <text>精选体验课</text>
-      <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_chevron_right_dark%402x.png'></image>
+      <!-- <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_chevron_right_dark%402x.png'></image> -->
     </view>
   </block>
     <view class='content'>

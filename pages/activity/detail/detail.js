@@ -28,6 +28,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isCourse: false,
     actv: null,
     isFold: true,
     show: false,

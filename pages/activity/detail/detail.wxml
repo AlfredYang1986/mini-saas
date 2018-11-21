@@ -16,7 +16,7 @@
 
   <view class='clsdet-component'>
     <view class="clsdet-component" wx:if='{{hide}}'>
-      <clsabout exp="{{actv}}"></clsabout>
+      <actiabout exp="{{actv}}" isCourse="{{isCourse}}"></actiabout>
     </view>
   </view>
 
