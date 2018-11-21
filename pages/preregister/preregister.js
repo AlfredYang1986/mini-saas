@@ -109,7 +109,6 @@ Page({
   onCommitApply: function (e) {
     // let kids = this.queryAttendedKids();
     // let childid = event.currentTarget.dataset.childid;
-    debugger
     let ks = require('../../models/bm_kids_schema.js');
     // if (nickname != undefined && nickname != '' && dob != undefined && gender != undefined && guardian_role != undefined && guardian_role != null) {
       ks.genOneKid(child_name, 'realnickname', dob, gender, guardian_role)

@@ -25,6 +25,9 @@ function queryBrand(brandid, callback) {
   let token = wx.getStorageSync('dd_token')
 
   let config = require('./bm_config.js')
+  wx.showLoading({
+    title: '加载中',
+  });
   wx.request({
     url: config.bm_service_host + '/api/v1/findbrand/0',
     data: dt,
@@ -42,6 +45,7 @@ function queryBrand(brandid, callback) {
       callback.onFail(err)
     },
     complete() {
+      wx.hideLoading();
       console.log('complete!!!')
     }
   })

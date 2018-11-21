@@ -61,6 +61,9 @@ function pushApply(except_time, course_name, contact, course_type, kids, callbac
   console.log(dt);
 
   let config = require("./bm_config.js");
+  wx.showLoading({
+    title: '加载中',
+  });
   wx.request({
     url: config.bm_service_host + '/api/v1/pushapply/0',
     data: dt,
@@ -79,6 +82,7 @@ function pushApply(except_time, course_name, contact, course_type, kids, callbac
       callback.onFail(err);
     },
     complete() {
+      wx.hideLoading();
       console.log('complete!!!')
     }
   })

@@ -10,7 +10,7 @@ Component({
       observer: function (news, olds, path) {
 
       }
-    }
+    },
   },
 
   /**
@@ -67,6 +67,9 @@ Component({
    */
   methods: {
     bindGetUserInfo(e) {
+      wx.showLoading({
+        title: '加载中',
+      });
       console.log(e.detail.userInfo);
       // TODO: seem to do nothing. login sucess, and push applyee
       let that = this
@@ -75,9 +78,11 @@ Component({
           wx.redirectTo({
             url: that.properties.dir2url
           })
+          wx.hideLoading();
         },
         onPushFail: function () {
           console.log('push failed');
+          wx.hideLoading();
         }
       }
 
@@ -88,12 +93,13 @@ Component({
       var lm = require('../../models/bm_applyee_schema.js');
       lm.pushApplee(openid, e.detail.userInfo, callback);
     },
-    // getPhoneNumber(e) {
-    //   debugger
-    //   console.log(e.detail.errMsg)
-    //   console.log(e.detail.iv)
-    //   console.log(e.detail.encryptedData)
-    // },
+    getPhoneNumber(e) {
+      if (e.detail.errMsg == "getPhoneNumber:ok") {
+        var lm = require('../../models/bm_applyee_schema.js');
+        let result = lm.decryptedPhoneNumber(e.detail.encryptedData, e.detail.iv)
+        console.log(result)
+      }
+    },
 
     //确定按钮点击事件
     // modalBindaconfirm: function () {

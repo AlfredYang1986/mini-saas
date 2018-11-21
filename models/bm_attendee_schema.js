@@ -143,6 +143,9 @@ function queryAttendee() {
   let dt = JSON.stringify(rd_tmp)
 
   let config = require('./bm_config.js');
+  wx.showLoading({
+    title: '加载中',
+  });
   wx.request({
     url: config.bm_service_host + '/api/v1/findattendee/0', //仅为示例，并非真实的接口地址
     data: dt,
@@ -159,6 +162,7 @@ function queryAttendee() {
       console.log('fail!!!')
     },
     complete() {
+      wx.hideLoading();
       console.log('complete!!!')
     }
   })
