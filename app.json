@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/preregister/preregister",
     "pages/register/register",
     "pages/brand/info/info",
     "pages/brand/detail/detail",
@@ -25,6 +26,7 @@
     "pages/activity/lst/lst",
     "pages/activity/apply/apply",
     "pages/locations/details/details"
+   
   ],
   "window": {
     "backgroundTextStyle": "light",
