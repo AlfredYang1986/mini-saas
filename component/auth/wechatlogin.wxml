@@ -1,0 +1,27 @@
+<!--component/auth/wechatlogin.wxml-->
+<!-- <text>component/auth/wechatlogin.wxml</text> -->
+<block wx:if='{{isChecking}}'>
+  <button wx:if='{{canIUse}}' open-type="getUserInfo" disabled bindgetuserinfo="bindGetUserInfo">授权登录</button>
+  <view wx:else>请升级微信版本</view>
+</block>
+
+<block wx:else>
+  <button wx:if='{{canIUse}}' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+  <view wx:else>请升级微信版本</view>
+</block>
+
+<!--弹窗-->
+<!-- <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">添加数量</view>
+    <view class="modal-content">
+      <view class="modal-input">
+        <input placeholder-class="input-holder" type="number" maxlength="10" bindinput="inputChange" class="input" placeholder="请输入数量"></input>
+      </view>
+      <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">登陆</button> 
+    </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="modalBindcancel" data-status="cancel">取消</view>
+    <view class="btn-confirm" bindtap="modalBindaconfirm" data-status="confirm">确定</view>
+  </view>
+</view> -->
