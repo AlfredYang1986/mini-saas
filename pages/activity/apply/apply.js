@@ -376,16 +376,16 @@ Page({
     if (except_time != undefined && detailName != undefined && contact != undefined && contact != '' && detailSort != undefined && kids != undefined) {
       let callback = {
         onSuccess: function (res) {
-
           wx.navigateBack({
-            delta: 1
-          })
-
-          wx.showToast({
-            title: '将尽快联系您！',
-            icon: 'success',
-            duration: 3000,
-            mask: true
+            delta: 1,
+            success: function () {
+              wx.showToast({
+                title: '将尽快联系您！',
+                icon: 'success',
+                duration: 2000,
+                mask: true,
+              })
+            }
           })
         },
         onFail: function () {
