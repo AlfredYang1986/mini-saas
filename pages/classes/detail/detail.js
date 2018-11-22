@@ -10,6 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isCourse: true,
     isFold: true,
     show: false,
     hide: true,

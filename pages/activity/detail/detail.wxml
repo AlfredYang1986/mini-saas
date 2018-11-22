@@ -45,7 +45,7 @@
 </view>
 
 <cover-view class="acti-component btn" bindtap='applyPage' data-id="{{id}}" wx:if='{{hide}}'>
-  <actibtn></actibtn>
+  <actibtn isCourse="{{isCourse}}"></actibtn>
 </cover-view>
   
   <view class='apply modal' wx:if="{{show}}" animation='{{animationData}}' catchtouchmove="true">
