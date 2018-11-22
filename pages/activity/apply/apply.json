@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "kid-info": "/component/classes/apply-kid-info/apply-kid-info"
+    "kid-info": "/component/classes/apply-kid-info/apply-kid-info",
+    "add-child": "/component/common/add-child/add-child"
   }
 }

@@ -10,9 +10,9 @@
   background-image: linear-gradient(-90deg, #9DC0FF 0%, #6E9CEE 100%);
   border-radius: 4px;
 	width: 670rpx;
-	height: 122rpx;
+	height: 96rpx;
 
-	margin-top: 40rpx;
+	margin-top: 0;
 	margin-bottom:0;
 }
 
@@ -53,14 +53,21 @@
 	flex-direction: row;
 	justify-content: space-between;
 
-   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 28rpx;
+  padding-bottom: 28rpx;
 }
 
 .actibtn .acti-price {
-	font-family: SFProText-Bold;
+	/* font-family: SFProText-Bold;
 	font-size: 40rpx;
-	color: #fff;
+	color: #fff; */
+	font-family:PingFangSC-Medium;
+	font-weight:700;
+	font-size:28rpx;
+	color:#fff;
+	/* margin-top:8rpx; */
+	line-height: 40rpx;
+
 
 	margin-left: 32rpx;
 }
@@ -76,28 +83,28 @@
 .actibtn .acti-nav {
 	font-family: PingFangSC-Medium;
   font-weight: 700;
-	font-size: 32rpx;
+	font-size: 28rpx;
 	color: #fff;
-
-	margin-top: 8rpx;
+	line-height: 40rpx;
+	/* margin-top: 8rpx; */
 }
 
 
 .actibtn .acti-nav-arrow {
 	width: 16rpx;
-	height: 26rpx;
+	height: 28rpx;
 
 	margin-left: 16rpx;
 	margin-right: 32rpx;
-	margin-top: 12rpx;
+	margin-top: 6rpx;
 }
 .btn-bg {
   position: absolute;
 
   width: 670rpx;
-	height: 122rpx;
+	height: 96rpx;
 
-  top: 20px;
+  top: 0px;
 
  
 }

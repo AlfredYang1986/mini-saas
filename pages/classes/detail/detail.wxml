@@ -43,7 +43,7 @@
 </view>
 
 <cover-view class="clsdet-component btn" bindtap='apply'  wx:if='{{hide}}'>
-    <clsbtn ></clsbtn>
+    <clsbtn isCourse="{{isCourse}}"></clsbtn>
 </cover-view>
 
 <view class='apply' wx:if="{{show}}" animation='{{animationData}}' catchtouchmove="true">

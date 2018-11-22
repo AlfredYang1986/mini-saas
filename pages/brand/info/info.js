@@ -1,5 +1,5 @@
 // pages/brand/brand.js
-var OSS = require('../../../models/ali-oss.js')
+
 Page({
 
   /**
@@ -42,6 +42,7 @@ Page({
         });
       }
     });
+    var OSS = require('../../../models/ali-oss.js');
     let client = new OSS({
       region: 'oss-cn-beijing',
       accessKeyId: 'LTAINO7wSDoWJRfN',
@@ -111,7 +112,7 @@ Page({
 
         wx.setStorage({
           key: "yardname",
-          data: res.title
+          data: res.address
         })
         wx.setStorage({
           key: 'yardtag',
@@ -127,16 +128,18 @@ Page({
         console.log(err)
       }
     }
-
+    var bmconfig = require('../../../models/bm_config.js')
     var bmexp = require('../../../models/bm_exp_schema.js')
     bmexp.queryMultiExps(callback)
     var bmactvs = require('../../../models/bm_actv_schema.js')
     bmactvs.queryMultiActvs(callbackActvs)
     var bmbrand = require('../../../models/bm_brand_schema.js')
-    bmbrand.queryBrand(options.brandid,callbackBrand)
+    bmbrand.queryBrand(bmconfig.brandid,callbackBrand)
     var bmyard = require('../../../models/bm_yard_schema.js')
-    bmyard.queryYard(options.yardid, callbackYard)
+    bmyard.queryYard(bmconfig.yardid, callbackYard)
 
+    wx.stopPullDownRefresh();
+    wx.hideNavigationBarLoading();
   },
 
   /**
@@ -171,14 +174,15 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    wx.showNavigationBarLoading();
+    this.onLoad();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**

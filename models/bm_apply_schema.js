@@ -13,6 +13,7 @@ function guid() {
 
 function genApplyeePushQuery(except_time, course_name, contact, course_type) {
   let now = new Date().getTime()
+  let config = require('./bm_config.js')
   return {
     data: {
       id: guid(),
@@ -20,7 +21,7 @@ function genApplyeePushQuery(except_time, course_name, contact, course_type) {
       attributes: {
         apply_time: now,
         except_time: except_time,
-        brandId: "5be6a00b8fb80736e2ec9ba5",
+        brandId: config.bm_baizao_id,
         courseName: course_name,
         contact: contact,
         courseType: course_type,
@@ -60,6 +61,9 @@ function pushApply(except_time, course_name, contact, course_type, kids, callbac
   console.log(dt);
 
   let config = require("./bm_config.js");
+  wx.showLoading({
+    title: '加载中',
+  });
   wx.request({
     url: config.bm_service_host + '/api/v1/pushapply/0',
     data: dt,
@@ -78,6 +82,7 @@ function pushApply(except_time, course_name, contact, course_type, kids, callbac
       callback.onFail(err);
     },
     complete() {
+      wx.hideLoading();
       console.log('complete!!!')
     }
   })

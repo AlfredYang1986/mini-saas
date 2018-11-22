@@ -5,7 +5,6 @@ let dob;
 let gender;
 let guardian_role;
 let contact;
-let course_name;
 let except_time;
 let kids;
 let kid;
@@ -32,27 +31,22 @@ Page({
       { name: '其他', value: '其他' },
     ],
     deleteImg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_delete%20copy%402x.png",
-    checkItems: [
-      { name: 'USA', value: '美国', check: true },
-      { name: 'CHN', value: '中国' },
-      { name: 'BRA', value: '巴西' },
-      { name: 'JPN', value: '日本' },
-      { name: 'ENG', value: '英国' },
-      { name: 'TUR', value: '法国' },
-    ],
     kids: null,
     nowDate: '',
     haveChild: true,
+    exp_date: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let ks = require('../../../models/bm_kids_schema.js');
+    ks.bmstoreReset();
     wx.removeStorageSync('kids');
     yardname = wx.getStorageSync('yardname');
     detailSort = wx.getStorageSync('detailSort');
-    detailName = wx.getStorageSync('detailName'); 
+    detailName = wx.getStorageSync('detailName');
     let yard = [];
     yard.push(yardname);
     let date = this.getNowFormatDate();
@@ -76,6 +70,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    nickname = undefined;
+    dob = undefined;
+    gender = undefined;
+    nickname = undefined;
+    except_time = undefined;
+    contact = undefined;
     let ks = require('../../../models/bm_kids_schema.js');
     ks.bmstoreReset();
   },
@@ -169,6 +169,7 @@ Page({
       that.setData({
         hideChild: false
       })
+
       var animation = wx.createAnimation({
         duration: 600,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
         timingFunction: 'ease',//动画的效果 默认值是linear
@@ -272,7 +273,7 @@ Page({
 
   bindExceptDateChange: function (e) {
     this.setData({
-      date: e.detail.value
+      exp_date: e.detail.value
     })
     let except_dob = new Date(e.detail.value).getTime();
     except_time = except_dob;
@@ -324,7 +325,7 @@ Page({
     // let kids = ks.queryAllLocalKids();
     // if (kids.length == 0) {
     let that = this;
-    if (nickname != undefined && nickname != '' && dob != undefined && gender != undefined) {
+    if (nickname != undefined && nickname != '' && dob != undefined && gender != undefined && guardian_role != undefined && guardian_role != null) {
       ks.genOneKid(nickname, 'realnickname', dob, gender, guardian_role)
       ks.saveAllKidOnStorage();
       kids = ks.queryAllLocalKids();
@@ -371,31 +372,51 @@ Page({
   },
 
   onCommitApply: function (e) {
-    // let kids = this.queryAttendedKids();
-    // let childid = event.currentTarget.dataset.childid;
-    let callback = {
-      onSuccess: function (res) {
-        wx.showToast({
-          title: '提交成功',
-          icon: 'success',
-          duration: 2000,
-          mask: true
-        })
+    let that = this;
+    if (except_time != undefined && detailName != undefined && contact != undefined && contact != '' && detailSort != undefined && kids != undefined) {
+      let callback = {
+        onSuccess: function (res) {
+          // setTimeout(wx.navigateBack({
+          //   delta: 1
+          // }), 2000) 
 
-        // wx.navigateTo({
-        //   url: '/pages/activity/detail/detail?childid=' + childid,
-        // })
-      },
-      onFail: function () {
-        console.log('push apply error');
+          wx.navigateBack({
+            delta: 1,
+            success: function () {
+              wx.showToast({
+                title: '将尽快联系您！',
+                icon: 'success',
+                duration: 2000,
+                mask: true,
+              })
+            }
+          })
+        },
+        onFail: function () {
+          console.log('push apply error');
+        }
       }
+      // kid = [];
+      // let ks = require('../../../models/bm_kids_schema.js');
+      // let selectedKid = ks.queryLocalKidByID(e.detail.value)
+      // kid.push(selectedKid);
+      var ay = require('../../../models/bm_apply_schema.js');
+      ay.pushApply(except_time, detailName, contact, detailSort, kids, callback);
+    } else {
+      wx.showModal({
+        title: '提交失败',
+        content: '还有没填好的地方哦',
+        success: function (res) {
+          if (res.confirm) {
+
+          } else {
+
+          }
+
+        }
+      })
     }
-    // kid = [];
-    // let ks = require('../../../models/bm_kids_schema.js');
-    // let selectedKid = ks.queryLocalKidByID(e.detail.value)
-    // kid.push(selectedKid);
-    var ay = require('../../../models/bm_apply_schema.js');
-    ay.pushApply(except_time, detailName, contact, detailSort, kids, callback);
+
   },
   // TODO: 这是一个假的，你需要从你的输入中读取这些值
 

@@ -1,0 +1,31 @@
+<!--component/auth/wechatlogin.wxml-->
+<!-- <text>component/auth/wechatlogin.wxml</text> -->
+<block wx:if='{{isChecking}}'>
+  <button  class="btn_ok"  wx:if='{{canIUse}}' open-type="getUserInfo" disabled bindgetuserinfo="bindGetUserInfo">欢迎进入</button>
+  <view wx:else>请升级微信版本</view>
+</block>
+
+<block wx:else>
+  <button  class="btn_ok"  wx:if='{{canIUse}}' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">欢迎进入</button>
+  <view wx:else>请升级微信版本</view>
+</block>
+
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+  <!-- <view class="drawer_title">弹窗标题</view> -->
+  <view class='bg-img'>
+    <image src='{{bgImg}}' ></image>
+  </view>
+  <!-- <view class="btn_ok" bindtap="powerDrawer" data-statu="close">授权发现更多精彩</view> --> 
+  <block wx:if='{{dongda}}'>
+  <view class="btn_ok" bindtap="direct2BrandInfo" data-statu="close">授权发现更多精彩</view>
+  </block>
+
+  <block wx:else>
+  <button class='btn_ok' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权发现更多精彩</button>
+  </block>
+
+  <view class='small-img'>
+    <image src='{{smImg}}'></image>
+  </view>
+</view>

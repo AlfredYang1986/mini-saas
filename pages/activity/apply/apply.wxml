@@ -1,7 +1,7 @@
 <view class="content-page">
   <view class='con'>
-  <view class='list'>
-    <text class='name'>选择校区</text>
+  <view class='list-col'>
+    <text class='name'>所在校区</text>
       <!-- <view class="section">
         <picker bindchange="bindAddressChange" value="0" range="{{address}}">
           <view class="picker select">
@@ -12,7 +12,7 @@
       </view> -->
       <view class='section school'>
         <text>{{address[0]}}</text>
-        <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
+        <!-- <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image> -->
       </view>
   </view>
 
@@ -21,7 +21,7 @@
     <view class='section'>
       <picker mode="date" value="{{date}}" start="{{nowDate}}" end="2050-01-01" bindchange="bindExceptDateChange">
         <view class="picker select">
-          <text>{{date}}</text>
+          <text>{{exp_date}}</text>
           <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
         </view>
       </picker>
@@ -121,7 +121,7 @@
       <view class='base-info'>
         <view class='base-info-list'>
           <text class='info-title' >孩子名字</text>
-          <input placeholder='请填写孩子姓名'  bindinput="bindKeyInput" class='nickinput' name="nickname"></input>
+          <input placeholder='请填写孩子姓名'  bindinput="bindKeyInput" class='nickinput' name="nickname" value='{{nickname}}'></input>
         </view>
         <view class='base-info-list'>
           <text class='info-title'>孩子性别</text>
@@ -159,6 +159,7 @@
         <button class='save-child' bindtap='queryAttendedKids' >完成</button>
       </view>
     </view>
+    <!-- <add-child></add-child> -->
   </view>
 </view>
 

@@ -6,5 +6,7 @@
     "location-banner": "/component/location/banner/banner",
     "brand-logo":"/component/common/brand-logo/brand-logo",
     "brand-top":"/component/brand/brand-top/brand-top"
-   }
+   },
+   "enablePullDownRefresh": true,
+   "backgroundTextStyle": "dark"
 }

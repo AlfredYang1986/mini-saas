@@ -24,6 +24,9 @@ function queryYard(yardid, callback) {
   let token = wx.getStorageSync('dd_token')
 
   let config = require('./bm_config.js');
+  wx.showLoading({
+    title: '加载中',
+  });
   wx.request({
     url: config.bm_service_host + '/api/v1/findyard/0',
     data: dt,
@@ -41,6 +44,7 @@ function queryYard(yardid, callback) {
       callback.onFail(err)
     },
     complete() {
+      wx.hideLoading();
       console.log('complete!!!')
     }
   })
@@ -48,6 +52,7 @@ function queryYard(yardid, callback) {
 
 function genIdQuery(tmpid) {
   let eq = guid();
+  let config = require('./bm_config.js');
   return {
     data: {
       id: guid(),
@@ -72,7 +77,7 @@ function genIdQuery(tmpid) {
         type: "Eqcond",
         attributes: {
           key: "id",
-          val: '5bebbe3d8fb8074f6440dcca'
+          val: config.bm_baizao_yard_id
         }
       }
     ]

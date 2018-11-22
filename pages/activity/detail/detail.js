@@ -28,6 +28,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isCourse: false,
     actv: null,
     isFold: true,
     show: false,
@@ -97,6 +98,15 @@ Page({
         actvDetailName = res.SessionInfo.title;
         wx.setStorageSync('detailSort', actvDetailSort);
         wx.setStorageSync('detailName', actvDetailName);
+        let tagimgs =res.SessionInfo.Tagimgs
+        let newTagimgs = tagimgs.map((ele) => {
+          let tagimg = ele.img;
+          if (tagimg !== ""){
+            ele.dealImg = client.signatureUrl(tagimg);
+          }
+          return ele
+        })
+        res.SessionInfo.Tagimgs = newTagimgs;
         let _originRes = res;
         let _originImg = res.SessionInfo.cover;
         res.SessionInfo.dealCover = client.signatureUrl(_originImg);

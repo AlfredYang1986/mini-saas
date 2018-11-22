@@ -2,5 +2,7 @@
   "usingComponents": {
     "server-list": "/component/common/server-list/server-list",
     "acti-lst": "/component/classes/cla-banner/cla-banner"
-  }
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }

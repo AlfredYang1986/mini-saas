@@ -1,0 +1,215 @@
+/* component/auth/wechatlogin.wxss */
+.btn_ok{
+  margin-bottom: 94rpx;
+  /* padding: 26rpx 144rpx; */
+  width: 510rpx;
+  height: 92rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(-123deg, #F78065 0%, #E4534A 100%);
+  box-shadow: 0 6px 8px 0 rgba(235,57,54,0.17);
+  border-radius: 60rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  color: #FFFFFF;
+}
+button::after{
+  border:none;
+  background: none;
+  padding: 0;
+  color: #FFFFFF;
+}
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.modal-dialog {
+  width: 540rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  background: #f9f9f9;
+  margin: -180rpx 105rpx;
+  border-radius: 36rpx;
+}
+
+.modal-title {
+  padding-top: 50rpx;
+  font-size: 36rpx;
+  color: #030303;
+  text-align: center;
+}
+
+.modal-content {
+  padding: 50rpx 32rpx;
+}
+
+.modal-input {
+  display: flex;
+  background: #fff;
+  border: 2rpx solid #ddd;
+  border-radius: 4rpx;
+  font-size: 28rpx;
+}
+
+.input {
+  width: 100%;
+  height: 82rpx;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  color: #333;
+}
+
+input-holder {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 86rpx;
+  border-top: 1px solid #dedede;
+  font-size: 34rpx;
+  line-height: 86rpx;
+}
+
+.btn-cancel {
+  width: 50%;
+  color: #666;
+  text-align: center;
+  border-right: 1px solid #dedede;
+}
+
+.btn-confirm {
+  width: 50%;
+  color: #ec5300;
+  text-align: center;
+}
+
+/*mask*/
+.drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+}
+/*content*/
+.drawer_box {
+  /* width: 670rpx; */
+  margin: 60rpx 40rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 30%;
+  left: 0;
+  z-index: 1001;
+  background: #fff;
+  margin: -150px 50rpx 0 40rpx;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bg-img image {
+  margin-bottom: 160rpx;
+  width: 670rpx;
+  height: 662rpx;
+}
+wechatlogin button {
+  background: none;
+  padding: 0;
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  color: #FFFFFF;
+  margin: 0;
+  display: flex;
+}
+button::after{
+  border:none;
+  background: none;
+  padding: 0;
+  color: #FFFFFF;
+}
+.btn_ok{
+  margin-bottom: 94rpx;
+  /* padding: 26rpx 144rpx; */
+  width: 510rpx;
+  height: 92rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(-123deg, #F78065 0%, #E4534A 100%);
+  box-shadow: 0 6px 8px 0 rgba(235,57,54,0.17);
+  border-radius: 60rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  color: #FFFFFF;
+}
+.small-img image {
+  height: 88rpx;
+  width: 160rpx;
+}
+.top{
+    padding-top:8px;
+}
+.bottom {
+    padding-bottom:8px;
+}
+.title {
+    height: 30px;
+    line-height: 30px;
+    width: 160rpx;
+    text-align: center;
+    display: inline-block;
+    font: 300 28rpx/30px "microsoft yahei";
+}
+.input_base {
+    border: 2rpx solid #ccc;
+    padding-left: 10rpx;
+    margin-right: 50rpx;
+}
+.input_h30{
+    height: 30px;
+    line-height: 30px;
+}
+.input_h60{
+    height: 60px;
+}
+.input_view{
+    font: 12px "microsoft yahei";
+    background: #fff;
+    color:#000;
+    line-height: 30px;
+}
+input {
+    font: 12px "microsoft yahei";
+    background: #fff;
+    color:#000 ;
+}
+radio{
+    margin-right: 20px;
+}
+.grid { display: -webkit-box; display: box; }
+.col-0 {-webkit-box-flex:0;box-flex:0;}
+.col-1 {-webkit-box-flex:1;box-flex:1;}
+.fl { float: left;}
+.fr { float: right;}
