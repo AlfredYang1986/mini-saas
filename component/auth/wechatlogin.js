@@ -18,7 +18,7 @@ Component({
    */
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    dongda: false,
+    dongda: true,
     isChecking: false,
     showModalStatus: false,
     bgImg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_popup.jpg",
@@ -34,41 +34,6 @@ Component({
         url: this.properties.dir2url
       })
     }
-    // var lm = require('../../models/bm_applyee_schema.js');
-    // let that = this
-    // let callback = {
-    //   onLoginSuccess: function () {
-    //     that.setData({
-    //       isChecking: false
-    //     })
-    //   },
-    //   onUserInfoSuccess: function (res) {
-    //     lm.queryCurApplyee(this);
-    //   },
-    //   onQueryCurSuccess: function () {
-    //     wx.redirectTo({
-    //       url: that.properties.dir2url,
-    //     })
-    //   },
-    //   onQueryCurFail: function () {
-    //     console.log('query cur user error');
-    //   },
-    //   onSessionSuccess: function () {
-    //     lm.queryBasicInfo(this);
-    //   },
-    //   onSessionFail: function () {
-    //     lm.wechatLogin(this)
-    //   },
-    //   onCodeSuccess: function (code) {
-    //     lm.codeSuccess(code, this);
-    //   },
-    //   onCodeFail: function () {
-    //     console.log('登陆，获取Code失败')
-    //   },
-    // }
-    // // lm.wechatLogin(callback);
-    // console.log('checkwehatsession')
-    // lm.checkWechatSession(callback);
   },
 
   /**
@@ -133,5 +98,11 @@ Component({
         showModalStatus: false,
       })
     },
+
+    direct2BrandInfo: function() {
+      wx.redirectTo({
+        url: this.properties.dir2url
+      })
+    }
   }
 })
