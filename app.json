@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/register/register",
+    "pages/register/register", 
     "pages/preregister/preregister",
     "pages/brand/info/info",
     "pages/brand/detail/detail",
@@ -31,7 +31,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "百造科技空间",
+    "navigationBarTitleText": "百造PACEE",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#f7f7f7"
   }

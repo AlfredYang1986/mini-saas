@@ -6,10 +6,8 @@ Page({
   */
   data: {
     modalHidden: true,
-    logo: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_brands_logo_bzbold%402x.jpg",
-
-    redir: '/pages/brand/info/info',
-    customid: ''
+    logo: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E6%AC%A2%E8%BF%8E%E9%A1%B5logo%E6%9B%BF%E6%8D%A2.png",
+    slogan: "百造学堂，一百种方法玩转知识",
   },
 
   /**
@@ -18,16 +16,14 @@ Page({
   onLoad: function (options) {
     console.log('onload register')
     let tmp = options.redir
+    console.log('tmp: ', tmp)
     if (tmp) {
-      this.setData({
-        redir: tmp,
-      })
+      wx.setStorageSync('qr_page', tmp)
     }
-    let tid = options.reservalbeid
+    let tid = options.reservableid
+    console.log('tid: ', tid)
     if (tid) {
-      this.setData({
-        cutomid: options.reservalbeid,
-      })
+      wx.setStorageSync('qr_page_id', tid)
     }
   },
 
