@@ -4,5 +4,5 @@
     <image src='{{logo}}'></image>
     <text class='slogan'>{{slogan}}</text>
   </view>
-  <wechatlogin dir2url='{{redir}}'></wechatlogin>
+  <wechatlogin></wechatlogin>
 </view>
