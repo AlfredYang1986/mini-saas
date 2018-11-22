@@ -84,6 +84,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var bmconfig = require('../../../models/bm_config.js')
     let client = new OSS({
       region: 'oss-cn-beijing',
       accessKeyId: 'LTAINO7wSDoWJRfN',
@@ -93,6 +94,12 @@ Page({
     let that = this
     let callback = {
       onSuccess: function (res) {
+
+        bmconfig.bm_baizao_actvPrice.map((ele) => {
+          if (res.id === ele.actvId){
+            res.SessionInfo.price = ele.price;
+          }
+        })
         
         actvDetailSort = res.status;
         actvDetailName = res.SessionInfo.title;
