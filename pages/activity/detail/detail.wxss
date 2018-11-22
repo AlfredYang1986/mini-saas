@@ -23,15 +23,17 @@
 	width: 100%;
 }
 .clsdet-component .notices {
+  margin-right:40rpx;
+  margin-left:40rpx;
+
   margin-top: 32rpx;
-  border-top: 2rpx solid #F2F2F2;
-  /* border-bottom: 2rpx solid #F2F2F2; */
+  border-top: 1rpx solid #F2F2F2;
 }
 .clsdet-component .scroll {
-  border-top: 2rpx solid #F2F2F2;
+  border-top: 1rpx solid #F2F2F2;
   height:auto;
-  padding-right:40rpx;
-  padding-left:40rpx;
+  margin-right:40rpx;
+  margin-left:40rpx;
 }
 .clsdet-component .facility {
   height:auto;

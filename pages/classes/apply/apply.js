@@ -41,6 +41,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let ks = require('../../../models/bm_kids_schema.js');
+    ks.bmstoreReset();
     wx.removeStorageSync('kids');
     yardname = wx.getStorageSync('yardname');
     detailSort = wx.getStorageSync('detailSort');
@@ -68,6 +70,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    nickname = undefined;
+    dob = undefined;
+    gender = undefined;
+    nickname = undefined;
+    except_time = undefined;
+    contact = undefined;
     let ks = require('../../../models/bm_kids_schema.js');
     ks.bmstoreReset();
   },
@@ -368,15 +376,15 @@ Page({
     if (except_time != undefined && detailName != undefined && contact != undefined && contact != '' && detailSort != undefined && kids != undefined) {
       let callback = {
         onSuccess: function (res) {
-         
+
           wx.navigateBack({
             delta: 1
           })
 
           wx.showToast({
-            title: '提交成功',
+            title: '我们将尽快联系你',
             icon: 'success',
-            duration: 2000,
+            duration: 3000,
             mask: true
           })
         },
@@ -396,9 +404,9 @@ Page({
         content: '还有没填好的地方哦',
         success: function (res) {
           if (res.confirm) {
-            that.addChild();
+
           } else {
-            console.log('用户点击取消')
+
           }
 
         }
