@@ -8,8 +8,10 @@ Page({
     modalHidden: true,
     logo: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_brands_logo_bzbold%402x.jpg",
 
-    redir: '/pages/brand/info/info',
-    customid: ''
+    // redir: '/pages/brand/info/info',
+    // customid: '',
+
+    isReady: '',
   },
 
   /**
@@ -18,16 +20,14 @@ Page({
   onLoad: function (options) {
     console.log('onload register')
     let tmp = options.redir
+    console.log('tmp: ', tmp)
     if (tmp) {
-      this.setData({
-        redir: tmp,
-      })
+      wx.setStorageSync('qr_page', tmp)
     }
-    let tid = options.reservalbeid
+    let tid = options.reservableid
+    console.log('tid: ', tid)
     if (tid) {
-      this.setData({
-        cutomid: options.reservalbeid,
-      })
+      wx.setStorageSync('qr_page_id', tid)
     }
   },
 

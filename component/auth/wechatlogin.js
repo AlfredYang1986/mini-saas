@@ -4,13 +4,7 @@ Component({
    * Component properties
    */
   properties: {
-    dir2url: {
-      type: "string",
-      value: '',
-      observer: function (news, olds, path) {
 
-      }
-    },
   },
 
   /**
@@ -18,22 +12,49 @@ Component({
    */
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    dongda: true,
-    isChecking: false,
+    dongda: false,
     showModalStatus: false,
     bgImg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_popup.jpg",
     smImg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_logo_popup%402x.png",
+    watch: {
+      onLoginSuccess: function (newValue) {
+        console.log(newValue); // name改变时，调用该方法输出新值。
+        if (newValue) {
+          let uinfo = wx.getStorageSync('dd_uinfo');
+          let phoneno = wx.getStorageSync('dd_phoneno');
+          if (uinfo != '' && phoneno != '') {
+            let tmp = wx.getStorageSync('qr_page')
+            let tid = wx.getStorageSync('qr_page_id')
+            let dir = ''
+            if (tmp.startsWith('exp') && tid && tid != "") {
+              dir = '/pages/classes/detail/detail?expid=' + tid
+            }
+            else if (tmp.startsWith('actv') && tid && tid != "") {
+              dir = '/pages/activity/detail/detail?actvid=' + tid
+            } else if (tmp.startsWith('pre')) {
+              dir = '/pages/preregister/preregister'
+            }else {
+              dir = '/pages/brand/info/info'
+            }
+            wx.navigateTo({
+              url: dir,
+            })
+            wx.removeStorage({
+              key: 'qr_page',
+              success: function(res) {},
+            })
+            wx.removeStorage({
+              key: 'qr_page_id',
+              success: function (res) { },
+            })
+          }
+        }
+      }
+    }
   },
 
   ready: function() {
-    let check = wx.getStorageSync('LoginSuccess');
-    let uinfo = wx.getStorageSync('dd_uinfo');
-    let phoneno = wx.getStorageSync('dd_phoneno');
-    if (check && uinfo != '' && phoneno != '') {
-      wx.redirectTo({
-        url: this.properties.dir2url
-      })
-    }
+    getApp().setLoginSuccessWatcher(this.data.watch);
   },
 
   /**
@@ -45,12 +66,12 @@ Component({
       let that = this
       let callback = {
         onPushSuccess: function () {
-          wx.redirectTo({
-            url: that.properties.dir2url
-          })
+          getApp().onLoginSuccess = true;
+          wx.hideLoading();
         },
         onPushFail: function () {
           console.log('push failed');
+          wx.hideLoading();
         }
       }
 
@@ -74,9 +95,7 @@ Component({
         let that = this
         let callback = {
           onPushSuccess: function () {
-            wx.redirectTo({
-              url: that.properties.dir2url
-            })
+            getApp().onLoginSuccess = true;
             wx.hideLoading();
           },
           onPushFail: function () {
@@ -84,6 +103,7 @@ Component({
             wx.hideLoading();
           }
         }
+      
         let openid = wx.getStorageSync('dd_open_id')
         var lm = require('../../models/bm_applyee_schema.js');
         let uinfo = JSON.parse(wx.getStorageSync('dd_uinfo'));
