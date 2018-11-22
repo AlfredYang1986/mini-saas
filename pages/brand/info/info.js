@@ -111,7 +111,7 @@ Page({
 
         wx.setStorage({
           key: "yardname",
-          data: res.title
+          data: res.address
         })
         wx.setStorage({
           key: 'yardtag',
