@@ -7,6 +7,21 @@
   padding-left: 40rpx;
   padding-right: 40rpx;
 }
+.list-col {
+  padding-bottom: 32rpx;
+  margin-bottom: 56rpx;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1rpx solid rgba(0,0,0,0.05);
+}
+.list-col .name {
+  margin-bottom: 10rpx;
+}
+.list-col text {
+  font-family: PingFangSC-Regular;
+  font-size: 13px;
+  color: #A6A6A6;
+}
 .list{
   display: flex;
   flex-direction: row;

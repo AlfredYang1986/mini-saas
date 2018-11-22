@@ -35,17 +35,18 @@ Page({
     nowDate: '',
     haveChild: true,
     exp_date: '',
-    nickname: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let ks = require('../../../models/bm_kids_schema.js');
+    ks.bmstoreReset();
     wx.removeStorageSync('kids');
     yardname = wx.getStorageSync('yardname');
     detailSort = wx.getStorageSync('detailSort');
-    detailName = wx.getStorageSync('detailName'); 
+    detailName = wx.getStorageSync('detailName');
     let yard = [];
     yard.push(yardname);
     let date = this.getNowFormatDate();
@@ -55,20 +56,26 @@ Page({
       nowDate: date,
       haveChild: true
     })
-   
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    nickname = undefined;
+    dob = undefined;
+    gender = undefined;
+    nickname = undefined;
+    except_time = undefined;
+    contact = undefined;
     let ks = require('../../../models/bm_kids_schema.js');
     ks.bmstoreReset();
   },
@@ -77,38 +84,38 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   },
 
-  getNowFormatDate: function() {
+  getNowFormatDate: function () {
     var date = new Date();
     var seperator1 = "-";
     var seperator2 = ":";
@@ -123,7 +130,7 @@ Page({
     var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
     return currentdate;
   },
-// 显示遮罩层
+  // 显示遮罩层
   showPlace: function () {
     var that = this;
     that.setData({
@@ -154,14 +161,15 @@ Page({
     }, 200)
   },
 
- 
 
-  addChild: function() {
-    if(haveChild) {
+
+  addChild: function () {
+    if (haveChild) {
       var that = this;
       that.setData({
-        hideChild: false,
+        hideChild: false
       })
+
       var animation = wx.createAnimation({
         duration: 600,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
         timingFunction: 'ease',//动画的效果 默认值是linear
@@ -173,7 +181,7 @@ Page({
     } else {
       console.log("请先删除当前孩子")
     }
-   
+
   },
 
   // 隐藏遮罩层
@@ -247,7 +255,7 @@ Page({
     console.log(gender)
   },
 
-  bindAddressChange: function(e) {
+  bindAddressChange: function (e) {
     this.setData({
       index: e.detail.value
     })
@@ -276,7 +284,7 @@ Page({
   radioChange: function (e) {
     console.log('radio发生change事件，携带value值为：', e.detail.value)
     guardian_role = e.detail.value
-    
+
   },
 
   selectChildChange: function (e) {
@@ -288,16 +296,16 @@ Page({
   },
 
   checkboxChange: function (e) {
-    console.log( e.detail.value)
+    console.log(e.detail.value)
   },
-  
-  
+
+
   bindKeyInput: function (e) {
     nickname = e.detail.value;
     console.log(nickname)
   },
 
-  inputTel: function(e) {
+  inputTel: function (e) {
     contact = e.detail.value;
     console.log(contact)
   },
@@ -317,7 +325,7 @@ Page({
     // let kids = ks.queryAllLocalKids();
     // if (kids.length == 0) {
     let that = this;
-    if (nickname != undefined && nickname != '' && dob != undefined && gender != undefined && guardian_role != undefined && guardian_role != null ) {
+    if (nickname != undefined && nickname != '' && dob != undefined && gender != undefined && guardian_role != undefined && guardian_role != null) {
       ks.genOneKid(nickname, 'realnickname', dob, gender, guardian_role)
       ks.saveAllKidOnStorage();
       kids = ks.queryAllLocalKids();
@@ -363,22 +371,22 @@ Page({
     // return kids
   },
 
-  onCommitApply: function(e) {
+  onCommitApply: function (e) {
     let that = this;
     if (except_time != undefined && detailName != undefined && contact != undefined && contact != '' && detailSort != undefined && kids != undefined) {
       let callback = {
         onSuccess: function (res) {
+
           wx.navigateBack({
             delta: 1
           })
 
           wx.showToast({
-            title: '提交成功',
+            title: '我们将尽快联系你',
             icon: 'success',
-            duration: 2000,
+            duration: 3000,
             mask: true
           })
-          
         },
         onFail: function () {
           console.log('push apply error');
@@ -395,13 +403,17 @@ Page({
         title: '提交失败',
         content: '还有没填好的地方哦',
         success: function (res) {
-          if (res.confirm) {} 
-          else {}
+          if (res.confirm) {
+
+          } else {
+            
+          }
+
         }
       })
     }
-    
+
   },
   // TODO: 这是一个假的，你需要从你的输入中读取这些值
-  
+
 })

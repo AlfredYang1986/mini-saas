@@ -1,7 +1,7 @@
 <view class="content-page">
   <view class='con'>
-  <view class='list'>
-    <text class='name'>选择校区</text>
+  <view class='list-col'>
+    <text class='name'>所在校区</text>
       <!-- <view class="section">
         <picker bindchange="bindAddressChange" value="0" range="{{address}}">
           <view class="picker select">
@@ -12,7 +12,7 @@
       </view> -->
       <view class='section school'>
         <text>{{address[0]}}</text>
-        <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image>
+        <!-- <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_enter%402x.png'></image> -->
       </view>
   </view>
 
@@ -159,6 +159,7 @@
         <button class='save-child' bindtap='queryAttendedKids' >完成</button>
       </view>
     </view>
+    <!-- <add-child></add-child> -->
   </view>
 </view>
 
