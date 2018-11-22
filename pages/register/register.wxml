@@ -2,6 +2,7 @@
 <view class='content'>
   <view class='logo'>
     <image src='{{logo}}'></image>
+    <text class='slogan'>{{slogan}}</text>
   </view>
   <wechatlogin></wechatlogin>
 </view>

@@ -100,8 +100,8 @@ function genOpenIdQuery(code) {
           type: "Eqcond",
           attributes: {
             key: "brand",
-            val: "pacee"
-            // val: 'dongda' // 1. dongda 2. pacee
+            // val: "pacee"
+            val: 'dongda' // 1. dongda 2. pacee
           }
         }
       ]
