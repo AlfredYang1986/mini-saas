@@ -1,27 +1,7 @@
-<!-- <view class='bkg'>
-  <wechatlogin dir2url='/pages/brand/info/info'></wechatlogin>
-</view> -->
+
 <view class='content'>
   <view class='logo'>
     <image src='{{logo}}'></image>
   </view>
-  <text class='btn' bindtap='powerDrawer'>欢迎进入百造</text>
-  <!-- <modal title='' hidden="{{modalHidden}}" bindcancel='modalCancel' bindConfirm='modalConfirm'>
-     <image src=''></image>
-     <wechatlogin dir2url='/pages/brand/info/info'>授权发现更多精彩</wechatlogin>
-  </modal> -->
-</view>
-
-<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
-<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
-  <!-- <view class="drawer_title">弹窗标题</view> -->
-  <view class='bg-img'>
-    <image src='{{bgImg}}'></image>
-  </view>
-  <!-- <view class="btn_ok" bindtap="powerDrawer" data-statu="close">授权发现更多精彩</view> -->
-  <wechatlogin dir2url='/pages/brand/info/info'>  
-  </wechatlogin>
-  <view class='small-img'>
-    <image src='{{smImg}}'></image>
-  </view>
+  <wechatlogin dir2url='{{redir}}'></wechatlogin>
 </view>

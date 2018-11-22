@@ -1,5 +1,5 @@
 // pages/brand/brand.js
-var OSS = require('../../../models/ali-oss.js')
+
 Page({
 
   /**
@@ -42,6 +42,7 @@ Page({
         });
       }
     });
+    var OSS = require('../../../models/ali-oss.js');
     let client = new OSS({
       region: 'oss-cn-beijing',
       accessKeyId: 'LTAINO7wSDoWJRfN',

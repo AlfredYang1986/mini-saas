@@ -7,7 +7,16 @@ function checkWechatSession(callback) {
   wx.checkSession({
     success() {
       console.log('token 没有过期，直接登陆');
-      callback.onSessionSuccess();
+
+      let sk = wx.getStorageSync('dd_session_key');
+      let oid = wx.getStorageSync('dd_open_id');
+      console.log(sk)
+      console.log(oid)
+      if (oid != "" && sk != "") {
+        callback.onSessionSuccess();
+      } else {
+        callback.onSessionFail(callback);
+      }
     },
     fail() {
       callback.onSessionFail(callback);
@@ -44,6 +53,9 @@ function queryUserBasicInfo(callback) {
         })
       } else {
         // 微信登陆，可是没有点授权
+        // let uinfo = wx.getStorageSync('dd_uinfo');
+        // let phoneno = wx.getStorageSync('dd_phoneno');
+        callback.onSessionFail(callback);
       }
     }
   })
@@ -51,6 +63,7 @@ function queryUserBasicInfo(callback) {
 
 function genOpenIdQuery(code) {
   let eq = guid()
+  let eq0 = guid()
   return  {
       data: {
         id: guid(),
@@ -63,6 +76,10 @@ function genOpenIdQuery(code) {
             data: [
               {
                 id: eq,
+                type: "Eqcond"
+              },
+              {
+                id: eq0,
                 type: "Eqcond"
               }
             ]
@@ -77,11 +94,19 @@ function genOpenIdQuery(code) {
             key: "code",
             val: code
           }
+        },
+        {
+          id: eq0,
+          type: "Eqcond",
+          attributes: {
+            key: "brand",
+            // val: "pacee"
+            val: 'dongda' // 1. dongda 2. pacee
+          }
         }
       ]
     }
 }
-
 
 function codeSuccess(code, callback) {
   wx.showLoading({
@@ -93,7 +118,8 @@ function codeSuccess(code, callback) {
   let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()))
 
   let inc = rd.Eqcond[0].serialize()
-  rd_tmp['included'] = [inc.data]
+  let inc2 = rd.Eqcond[1].serialize()
+  rd_tmp['included'] = [inc.data, inc2.data]
   let dt = JSON.stringify(rd_tmp)
 
   let config = require('./bm_config.js')
@@ -118,7 +144,7 @@ function codeSuccess(code, callback) {
   })
 }
 
-function genApplyeePushQuery(uinfo) {
+function genApplyeePushQuery(uinfo, phoneno) {
   let g = 2;
   if (uinfo.gender == 1) g = 1
   else if (uinfo.gender == 2) g = 0
@@ -131,8 +157,8 @@ function genApplyeePushQuery(uinfo) {
       attributes: {
         name: uinfo.nickName,
         pic: uinfo.avatarUrl,
-        regi_phone: "",
-        wechat_bind_phone: "",
+        regi_phone: phoneno,
+        wechat_bind_phone: phoneno,
         wechat_openid: wx.getStorageSync('dd_open_id'),
         gender: g,
       },
@@ -153,9 +179,9 @@ function guid() {
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
 
-function pushApplee(openid, uinfo, callback) {
+function pushApplee(openid, uinfo, phoneno, callback) {
   bmstore.reset();
-  let query_payload = genApplyeePushQuery(uinfo);
+  let query_payload = genApplyeePushQuery(uinfo, phoneno);
   let result = bmstore.sync(query_payload);
 
   let rd_tmp = JSON.parse(JSON.stringify(result.serialize()));
@@ -172,7 +198,7 @@ function pushApplee(openid, uinfo, callback) {
     header: {
       'Content-Type': 'application/json', // 默认值
       'Accept': 'application/json',
-      'Authorization': 'bearer ce6af788112b26331e9789b0b2606cce'
+      // 'Authorization': 'bearer ce6af788112b26331e9789b0b2606cce'
     },
     success(res) {
       let result = bmstore.sync(res.data);
@@ -217,8 +243,8 @@ function genQueryUserById() {
         id: eq,
         type: "Eqcond",
         attributes: {
-          key: "id",
-          val: wx.getStorageSync("dd_id")
+          key: "wechat_openid",
+          val: wx.getStorageSync("dd_open_id")
         }
       }
     ]
