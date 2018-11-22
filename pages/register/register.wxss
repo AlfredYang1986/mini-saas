@@ -4,9 +4,21 @@
   align-items: center;
   justify-content: center;
 }
+.logo {
+  margin-bottom: 450rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo .slogan {
+  font-family: PingFangSC-Medium;
+  font-size: 11px;
+  color: #732C27;
+  letter-spacing: 4px;
+}
 .logo image {
   margin-top: 228rpx;
-  margin-bottom: 450rpx;
+  margin-bottom: 28rpx;
   width: 750rpx;
   height: 170rpx;
   background: #ddd;
