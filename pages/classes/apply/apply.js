@@ -382,7 +382,7 @@ Page({
           })
 
           wx.showToast({
-            title: '我们将尽快联系你',
+            title: '将尽快联系您！',
             icon: 'success',
             duration: 3000,
             mask: true
