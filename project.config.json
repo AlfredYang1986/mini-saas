@@ -10,12 +10,12 @@
 		"minified": true,
 		"newFeature": true,
 		"nodeModules": true,
-		"autoAudits": false,
-		"uglifyFileName": false
+		"uglifyFileName": false,
+		"autoAudits": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.0",
-	"appid": "wx6129e48a548c52b8",
+	"appid": "wx79138b2ee5288cc2",
 	"projectname": "mini-saas",
 	"condition": {
 		"search": {
