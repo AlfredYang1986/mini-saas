@@ -45,6 +45,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var lm = require('../../../models/bm_applyee_schema.js');
+    if (!lm.checkIsLogin()) {
+      wx.redirectTo({
+        url: '/pages/register/register'
+      })
+      return
+    }
+
     var bmconfig = require('../../../models/bm_config.js')
     let client = new OSS({
       region: 'oss-cn-beijing',
