@@ -35,6 +35,7 @@ Page({
     nowDate: '',
     haveChild: true,
     exp_date: '',
+    phone: wx.getStorageSync('dd_phoneno'),
   },
 
   /**
@@ -48,6 +49,7 @@ Page({
       })
       return
     }
+
     let ks = require('../../../models/bm_kids_schema.js');
     ks.bmstoreReset();
     wx.removeStorageSync('kids');
@@ -82,7 +84,8 @@ Page({
     gender = undefined;
     nickname = undefined;
     except_time = undefined;
-    contact = undefined;
+    kids = null;
+    contact = wx.getStorageSync('dd_phoneno');
     let ks = require('../../../models/bm_kids_schema.js');
     ks.bmstoreReset();
   },
@@ -321,6 +324,7 @@ Page({
     let ks = require('../../../models/bm_kids_schema.js');
     ks.bmstoreReset()
     haveChild = true;
+    kids = null;
     this.setData({
       kids: null,
       haveChild: true
@@ -383,6 +387,10 @@ Page({
     if (except_time != undefined && detailName != undefined && contact != undefined && contact != '' && detailSort != undefined && kids != undefined) {
       let callback = {
         onSuccess: function (res) {
+          // setTimeout(wx.navigateBack({
+          //   delta: 1
+          // }), 2000) 
+
           wx.navigateBack({
             delta: 1,
             success: function () {
@@ -410,8 +418,12 @@ Page({
         title: '提交失败',
         content: '还有没填好的地方哦',
         success: function (res) {
-          if (res.confirm) {} 
-          else {}
+          if (res.confirm) {
+
+          } else {
+
+          }
+
         }
       })
     }

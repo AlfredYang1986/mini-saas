@@ -65,7 +65,7 @@
 }
 .list .select text {
   font-family: PingFangSC-Regular;
-  font-size: 28px;
+  font-size: 28rpx;
   color: #404040;
   margin-right: 16rpx;
 }

@@ -49,7 +49,7 @@
     <view class='base-info'>
       <view class='base-info-list'>
         <text class='info-title' >联系方式</text>
-        <input placeholder='请填写联系方式'  bindinput="contactInput" class='nickinput' name="nickname" type="number"></input>
+        <input   bindinput="contactInput" class='nickinput' name="nickname" type="number" value='{{phone}}' ></input>
       </view>
     </view>
     

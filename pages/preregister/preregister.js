@@ -12,6 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    phone: wx.getStorageSync('dd_phoneno'),
     sexItems: [
       { name: 1, value: '男生', },
       { name: 0, value: '女生', },
@@ -60,7 +61,7 @@ Page({
     dob = undefined;
     gender = undefined;
     guardian_role = undefined;
-    contact = undefined;
+    contact = wx.getStorageSync('dd_phoneno');
     let ks = require('../../models/bm_kids_schema.js');
     ks.bmstoreReset();
     wx.removeStorageSync('kids');
@@ -131,7 +132,7 @@ Page({
               wx.showToast({
                 title: '提交成功',
                 icon: 'success',
-                duration: 3000,
+                duration: 2000,
                 mask: true,
                 success: function () { }
               })
