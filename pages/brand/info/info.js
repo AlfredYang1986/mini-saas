@@ -34,6 +34,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    var lm = require('../../../models/bm_applyee_schema.js');
+    if (!lm.checkIsLogin()) {
+      wx.redirectTo({
+        url: '/pages/register/register'
+      })
+      return
+    }
+
     var that = this;
     wx.getSystemInfo({
       success: function (res) {
@@ -198,5 +207,34 @@ Page({
     })
   },
   
+  scanclick: function(res) {
+    wx.scanCode({
+      success: (res) => {
+        let parse = require('url-parse')
+        let url = parse(res.path, true);
 
+        let tmp = url.query.redir
+        let tid = url.query.reservableid
+        let dir = ''
+        if (tmp && tmp.startsWith('exp') && tid && tid != "") {
+          dir = '/pages/classes/detail/detail?expid=' + tid
+        }
+        else if (tmp &&  tmp.startsWith('actv') && tid && tid != "") {
+          dir = '/pages/activity/detail/detail?actvid=' + tid
+        } else if (tmp && tmp.startsWith('pre')) {
+          dir = '/pages/preregister/preregister'
+        } else {
+          dir = '/pages/brand/info/info'
+        }
+        console.log(dir)
+        if (dir.length > 0) {
+          wx.navigateTo({
+            url: dir,
+          })
+        } else {
+          console.log('二维码错误')
+        }
+      }
+    })
+  }
 })

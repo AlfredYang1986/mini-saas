@@ -15,7 +15,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
 	justify-content: flex-start;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 .content .list {
   margin-right: 16rpx;

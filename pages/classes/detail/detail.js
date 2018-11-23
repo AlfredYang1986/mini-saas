@@ -45,6 +45,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var lm = require('../../../models/bm_applyee_schema.js');
+    if (!lm.checkIsLogin()) {
+      wx.redirectTo({
+        url: '/pages/register/register'
+      })
+      return
+    }
+
+    var bmconfig = require('../../../models/bm_config.js')
     let client = new OSS({
       region: 'oss-cn-beijing',
       accessKeyId: 'LTAINO7wSDoWJRfN',
@@ -54,6 +63,12 @@ Page({
     let that = this;
     let callback = {
       onSuccess: function (res) {
+        res.SessionInfo.price = "免费";
+        bmconfig.bm_baizao_actvPrice.map((ele) => {
+          if (res.id === ele.actvId){
+            res.SessionInfo.price = ele.price;
+          }
+        })
         classDetailSort = res.status;
         classDetailName = res.SessionInfo.title;
         wx.setStorageSync('detailSort', classDetailSort);
@@ -72,6 +87,7 @@ Page({
         res.SessionInfo.dealCover = client.signatureUrl(_originImg);
         res.SessionInfo.yardtag = wx.getStorageSync('yardtag');
         res.SessionInfo.yardname = wx.getStorageSync('yardname');
+        console.log(res)
         that.setData({
           exp: res
         })
@@ -81,7 +97,6 @@ Page({
       }
     }
     var bmexp = require('../../../models/bm_exp_schema.js')
-    console.log(options.expid)
     bmexp.queryExpInfo(options.expid, callback)
   },
 

@@ -41,6 +41,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var lm = require('../../../models/bm_applyee_schema.js');
+    if (!lm.checkIsLogin()) {
+      wx.redirectTo({
+        url: '/pages/register/register'
+      })
+      return
+    }
+
     let ks = require('../../../models/bm_kids_schema.js');
     ks.bmstoreReset();
     wx.removeStorageSync('kids');

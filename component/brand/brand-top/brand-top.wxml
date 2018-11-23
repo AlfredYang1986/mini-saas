@@ -10,7 +10,7 @@
       <view class='list' wx:for="{{brand.brand_tags}}" wx:for-index="idx">
         <view>
           {{item}}
-          <block wx:if="{{idx<3}}">
+          <block wx:if="{{idx<2}}">
             <text class="separate"> | </text>
           </block>
         </view>
