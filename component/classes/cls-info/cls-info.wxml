@@ -8,11 +8,21 @@
   <view class='lists'>
     <view class='list'>
       <image class='img' src='{{img1}}'></image>
-      <view class='des'>{{exp.SessionInfo.alb}}-{{exp.SessionInfo.aub}} 岁</view>
+      <block wx:if="{{exp.SessionInfo.hasAge}}">
+        <view class='des'>{{exp.SessionInfo.alb}}-{{exp.SessionInfo.aub}} 岁</view>
+      </block>
+      <block wx:else>
+        <view class='des'>不限年龄</view>
+      </block>
     </view>
     <view class='list'>
       <image class='img' src='{{img2}}'></image>
-      <view class='des'>{{exp.SessionInfo.length}}分钟</view>
+      <block wx:if="{{exp.SessionInfo.hasLenght}}">
+        <view class='des'>{{exp.SessionInfo.length}}分钟</view>
+      </block>
+      <block wx:else>
+        <view class='des'>不限时长</view>
+      </block>
     </view>
     <view class='list'>
       <image class='img' src='{{img3}}'></image>

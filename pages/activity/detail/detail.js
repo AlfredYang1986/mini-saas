@@ -43,14 +43,6 @@ Page({
     days: days,
     day: 2,
     value: [9999, 1, 1],
-    array:[{
-      img:"https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/shape_female_normal%403x.png",
-      text: "小公主",
-    },
-    {
-      img:"https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/shape_male_normal%403x.png",
-      text:"小王子",
-    }],
     id:0,
   },
   showAll: function (e) {
@@ -114,12 +106,28 @@ Page({
           return ele
         })
         res.SessionInfo.Tagimgs = newTagimgs;
-        let _originRes = res;
+
         let _originImg = res.SessionInfo.cover;
         res.SessionInfo.dealCover = client.signatureUrl(_originImg);
         res.SessionInfo.yardname = wx.getStorageSync('yardname');
         res.SessionInfo.yardtag = wx.getStorageSync('yardtag');
-        console.log(res)
+
+        if (res.SessionInfo.carrying == '-') {
+          res.SessionInfo.carrying = '没有需要参与者自带的东西';
+        }
+
+        if(res.SessionInfo.length == -1) {
+          res.SessionInfo.hasLenght = false;
+        } else {
+          res.SessionInfo.hasLenght = true;
+        }
+
+        if(res.SessionInfo.aub == 0) {
+          res.SessionInfo.hasAge = false;
+        } else {
+          res.SessionInfo.hasAge = true;
+        }
+
         that.setData({
           actv: res
         })

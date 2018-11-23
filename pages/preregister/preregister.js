@@ -146,7 +146,7 @@ Page({
         }
       }
       var ay = require('../../models/bm_apply_schema.js');
-      ay.pushApply(nowDate, "预注册", contact, 3, kids, callback);
+      ay.pushApply(nowDate, "预注册", contact, -1, kids, callback);
     } else {
       wx.showModal({
         title: '提交失败',
