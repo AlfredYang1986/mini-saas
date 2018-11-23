@@ -5,8 +5,9 @@
       <cover-view class="content-row-span ">
       <cover-image class='btn-bg'   src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/btn_jion%402x.png'></cover-image>
         <cover-view class="content-row">
-          <cover-view class="acti-price"  wx:if='{{exp.SessionInfo.price}}'>{{exp.SessionInfo.price}}</cover-view>
-          <cover-view class="acti-price"  wx:else>免费</cover-view>
+          <!-- <cover-view class="acti-price"  wx:if='{{exp.SessionInfo.price}}'>{{exp.SessionInfo.price}}</cover-view> -->
+          <!-- <cover-view class="acti-price"  wx:if='{{exp.SessionInfo.price == ""}}'>免费</cover-view> -->
+          <cover-view class="acti-price">{{exp.SessionInfo.price}}</cover-view>
           <!-- <cover-view class="acti-price-des">起</cover-view> -->
         </cover-view>
         <cover-view class="content-row">

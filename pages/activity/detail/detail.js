@@ -94,7 +94,7 @@ Page({
     let that = this
     let callback = {
       onSuccess: function (res) {
-
+        res.SessionInfo.price = "免费";
         bmconfig.bm_baizao_actvPrice.map((ele) => {
           if (res.id === ele.actvId){
             res.SessionInfo.price = ele.price;
