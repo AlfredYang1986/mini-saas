@@ -307,6 +307,16 @@ function decryptedPhoneNumber(encryptedData, iv) {
   return decode
 }
 
+// only for shared pages
+function checkIsLogin() {
+  let uinfo = wx.getStorageSync('dd_uinfo');
+  let phoneno = wx.getStorageSync('dd_phoneno')
+  if ((!uinfo && uinfo.length == 0) || (!phoneno && phoneno.length)) {
+    return false
+  }
+  return true
+}
+
 module.exports = {
   checkWechatSession: checkWechatSession,
   wechatLogin: loginWithWechat,
@@ -315,5 +325,6 @@ module.exports = {
   codeSuccess: codeSuccess,
   queryCurApplyee: queryPushedApplee,
   queryLocalApplyee: queryLocalApplyee,
-  decryptedPhoneNumber: decryptedPhoneNumber
+  decryptedPhoneNumber: decryptedPhoneNumber,
+  checkIsLogin: checkIsLogin
 }
