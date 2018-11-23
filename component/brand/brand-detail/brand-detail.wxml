@@ -5,8 +5,8 @@
     <text class='headline'>{{brand.title}}</text>
     <view class='des'>「 {{brand.slogan}} 」</view>
     <view class='lists'>
-      <view class='list' wx:for="{{brand.brand_tags}}" wx:for-index="idx">
-        {{item}}
+      <view class='list tags-area' wx:for="{{brand.brand_tags}}" wx:for-index="idx">
+        <text>{{item}}</text>
         <block wx:if="{{idx < 2}}">
           <text class='separate'> | </text> 
         </block>  
