@@ -25,7 +25,7 @@
     <text class='title'>师资阵容</text>
     <text class='content'>{{brand.edu_idea}}</text>
   </view>
-  <view class='achievement'>
+  <!-- <view class='achievement'>
     <text class='title'>教学成就</text>
     <scroll-view class="" scroll-x style="width: 100%">
     <view class='content'>
@@ -35,8 +35,19 @@
       </view>
     </view>
     </scroll-view>
+  </view> -->
+   <view class='attest'>
+    <text class='title'>教学成就</text>
+    <scroll-view class="" scroll-x style="width: 100%">
+    <view class='content'>
+      <view class='list' wx:for="{{brand.Honors}}">
+        <image src='{{item.dealImg}}'></image>
+        <text class='name'>{{item.tag}}</text>
+      </view>
+    </view>
+    </scroll-view>
   </view>
-  <view class='attest'>
+  <!-- <view class='attest'>
     <text class='title'>资质认证</text>
     <scroll-view class="" scroll-x style="width: 100%">
     <view class='content'>
@@ -46,5 +57,5 @@
       </view>
     </view>
     </scroll-view>
-  </view>
+  </view> -->
 </view> 

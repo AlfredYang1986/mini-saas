@@ -16,7 +16,13 @@
               <text class='name'>{{item.SessionInfo.title}}</text>
             </view>
             <view class='suit'>
-              <text class='age'>{{item.SessionInfo.alb}} - {{item.SessionInfo.aub}} 岁</text>
+              <block wx:if="{{item.SessionInfo.hasAge}}">
+                <text class='age'>{{item.SessionInfo.alb}}-{{item.SessionInfo.aub}} 岁</text>
+              </block>
+              <block wx:else>
+                <view class='age'>不限年龄</view>
+              </block>
+              
               <!-- <view class='price'><text>￥{{item.price}}</text>/课时</view> -->
             </view>
           </view>

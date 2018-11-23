@@ -88,8 +88,8 @@ Page({
         res.SessionInfo.yardtag = wx.getStorageSync('yardtag');
         res.SessionInfo.yardname = wx.getStorageSync('yardname');
 
-        if (res.SessionInfo.carrying == '-') {
-          res.SessionInfo.carrying = '没有需要参与者自带的东西';
+        if (res.SessionInfo.carrying == '') {
+          res.SessionInfo.carrying = '无';
         }
 
         if (res.SessionInfo.length == -1) {

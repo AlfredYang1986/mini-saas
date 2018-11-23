@@ -55,6 +55,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    child_name = undefined;
+    child_name = '';
+    dob = undefined;
+    gender = undefined;
+    guardian_role = undefined;
+    contact = undefined;
+    let ks = require('../../models/bm_kids_schema.js');
+    ks.bmstoreReset();
+    wx.removeStorageSync('kids');
     nowDate = Date.parse(new Date());  
   },
 
@@ -108,38 +117,28 @@ Page({
   },
 
   onCommitApply: function (e) {
-
-    let ks = require('../../models/bm_kids_schema.js');
-    if (child_name != undefined && child_name != '' && dob != undefined && gender != undefined && guardian_role != undefined && guardian_role != null) {
+    if (nowDate != undefined && contact != undefined && contact != '' && child_name != undefined && child_name != '' && dob != undefined && gender != undefined && guardian_role != undefined && guardian_role != null) {
+      let ks = require('../../models/bm_kids_schema.js');
       ks.genOneKid(child_name, 'realnickname', dob, gender, guardian_role)
       ks.saveAllKidOnStorage();
       kids = ks.queryAllLocalKids();
-    } else {
-      wx.showModal({
-        title: '提交失败',
-        content: '还有没填好的地方哦',
-        success: function (res) {
-          if (res.confirm) {} 
-          else {}
-        }
-      })
-    }
-    if (nowDate != undefined && contact != undefined && kids != undefined) {
+
       let callback = {
         onSuccess: function (res) {
-          wx.showToast({
-            title: '提交成功',
-            icon: 'success',
-            duration: 2000,
-            mask: true
-          })
-          setTimeout(wx.navigateTo({
-            url: '/pages/brand/info/info',
-            success: function (res) { },
+          wx.navigateBack({
+            delta: 1,
+            success: function (res) { 
+              wx.showToast({
+                title: '提交成功',
+                icon: 'success',
+                duration: 3000,
+                mask: true,
+                success: function () { }
+              })
+            },
             fail: function (res) { },
             complete: function (res) { },
-          }),3000)
-         
+          })
         },
         onFail: function () {
           console.log('push apply error');

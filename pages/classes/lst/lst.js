@@ -34,6 +34,11 @@ Page({
         let newres = _originRes.map((ele) => {
           let _originImg = ele.SessionInfo.cover;
           ele.SessionInfo.dealCover = client.signatureUrl(_originImg);
+          if (ele.SessionInfo.aub == 0) {
+            ele.SessionInfo.hasAge = false;
+          } else {
+            ele.SessionInfo.hasAge = true;
+          }
             return ele
         })
 				that.setData({
