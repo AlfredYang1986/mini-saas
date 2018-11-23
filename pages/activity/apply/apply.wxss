@@ -19,7 +19,7 @@
 }
 .list-col text {
   font-family: PingFangSC-Regular;
-  font-size: 13px;
+  font-size: 26rpx;
   color: #A6A6A6;
 }
 .list{
@@ -32,7 +32,7 @@
 }
 .list .name {
   font-family: PingFangSC-Medium;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #404040;
   min-width: 140rpx;
 }
@@ -46,7 +46,7 @@
 }
 .list .school text {
   font-family: PingFangSC-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #404040;
   margin-right: 16rpx;
 }
@@ -56,16 +56,16 @@
 .list .select {
   width: 100%;
   text-align: right;
-  height:25px;
-  display:flex;
-  flex-direction:row;
-  justify-content:flex-end;
-  align-items:center;
+  height: 50rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
 
 }
 .list .select text {
   font-family: PingFangSC-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #404040;
   margin-right: 16rpx;
 }
@@ -77,7 +77,7 @@
 .list .select .child {
   margin: 0;
   font-family: PingFangSC-Medium;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #80AEFF;
   background: none;
   padding-left: 8rpx;
@@ -86,7 +86,7 @@
 }
 .list .select .child text {
   font-family: PingFangSC-Medium;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #80AEFF;
 }
 .list .select .add {
@@ -95,7 +95,7 @@
 }
 .list .select input {
   font-family: PingFangSC-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #404040;
   text-align: right;
 }
@@ -118,7 +118,7 @@
 .radio-list .child-info-list text {
   margin-left: 16rpx;
   font-family: PingFangSC-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #404040;
 }
 .child-info-list .child-delete-area {
@@ -162,7 +162,7 @@
 
   background-image: linear-gradient(-90deg,#5F93ED 100%, #8CB6FF 0% );
   border-radius: 8rpx;
-  box-shadow: 0 4px 8px 0 rgba(52,96,201,0.48);
+  box-shadow: 0 8rpx 16rpx 0 rgba(52,96,201,0.48);
 
   text-align: center;
   padding-top: 32rpx;
@@ -214,12 +214,12 @@
 .child-title .title-text {
   margin-bottom: 16rpx;
   font-family: PingFangSC-Medium;
-  font-size: 16px;
+  font-size: 32rpx;
   color: #0D0D0D;
 }
 .child-title .subtitle-text {
   font-family: PingFangSC-Regular;
-  font-size: 13px;
+  font-size: 26rpx;
   color: #A6A6A6;
 }
 .base-info {
@@ -259,13 +259,13 @@
   text-align: right;
 }
 .base-info .select text {
-  padding-bottom: 5px;
+  padding-bottom: 10rpx;
   line-height: 44rpx;
   color:#404040;
 }
 .base-info .select image {
-  margin-top: 5px;
-  margin-left: 20px;
+  margin-top: 10rpx;
+  margin-left: 40rpx;
   width: 12rpx;
   height: 24rpx;
 }
@@ -275,13 +275,13 @@
 }
 .rela .rela-title {
   font-family: PingFangSC-Medium;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #0D0D0D;
 }
 .rela .rela-radio-group {
   margin-top: 32rpx;
   font-family: PingFangSC-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #404040;
 }
 .rela .rela-radio-group .rela-radio {
@@ -302,7 +302,7 @@
 
   background-image: linear-gradient(-90deg,#5F93ED 100%, #8CB6FF 0% );
   border-radius: 8rpx;
-  box-shadow: 0 4px 8px 0 rgba(52,96,201,0.48);
+  box-shadow: 0 8rpx 16rpx 0 rgba(52,96,201,0.48);
 
   text-align: center;
   color: #fff;
@@ -319,7 +319,7 @@ button::after{ border: none; }
   align-items: center;
 
   font-family: PingFangSC-Medium;
-  font-size: 17px;
+  font-size: 34rpx;
   color: #80AEFF;
   margin-bottom: 62rpx;
   padding-right: 34rpx;
@@ -333,6 +333,6 @@ button::after{ border: none; }
 }
 .lists .list {
   font-family: SFProText-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #404040;
 }

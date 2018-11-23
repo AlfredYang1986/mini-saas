@@ -31,6 +31,6 @@
 }
 .list .name {
   font-family: PingFangSC-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #404040;
 }

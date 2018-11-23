@@ -109,17 +109,14 @@
 }
 .class-banner .cls-detail .cls-subtitle .content-name {
   font-family: PingFangSC-Regular;
-  font-size: 13px;
+  font-size: 26rpx;
   color: #FC9361;
 }
 .class-banner .cls-detail .cls-subtitle .content-age {
   font-family: SFProText-Regular;
-  font-size: 13px;
+  font-size: 26px;
   color: #A6A6A6;
-}
-.class-banner .cls-detail .cls-subtitle > text:nth-child(2) {
-	/* margin-left: 16rpx; */
-}
+}W
 
 .class-banner .cls-detail .cls-title {
 	font-size: 32rpx;

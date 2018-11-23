@@ -17,9 +17,9 @@
 }
 .explan text {
   font-family: PingFangSC-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #737373;
-  letter-spacing: 1px;
+  letter-spacing: 2rpx;
 }
 .content {
   display: flex;
@@ -34,7 +34,7 @@
 }
 .content .title {
   font-family: PingFangSC-Medium;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #0D0D0D;
 
   margin-bottom: 26rpx;
@@ -45,7 +45,7 @@
 }
 .lists .list {
   font-family: PingFangSC-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #404040;
 
   margin-bottom: 16rpx;

@@ -7,7 +7,9 @@
   </view>
   <view class='lists'>
     <view class='list'>
-      <image class='img' src='{{img1}}'></image>
+      <view class='img-area'>
+        <image class='img' src='{{img1}}'></image>
+      </view>
       <block wx:if="{{exp.SessionInfo.hasAge}}">
         <view class='des'>{{exp.SessionInfo.alb}}-{{exp.SessionInfo.aub}} 岁</view>
       </block>
@@ -16,7 +18,9 @@
       </block>
     </view>
     <view class='list'>
-      <image class='img' src='{{img2}}'></image>
+       <view class='img-area'>
+        <image class='img' src='{{img2}}'></image>
+      </view>
       <block wx:if="{{exp.SessionInfo.hasLenght}}">
         <view class='des'>{{exp.SessionInfo.length}}分钟</view>
       </block>
@@ -25,7 +29,9 @@
       </block>
     </view>
     <view class='list'>
-      <image class='img' src='{{img3}}'></image>
+       <view class='img-area'>
+        <image class='img' src='{{img3}}'></image>
+      </view>
       <view class='des'>{{exp.SessionInfo.yardname}}</view>
     </view>
   </view>

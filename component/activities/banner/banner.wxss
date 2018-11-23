@@ -60,7 +60,7 @@
   flex-direction: column;
   justify-content: space-between;
 
-  width: 452px;
+  width: 904rpx;
   height: 586rpx;
   border-radius: 8rpx !important;
 }

@@ -16,7 +16,7 @@
 }
 .sort {
   font-family: PingFangSC-Medium;
-  font-size: 13px;
+  font-size: 26rpx;
   color: #4C6899;
 }
 .name {
@@ -29,7 +29,7 @@
 }
 .name text {
   font-family: SFProText-Bold;
-  font-size: 20px;
+  font-size: 40rpx;
   color: #404040;
 }
 .name .share {
@@ -53,6 +53,6 @@
 }
 .list .des {
   font-family: SFProText-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #737373;
 }

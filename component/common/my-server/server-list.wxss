@@ -31,13 +31,13 @@
 }
 .content-page .block .info .head {
   font-family: PingFangSC-Medium;
-  font-size: 16px;
+  font-size: 32rpx;
   color: #404040;
 
   margin-bottom: 16rpx;
 }
 .content-page .block .info .cost {
   font-family: SFProText-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #737373;
 }

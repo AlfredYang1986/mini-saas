@@ -19,7 +19,7 @@
 .head .logo {
   background: #FFFFFF;
   box-shadow: 0 4px 10px 0 rgba(173,186,222,0.37);
-  border-radius: 4px;
+  border-radius: 8rpx;
 
   width: 160rpx;
   height: 160rpx;
@@ -28,7 +28,7 @@
 }
 .head .headline {
   font-family: SFProText-Medium;
-  font-size: 20px;
+  font-size: 40rpx;
   color: #404040;
   font-weight: 700;
 
@@ -36,7 +36,7 @@
 }
 .head .des {
   font-family: PingFangSC-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #404040;
   text-align: center;
   margin-bottom: 16rpx;

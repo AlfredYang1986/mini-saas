@@ -10,7 +10,7 @@
 .list .child-info-list text {
   margin-left: 16rpx;
   font-family: PingFangSC-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #404040;
 }
 .list .child-info-list checkbox {

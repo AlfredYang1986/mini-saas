@@ -17,10 +17,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    // title: "PRO科学空间",
-    // img: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_brand_detail%402x.png",
-    // subtitle: "彩色方块的转动中感受魔方的魅力",
-    // tags: ["场景教学", "先进理念", "专业团队"]
+    img: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_brand_detail%402x.png",
+    scan:　"https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_scan%402x.png"
   },
 
   /**
@@ -32,6 +30,37 @@ Component({
       wx: wx.navigateTo({
         url: '/pages/brand/detail/detail?brandid' + brandid
       })
-    }
+    },
+
+    scanclick: function (res) {
+      wx.scanCode({
+        success: (res) => {
+          let parse = require('url-parse')
+          let url = parse(res.path, true);
+
+          let tmp = url.query.redir
+          let tid = url.query.reservableid
+          let dir = ''
+          if (tmp && tmp.startsWith('exp') && tid && tid != "") {
+            dir = '/pages/classes/detail/detail?expid=' + tid
+          }
+          else if (tmp && tmp.startsWith('actv') && tid && tid != "") {
+            dir = '/pages/activity/detail/detail?actvid=' + tid
+          } else if (tmp && tmp.startsWith('pre')) {
+            dir = '/pages/preregister/preregister'
+          } else {
+            dir = '/pages/brand/info/info'
+          }
+          console.log(dir)
+          if (dir.length > 0) {
+            wx.navigateTo({
+              url: dir,
+            })
+          } else {
+            console.log('二维码错误')
+          }
+        }
+      })
+    },
   }
 })

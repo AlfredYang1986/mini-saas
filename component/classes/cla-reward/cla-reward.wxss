@@ -9,7 +9,7 @@
   padding: 32rpx;
   display: flex;
   flex-direction: row;
-  border-radius: 4px;
+  border-radius: 8rpx;
   background-color: #f4f9ff;
   
 }
@@ -25,7 +25,7 @@
 }
 .reward-content .title {
   font-family: PingFangSC-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #404040;
 }
 .reward-content .reward-list .list-dot {
@@ -33,6 +33,6 @@
 }
 .reward-content .reward-list text {
   font-family: PingFangSC-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #404040;
 }

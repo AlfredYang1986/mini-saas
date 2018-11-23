@@ -9,12 +9,12 @@
 .title-area .title {
   margin-bottom: 16rpx;
   font-family: PingFangSC-Medium;
-  font-size: 20px;
+  font-size: 40rpx;
   color: #0D0D0D;
 }
 .title-area .address {
   font-family: PingFangSC-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #404040;
 }
 .title-area .tags {
@@ -23,7 +23,7 @@
   flex-direction: row;
 }
 .title-area .tags text {
-  margin-right: 26px;
+  margin-right: 52rpx;
   padding: 4rpx 16rpx;
   border: 1rpx solid #979797;
   border-radius: 8rpx;

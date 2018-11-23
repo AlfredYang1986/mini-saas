@@ -8,7 +8,7 @@
 }
 .title {
   font-family: SFProText-Medium;
-  font-size: 18px;
+  font-size: 36rpx;
   color: #0D0D0D;
   margin-bottom: 80rpx; 
 }
