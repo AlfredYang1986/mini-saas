@@ -36,7 +36,7 @@ Component({
             }else {
               dir = '/pages/brand/info/info'
             }
-            wx.navigateTo({
+            wx.redirectTo({
               url: dir,
             })
             wx.removeStorage({

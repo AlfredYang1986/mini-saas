@@ -207,20 +207,24 @@ Page({
         let tmp = url.query.redir
         let tid = url.query.reservableid
         let dir = ''
-        if (tmp.startsWith('exp') && tid && tid != "") {
+        if (tmp && tmp.startsWith('exp') && tid && tid != "") {
           dir = '/pages/classes/detail/detail?expid=' + tid
         }
-        else if (tmp.startsWith('actv') && tid && tid != "") {
+        else if (tmp &&  tmp.startsWith('actv') && tid && tid != "") {
           dir = '/pages/activity/detail/detail?actvid=' + tid
-        } else if (tmp.startsWith('pre')) {
+        } else if (tmp && tmp.startsWith('pre')) {
           dir = '/pages/preregister/preregister'
         } else {
           dir = '/pages/brand/info/info'
         }
         console.log(dir)
-        wx.navigateTo({
-          url: dir,
-        })
+        if (dir.length > 0) {
+          wx.navigateTo({
+            url: dir,
+          })
+        } else {
+          console.log('二维码错误')
+        }
       }
     })
   }
