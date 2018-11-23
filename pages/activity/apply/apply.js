@@ -403,12 +403,8 @@ Page({
         title: '提交失败',
         content: '还有没填好的地方哦',
         success: function (res) {
-          if (res.confirm) {
-
-          } else {
-
-          }
-
+          if (res.confirm) {} 
+          else {}
         }
       })
     }

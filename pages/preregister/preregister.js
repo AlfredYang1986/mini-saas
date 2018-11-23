@@ -5,6 +5,7 @@ let child_name;
 let gender;
 let guardian_role;
 let dob;
+let kids;
 Page({
 
   /**
@@ -12,8 +13,8 @@ Page({
    */
   data: {
     sexItems: [
-      { name: '男生', value: '男生', },
-      { name: '女生', value: '女生', },
+      { name: 1, value: '男生', },
+      { name: 0, value: '女生', },
     ],
     relaItems: [
       { name: '妈妈', value: '妈妈', },
@@ -33,7 +34,7 @@ Page({
 
   sexChange: function (e) {
     console.log('radio发生change事件，携带value值为：', e.detail.value)
-    gender = e.detail.value
+    gender = parseInt(e.detail.value)
 
   },
 
@@ -107,29 +108,55 @@ Page({
   },
 
   onCommitApply: function (e) {
-    // let kids = this.queryAttendedKids();
-    // let childid = event.currentTarget.dataset.childid;
+
     let ks = require('../../models/bm_kids_schema.js');
-    // if (nickname != undefined && nickname != '' && dob != undefined && gender != undefined && guardian_role != undefined && guardian_role != null) {
+    if (child_name != undefined && child_name != '' && dob != undefined && gender != undefined && guardian_role != undefined && guardian_role != null) {
       ks.genOneKid(child_name, 'realnickname', dob, gender, guardian_role)
       ks.saveAllKidOnStorage();
-      let kids = ks.queryAllLocalKids();
-    // }
-    // if (except_time != undefined && detailName != undefined && contact != undefined && detailSort != undefined && kids != undefined);
-    let callback = {
-      onSuccess: function (res) {
-        wx.showToast({
-          title: '提交成功',
-          icon: 'success',
-          duration: 2000,
-          mask: true
-        })
-      },
-      onFail: function () {
-        console.log('push apply error');
-      }
+      kids = ks.queryAllLocalKids();
+    } else {
+      wx.showModal({
+        title: '提交失败',
+        content: '还有没填好的地方哦',
+        success: function (res) {
+          if (res.confirm) {} 
+          else {}
+        }
+      })
     }
-    var ay = require('../../models/bm_apply_schema.js');
-    ay.pushApply(nowDate, "预注册", contact, "预注册", kids, callback);
+    if (nowDate != undefined && contact != undefined && kids != undefined) {
+      let callback = {
+        onSuccess: function (res) {
+          wx.showToast({
+            title: '提交成功',
+            icon: 'success',
+            duration: 2000,
+            mask: true
+          })
+          setTimeout(wx.navigateTo({
+            url: '/pages/brand/info/info',
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) { },
+          }),3000)
+         
+        },
+        onFail: function () {
+          console.log('push apply error');
+        }
+      }
+      var ay = require('../../models/bm_apply_schema.js');
+      ay.pushApply(nowDate, "预注册", contact, 3, kids, callback);
+    } else {
+      wx.showModal({
+        title: '提交失败',
+        content: '还有没填好的地方哦',
+        success: function (res) {
+          if (res.confirm) { }
+          else { }
+        }
+      })
+    }
+    
   },
 })
