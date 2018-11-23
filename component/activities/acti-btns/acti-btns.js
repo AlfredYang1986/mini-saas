@@ -8,13 +8,26 @@ Component({
       type: String,
       value: "true",
     },
+    exp: {
+      type: "Object",
+      value: null,
+      observer: function (news, olds, path) {
+        console.log("this is in acti-btns.js")
+        console.log(news, olds)
+        // if(news.SessionInfo.price === ""){
+        //   news.SessionInfo.price = "免费";
+        // }
+        // console.log(news)
+      }
+    }
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    price: 134,
+    // price: 134,
+    
     // isCourse: true,
   },
 
