@@ -70,7 +70,7 @@ Page({
           } else {
             ele.SessionInfo.hasAge = true;
           }
-            return ele
+          return ele
         })
         
         that.setData({
@@ -92,7 +92,7 @@ Page({
           } else {
             ele.SessionInfo.hasAge = true;
           }
-            return ele
+          return ele
         })
         
         that.setData({

@@ -22,24 +22,29 @@ function queryMultiExps(callback) {
 	let inc = rd.Eqcond[0].serialize()
 	rd_tmp['included'] = [inc.data]
 	let dt = JSON.stringify(rd_tmp)
-    let token = wx.getStorageSync('dd_token');
+  let token = wx.getStorageSync('dd_token');
 
-    var config = require('./bm_config.js')
-    wx.showLoading({
-        title: '加载中',
-    });
+  var config = require('./bm_config.js')
+  wx.showLoading({
+      title: '加载中',
+  });
+  console.log('mother fucker');
 	wx.request({
     url: config.bm_service_host + '/api/v1/findreservablemulti/0',
 		data: dt,
 		method: 'post',
+    dataType: 'json',
 		header: {
-		  'Content-Type': 'application/json', // 默认值
+      'Content-Type': 'application/x-www-form-urlencoded', // 默认值
 		  'Accept': 'application/json',
       'Authorization': 'bearer ' + token
 		},
 		success(res) {
-		  console.log(res.data)
-		  let result = bmmulti.sync(res.data)
+      var json = JSON.stringify(res.data)
+      json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
+      var dealedJson = JSON.parse(json)
+      let result = bmmulti.sync(dealedJson)
+      console.log(result)
 		  callback.onSuccess(result)
 		},
 		fail(err) {
@@ -47,8 +52,8 @@ function queryMultiExps(callback) {
 			callback.onFail(err)
 		},
 		complete() {
-            wx.hideLoading();
-		  	console.log('complete!!!')
+      wx.hideLoading();
+		  console.log('complete!!!')
 		}
 	})
 }
@@ -79,7 +84,11 @@ function queryExpInfo(expid, callback) {
           'Authorization': 'bearer ' + token
       },
       success(res) {
-        let result = bmstore.sync(res.data)
+        var json = JSON.stringify(res.data)
+        json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
+        var dealedJson = JSON.parse(json)
+        let result = bmstore.sync(dealedJson)
+        console.log(result)
         callback.onSuccess(result)
       },
       fail(err) {
