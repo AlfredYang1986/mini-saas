@@ -56,7 +56,10 @@
 	flex-direction: row;
 	justify-content: space-around;
 }
-
+.content-item text {
+  width: 96rpx;
+  
+}
 .content-mid {
 	display: flex;
 	flex-wrap: nowrap;

@@ -174,3 +174,30 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.achievement .achieve-list {
+  margin-bottom:48rpx;
+  display: flex;
+  flex-direction: row;
+}
+.img-area {
+  min-width:260rpx;
+  min-height:160rpx;
+}
+.achieve-img {
+  width:260rpx;
+  height:160rpx;
+  background:#ddd;
+  border-radius:8rpx;
+}
+.achieve-content {
+  font-family:PingFangSC-Regular;
+  font-size:28rpx;
+  color:#404040;
+  margin-left: 32rpx;
+  height: 160rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}

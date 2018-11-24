@@ -1,7 +1,0 @@
-<!--pages/baby/record/record.wxml-->
-<view class='content-page'>
-  <text class='title'>成长记录</text>
-  
-  <grow-record></grow-record>  
-  
-</view>

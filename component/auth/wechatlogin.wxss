@@ -123,7 +123,7 @@ input-holder {
   left: 0;
   z-index: 1001;
   background: #fff;
-  margin: -150px 50rpx 0 40rpx;
+  margin: -320rpx 50rpx 0 40rpx;
   border-radius: 6rpx;
   display: flex;
   flex-direction: column;

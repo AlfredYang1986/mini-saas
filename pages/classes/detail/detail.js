@@ -88,7 +88,7 @@ Page({
         res.SessionInfo.yardtag = wx.getStorageSync('yardtag');
         res.SessionInfo.yardname = wx.getStorageSync('yardname');
 
-        if (res.SessionInfo.carrying == '' || res.SessionInfo.carrying == '') {
+        if (res.SessionInfo.carrying == '-' || res.SessionInfo.carrying == '') {
           res.SessionInfo.carrying = '无';
         }
 

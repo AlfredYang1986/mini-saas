@@ -58,7 +58,6 @@ Component({
   methods: {
     showActiDetail: function (event) {
       let actvid = event.currentTarget.dataset.actvid;
-      console.log(event);
       wx.navigateTo({
         url: '/pages/activity/detail/detail?actvid=' + actvid
       })

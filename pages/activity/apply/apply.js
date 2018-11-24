@@ -63,7 +63,8 @@ Page({
     this.setData({
       address: yard,
       nowDate: date,
-      haveChild: true
+      haveChild: true,
+      phone: wx.getStorageSync('dd_phoneno'),
     })
 
   },

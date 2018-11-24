@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "server-list": "/component/common/server-list/server-list",
-    "server-tab": "/component/common/server-tab/server-tab"
-  }
-}

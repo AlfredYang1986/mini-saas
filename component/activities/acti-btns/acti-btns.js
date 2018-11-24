@@ -11,14 +11,7 @@ Component({
     exp: {
       type: "Object",
       value: null,
-      observer: function (news, olds, path) {
-        console.log("this is in acti-btns.js")
-        console.log(news, olds)
-        // if(news.SessionInfo.price === ""){
-        //   news.SessionInfo.price = "免费";
-        // }
-        // console.log(news)
-      }
+      observer: function (news, olds, path) {}
     }
   },
 

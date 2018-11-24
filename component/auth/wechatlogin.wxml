@@ -10,7 +10,7 @@
   <view wx:else>请升级微信版本</view>
 </block>
 
-<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view class="drawer_screen" bindtap="" data-statu="close" wx:if="{{showModalStatus}}"></view>
 <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
   <!-- <view class="drawer_title">弹窗标题</view> -->
   <view class='bg-img'>
