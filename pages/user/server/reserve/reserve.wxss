@@ -64,11 +64,11 @@
 }
 .content-page .list .detail .name {
   font-family: PingFangSC-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #404040;
 }
 .content-page .list .detail .value {
   font-family: PingFangSC-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #A6A6A6;
 }

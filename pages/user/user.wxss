@@ -27,7 +27,7 @@
 }
 .content-page .head .head-name {
 font-family: SFProText-Bold;
-font-size: 16px;
+font-size: 32rpx;
 color: #404040;
 
 margin-bottom: 48rpx;
@@ -48,8 +48,8 @@ justify-content: space-between;
   margin-bottom: 96rpx;
 }
 .content-page .func .server image {
-  width: 18px;
-  height: 18px;
+  width: 36rpx;
+  height: 36rpx;
   background: #fff;
 }
 .content-page .func .server text {

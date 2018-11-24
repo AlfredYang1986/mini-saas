@@ -47,6 +47,8 @@ Page({
           ele.dealImg = client.signatureUrl(certificationsImg);
           return ele
         })
+        let found = res.found;
+        res.time = new Date(found).getFullYear();
         that.setData({
           brand: res
         })

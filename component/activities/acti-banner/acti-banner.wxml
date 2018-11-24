@@ -11,7 +11,12 @@
           <view class='list-detail'>
             <view class='info'>
               <view class='sort'>{{item.SessionInfo.Cate.title}}</view>
-              <view class='age'>{{item.SessionInfo.alb}} - {{item.SessionInfo.aub}} 岁</view>
+              <block wx:if="{{item.SessionInfo.hasAge}}">
+                <view class='age'>{{item.SessionInfo.alb}}-{{item.SessionInfo.aub}} 岁</view>
+              </block>
+              <block wx:else>
+                <view class='age'>不限年龄</view>
+              </block>
             </view>
             <view class='apply'>
               <view class='name'>{{item.SessionInfo.title}}</view>

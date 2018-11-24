@@ -28,28 +28,28 @@
 }
  .block .info .head {
   font-family: PingFangSC-Medium;
-  font-size: 16px;
+  font-size: 32rpx;
   color: #404040;
 
   margin-bottom: 16rpx;
 }
 .info .head .sort {
   font-family: PingFangSC-Medium;
-  font-size: 13px;
+  font-size: 26rpx;
   color: #4C6899;
   margin-bottom: 4rpx;
 }
 .info .head .name {
   font-family: SFProText-Bold;
-  font-size: 16px;
+  font-size: 32rpx;
   color: #404040;
   margin-bottom: 16rpx;
 }
 .info .head .time {
   font-family: PingFangSC-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #313131;
-  line-height: 16px;
+  line-height: 32rpx;
 }
 .info .time .date {
   margin-right: 8rpx;
@@ -59,6 +59,6 @@
 }
 .info .cost {
   font-family: SFProText-Bold;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #FC9361;
 }

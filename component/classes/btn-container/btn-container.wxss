@@ -39,8 +39,8 @@
 	color: #FFFFFF;
 
 	background: #96CDFA;
-	box-shadow: 0 4px 8px 0 rgba(138,182,232,0.55);
-	border-radius: 4px;
+	box-shadow: 0 8rpx 16rpx 0 rgba(138,182,232,0.55);
+	border-radius: 8rpx;
 
 	padding-top: 40rpx;
 	padding-left: 44rpx;

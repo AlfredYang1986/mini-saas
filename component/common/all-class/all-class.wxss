@@ -4,8 +4,8 @@
   margin-top: 32rpx;
   margin-bottom: 16rpx;
 
-  box-shadow: 0 4px 10px 0 rgba(173,186,222,0.60);
-  border-radius: 4px;
+  box-shadow: 0 8rpx 20rpx 0 rgba(173,186,222,0.60);
+  border-radius: 8rpx;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -33,7 +33,7 @@
   margin-bottom: 16rpx;
 
   font-family: SFProText-Regular;
-  font-size: 11px;
+  font-size: 22rpx;
   color: #80AEFF;
   text-align: center;
   line-height: 40rpx;
@@ -43,7 +43,7 @@
   flex-direction: row;
 }
 .date .while text {
-  font-size: 13px;
+  font-size: 26rpx;
   color: #FFFFFF;
 }
 .date .while .day {
@@ -74,12 +74,12 @@
 }
 .class-info .name .class-name {
   font-family: SFProText-Medium;
-  font-size: 16px;
+  font-size: 32rpx;
   color: #FFFFFF;
 }
 .class-info .name .progress {
   font-family: PingFangSC-Regular;
-  font-size: 13px;
+  font-size: 26rpx;
   color: #FFFFFF;
 }
 .class-info .bar {

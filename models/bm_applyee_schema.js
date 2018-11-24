@@ -128,7 +128,11 @@ function codeSuccess(code, callback) {
     method: 'post',
     data: dt,
     success(res) {
-      let result = bmstore.sync(res.data)
+      var json = JSON.stringify(res.data)
+      json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
+      var dealedJson = JSON.parse(json)
+      let result = bmstore.sync(dealedJson)
+      console.log(result)
       wx.setStorageSync('dd_open_id', result.OpenId)
       wx.setStorageSync('dd_session_key', result.SessionKey)
       callback.onLoginSuccess(res);
@@ -201,7 +205,11 @@ function pushApplee(openid, uinfo, phoneno, callback) {
       // 'Authorization': 'bearer ce6af788112b26331e9789b0b2606cce'
     },
     success(res) {
-      let result = bmstore.sync(res.data);
+      var json = JSON.stringify(res.data)
+      json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
+      var dealedJson = JSON.parse(json)
+      let result = bmstore.sync(dealedJson)
+      console.log(result)
       wx.setStorageSync("dd_id", result.id);
       wx.setStorageSync("dd_token", result.token);
       console.log(result);
@@ -275,7 +283,11 @@ function queryPushedApplee(callback) {
       'Authorization': 'bearer ' + wx.getStorageSync('dd_token')
     },
     success(res) {
-      let result = bmstore.sync(res.data);
+      var json = JSON.stringify(res.data)
+      json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
+      var dealedJson = JSON.parse(json)
+      let result = bmstore.sync(dealedJson)
+      console.log(result)
       wx.setStorageSync("dd_id", result.id);
       wx.setStorageSync("dd_token", result.token);
       console.log(result);

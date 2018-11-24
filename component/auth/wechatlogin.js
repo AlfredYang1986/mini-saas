@@ -62,28 +62,30 @@ Component({
    */
   methods: {
     bindGetUserInfo(e) {
-      console.log(e.detail.userInfo);
-      let that = this
-      let callback = {
-        onPushSuccess: function () {
-          getApp().onLoginSuccess = true;
-          wx.hideLoading();
-        },
-        onPushFail: function () {
-          console.log('push failed');
-          wx.hideLoading();
+      if (e.detail.errMsg == 'getUserInfo:ok') {
+        console.log(e.detail.userInfo);
+        let that = this
+        let callback = {
+          onPushSuccess: function () {
+            getApp().onLoginSuccess = true;
+            wx.hideLoading();
+          },
+          onPushFail: function () {
+            console.log('push failed');
+            wx.hideLoading();
+          }
         }
-      }
 
-      if (this.data.dongda) {
-        let openid = wx.getStorageSync('dd_open_id')
-        var lm = require('../../models/bm_applyee_schema.js');
-        lm.pushApplee(openid, e.detail.userInfo, "", callback);
-      } else {
-        wx.setStorageSync('dd_uinfo', JSON.stringify(e.detail.userInfo));
-        this.setData({
-          showModalStatus: true,
-        })
+        if (this.data.dongda) {
+          let openid = wx.getStorageSync('dd_open_id')
+          var lm = require('../../models/bm_applyee_schema.js');
+          lm.pushApplee(openid, e.detail.userInfo, "", callback);
+        } else {
+          wx.setStorageSync('dd_uinfo', JSON.stringify(e.detail.userInfo));
+          this.setData({
+            showModalStatus: true,
+          })
+        }
       }
     },
     getPhoneNumber(e) {

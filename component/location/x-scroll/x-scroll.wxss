@@ -38,6 +38,6 @@
 .content .list .title {
   margin-top: 26rpx;
   font-family: PingFangSC-Regular;
-  font-size: 13px;
+  font-size: 26rpx;
   color: #A6A6A6;
 }

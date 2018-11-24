@@ -8,8 +8,7 @@ Component({
       type: "Array",
       value: [],
       observer: function (news, olds, path) {
-        console.log("this is in cla-notice .js")
-        console.log(news, olds)
+       
       }
     }
   },

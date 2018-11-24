@@ -11,7 +11,7 @@
   background-size: cover;
 }
 .brand-logo image {
-  min-width: 200px;
+  min-width: 400rpx;
   width: auto;
-  height: 80px;
+  height: 160rpx;
 }

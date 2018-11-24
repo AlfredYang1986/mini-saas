@@ -87,7 +87,24 @@ Page({
         res.SessionInfo.dealCover = client.signatureUrl(_originImg);
         res.SessionInfo.yardtag = wx.getStorageSync('yardtag');
         res.SessionInfo.yardname = wx.getStorageSync('yardname');
-        console.log(res)
+
+        if (res.SessionInfo.carrying == '' || res.SessionInfo.carrying == '') {
+          res.SessionInfo.carrying = '无';
+        }
+
+        if (res.SessionInfo.length == -1) {
+          res.SessionInfo.hasLenght = false;
+        } else {
+          res.SessionInfo.hasLenght = true;
+        }
+
+        if (res.SessionInfo.aub == 0) {
+          res.SessionInfo.hasAge = false;
+        } else {
+          res.SessionInfo.hasAge = true;
+        }
+
+
         that.setData({
           exp: res
         })

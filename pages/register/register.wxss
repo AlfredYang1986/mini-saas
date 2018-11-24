@@ -12,9 +12,9 @@
 }
 .logo .slogan {
   font-family: PingFangSC-Medium;
-  font-size: 11px;
+  font-size: 22rpx;
   color: #732C27;
-  letter-spacing: 4px;
+  letter-spacing: 8rpx;
 }
 .logo image {
   margin-top: 228rpx;
@@ -26,10 +26,10 @@
 .btn {
   padding: 26rpx 170rpx;
   background-image: linear-gradient(-123deg, #F78065 0%, #E4534A 100%);
-  box-shadow: 0 6px 8px 0 rgba(235,57,54,0.17);
+  box-shadow: 0 12rpx 16rpx 0 rgba(235,57,54,0.17);
   border-radius: 60rpx;
   font-family: PingFangSC-Medium;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #FFFFFF;
 }
 

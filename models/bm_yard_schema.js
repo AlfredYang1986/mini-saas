@@ -37,7 +37,11 @@ function queryYard(yardid, callback) {
       'Authorization': 'bearer ' + token
     },
     success(res) {
-      let result = bmstore.sync(res.data)
+      var json = JSON.stringify(res.data)
+      json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
+      var dealedJson = JSON.parse(json)
+      let result = bmstore.sync(dealedJson)
+      console.log(result)
       callback.onSuccess(result)
     },
     fail(err) {

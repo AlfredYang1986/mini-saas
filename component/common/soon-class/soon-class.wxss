@@ -9,8 +9,8 @@
 
   height: 154rpx;
   background: #FFFFFF;
-  box-shadow: 0 8px 20px 0 rgba(173,186,222,0.20);
-  border-radius: 4px;
+  box-shadow: 0 16rpx 40rpx 0 rgba(173,186,222,0.20);
+  border-radius: 8rpx;
 }
 .soon-card .date {
   display: flex;
@@ -20,14 +20,14 @@
 }
 .date .day {
   font-family: SFProText-Medium;
-  font-size: 24px;
+  font-size: 48rpx;
   color: #404040;
   
   padding-right: 6rpx;
 }
 .date .month {
   font-family: PingFangSC-Regular;
-  font-size: 11px;
+  font-size: 22rpx;
   color: #404040;
   padding-right: 48rpx;
 }
@@ -37,7 +37,7 @@
 }
 .location .name {
   font-family: SFProText-Semibold;
-  font-size: 16px;
+  font-size: 32rpx;
   color: #404040;
 
   padding-bottom: 16rpx;
@@ -55,6 +55,6 @@
 }
 .location .local text {
   font-family: PingFangSC-Regular;
-  font-size: 13px;
+  font-size: 26rpx;
   color: rgb(75, 54, 54);
 }

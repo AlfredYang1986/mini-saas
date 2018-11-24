@@ -4,7 +4,7 @@
 
   padding-left: 40rpx;
   padding-right: 40rpx;
-  padding-top: 30px;
+  padding-top: 60rpx;
 }
 .headline {
   display: flex;
@@ -12,7 +12,7 @@
   justify-content: space-between;
   align-items: center;
 
-  padding-bottom: 40px;
+  padding-bottom: 80rpx;
 }
 .headline text {
   font-family: SFProText-Bold;
@@ -36,60 +36,3 @@
 
   padding-bottom: 32rpx;
 }
-
-/* pages/baby/baby.wxss
-.content-page {
-  min-height: 800rpx;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-
-  padding-bottom: -350rpx;
-
-  padding-left: 40rpx;
-  padding-right: 40rpx;
-}
-.content-page .headline {
-font-family: SFProText-Bold;
-font-size: 30px;
-color: #0D0D0D;
-
-margin-top: 54rpx;
-margin-bottom: 108rpx;
-}
-.content-page .title {
-font-family: SFProText-Medium;
-font-size: 40rpx;
-color: #FFFFFF;
-text-shadow: 0 3px 6px rgba(62,105,213,0.53);
-z-index: 2;
-}
-.content-page .image {
-width: 364rpx;
-height: 364rpx;
-opacity: 0.8;
-background: #80AEFF;
-border-radius: 50%;
-
-transform: translate(-62rpx,-142rpx);
-}
-.content-page .over {
-  display: flex;
-  justify-content: space-between;
-
-  margin-top: 52rpx;
-  margin-bottom: 28rpx;
-
-  transform: translateY(-350rpx);
-}
-.content-page .over .over-title {
-font-family: PingFangSC-Medium;
-font-size: 20px;
-color: #404040;
-}
-.content-page .over .border {
-  width: 490rpx;
-  height: 1px;
-  background: #E0E0E0;
-  transform: translateY(30rpx);
-} */

@@ -16,6 +16,6 @@
 .notice text {
   margin-top: 32rpx;
   font-family: PingFangSC-Regular;
-  font-size: 13px;
+  font-size: 26rpx;
   color: #A6A6A6;
 }

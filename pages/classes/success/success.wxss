@@ -14,7 +14,7 @@
 
   opacity: 0.9;
   background: rgba(128,174,255,0.9);
-  border-radius: 4px;
+  border-radius: 8rpx;
 
   margin-top: 400rpx;
 
@@ -31,13 +31,13 @@
 }
 .content-page .block .status {
   font-family: SFProText-Medium;
-  font-size: 18px;
+  font-size: 36rpx;
   color: #FFFFFF;
   text-align: center;
 }
 .content-page .block .text {
   font-family: SFProText-Regular;
-  font-size: 15px;
+  font-size: 30rpx;
   color: #FFFFFF;
   text-align: center;
 

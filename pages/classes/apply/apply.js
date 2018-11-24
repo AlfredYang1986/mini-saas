@@ -35,6 +35,7 @@ Page({
     nowDate: '',
     haveChild: true,
     exp_date: '',
+    phone: wx.getStorageSync('dd_phoneno'),
   },
 
   /**
@@ -83,7 +84,8 @@ Page({
     gender = undefined;
     nickname = undefined;
     except_time = undefined;
-    contact = undefined;
+    kids = null;
+    contact = wx.getStorageSync('dd_phoneno');
     let ks = require('../../../models/bm_kids_schema.js');
     ks.bmstoreReset();
   },
@@ -322,6 +324,7 @@ Page({
     let ks = require('../../../models/bm_kids_schema.js');
     ks.bmstoreReset()
     haveChild = true;
+    kids = null;
     this.setData({
       kids: null,
       haveChild: true

@@ -1,7 +1,7 @@
 /* pages/class-lst/class-detail/class-detail.wxss */
 .clsdet-container {
-  padding-bottom: 50px;
-  height: 500px;
+  padding-bottom: 100rpx;
+  height: 1000rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,7 +48,7 @@
     text-align: center;  
     line-height: 80rpx;
     background: #fff;
-    font-size: 14px;
+    font-size: 28rpx;
 } 
 .swiper-tab-list{  
   font-size: 29rpx;  
@@ -68,7 +68,7 @@
   padding-left: 38rpx;
   padding-right: 38rpx;
   /* transform: translateY(-100%); */
-  margin-top: -200px;
+  margin-top: -400rpx;
 }
 .write .block {
   display: flex;
@@ -124,7 +124,7 @@
 
   background: #FFFFFF;
   border: 1px solid #D9D9D9;
-  border-radius: 4px;
+  border-radius: 8rpx;
 
   padding-left: 34rpx;
   padding-right: 34rpx;
@@ -139,7 +139,7 @@
   background: #FAFAFA;
   text-align: right;
   font-family: PingFangSC-Medium;
-  font-size: 17px;
+  font-size: 34rpx;
   color: #80AEFF;
 
   padding-top: 24rpx;
@@ -153,7 +153,7 @@
 .write .block .num input {
   background: #FFFFFF;
   border: 1px solid #D9D9D9;
-  border-radius: 4px;
+  border-radius: 8rpx;
   padding: 36rpx 34rpx;
 }
 .write .submit {
@@ -218,7 +218,7 @@
 }
 .weui-loadmore__tips {
   font-family: PingFangSC-Medium;
-  font-size: 16px;
+  font-size: 32rpx;
   color: #404040;
 }
 /* .content {
@@ -227,7 +227,7 @@
 } */
 .content .title {
   font-family: PingFangSC-Medium;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #404040;
 
   margin-bottom: 16rpx;
@@ -237,9 +237,9 @@
 } 
 .lists .list {
   font-family: PingFangSC-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #737373;
-  letter-spacing: 1px;
+  letter-spacing: 2rpx;
 
   margin-bottom: 16rpx;
   display: block;

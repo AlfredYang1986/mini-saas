@@ -31,7 +31,7 @@
   margin-top: 72rpx;
 
 font-family: SFProText-Semibold;
-font-size: 16px;
+font-size: 32rpx;
 color: #FFFFFF;
 }
 .list .matter-list .info .address {
@@ -39,7 +39,7 @@ color: #FFFFFF;
   margin-top: 16rpx;
 
 font-family: PingFangSC-Regular;
-font-size: 13px;
+font-size: 26rpx;
 color: #FFFFFF;
 }
 .list .matter-list .num {
@@ -47,7 +47,7 @@ color: #FFFFFF;
   margin-bottom: 32rpx;
 
 font-family: PingFangSC-Regular;
-font-size: 11px;
+font-size: 22rpx;
 color: #FFFFFF;
 }
 .list .matter-list .item:nth-child(2) {
@@ -89,7 +89,7 @@ height: 56rpx;
 }
  .list .matter-list .bg-img .start-time text {
 font-family: SFProText-Regular;
-font-size: 14px;
+font-size: 28rpx;
 color: #FFFFFF;
 padding: 8rpx 16rpx;
 }
@@ -100,7 +100,7 @@ padding: 8rpx 16rpx;
 }
 .list .matter-list .bg-img .progress text {
 font-family: PingFangSC-Regular;
-font-size: 14px;
+font-size: 28rpx;
 color: #FFFFFF;
 }
   .list .matter-list progress {

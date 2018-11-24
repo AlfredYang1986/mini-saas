@@ -13,6 +13,6 @@
   position: relative;
   top: 700rpx;
   font-family: PingFangSC-Regular;
-  font-size: 11px;
+  font-size: 22rpx;
   color: #FFFFFF;
 }

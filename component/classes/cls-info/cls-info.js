@@ -8,8 +8,7 @@ Component({
       type: "Array",
       value: [],
       observer: function (news, olds, path) {
-        console.log("this is in cls-info .js")
-        console.log(news, olds)
+        console.log(news)
       }
     }
   },

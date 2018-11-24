@@ -12,6 +12,6 @@
       <location-banner class="location-banner" yard="{{yardInfo}}"></location-banner>
     </view>
   </view>
-  <button bindtap='scanclick'>扫</button>
+  <!-- <button bindtap='scanclick'>扫</button> -->
 </view>
   

@@ -9,6 +9,9 @@
       <view class='list'>
         <!-- <text class='dot'>・</text>  -->
         <text class='name'>{{exp.SessionInfo.carrying}}</text>
+        <block >
+
+        </block>
       </view>
     </view>
   </view>

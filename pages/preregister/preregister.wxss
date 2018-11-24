@@ -28,12 +28,12 @@
 .child-title .title-text {
   margin-bottom: 16rpx;
   font-family: PingFangSC-Medium;
-  font-size: 16px;
+  font-size: 32rpx;
   color: #0D0D0D;
 }
 .child-title .subtitle-text {
   font-family: PingFangSC-Regular;
-  font-size: 13px;
+  font-size: 26rpx;
   color: #A6A6A6;
 }
 .base-info {
@@ -72,12 +72,12 @@
   text-align: right;
 }
 .base-info .select text {
-  padding-bottom: 5px;
+  padding-bottom: 10rpx;
   line-height: 44rpx;
   color:#404040;
 }
 .base-info .select image {
-  margin-top: 5px;
+  margin-top: 10rpx;
   margin-left: 20px;
   width: 12rpx;
   height: 24rpx;
@@ -90,13 +90,13 @@
 }
 .rela .rela-title {
   font-family: PingFangSC-Medium;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #0D0D0D;
 }
 .rela-radio-group {
   margin-top: 32rpx;
   font-family: PingFangSC-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #404040;
 }
 .rela-radio-group .rela-radio {
@@ -137,7 +137,7 @@ button::after{ border: none; }
   align-items: center;
 
   font-family: PingFangSC-Medium;
-  font-size: 17px;
+  font-size: 34rpx;
   color: #80AEFF;
   margin-bottom: 62rpx;
   padding-right: 34rpx;
@@ -151,6 +151,6 @@ button::after{ border: none; }
 }
 .lists .list {
   font-family: SFProText-Regular;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #404040;
 }

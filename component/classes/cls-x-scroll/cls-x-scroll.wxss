@@ -7,7 +7,7 @@
 .title {
   margin-bottom: 32rpx;
   font-family: PingFangSC-Medium;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #0D0D0D;
 }
 .content {
