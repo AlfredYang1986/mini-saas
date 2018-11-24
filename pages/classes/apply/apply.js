@@ -84,6 +84,7 @@ Page({
     gender = undefined;
     nickname = undefined;
     except_time = undefined;
+    guardian_role = undefined;
     kids = null;
     contact = wx.getStorageSync('dd_phoneno');
     let ks = require('../../../models/bm_kids_schema.js');
@@ -390,7 +391,7 @@ Page({
           // setTimeout(wx.navigateBack({
           //   delta: 1
           // }), 2000) 
-
+        
           wx.navigateBack({
             delta: 1,
             success: function () {

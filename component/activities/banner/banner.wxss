@@ -69,7 +69,7 @@
 	height: 538rpx;
   border-radius: 8rpx !important;
   background: #FFFFFF;
-  box-shadow: 0 8px 12px 0 rgba(173,186,222,0.62);
+  box-shadow: 0 16px 24px 0 rgba(173,186,222,0.62);
 
 	display: flex;
 	flex-direction: column;  
@@ -96,7 +96,7 @@
   color: #fff;
   font-size: 60rpx;
   font-family: SFProText-Semibold;
-  text-shadow: 0 2px 2px rgba(21,28,89,0.42);
+  text-shadow: 0 4rpx 4rpx rgba(21,28,89,0.42);
 
 }
 .title-mask {
@@ -167,7 +167,7 @@
   height: 80rpx;
   line-height: 30rpx;
   width: auto;
-	border: 1px solid #FF6F5F;
+	border: 2rpx solid #FF6F5F;
 	border-radius: 8rpx;
   background: #F99D4B;
   box-shadow: 0 8px 12px 0 rgba(242,140,37,0.29);

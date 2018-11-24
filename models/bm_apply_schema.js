@@ -77,7 +77,7 @@ function pushApply(except_time, course_name, contact, course_type, kids, callbac
       var json = JSON.stringify(res.data)
       json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
       var dealedJson = JSON.parse(json)
-      let result = bmmulti.sync(dealedJson)
+      let result = bmstore.sync(dealedJson)
       console.log(result)
       callback.onSuccess(result);
     },
