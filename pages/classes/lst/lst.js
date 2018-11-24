@@ -30,6 +30,8 @@ Page({
 		let that = this;
 		let callback = {
 			onSuccess: function(res) {
+        console.log('heiheihei')
+        console.log(res)
         let _originRes = res;
         let newres = _originRes.map((ele) => {
           let _originImg = ele.SessionInfo.cover;
