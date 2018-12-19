@@ -12,7 +12,7 @@ Component({
    */
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    dongda: false,
+    dongda: true,
     showModalStatus: false,
     bgImg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_popup.jpg",
     smImg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E6%8E%88%E6%9D%83%E5%8F%91%E7%8E%B0%E6%9B%B4%E5%A4%9A%E7%B2%BE%E5%BD%A9%E9%A1%B5logo%E6%9B%BF%E6%8D%A2.png",
@@ -22,7 +22,7 @@ Component({
         if (newValue) {
           let uinfo = wx.getStorageSync('dd_uinfo');
           let phoneno = wx.getStorageSync('dd_phoneno');
-          if (uinfo != '' && phoneno != '') {
+          if (uinfo != '' /*&& phoneno != ''*/) {
             let tmp = wx.getStorageSync('qr_page')
             let tid = wx.getStorageSync('qr_page_id')
             let dir = ''
@@ -75,13 +75,13 @@ Component({
             wx.hideLoading();
           }
         }
-
+        
+        wx.setStorageSync('dd_uinfo', JSON.stringify(e.detail.userInfo));
         if (this.data.dongda) {
           let openid = wx.getStorageSync('dd_open_id')
           var lm = require('../../models/bm_applyee_schema.js');
           lm.pushApplee(openid, e.detail.userInfo, "", callback);
         } else {
-          wx.setStorageSync('dd_uinfo', JSON.stringify(e.detail.userInfo));
           this.setData({
             showModalStatus: true,
           })
@@ -110,7 +110,9 @@ Component({
         var lm = require('../../models/bm_applyee_schema.js');
         let uinfo = JSON.parse(wx.getStorageSync('dd_uinfo'));
         wx.setStorageSync('dd_phoneno', result.purePhoneNumber);
+        // wx.setStorageSync('dd_phoneno', '12345');
         lm.pushApplee(openid, uinfo, result.purePhoneNumber, callback);
+        lm.pushApplee(openid, uinfo, '12345', callback);
       }
     },
 

@@ -36,17 +36,23 @@ Page({
         let logo = res.logo;
         res.newLogo = client.signatureUrl(logo);
         let honors = res.Honors;
-        let newHonors = honors.map((ele) => {
-          let honorsImg = ele.img;
-          ele.dealImg = client.signatureUrl(honorsImg);
+        if(honors != null) {
+          let newHonors = honors.map((ele) => {
+            let honorsImg = ele.img;
+            ele.dealImg = client.signatureUrl(honorsImg);
             return ele
-        })
+          })
+        }
+        
         let Certifications = res.Certifications;
-        let newCertifications = Certifications.map((ele) => {
-          let certificationsImg = ele.img;
-          ele.dealImg = client.signatureUrl(certificationsImg);
-          return ele
-        })
+        if(Certifications != null) {
+          let newCertifications = Certifications.map((ele) => {
+            let certificationsImg = ele.img;
+            ele.dealImg = client.signatureUrl(certificationsImg);
+            return ele
+          })
+        }
+        
         let found = res.found;
         res.time = new Date(found).getFullYear();
         that.setData({

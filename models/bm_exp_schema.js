@@ -20,7 +20,8 @@ function queryMultiExps(callback) {
 	let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()))
 
 	let inc = rd.Eqcond[0].serialize()
-	rd_tmp['included'] = [inc.data]
+  let brand = rd.Eqcond[1].serialize()
+	rd_tmp['included'] = [inc.data, brand.data]
 	let dt = JSON.stringify(rd_tmp)
   let token = wx.getStorageSync('dd_token');
 
@@ -103,6 +104,7 @@ function queryExpInfo(expid, callback) {
 
 function genMultiExps() {
     let eq = guid();
+    let br = guid();
     return {
         data: {
             id: guid(),
@@ -116,6 +118,10 @@ function genMultiExps() {
                         {
                             id: eq,
                             type: "Eqcond"
+                        },
+                        {
+                            id: br,
+                            type: "Eqcond"
                         }
                     ]
                 }
@@ -128,6 +134,13 @@ function genMultiExps() {
                 attributes: {
                     key: "status",
                     val: 1
+                }
+            }, {
+                id: br,
+                type: "Eqcond",
+                attributes: {
+                    key: "brandId",
+                    val: "5c19bbce25c6b0000188f4bc",
                 }
             }
         ]
