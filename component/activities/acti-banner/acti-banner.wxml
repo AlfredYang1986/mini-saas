@@ -6,7 +6,7 @@
   </view>
   <scroll-view class="scroll-x" scroll-x style="width: 100%">
     <view class='content'>
-      <view class='list'  wx:for="{{actvs}}"   bindtap='showActiDetail' data-actvid="{{item.id}}">
+      <view class='list'  wx:for="{{actv}}"   bindtap='showActiDetail' data-actvid="{{item.id}}">
         <view class='bg-image' style="background-image: url('{{item.SessionInfo.dealCover}}')" >
           <view class='list-detail'>
             <view class='info'>

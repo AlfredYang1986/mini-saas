@@ -19,6 +19,9 @@ Page({
     animationData: {},
     tab:0,
     exp: null,
+    reward: true,
+    remarks: true,
+    notice: true,
   },
 
   showAll: function (e) {
@@ -82,15 +85,10 @@ Page({
           return ele
         })
         res.SessionInfo.Tagimgs = newTagimgs;
-        let _originRes = res;
         let _originImg = res.SessionInfo.cover;
         res.SessionInfo.dealCover = client.signatureUrl(_originImg);
         res.SessionInfo.yardtag = wx.getStorageSync('yardtag');
         res.SessionInfo.yardname = wx.getStorageSync('yardname');
-
-        if (res.SessionInfo.carrying == '-' || res.SessionInfo.carrying == '') {
-          res.SessionInfo.carrying = '无';
-        }
 
         if (res.SessionInfo.length == -1) {
           res.SessionInfo.hasLenght = false;
@@ -98,12 +96,23 @@ Page({
           res.SessionInfo.hasLenght = true;
         }
 
-        if (res.SessionInfo.aub == 0) {
+        if (res.SessionInfo.aub == -1 && res.SessionInfo.alb == -1) {
           res.SessionInfo.hasAge = false;
         } else {
           res.SessionInfo.hasAge = true;
         }
 
+        if (res.SessionInfo.acquisition == "") {
+          that.setData({
+            reward: false
+          })
+        }
+
+        if (res.SessionInfo.inc == "") {
+          that.setData({
+            remarks: false
+          })
+        }
 
         that.setData({
           exp: res

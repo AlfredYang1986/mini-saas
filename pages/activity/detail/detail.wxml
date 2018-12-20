@@ -10,7 +10,7 @@
     <cls-info exp="{{actv}}"></cls-info>
   </view>
 
-  <view class='clsdet-component'>
+  <view class='clsdet-component' wx:if='{{reward}}'>
     <cls-reward exp="{{actv}}"></cls-reward>
   </view>
 
@@ -20,7 +20,7 @@
     </view>
   </view>
 
-  <view class='clsdet-component'>
+  <view class='clsdet-component'  wx:if='{{remarks}}'>
     <cls-remarks exp="{{actv}}"></cls-remarks>
   </view>
 

@@ -44,6 +44,10 @@ Page({
     day: 2,
     value: [9999, 1, 1],
     id:0,
+    actv: null,
+    reward: true,
+    remarks: true,
+    notice: true,
   },
   showAll: function (e) {
     this.setData({
@@ -99,7 +103,6 @@ Page({
             res.SessionInfo.price = ele.price;
           }
         })
-        
         actvDetailSort = res.status;
         actvDetailName = res.SessionInfo.title;
         wx.setStorageSync('detailSort', actvDetailSort);
@@ -119,21 +122,29 @@ Page({
         res.SessionInfo.yardname = wx.getStorageSync('yardname');
         res.SessionInfo.yardtag = wx.getStorageSync('yardtag');
 
-        if (res.SessionInfo.carrying == '-' || res.SessionInfo.carrying == '') {
-          res.SessionInfo.carrying = '无';
-        }
-
         if(res.SessionInfo.length == -1) {
           res.SessionInfo.hasLenght = false;
         } else {
           res.SessionInfo.hasLenght = true;
         }
 
-        if(res.SessionInfo.aub == 0) {
+        if(res.SessionInfo.aub == -1 && res.SessionInfo.alb == -1) {
           res.SessionInfo.hasAge = false;
         } else {
           res.SessionInfo.hasAge = true;
         }
+
+          if (res.SessionInfo.acquisition == "") {
+              that.setData({
+                  reward: false
+              })
+          }
+
+          if (res.SessionInfo.inc == "") {
+              that.setData({
+                  remarks: false
+              })
+          }
 
         that.setData({
           actv: res

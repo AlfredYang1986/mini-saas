@@ -8,7 +8,17 @@ Component({
       type: "Array",
       value: [],
       observer: function (news, olds, path) {
-       
+          let actv = [];
+          if (news != null) {
+              news.map((ele) => {
+                  if (ele.start_date != -1 && ele.end_date != -1) {
+                      actv.push(ele)
+                  }
+              })
+              this.setData({
+                  actv: actv
+              })
+          }  
       }
     }
   },

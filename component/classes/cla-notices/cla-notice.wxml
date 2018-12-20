@@ -1,17 +1,13 @@
 <!--component/classes/cla-notices/cla-notice.wxml-->
 <view class='content-page'>
-  <view class='bring'>
+  <view class='bring' wx:if='{{bring}}'>
     <view class='title-area'>
       <image class='title-img' src='{{bringImg}}'></image>
       <text class='title-text'>{{bringTitle}}</text>
     </view>
     <view class='lists'>
       <view class='list'>
-        <!-- <text class='dot'>・</text>  -->
         <text class='name'>{{exp.SessionInfo.carrying}}</text>
-        <block >
-
-        </block>
       </view>
     </view>
   </view>
@@ -22,8 +18,13 @@
     </view>
     <view class='lists'>
       <view class='list'>
-        <!-- <text class='dot'>・</text>  -->
-        <text class='name'>{{exp.SessionInfo.notice}}</text>
+        <view>
+            <text class='name'>{{acc}}</text>
+        </view>
+        <view>
+            <text class='name'>{{exp.SessionInfo.notice}}</text>
+        </view>
+        
       </view>
     </view>
   </view>

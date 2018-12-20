@@ -12,7 +12,17 @@ Component({
       type:"Array",
       value:[],
       observer:function(news,olds,path){
-       console.log(news)
+          let exp = [];
+          if(news != null) {
+              news.map((ele) => {
+                  if (ele.start_date != -1 && ele.end_date != -1) {
+                      exp.push(ele)
+                  }
+              })
+              this.setData({
+                  exp: exp
+              })
+          }  
       }
     }
   },
@@ -21,6 +31,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+      exp: null,
     classInfo:[{
       url:
 "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_cover_trialclass_00.jpg",
