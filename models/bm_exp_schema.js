@@ -140,7 +140,7 @@ function genMultiExps() {
                 type: "Eqcond",
                 attributes: {
                     key: "brandId",
-                    val: "5c19bbce25c6b0000188f4bc",
+                    val: "5be6a00b8fb80736e2ec9ba5",
                 }
             }
         ]

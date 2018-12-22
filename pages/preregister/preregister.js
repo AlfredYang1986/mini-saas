@@ -126,8 +126,9 @@ Page({
 
       let callback = {
         onSuccess: function (res) {
-          wx.redirectTo({
-            url: '/pages/brand/info/info',
+        //   wx.redirectTo({
+        //     url: '/pages/brand/info/info',
+          wx:wx.navigateBack({
             delta: 1,
             success: function (res) {
               wx.showToast({
@@ -138,6 +139,8 @@ Page({
                 success: function () { }
               })
             },
+            fail: function (res) { },
+            complete: function (res) { },
           })
           // wx.navigateBack({
           //   delta: 1,

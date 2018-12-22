@@ -1,7 +1,7 @@
-// var host = 'https://api.dongdakid.com'
-var host = 'http://192.168.100.174:8080'
-var brandid = '5c19bbce25c6b0000188f4bc'
-var yardid = '5c19f04c8fb8073d6b954a29'
+var host = 'https://api.dongdakid.com'
+// var host = 'http://192.168.100.174:8080'
+var brandid = '5be6a00b8fb80736e2ec9ba5'
+var yardid = '5bebbe3d8fb8074f6440dcca'
 
 var actvPrice = [
   {
