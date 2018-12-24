@@ -126,22 +126,21 @@ Page({
 
       let callback = {
         onSuccess: function (res) {
-        //   wx.redirectTo({
-        //     url: '/pages/brand/info/info',
-          wx:wx.navigateBack({
-            delta: 1,
-            success: function (res) {
-              wx.showToast({
-                title: '提交成功',
-                icon: 'success',
-                duration: 2000,
-                mask: true,
-                success: function () { }
-              })
-            },
-            fail: function (res) { },
-            complete: function (res) { },
-          })
+            wx.reLaunch({
+                url: '/pages/brand/info/info',
+                success: function (res) {
+                    wx.showToast({
+                        title: '提交成功',
+                        icon: 'success',
+                        duration: 2000,
+                        mask: true,
+                        success: res => {},
+                    })
+                },
+                fail: function (res) { },
+                complete: function (res) { },
+            })
+           
           // wx.navigateBack({
           //   delta: 1,
           //   success: function (res) { 

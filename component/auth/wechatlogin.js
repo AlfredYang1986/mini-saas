@@ -92,7 +92,8 @@ Component({
     getPhoneNumber(e) {
       if (e.detail.errMsg == "getPhoneNumber:ok") {
         var lm = require('../../models/bm_applyee_schema.js');
-        let result = lm.decryptedPhoneNumber(e.detail.encryptedData, e.detail.iv)
+        let encryptedData = e.detail.encryptedData.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
+        let result = lm.decryptedPhoneNumber(encryptedData, e.detail.iv)
         console.log(result)
 
         let that = this

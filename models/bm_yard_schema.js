@@ -24,9 +24,9 @@ function queryYard(yardid, callback) {
   let token = wx.getStorageSync('dd_token')
 
   let config = require('./bm_config.js');
-  wx.showLoading({
-    title: '加载中',
-  });
+//   wx.showLoading({
+//     title: '加载中',
+//   });
   wx.request({
     url: config.bm_service_host + '/api/v1/findyard/0',
     data: dt,
@@ -48,7 +48,7 @@ function queryYard(yardid, callback) {
       callback.onFail(err)
     },
     complete() {
-      wx.hideLoading();
+    //   wx.hideLoading();
       console.log('complete!!!')
     }
   })

@@ -26,9 +26,9 @@ function queryMultiExps(callback) {
   let token = wx.getStorageSync('dd_token');
 
   var config = require('./bm_config.js')
-  wx.showLoading({
-      title: '加载中',
-  });
+//   wx.showLoading({
+//       title: '加载中',
+//   });
   console.log('mother fucker');
 	wx.request({
     url: config.bm_service_host + '/api/v1/findreservablemulti/0',
@@ -53,7 +53,7 @@ function queryMultiExps(callback) {
 			callback.onFail(err)
 		},
 		complete() {
-      wx.hideLoading();
+    //   wx.hideLoading();
 		  console.log('complete!!!')
 		}
 	})

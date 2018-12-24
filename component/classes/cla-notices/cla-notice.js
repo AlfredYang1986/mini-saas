@@ -8,7 +8,6 @@ Component({
       type: "Array",
       value: [],
       observer: function (news, olds, path) {
-          debugger
         let that = this;
         if(news != null) {
             if (news.SessionInfo.accompany == 1) {

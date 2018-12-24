@@ -28,9 +28,9 @@ function queryMultiActvs(callback) {
 
   let config = require('./bm_config.js')
 
-  wx.showLoading({
-    title: '加载中',
-  });
+//   wx.showLoading({
+//     title: '加载中',
+//   });
   wx.request({
     method: 'POST',
     url: config.bm_service_host + '/api/v1/findreservablemulti/0',
@@ -53,7 +53,7 @@ function queryMultiActvs(callback) {
       callback.onFail(err)
     },
     complete() {
-      wx.hideLoading();
+    //   wx.hideLoading();
       console.log('complete!!!')
     }
   })
@@ -119,9 +119,9 @@ function queryActvInfo(actvid, callback) {
   console.log('token: ' + token)
 
   let config = require('./bm_config.js');
-  wx.showLoading({
-    title: '加载中',
-  });
+//   wx.showLoading({
+//     title: '加载中',
+//   });
   wx.request({
     url: config.bm_service_host + '/api/v1/findreservable/0',
     data: dt,
@@ -143,7 +143,7 @@ function queryActvInfo(actvid, callback) {
       callback.onFail(err)
     },
     complete() {
-      wx.hideLoading();
+    //   wx.hideLoading();
       console.log('complete!!!')
     }
   })
