@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "wechatlogin": "/component/auth/wechatlogin"
+    "wechatlogin": "/component/auth/wechatlogin",
+    "brand-card": "/component/common/brand-card/brand-card"
   }
 }

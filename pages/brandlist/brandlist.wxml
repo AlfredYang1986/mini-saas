@@ -1,0 +1,10 @@
+<view class='content'>
+    <view class='title-area'>
+        <text class='title'>咚哒，甄选素质教育服务</text>
+        <text class='subtitle'>与您一起发现孩子发展的无限可能</text>
+    </view>
+    <view class='brand-card'>
+        <brand-card bindtap="showBrandDetail"></brand-card>
+    </view>
+</view>
+    

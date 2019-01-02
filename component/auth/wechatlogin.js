@@ -34,7 +34,8 @@ Component({
             } else if (tmp.startsWith('pre')) {
               dir = '/pages/preregister/preregister'
             }else {
-              dir = '/pages/brand/info/info'
+            //   dir = '/pages/brand/info/info'
+                dir = '/pages/brandlist/brandlist'
             }
             wx.redirectTo({
               url: dir,

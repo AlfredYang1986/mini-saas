@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+        "brand-card": "/component/common/brand-card/brand-card"
+    }
+}
