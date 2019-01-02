@@ -12,11 +12,9 @@
 
 <view class="drawer_screen" bindtap="" data-statu="close" wx:if="{{showModalStatus}}"></view>
 <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
-  <!-- <view class="drawer_title">弹窗标题</view> -->
   <view class='bg-img'>
     <image src='{{bgImg}}' ></image>
   </view>
-  <!-- <view class="btn_ok" bindtap="powerDrawer" data-statu="close">授权发现更多精彩</view> --> 
   <block wx:if='{{dongda}}'>
   <view class="btn_ok" bindtap="direct2BrandInfo" data-statu="close">授权发现更多精彩</view>
   </block>

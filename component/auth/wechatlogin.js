@@ -21,8 +21,8 @@ Component({
         console.log(newValue); // name改变时，调用该方法输出新值。
         if (newValue) {
           let uinfo = wx.getStorageSync('dd_uinfo');
-          let phoneno = wx.getStorageSync('dd_phoneno');
-          if (uinfo != '' && phoneno != '') {
+        //   let phoneno = wx.getStorageSync('dd_phoneno');
+          if (uinfo != '' /* && phoneno != ''*/) {
             let tmp = wx.getStorageSync('qr_page')
             let tid = wx.getStorageSync('qr_page_id')
             let dir = ''
@@ -83,9 +83,33 @@ Component({
             lm.pushApplee(openid, e.detail.userInfo, "", callback);
         } else {
             wx.setStorageSync('dd_uinfo', JSON.stringify(e.detail.userInfo));
-            this.setData({
-                showModalStatus: true,
-          })
+        //     this.setData({
+        //         showModalStatus: true,
+        //   })
+            var lm = require('../../models/bm_applyee_schema.js');
+            let encryptedData = e.detail.encryptedData.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
+            // let result = lm.decryptedPhoneNumber(encryptedData, e.detail.iv)
+            // console.log(result)
+
+            let that = this
+            let callback = {
+                onPushSuccess: function () {
+                    getApp().onLoginSuccess = true;
+                    wx.hideLoading();
+                },
+                onPushFail: function () {
+                    console.log('push failed');
+                    wx.hideLoading();
+                }
+            }
+
+            let openid = wx.getStorageSync('dd_open_id')
+            var lm = require('../../models/bm_applyee_schema.js');
+            let uinfo = JSON.parse(wx.getStorageSync('dd_uinfo'));
+            // wx.setStorageSync('dd_phoneno', result.purePhoneNumber);
+            // wx.setStorageSync('dd_phoneno', '12345');
+            // lm.pushApplee(openid, uinfo, result.purePhoneNumber, callback);
+            lm.pushApplee(openid, uinfo, '12345', callback);
         }
       }
     },
@@ -93,8 +117,8 @@ Component({
       if (e.detail.errMsg == "getPhoneNumber:ok") {
         var lm = require('../../models/bm_applyee_schema.js');
         let encryptedData = e.detail.encryptedData.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
-        let result = lm.decryptedPhoneNumber(encryptedData, e.detail.iv)
-        console.log(result)
+        // let result = lm.decryptedPhoneNumber(encryptedData, e.detail.iv)
+        // console.log(result)
 
         let that = this
         let callback = {
@@ -111,10 +135,10 @@ Component({
         let openid = wx.getStorageSync('dd_open_id')
         var lm = require('../../models/bm_applyee_schema.js');
         let uinfo = JSON.parse(wx.getStorageSync('dd_uinfo'));
-        wx.setStorageSync('dd_phoneno', result.purePhoneNumber);
+        // wx.setStorageSync('dd_phoneno', result.purePhoneNumber);
         // wx.setStorageSync('dd_phoneno', '12345');
-        lm.pushApplee(openid, uinfo, result.purePhoneNumber, callback);
-        // lm.pushApplee(openid, uinfo, '12345', callback);
+        // lm.pushApplee(openid, uinfo, result.purePhoneNumber, callback);
+        lm.pushApplee(openid, uinfo, '12345', callback);
       }
     },
 
