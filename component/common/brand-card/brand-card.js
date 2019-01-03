@@ -4,7 +4,16 @@ Component({
      * 组件的属性列表
      */
     properties: {
-
+        list: {
+            type: "Array",
+            value: [],
+            observer: function (news, olds, path) {
+                console.log(news)
+                this.setData({
+                    list: news
+                })
+            }
+        }
     },
 
     /**

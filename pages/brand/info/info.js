@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    mername: "百造PACEE",
     brand:{
       logobg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/logo_bg.png",
       logourl:"https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/logo%403x.png",
@@ -44,6 +45,8 @@ Page({
     }
 
     var that = this;
+    debugger
+   
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
@@ -109,8 +112,14 @@ Page({
         let logo = res.logo;
         res.newLogo = client.signatureUrl(logo);
         that.setData({
-          brandInfo: res,
+            brandInfo: res,
+            mername: res.subtitle
         })
+
+        wx.setNavigationBarTitle({
+            title: that.data.mername//页面标题为路由参数
+        })
+
       },
       onFail: function (err) {
         // TODO : 报错 ...

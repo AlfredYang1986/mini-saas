@@ -41,7 +41,7 @@
   position: fixed;
   z-index: 1001;
   background: #fff;
-  margin-top: -60%;
+  /* margin-top: -60%; */
   border-radius: 6rpx;
   display: flex;
   flex-direction: column;

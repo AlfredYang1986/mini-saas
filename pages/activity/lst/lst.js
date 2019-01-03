@@ -53,7 +53,7 @@ Page({
     bmactvs.queryMultiActvs(callback)
     
     wx.stopPullDownRefresh();
-		wx.hideNavigationBarLoading();
+    wx.hideNavigationBarLoading();
   },
 
   /**

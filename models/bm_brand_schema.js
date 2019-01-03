@@ -1,6 +1,7 @@
 import { JsonApiDataStore } from '../miniprogram_npm/jsonapi-datastore/index.js'
 
 var bmstore = new JsonApiDataStore();
+var bmmulti = new JsonApiDataStore();
 
 function guid() {
   function s4() {
@@ -9,6 +10,85 @@ function guid() {
       .substring(1);
   }
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+}
+
+function queryMultiBrands(callback) {
+    bmmulti.reset();
+
+    let query_yard_payload = genMultiBrands();
+    let rd = bmmulti.sync(query_yard_payload);
+    let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()));
+    let brand = rd.Fmcond.serialize();
+    rd_tmp['included'] = [brand.data];
+
+    let dt = JSON.stringify(rd_tmp);
+
+    let token = wx.getStorageSync('dd_token');
+    console.log('token: ' + token)
+
+    let config = require('./bm_config.js')
+
+      wx.showLoading({
+        title: '加载中',
+      });
+    wx.request({
+        method: 'POST',
+        url: config.bm_service_host + '/api/v1/findbrandmulti/0',
+        header: {
+            'Content-Type': 'application/json', // 默认值
+            'Accept': 'application/json',
+            'Authorization': 'bearer ' + token
+        },
+        data: dt,
+        success(res) {
+            var json = JSON.stringify(res.data)
+            json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
+            var dealedJson = JSON.parse(json)
+            let result = bmmulti.sync(dealedJson)
+            console.log(result)
+            callback.onSuccess(result)
+        },
+        fail(err) {
+            console.log(err)
+            callback.onFail(err)
+        },
+        complete() {
+            wx.hideLoading();
+            console.log('complete!!!')
+        }
+    })
+}
+
+function genMultiBrands() {
+    let fm = guid();
+    return {
+        data: {
+            id: guid(),
+            type: "Request",
+            attributes: {
+                res: "BmBrand"
+            },
+            relationships: {
+                "Fmcond": {
+                    "data":
+                        {
+                            "id": fm,
+                            "type": "Fmcond"
+                        }
+                }
+            }
+        },
+        included: [
+            {
+                "id": fm,
+                "type": "Fmcond",
+                "attributes": {
+                    page: 0,
+                    take: 0,
+                }
+            } 
+        ]
+    }
 }
 
 
@@ -90,5 +170,6 @@ function genIdQuery(tmpid) {
 }
 
 module.exports = {
-  queryBrand: queryBrand
+    queryMultiBrands: queryMultiBrands,
+    queryBrand: queryBrand
 }
