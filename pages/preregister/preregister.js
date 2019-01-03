@@ -66,6 +66,10 @@ Page({
     ks.bmstoreReset();
     wx.removeStorageSync('kids');
     nowDate = Date.parse(new Date());  
+
+      wx.setNavigationBarTitle({
+          title: wx.getStorageSync('mername')//页面标题为路由参数
+      })
   },
 
   /**

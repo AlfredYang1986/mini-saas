@@ -45,8 +45,6 @@ Page({
     }
 
     var that = this;
-    debugger
-   
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
@@ -115,9 +113,13 @@ Page({
             brandInfo: res,
             mername: res.subtitle
         })
+        wx.setStorage({
+            key: "mername",
+            data: res.subtitle
+        })
 
         wx.setNavigationBarTitle({
-            title: that.data.mername//页面标题为路由参数
+            title: wx.getStorageSync('mername')//页面标题为路由参数
         })
 
       },

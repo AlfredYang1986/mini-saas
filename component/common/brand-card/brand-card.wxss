@@ -4,7 +4,7 @@
     margin-bottom: 64rpx;
     min-height: 414rpx;
     border-radius: 20rpx;
-    background-image: url('https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/04b3967b-fe94-4158-a18c-342819e01988.jpg');
+    background-image: url('https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_brandcard-bg%402x.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: 0 20rpx 24rpx 0 rgba(39,51,86,0.22);

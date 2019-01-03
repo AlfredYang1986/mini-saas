@@ -124,6 +124,10 @@ Page({
     }
     var bmexp = require('../../../models/bm_exp_schema.js')
     bmexp.queryExpInfo(options.expid, callback)
+
+      wx.setNavigationBarTitle({
+          title: wx.getStorageSync('mername')//页面标题为路由参数
+      })
   },
 
   /**

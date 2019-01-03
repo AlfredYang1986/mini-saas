@@ -56,6 +56,10 @@ Page({
 
 		wx.stopPullDownRefresh();
 		wx.hideNavigationBarLoading();
+
+        wx.setNavigationBarTitle({
+            title: wx.getStorageSync('mername')//页面标题为路由参数
+        })
 	},
 
 	/**

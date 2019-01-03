@@ -88,6 +88,10 @@ Page({
     }
     var bmyard = require('../../../models/bm_yard_schema.js')
     bmyard.queryYard(options.yardid, callback)
+
+      wx.setNavigationBarTitle({
+          title: wx.getStorageSync('mername')//页面标题为路由参数
+      })
   },
 
   /**

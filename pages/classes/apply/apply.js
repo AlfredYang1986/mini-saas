@@ -66,6 +66,9 @@ Page({
       haveChild: true
     })
 
+    wx.setNavigationBarTitle({
+        title: wx.getStorageSync('mername')//页面标题为路由参数
+    })
   },
 
   /**

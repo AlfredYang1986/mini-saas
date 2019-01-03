@@ -19,7 +19,8 @@ function queryMultiBrands(callback) {
     let rd = bmmulti.sync(query_yard_payload);
     let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()));
     let brand = rd.Fmcond.serialize();
-    rd_tmp['included'] = [brand.data];
+    let nebrand = rd.Necond[0].serialize();
+    rd_tmp['included'] = [brand.data, nebrand.data];
 
     let dt = JSON.stringify(rd_tmp);
 
@@ -61,6 +62,7 @@ function queryMultiBrands(callback) {
 
 function genMultiBrands() {
     let fm = guid();
+    let ne = guid();
     return {
         data: {
             id: guid(),
@@ -75,6 +77,14 @@ function genMultiBrands() {
                             "id": fm,
                             "type": "Fmcond"
                         }
+                },
+                "Necond":{
+                    "data": [
+                        {
+                            "id": ne,
+                            "type": "Necond"
+                        }
+                    ]
                 }
             }
         },
@@ -85,6 +95,14 @@ function genMultiBrands() {
                 "attributes": {
                     page: 0,
                     take: 0,
+                }
+            },
+            {
+                "id": ne,
+                "type": "Necond",
+                "attributes": {
+                    key: "id",
+                    val: "5c19bbce25c6b0000188f4bc"
                 }
             } 
         ]

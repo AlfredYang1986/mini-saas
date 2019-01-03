@@ -4,7 +4,7 @@
         <text class='subtitle'>与您一起发现孩子发展的无限可能</text>
     </view>
     <view class='brand-card'>
-        <brand-card list="{{brandList}}" bindtap="showBrandDetail"></brand-card>
+        <brand-card list="{{brandList}}"></brand-card>
     </view>
 </view>
     

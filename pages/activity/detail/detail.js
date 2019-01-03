@@ -154,6 +154,10 @@ Page({
     }
     var bmactv = require('../../../models/bm_actv_schema.js')
     bmactv.queryActvInfo(options.actvid, callback)
+    
+    wx.setNavigationBarTitle({
+        title: wx.getStorageSync('mername')//页面标题为路由参数
+    })
   },
 
   /**

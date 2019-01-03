@@ -1,5 +1,5 @@
 <!--component/common/brand-card/brand-card.wxml-->
-<view wx:for='{{list}}'>
+<view wx:for='{{list}}' data-brandid="{{item.id}}" bindtap="showBrandDetail">
     <view class='brand-card'>
         <view class='bg'>
             <view class='card-content'>

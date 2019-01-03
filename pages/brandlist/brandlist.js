@@ -91,7 +91,7 @@ Page({
 
     },
 
-    showBrandDetail: function() {
+    showBrandDetail: function(event) {
         wx.navigateTo({
             url: '/pages/brand/info/info',
         })

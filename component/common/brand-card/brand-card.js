@@ -27,6 +27,15 @@ Component({
      * 组件的方法列表
      */
     methods: {
+        showBrandDetail: function (event) {
+            wx.navigateTo({
+                url: '/pages/brand/info/info',
+            })
 
+            wx.setStorage({
+                key: "brandid",
+                data: event.currentTarget.dataset.brandid
+            })
+        }
     }
 })
