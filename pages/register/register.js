@@ -15,16 +15,20 @@ Page({
   /**
   * 生命周期函数--监听页面加载
   */
-  onLoad: function (options) {
+onLoad: function (options) {
     let tmp = options.redir
     console.log('tmp: ', tmp)
     if (tmp) {
-      wx.setStorageSync('qr_page', tmp)
+        wx.setStorageSync('qr_page', tmp)
     }
     let tid = options.reservableid
     console.log('tid: ', tid)
     if (tid) {
-      wx.setStorageSync('qr_page_id', tid)
+        wx.setStorageSync('qr_page_id', tid)
+    }
+    let brandid = options.brandid
+    if (brandid) {
+        wx.setStorageSync('brandid', brandid)
     }
   },
 
