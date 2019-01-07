@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+      "service-card": "/component/user/service-card/service-card"
+  }
+}

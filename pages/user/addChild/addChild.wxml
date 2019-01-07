@@ -1,0 +1,46 @@
+<!--pages/user/addChild/addChild.wxml-->
+<view class='content-page'>
+    <view class='info-list'>
+        <view class='list-area'>
+            <view class='list'>
+                <view class='title'>孩子姓名</view>
+                <input placeholder='请输入孩子姓名'></input>
+            </view>
+            <view class='list'>
+                <view class='title'>选择生日</view>
+                <view class="section">
+                    <!-- <view class="section__title">日期选择器</view> -->
+                    <picker
+                        mode="date"
+                        value="{{date}}"
+                        start="2000-09-01"
+                        end="nowdate"
+                        bindchange="bindDateChange"
+                    >
+                        <view class="picker">{{date}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class='list'>
+                <view class='title'>孩子性别</view>
+                <radio-group class="radio-group rela-radio-group" bindchange="sexRadioChange">
+                    <label class="radio rela-radio" wx:for="{{sex}}">
+                        <radio value="{{sex.name}}" checked="{{sex.checked}}" class='redio-dot'/>{{item.value}}
+                    </label>
+                </radio-group>
+            </view>
+            <view class='list'>
+                <view class='title'>亲子关系</view>
+                <radio-group class="radio-group rela-radio-group" bindchange="radioChange">
+                    <label class="radio rela-radio" wx:for="{{rela}}">
+                        <radio value="{{rela.name}}" checked="{{rela.checked}}" class='redio-dot'/>{{item.value}}
+                    </label>
+                </radio-group>
+            </view>
+        </view>
+    </view>
+    <view class='button-area'>
+        <button>保存</button>
+        <a>删除孩子</a>
+    </view>
+</view>

@@ -1,0 +1,9 @@
+<!--pages/user/manageChild/manageChild.wxml-->
+<view class='content-page'>
+    <view class='child-list'>
+        <child-card bindtap='addChild'></child-card>
+    </view>
+    <view class='add-child'>
+        <button bindtap='addChild'>+ 新增孩子</button>
+    </view>
+</view>

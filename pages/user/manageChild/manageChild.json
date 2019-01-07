@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+      "child-card": "/component/user/child-card/child-card"
+  }
+}

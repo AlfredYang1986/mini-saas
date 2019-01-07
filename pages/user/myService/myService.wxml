@@ -1,0 +1,6 @@
+<!--pages/user/myService/myService.wxml-->
+<view class='content-page'>
+    <view class='card-list'>
+        <service-card bindtap="serviceDetail"></service-card>
+    </view>
+</view>

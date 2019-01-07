@@ -1,0 +1,13 @@
+<!--component/user/child-card/child-card.wxml-->
+<view class='child-card' wx:for='{{child}}'>
+    <view class='base-info'>
+         <view class='name'>{{item.name}}</view>
+            <view class='age'>
+                <text>{{item.age}}</text>
+                <text>{{item.sex}}</text>
+            </view>
+    </view>
+     <view class='enter'>
+        <image src='{{item.icon}}'></image>
+    </view>
+</view>

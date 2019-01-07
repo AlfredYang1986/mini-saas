@@ -1,0 +1,58 @@
+/* pages/user/user.wxss */
+.content-page {
+    padding: 48rpx 40rpx;
+    display: flex;
+    flex-direction: column;
+}
+.head-area {
+    margin-bottom: 48rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    background-image: url("https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_user-card-bg.png");
+    width: 670rpx;
+    height: 302rpx;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20rpx;
+}
+.head-area .head-img {
+    margin-left: 50rpx;
+    margin-right: 32rpx;
+    width: 112rpx;
+    height: 112rpx;
+}
+.head-img image {
+    width: 112rpx;
+    height: 112rpx;
+    border-radius: 50%;
+}
+.head-area .head-name {
+    font-family: PingFangSC-Medium;
+    font-size: 20px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.list-area {
+    border-top: 1px solid #f2f2f2;
+    padding-top: 48rpx;
+}
+.list-area .list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 88rpx;
+}
+.list .enter-icon image {
+    width: 44rpx;
+    height: 44rpx;
+}
+.list .name {
+    font-family: PingFangSC-Medium;
+    font-size: 14px;
+    color: #262626;
+    font-weight: bold;
+}

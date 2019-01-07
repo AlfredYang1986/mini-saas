@@ -11,7 +11,12 @@
         "pages/activity/lst/lst",
         "pages/activity/apply/apply",
         "pages/locations/details/details",
-        "pages/brandlist/brandlist"
+        "pages/brandlist/brandlist",
+        "pages/user/user-info/user-info",
+        "pages/user/myService/myService",
+        "pages/user/manageChild/manageChild",
+        "pages/user/addChild/addChild",
+        "pages/user/serviceDetail/serviceDetail"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -19,5 +24,21 @@
         "navigationBarTitleText": "咚哒精选",
         "navigationBarTextStyle": "black",
         "backgroundColor": "#f7f7f7"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/register/register",
+                "text": "发现",
+                "iconPath": "./utils/image/home.png",
+                "selectedIconPath": "./utils/image/homeselected.png"
+            },
+            {
+                "pagePath": "pages/user/user-info/user-info",
+                "text": "我",
+                "iconPath": "./utils/image/mine.png",
+                "selectedIconPath": "./utils/image/mineselected.png"
+            }
+        ]
     }
 }

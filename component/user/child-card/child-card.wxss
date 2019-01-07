@@ -1,0 +1,33 @@
+/* component/user/child-card/child-card.wxss */
+.child-card {
+    padding-bottom: 32rpx;
+    padding-top: 32rpx;
+    border-bottom: 1px solid #f2f2f2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.base-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.base-info .name {
+    margin-right: 48rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 28rpx;
+    color: #262626;
+    font-weight: bold;
+}
+.base-info .age {
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #595959;
+}
+.age text {
+    margin-right: 32rpx;
+}
+.enter image {
+    width: 44rpx;
+    height: 44rpx;
+}

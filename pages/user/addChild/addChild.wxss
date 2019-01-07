@@ -1,0 +1,79 @@
+/* pages/user/addChild/addChild.wxss */
+page {
+    height: 100%;
+}
+.content-page {
+    height: 100%;
+    background-color: #f7f8fb;
+}
+.info-list {
+    padding: 40rpx;
+}
+.list-area {
+    background-color: #ffffff;
+}
+.list {
+    margin: 0 32rpx;
+    border-bottom: 1rpx solid #f2f2f2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 104rpx;
+}
+.list .title {
+    width: 112rpx;
+    margin-right: 32rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 28rpx;
+    color: #262626;
+    font-weight: bold;
+}
+.list input {
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #595959;
+}
+.list .section picker {
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #595959;
+}
+.list .rela-radio-group {
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #595959;
+    display: flex;
+    flex-direction: row;
+}
+.rela-radio-group .radio {
+    margin-right: 48rpx;
+    height: 48rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.button-area {
+    padding: 40rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.button-area button {
+    margin-bottom: 52rpx;
+    width: 100%;
+    height: 80rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: #80AEFF;
+    border-radius: 4px;
+    font-family: PingFangSC-Medium;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+.button-area a {
+    font-family: PingFangSC-Medium;
+    font-size: 14px;
+    color: #F54A32;
+}

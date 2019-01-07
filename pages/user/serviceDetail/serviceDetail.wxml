@@ -1,0 +1,29 @@
+<!--pages/user/serviceDetail/serviceDetail.wxml-->
+<view class='content-page'>
+    <view class='info-card'>
+        <view class='title'></view>
+        <view class='time-title'></view>
+        <view class='time'></view>
+    </view>
+    <view class='list-card'>
+        <view class='list-info'>
+            <view class='title-area'>
+                <view class='title'></view>
+                <view class='address'></view>
+            </view>
+            <view class='add-icon'>
+                <image></image>
+            </view>
+        </view>
+        <view class='note'>
+            <view class='note-icon'>
+                <image></image>
+            </view>
+            <view class='note-text'></view>
+        </view>
+        <view class='phone'>
+            <view class='phone-icon'></view>
+            <view class='phone-text'></view>
+        </view>
+    </view>
+</view>    
