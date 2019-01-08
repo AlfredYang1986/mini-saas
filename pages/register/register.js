@@ -4,6 +4,8 @@ var OSS = require('../../models/ali-oss.js')
 //导入模块：组件wechatlogin
 const loginComponent = require('../../component/auth/wechatlogin.js');
 //合并导入模块
+const App = getApp();
+
 Page(Object.assign({}, loginComponent,{
   /**
   * 页面的初始数据
@@ -21,6 +23,9 @@ Page(Object.assign({}, loginComponent,{
   * 生命周期函数--监听页面加载
   */
 onLoad: function (options) {
+    this.setData({
+      navH: App.globalData.navHeight
+    })
     let tmp = options.redir
     console.log('tmp: ', tmp)
     if (tmp) {

@@ -1,6 +1,9 @@
 //app.js
 App({
   onLoginSuccess: false,
+  globalData: {
+    navHeight: 0
+  },
   onLaunch: function () {
     var lm = require('/models/bm_applyee_schema.js');
     let that = this
@@ -36,6 +39,16 @@ App({
     }
     // lm.wechatLogin(callback);
     lm.checkWechatSession(callback);
+
+    wx.getSystemInfo({
+      success: res => {
+        //导航高度
+        console.log(res.statusBarHeight)
+        this.globalData.navHeight = res.statusBarHeight + 64;
+      }, fail(err) {
+        console.log(err);
+      }
+    })
   },
 
   setLoginSuccessWatcher(watch) { // 接收index.js传过来的data对象和watch对象

@@ -37,5 +37,8 @@
                 "selectedIconPath": "./utils/image/mineselected.png"
             }
         ]
+    },
+    "globalData": {
+        "navHeight": 0
     }
 }
