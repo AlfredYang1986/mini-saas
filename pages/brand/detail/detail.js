@@ -66,8 +66,8 @@ Page({
     var bmbrand = require('../../../models/bm_brand_schema.js')
     bmbrand.queryBrand(options.brandid, callback)
 
-    wx.setNavigationBarTitle({
-        title: wx.getStorageSync('mername')//页面标题为路由参数
+    that.setData({
+      bar: wx.getStorageSync('mername')
     })
   },
 

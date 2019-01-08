@@ -28,7 +28,7 @@ Component({
      */
     methods: {
         showBrandDetail: function (event) {
-            wx.navigateTo({
+            wx.switchTab({
                 url: '/pages/brand/info/info',
             })
 

@@ -67,8 +67,8 @@ Page({
     wx.removeStorageSync('kids');
     nowDate = Date.parse(new Date());  
 
-    wx.setNavigationBarTitle({
-        title: wx.getStorageSync('mername')//页面标题为路由参数
+    this.setData({
+      bar: wx.getStorageSync('mername')
     })
   },
 

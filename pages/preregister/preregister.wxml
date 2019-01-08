@@ -1,4 +1,5 @@
 <!--pages/preregister/preregister.wxml-->
+<navigation-bar noback='true' title='{{bar}}'></navigation-bar>
 <view class='content-page'>
   <view class='logo'>
     <image src='{{logo}}'></image>

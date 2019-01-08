@@ -1,3 +1,4 @@
+<navigation-bar title='{{bar}}'></navigation-bar>
 <view class='content-page'>
   <brand-detail brand="{{brand}}"></brand-detail>
 </view>

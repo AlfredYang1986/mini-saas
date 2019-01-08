@@ -1,44 +1,47 @@
 <!--pages/class-lst/class-detail/class-detail.wxml-->
+<view class='back'>
+    <image class='back_icon' src='{{backIcon}}' bindtap='goBack'></image>
+</view>
 <view class="clsdet-container">
-  <view class="clsdet-component">
-    <clsimg exp="{{exp}}"></clsimg>
-  </view>
-
-  <view class='clsdet-component'>
-    <cls-info exp="{{exp}}"></cls-info>
-  </view>
-
-  <view class='clsdet-component' wx:if='{{reward}}'>
-    <cls-reward exp="{{exp}}"></cls-reward>
-  </view>
-
-  <view class='clsdet-component'>
-    <view class="clsdet-component" wx:if='{{hide}}'>
-      <clsabout exp="{{exp}}"></clsabout>
+    <view class="clsdet-component">
+        <clsimg exp="{{exp}}"></clsimg>
     </view>
-  </view>
 
-  <view class='clsdet-component' wx:if='{{remarks}}'>
-    <cls-remarks exp="{{exp}}"></cls-remarks>
-  </view>
-
-  <view class='clsdet-component'>
-    <view class='notices'>
-      <cls-notice exp="{{exp}}"></cls-notice>
+    <view class='clsdet-component'>
+        <cls-info exp="{{exp}}"></cls-info>
     </view>
-  </view>
 
-   <view class='clsdet-component'>
-    <view class='scroll'>
-      <cls-scroll exp="{{exp}}"></cls-scroll>
+    <view class='clsdet-component' wx:if='{{reward}}'>
+        <cls-reward exp="{{exp}}"></cls-reward>
     </view>
-  </view>
 
-  <view class='clsdet-component'>
-    <view class='facility'>
-      <cls-facility exp="{{exp}}"></cls-facility>
+    <view class='clsdet-component'>
+        <view class="clsdet-component" wx:if='{{hide}}'>
+            <clsabout exp="{{exp}}"></clsabout>
+        </view>
     </view>
-  </view>
+
+    <view class='clsdet-component' wx:if='{{remarks}}'>
+        <cls-remarks exp="{{exp}}"></cls-remarks>
+    </view>
+
+    <view class='clsdet-component'>
+        <view class='notices'>
+            <cls-notice exp="{{exp}}"></cls-notice>
+        </view>
+    </view>
+
+    <view class='clsdet-component'>
+        <view class='scroll'>
+            <cls-scroll exp="{{exp}}"></cls-scroll>
+        </view>
+    </view>
+
+    <view class='clsdet-component'>
+        <view class='facility'>
+            <cls-facility exp="{{exp}}"></cls-facility>
+        </view>
+    </view>
 
 </view>
 

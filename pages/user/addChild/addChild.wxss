@@ -46,7 +46,7 @@ page {
     flex-direction: row;
 }
 .rela-radio-group .radio {
-    margin-right: 48rpx;
+    margin-right: 24rpx;
     height: 48rpx;
     display: flex;
     flex-direction: row;

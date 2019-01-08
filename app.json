@@ -20,15 +20,12 @@
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "咚哒精选",
-        "navigationBarTextStyle": "black",
-        "backgroundColor": "#f7f7f7"
+        "navigationStyle": "custom"
     },
     "tabBar": {
         "list": [
             {
-                "pagePath": "pages/register/register",
+                "pagePath": "pages/brand/info/info",
                 "text": "发现",
                 "iconPath": "./utils/image/home.png",
                 "selectedIconPath": "./utils/image/homeselected.png"

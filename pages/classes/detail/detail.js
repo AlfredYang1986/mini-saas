@@ -22,6 +22,7 @@ Page({
     reward: true,
     remarks: true,
     notice: true,
+    backIcon: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_back_light%402x.png",
   },
 
   showAll: function (e) {
@@ -125,9 +126,9 @@ Page({
     var bmexp = require('../../../models/bm_exp_schema.js')
     bmexp.queryExpInfo(options.expid, callback)
 
-      wx.setNavigationBarTitle({
-          title: wx.getStorageSync('mername')//页面标题为路由参数
-      })
+    that.setData({
+      bar: wx.getStorageSync('mername')
+    })
   },
 
   /**
@@ -212,37 +213,44 @@ Page({
   },
 
 
-  hideModal: function (e) {
-    var that = this;
-    var animation = wx.createAnimation({
-      duration: 200,
-      timingFunction: 'linear'
-    })
-    that.animation = animation
-    animation.translateY(300).step()
-    that.setData({
-      animationData: animation.export()
+    hideModal: function (e) {
+        var that = this;
+        var animation = wx.createAnimation({
+            duration: 200,
+            timingFunction: 'linear'
+        })
+        that.animation = animation
+        animation.translateY(300).step()
+        that.setData({
+            animationData: animation.export()
 
-    })
-    setTimeout(function () {
-      animation.translateY(0).step()
-      that.setData({
-        animationData: animation.export(),
-        show: false,
-        hide: true,
-      })
-    }, 100)
-  },
-  
-  showSuccess: function(event) {
-    wx.navigateTo({
-      url: '../success/success',
-    })
-  },
-  apply: function(event) {
-    wx:wx.navigateTo({
-      url: '/pages/classes/apply/apply',
-    })
-  }
+        })
+        setTimeout(function () {
+            animation.translateY(0).step()
+            that.setData({
+            animationData: animation.export(),
+            show: false,
+            hide: true,
+            })
+        }, 100)
+    },
+
+    showSuccess: function(event) {
+        wx.navigateTo({
+            url: '../success/success',
+        })
+    },
+
+    apply: function(event) {
+        wx:wx.navigateTo({
+            url: '/pages/classes/apply/apply',
+        })
+    },
+
+    goBack: function () {
+        wx.navigateBack({
+            delta: 1
+        })
+    }
 
 })

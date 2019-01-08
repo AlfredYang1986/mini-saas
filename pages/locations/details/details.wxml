@@ -1,4 +1,5 @@
 <!--pages/locations/details/details.wxml-->
+<navigation-bar title='{{bar}}'></navigation-bar>
 <view class='content-page' yard='{{yard}}'>
   <view class='title-area'>
     <view class='title'>{{yard.title}}</view>

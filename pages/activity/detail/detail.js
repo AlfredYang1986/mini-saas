@@ -48,6 +48,7 @@ Page({
     reward: true,
     remarks: true,
     notice: true,
+    backIcon: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_back_light%402x.png",
   },
   showAll: function (e) {
     this.setData({
@@ -155,8 +156,8 @@ Page({
     var bmactv = require('../../../models/bm_actv_schema.js')
     bmactv.queryActvInfo(options.actvid, callback)
     
-    wx.setNavigationBarTitle({
-        title: wx.getStorageSync('mername')//页面标题为路由参数
+    that.setData({
+      bar: wx.getStorageSync('mername')
     })
   },
 
@@ -249,67 +250,73 @@ Page({
 
   },
 
-  hideModal: function (e) {
-    var that = this;
-    var animation = wx.createAnimation({
-      duration: 500,
-      timingFunction: 'linear'
-    })
-    that.animation = animation
-    animation.translateY(100).step()
-    that.setData({
-      animationData: animation.export()
+    hideModal: function (e) {
+        var that = this;
+        var animation = wx.createAnimation({
+            duration: 500,
+            timingFunction: 'linear'
+        })
+        that.animation = animation
+        animation.translateY(100).step()
+        that.setData({
+            animationData: animation.export()
 
-    })
-    setTimeout(function () {
-      animation.translateY(0).step()
-      that.setData({
-        animationData: animation.export(),
-        show: false,
-        hide: true,
-      })
-    }, 100)
-  },
+        })
+        setTimeout(function () {
+            animation.translateY(0).step()
+            that.setData({
+            animationData: animation.export(),
+            show: false,
+            hide: true,
+            })
+        }, 100)
+    },
 
-  showSuccess:function(evevt) {
-    wx.navigateTo({
-      url: '../success/success',
-    })
-  },
+    showSuccess:function(evevt) {
+        wx.navigateTo({
+            url: '../success/success',
+        })
+    },
 
-  selectTime:function(event) {
-    this.setData({
-      showTime:true,
-      showOthers: false,
-    })
-  },
+    selectTime:function(event) {
+        this.setData({
+            showTime:true,
+            showOthers: false,
+        })
+    },
 
-  hideTime:function(event) {
-    this.setData({
-      showTime:false,
-      showOthers:true,
-    })
-  },
+    hideTime:function(event) {
+        this.setData({
+            showTime:false,
+            showOthers:true,
+        })
+    },
 
-  showmap: function(event) {
-    wx.navigateTo({
-      url: '/pages/locations/detail/map/map',
-    })
-  },
+    showmap: function(event) {
+        wx.navigateTo({
+            url: '/pages/locations/detail/map/map',
+        })
+    },
 
-  choseColor:function(e) {
-    var id = e.currentTarget.dataset.id;  //获取自定义的ID值
-    this.setData({
-      id: id
-    })
-  },
+    choseColor:function(e) {
+        var id = e.currentTarget.dataset.id;  //获取自定义的ID值
+        this.setData({
+            id: id
+        })
+    },
 
-  applyPage:function(event) {
-    console.log(event)
-    let that = this;
-    let childid = event.currentTarget.dataset.id;
-    wx:wx.navigateTo({
-      url: '/pages/activity/apply/apply?childid=' + childid,
-    })
-  }
+    applyPage:function(event) {
+        console.log(event)
+        let that = this;
+        let childid = event.currentTarget.dataset.id;
+        wx:wx.navigateTo({
+            url: '/pages/activity/apply/apply?childid=' + childid,
+        })
+    },
+
+    goBack:function() {
+        wx.navigateBack({
+            delta: 1
+        })
+    }
 })

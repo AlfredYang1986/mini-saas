@@ -1,4 +1,5 @@
 <!--pages/user/user.wxml-->
+<navigation-bar title='{{bar}}' bindtap='backToList'></navigation-bar>
 <view class='content-page'>
     <view class='head-area'>
         <view class='head-img'>

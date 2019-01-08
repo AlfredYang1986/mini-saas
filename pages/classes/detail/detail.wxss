@@ -1,4 +1,16 @@
 /* pages/class-lst/class-detail/class-detail.wxss */
+.back {
+  position: absolute;
+  margin-top: 60rpx;
+  margin-left: 19rpx;
+  width:44rpx;
+  height:44rpx;   
+  z-index: 100;
+}
+image.back_icon {
+  width:44rpx;
+  height:44rpx;
+}
 .clsdet-container {
   padding-bottom: 100rpx;
   height: 1000rpx;

@@ -1,4 +1,5 @@
 <!--pages/user/manageChild/manageChild.wxml-->
+<navigation-bar title='{{bar}}'></navigation-bar>
 <view class='content-page'>
     <view class='child-list'>
         <child-card bindtap='addChild'></child-card>

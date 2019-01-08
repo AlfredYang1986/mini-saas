@@ -65,9 +65,7 @@ Page({
       nowDate: date,
       haveChild: true,
       phone: wx.getStorageSync('dd_phoneno'),
-    })
-    wx.setNavigationBarTitle({
-        title: wx.getStorageSync('mername')//页面标题为路由参数
+    bar: wx.getStorageSync('mername')
     })
   },
 

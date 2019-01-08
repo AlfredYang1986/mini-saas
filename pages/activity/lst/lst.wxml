@@ -1,8 +1,4 @@
-<!--pages/activity/lst/lst.wxml-->
-<!-- <view class='content-page'>
-  <server-list  bindtap='activityDetail'></server-list>
-</view> -->
- <view></view>
+<navigation-bar title='{{bar}}'></navigation-bar>
 <view class="cls-lst">
     <acti-lst isList="true" exps="{{actvs}}"></acti-lst>
 </view>

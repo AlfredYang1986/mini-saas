@@ -32,7 +32,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.setData({
+            bar: wx.getStorageSync('mername')
+        })
     },
 
     /**
@@ -82,5 +84,11 @@ Page({
      */
     onShareAppMessage: function () {
 
+    },
+
+    backToList() {
+        wx.redirectTo({
+            url: '/pages/brandlist/brandlist',
+        })
     }
 })

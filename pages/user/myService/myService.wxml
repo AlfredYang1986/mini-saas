@@ -1,5 +1,6 @@
 <!--pages/user/myService/myService.wxml-->
 <view class='content-page'>
+    <navigation-bar title='{{bar}}'></navigation-bar>
     <view class='card-list'>
         <service-card bindtap="serviceDetail"></service-card>
     </view>

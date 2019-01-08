@@ -6,7 +6,7 @@
   </view>
   <wechatlogin></wechatlogin>
 </view> -->
-
+<navigation-bar noback='true' title='{{bar}}'></navigation-bar>
 <view class='content'>
     <view class='title-area'>
         <text class='title'>咚哒，甄选素质教育服务</text>

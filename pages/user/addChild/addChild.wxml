@@ -1,5 +1,6 @@
 <!--pages/user/addChild/addChild.wxml-->
 <view class='content-page'>
+    <navigation-bar title='{{bar}}'></navigation-bar>
     <view class='info-list'>
         <view class='list-area'>
             <view class='list'>

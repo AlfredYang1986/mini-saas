@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "navigation-bar": "/component/common/navigation-bar/navigation-bar",
     "x-scroll-banner": "/component/location/x-scroll/x-scroll",
     "facility": "/component/common/facility/facility"
   }

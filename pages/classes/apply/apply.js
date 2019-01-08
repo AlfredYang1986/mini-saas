@@ -63,11 +63,8 @@ Page({
     this.setData({
       address: yard,
       nowDate: date,
-      haveChild: true
-    })
-
-    wx.setNavigationBarTitle({
-        title: wx.getStorageSync('mername')//页面标题为路由参数
+      haveChild: true,
+        bar: wx.getStorageSync('mername')
     })
   },
 

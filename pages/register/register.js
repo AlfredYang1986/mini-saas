@@ -13,7 +13,8 @@ Page(Object.assign({}, loginComponent,{
     logo: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E6%AC%A2%E8%BF%8E%E9%A1%B5logo%E6%9B%BF%E6%8D%A2.png",
     slogan: "百造学堂，一百种方法玩转知识",
     showModalStatus: true,
-    subLogo: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_dongdalogo26%403x.png"
+    subLogo: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_dongdalogo26%403x.png",
+    bar: "咚哒精选"
   },
 
   /**
@@ -112,13 +113,6 @@ onLoad: function (options) {
   onShareAppMessage: function (event) {
     
   },
-
-showBrandDetail: function (event) {
-    wx.navigateTo({
-        url: '/pages/brand/info/info',
-    })
-},
-
-
+  
 })
 )

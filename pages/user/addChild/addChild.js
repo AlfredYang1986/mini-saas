@@ -24,7 +24,8 @@ Page({
     onLoad: function (options) {
         let nowdate = this.getNowFormatDate();
         this.setData({
-            date: nowdate
+            date: nowdate,
+            bar: wx.getStorageSync('mername')
         })
     },
 

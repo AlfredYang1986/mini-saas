@@ -44,7 +44,10 @@ Component({
                     url: dir,
                 })
             }else {
-                console.log("register ")
+                dir = '/pages/brandlist/brandlist'
+                wx.redirectTo({
+                    url: dir,
+                })
             }
             
             wx.removeStorage({
@@ -75,9 +78,9 @@ Component({
         console.log(e.detail.userInfo);
         let callback = {
           onPushSuccess: function () {
-            that.setData({
-                'showModalStatus': false
-            })
+            // that.setData({
+            //     'showModalStatus': false
+            // })
             getApp().onLoginSuccess = true;
             wx.hideLoading();
           },
@@ -94,9 +97,6 @@ Component({
             lm.pushApplee(openid, e.detail.userInfo, "", callback);
         } else {
             wx.setStorageSync('dd_uinfo', JSON.stringify(e.detail.userInfo));
-        //     this.setData({
-        //         showModalStatus: true,
-        //   })
             var lm = require('../../models/bm_applyee_schema.js');
             let encryptedData = e.detail.encryptedData.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
             // let result = lm.decryptedPhoneNumber(encryptedData, e.detail.iv)
@@ -104,9 +104,9 @@ Component({
 
             let callback = {
                 onPushSuccess: function () {
-                    that.setData({
-                        'showModalStatus': false
-                    })
+                    // that.setData({
+                    //     'showModalStatus': false
+                    // })
                     getApp().onLoginSuccess = true;
                     wx.hideLoading();
                 },

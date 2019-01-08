@@ -1,7 +1,7 @@
 <!--pages/class-lst/class-lst.wxml-->
+<navigation-bar title='{{bar}}'></navigation-bar>
 <view class="cls-lst">
-	<class-lst isList="true" exps="{{exps}}" >
-  </class-lst>
+	<class-lst isList="true" exps="{{exps}}"></class-lst>
 </view>
 <view class='notice'>
 	<text>更多精选即将上线</text>

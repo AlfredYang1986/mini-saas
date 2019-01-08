@@ -118,10 +118,9 @@ Page({
             data: res.subtitle
         })
 
-        wx.setNavigationBarTitle({
-            title: wx.getStorageSync('mername')//页面标题为路由参数
+        that.setData({
+            bar: wx.getStorageSync('mername')
         })
-
       },
       onFail: function (err) {
         // TODO : 报错 ...
@@ -258,6 +257,12 @@ Page({
           console.log('二维码错误')
         }
       }
+    })
+  },
+
+  backToList() {
+     wx.redirectTo({
+        url: '/pages/brandlist/brandlist',
     })
   }
 })
