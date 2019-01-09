@@ -1,10 +1,6 @@
 // pages/info-two/info-two.js 
 var OSS = require('../../models/ali-oss.js')
-
-//导入模块：组件wechatlogin
-const loginComponent = require('../../component/auth/wechatlogin.js');
-//合并导入模块
-Page(Object.assign({}, loginComponent, {
+Page({
     /**
     * 页面的初始数据
     */
@@ -14,13 +10,21 @@ Page(Object.assign({}, loginComponent, {
         slogan: "百造学堂，一百种方法玩转知识",
         showModalStatus: true,
         subLogo: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_dongdalogo26%403x.png",
-        bar: "咚哒精选"
+        bar: "咚哒精选",
+        android: false,
+        iosX: false,
+        deviceHeight: getApp().globalData.deviceHeight,
     },
 
     /**
     * 生命周期函数--监听页面加载
     */
     onLoad: function (options) {
+        this.setData({
+          android: getApp().globalData.android,
+          iosX: getApp().globalData.iosX
+        });
+
         let tmp = options.redir
         console.log('tmp: ', tmp)
         if (tmp) {
@@ -115,4 +119,3 @@ Page(Object.assign({}, loginComponent, {
     },
 
 })
-)

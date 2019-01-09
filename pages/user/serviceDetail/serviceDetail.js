@@ -12,12 +12,19 @@ Page({
         mapIcon: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_map%402x.png",
         noteIcon: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_warning_border%402x.png",
         callIcon: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_call%402x.png",
+        android: false,
+        iosX: false,
+        deviceHeight: getApp().globalData.deviceHeight,
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.setData({
+          android: getApp().globalData.android,
+          iosX: getApp().globalData.iosX
+        });
         this.setData({
             bar: wx.getStorageSync('mername')
         })

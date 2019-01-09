@@ -16,6 +16,9 @@ Page({
             { name: '男生', value: '男生', },
             { name: '女生', value: '女生', },
         ],
+        android: false,
+        iosX: false,
+        deviceHeight: getApp().globalData.deviceHeight,
     },
 
     /**
@@ -25,7 +28,9 @@ Page({
         let nowdate = this.getNowFormatDate();
         this.setData({
             date: nowdate,
-            bar: wx.getStorageSync('mername')
+            bar: wx.getStorageSync('mername'),
+            android: getApp().globalData.android,
+            iosX: getApp().globalData.iosX
         })
     },
 

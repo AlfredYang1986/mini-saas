@@ -1,17 +1,11 @@
 <!--component/activities/acti-remarks/acti-remarks.wxml-->
 <view class='content about-margin'>
-<!-- <block wx:if="{{isRemarks == 'true'}}"> -->
   <view class='title'>将为宝贝提供</view>
-  <view class='lists'>
-    <text class='list'>{{exp.SessionInfo.inc}}</text>
+  <view class='lists' wx:for='{{exp.SessionInfo.inc}}'>
+    <view>
+       <text class='list-dot'>・</text>
+       <text class='list'>{{item}}</text>
+    </view>
+    
   </view>
-<!-- </block> -->
-<!-- <block wx:else>
-  <view class='lists'>
-    <text class='list'>· 初识机器人原理</text>
-    <text class='list'>· 了解基本结构</text>
-    <text class='list'>· 了解编程语言</text>
-    <text class='list'>· 动手搭建自己的机器人</text>
-  </view>
-</block> -->
 </view>

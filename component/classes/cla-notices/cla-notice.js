@@ -19,10 +19,15 @@ Component({
                     acc: "不需要家长陪同"
                 })
             }
-            if (news.SessionInfo.carrying == "") {
-            that.setData({
-              bring: false
-            })
+          if (news.SessionInfo.carrying == "" || news.SessionInfo.carrying == null ) {
+                that.setData({
+                  bring: false
+                })
+          }
+          if (news.SessionInfo.notice != '' && news.SessionInfo.notice != null) {
+              that.setData({
+                otherNotice: true
+              })
           }
         }
       }
@@ -46,6 +51,7 @@ Component({
     ],
     bring: true,
     notice: true,
+    otherNotice: false,
   },
 
   /**

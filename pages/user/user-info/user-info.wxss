@@ -24,19 +24,33 @@
     width: 112rpx;
     height: 112rpx;
 }
-.head-img image {
+.head-img {
     width: 112rpx;
     height: 112rpx;
     border-radius: 50%;
 }
+.headView {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 230rpx;
+    width: 230rpx;
+}
+.headView .icon {
+    position: absolute;
+    height: 112rpx;
+    width: 112rpx;
+    border-radius: 50%;
+    border: 25rpx solid #afd3fc;
+}
 .head-area .head-name {
     font-family: PingFangSC-Medium;
-    font-size: 20px;
+    font-size: 40rpx;
     color: #FFFFFF;
     font-weight: bold;
 }
 .list-area {
-    border-top: 1px solid #f2f2f2;
+    border-top: 1rpx solid #f2f2f2;
     padding-top: 48rpx;
 }
 .list-area .list {
@@ -52,7 +66,7 @@
 }
 .list .name {
     font-family: PingFangSC-Medium;
-    font-size: 14px;
+    font-size: 28rpx;
     color: #262626;
     font-weight: bold;
 }

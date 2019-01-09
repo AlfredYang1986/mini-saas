@@ -7,12 +7,20 @@ Page({
    */
   data: {
     actvs: null,
+    android: false,
+    iosX: false,
+    deviceHeight: getApp().globalData.deviceHeight,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      android: getApp().globalData.android,
+      iosX: getApp().globalData.iosX,
+      bar: wx.getStorageSync('mername')
+    });
     var lm = require('../../../models/bm_applyee_schema.js');
     if (!lm.checkIsLogin()) {
       wx.redirectTo({
@@ -55,9 +63,6 @@ Page({
     wx.stopPullDownRefresh();
     wx.hideNavigationBarLoading();
 
-    that.setData({
-      bar: wx.getStorageSync('mername')
-    })
   },
 
   /**

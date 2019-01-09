@@ -23,6 +23,9 @@ Page({
       { name: '其他', value: '其他' },
     ],
     logo: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E9%A2%84%E6%B3%A8%E5%86%8C%E8%A1%A8%E5%8D%95%E9%A1%B5logo%E6%9B%BF%E6%8D%A2.jpg",
+    android: false,
+    iosX: false,
+    deviceHeight: getApp().globalData.deviceHeight,
   },
 
   nameInput: function (e) {
@@ -66,10 +69,11 @@ Page({
     ks.bmstoreReset();
     wx.removeStorageSync('kids');
     nowDate = Date.parse(new Date());  
-
     this.setData({
+      android: getApp().globalData.android,
+      iosX: getApp().globalData.iosX,
       bar: wx.getStorageSync('mername')
-    })
+    });
   },
 
   /**

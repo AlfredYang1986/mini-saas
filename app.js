@@ -2,7 +2,11 @@
 App({
   onLoginSuccess: false,
   globalData: {
-    navHeight: 0
+    navHeight: 0,
+    deviceHeight: 667,
+    userExist: false,
+    android: false,
+    iosX: false,
   },
   onLaunch: function () {
     var lm = require('/models/bm_applyee_schema.js');
@@ -44,7 +48,25 @@ App({
       success: res => {
         //导航高度
         console.log(res.statusBarHeight)
-        this.globalData.navHeight = res.statusBarHeight + 64;
+        // that.globalData.navHeight = res.statusBarHeight + 64;
+        that.globalData.deviceHeight = res.screenHeight;
+        console.log(res.screenHeight)
+        console.log(res.platform)
+        console.log(res.brand)
+        console.log(res.model)
+        console.log(res.model.slice(0, 8))
+        if(res.platform === 'android') {
+          that.globalData.android = true;
+          // if ((res.brand === "Xiaomi" && res.model === "MIX 2") || (res.brand === "Xiaomi" && res.model === "MIX 2s")) {
+            that.globalData.deviceHeight = 785;
+          // }
+        } else {
+          if (res.model.slice(0, 8) === "iPhone X") {
+            that.globalData.iosX = true;
+          } else {
+            that.globalData.iosX = false;
+          }
+        }
       }, fail(err) {
         console.log(err);
       }

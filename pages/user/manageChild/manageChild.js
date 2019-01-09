@@ -5,16 +5,20 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        android: false,
+        iosX: false,
+        deviceHeight: getApp().globalData.deviceHeight,
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.setData({
-            bar: wx.getStorageSync('mername')
-        })
+      this.setData({
+        android: getApp().globalData.android,
+        iosX: getApp().globalData.iosX,
+        bar: wx.getStorageSync('mername')
+      });
     },
 
     /**

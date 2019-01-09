@@ -25,7 +25,10 @@ Page({
                 name: "联系客服",
                 detail: "../../brand/info/info"
             },
-        ]
+        ],
+        android: false,
+        iosX: false,
+        deviceHeight: getApp().globalData.deviceHeight,
     },
 
     /**
@@ -33,8 +36,11 @@ Page({
      */
     onLoad: function (options) {
         this.setData({
-            bar: wx.getStorageSync('mername')
-        })
+          android: getApp().globalData.android,
+          iosX: getApp().globalData.iosX,
+          bar: wx.getStorageSync('mername')
+        });
+        
     },
 
     /**

@@ -8,8 +8,14 @@ Component({
       type: "Array",
       value: [],
       observer: function (news, olds, path) {
-        console.log("this is in cls-reward .js")
-        console.log(news, olds)
+          let that = this;
+          if (news != null) {
+             if (news.SessionInfo.acquisition == '' || news.SessionInfo.acquisition == null) {
+                that.setData({
+                    ifreward: false,
+                })
+             }
+          }
       }
     }
   },
@@ -18,11 +24,12 @@ Component({
    * 组件的初始数据
    */
   data: {
-    "img": "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_gift.png",
-    "title": "宝贝将获得",
-    "reward": [
-      "机器人搭建工具一套", "证书", "奖品",
-    ]
+      "img": "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_gift.png",
+      "title": "宝贝将获得",
+      "reward": [
+        "机器人搭建工具一套", "证书", "奖品",
+      ],
+      ifreward: true,
   },
 
   /**

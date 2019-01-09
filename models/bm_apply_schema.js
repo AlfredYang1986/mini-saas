@@ -1,6 +1,7 @@
 import { JsonApiDataStore } from '../miniprogram_npm/jsonapi-datastore/index.js'
 
 var bmstore = new JsonApiDataStore();
+var bmmulti = new JsonApiDataStore();
 
 function guid() {
   function s4() {
@@ -14,6 +15,10 @@ function guid() {
 function genApplyeePushQuery(except_time, course_name, contact, course_type) {
   let now = new Date().getTime()
   let config = require('./bm_config.js')
+  let lm = require('./bm_applyee_schema.js');
+  let localApplyee = lm.queryLocalApplyee();
+  let applyee = localApplyee.id;
+
   return {
     data: {
       id: guid(),
@@ -22,6 +27,7 @@ function genApplyeePushQuery(except_time, course_name, contact, course_type) {
         apply_time: now,
         except_time: except_time,
         brandId: config.bm_baizao_id,
+        applyeeId: applyee,
         courseName: course_name,
         contact: contact,
         courseType: course_type,
@@ -92,6 +98,124 @@ function pushApply(except_time, course_name, contact, course_type, kids, callbac
   })
 }
 
+function genMultiQuery(param) {
+  let eq2 = guid();
+  let eq1 = guid();
+  let ne = guid();
+
+  let lm = require('./bm_applyee_schema.js');
+  let localApplyee = lm.queryLocalApplyee();
+  let applyee = localApplyee.id;
+
+  
+  let today = new Date();
+  today.setHours(0);
+  today.setMinutes(0);
+  today.setSeconds(0);
+  today.setMilliseconds(0);
+  today = today.getTime();
+    return {
+      data: {
+        id: guid(),
+        type: "Request",
+        attributes: {
+          res: "BmApply"
+        },
+        relationships: {
+          Eqcond: {
+            data: [
+              {
+                id: eq1,
+                type: "Eqcond"
+              }, {
+                id: eq2,
+                type: "Eqcond"
+              }
+            ]
+          },
+          Necond: {
+            data: [
+              {
+                id: ne,
+                type: "Necond",
+              }
+            ]
+          }
+        }
+      },
+      included: [
+        {
+          id: eq1,
+          type: "Eqcond",
+          attributes: {
+            key: "brandId",
+            val: wx.getStorageSync('brandid')
+          }
+        },
+        {
+          id: eq2,
+          type: "Eqcond",
+          attributes: {
+            key: "applyeeId",
+            val: applyee
+          }
+        },
+        {
+          id: ne,
+          type: "Necond",
+          attributes: {
+            key: "courseType",
+            val: -1
+          }
+        }
+      ]
+    }
+}
+
+function queryMultiObjects(param, callback) {
+  bmmulti.reset();
+  let query_yard_payload = genMultiQuery(param);
+  let rd = bmmulti.sync(query_yard_payload);
+  let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()));
+  let brand = rd.Eqcond[0].serialize();
+  let applyee = rd.Eqcond[1].serialize();
+  let ne = rd.Necond[0].serialize();
+  rd_tmp['included'] = [brand.data, applyee.data, ne.data];
+  let dt = JSON.stringify(rd_tmp);
+  
+  var config = require('./bm_config.js')
+  wx.showLoading({
+    title: '加载中',
+  });
+
+  wx.request({
+    url: config.bm_service_host + '/api/v1/findapplies/0',
+    data: dt,
+    method: 'post',
+    header: {
+      'Content-Type': 'application/json', // 默认值
+      'Accept': 'application/json',
+      'Authorization': 'bearer ' + wx.getStorageSync('dd_token')
+    },
+    success: function (res) {
+      var json = JSON.stringify(res.data)
+      json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
+      var dealedJson = JSON.parse(json)
+      let result = bmmulti.sync(dealedJson)
+      console.log(result)
+      callback.onSuccess(result)
+    },
+    fail(err) {
+      callback.onFail(err)
+    },
+    complete() {
+      wx.hideLoading();
+      console.log('complete!!!')
+    }
+  })
+}
+
 module.exports = {
   pushApply: pushApply,
+  queryMultiObjects: queryMultiObjects
 }

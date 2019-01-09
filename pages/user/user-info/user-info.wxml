@@ -1,11 +1,15 @@
 <!--pages/user/user.wxml-->
-<navigation-bar title='{{bar}}' bindtap='backToList'></navigation-bar>
+<navigation-bar title='{{bar}}' bindtap='backToList' class="navigationBar {{android?'android':'nav'}} {{iosX?'iosx':''}}"></navigation-bar>
 <view class='content-page'>
+    <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
     <view class='head-area'>
-        <view class='head-img'>
-            <image src='{{headImg}}'></image>
+        <view class='headView'>
+            <!-- <image src='{{headImg}}'></image> -->
+            <open-data class='icon' mode='aspectFit' type="userAvatarUrl"></open-data>
+            <view class='icon'/>
         </view>
-        <view class='head-name'>{{headName}}</view>
+        <!-- <view >{{headName}}</view> -->
+        <open-data type="userNickName" lang="zh_CN" class='head-name'></open-data>  
     </view>
     <view class='list-area'>
         <navigator  wx:for="{{list}}" url='{{item.detail}}' class='list'>

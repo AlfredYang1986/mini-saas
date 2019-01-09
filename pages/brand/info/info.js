@@ -1,7 +1,5 @@
 // pages/brand/brand.js
-
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -15,6 +13,9 @@ Page({
     exps: null,
     actvs: null,
     brandInfo: null,
+    android: false,
+    iosX: false,
+    deviceHeight: getApp().globalData.deviceHeight,
   },
   tab_slide: function (e) {//滑动切换tab 
     var that = this;
@@ -35,7 +36,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      android: getApp().globalData.android,
+      iosX: getApp().globalData.iosX
+    });
     var lm = require('../../../models/bm_applyee_schema.js');
     if (!lm.checkIsLogin()) {
       wx.redirectTo({

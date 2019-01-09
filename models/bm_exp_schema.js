@@ -140,7 +140,7 @@ function genMultiExps() {
                 type: "Eqcond",
                 attributes: {
                     key: "brandId",
-                    val: "5be6a00b8fb80736e2ec9ba5",
+                    val: wx.getStorageSync('brandid')
                 }
             }
         ]
