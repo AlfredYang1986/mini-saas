@@ -18,7 +18,8 @@ Page({
 	onLoad: function (options) {
     this.setData({
       android: getApp().globalData.android,
-      iosX: getApp().globalData.iosX
+      iosX: getApp().globalData.iosX,
+      bar: wx.getStorageSync('mername')
     });
     var lm = require('../../../models/bm_applyee_schema.js');
     if (!lm.checkIsLogin()) {
@@ -63,10 +64,6 @@ Page({
 
 		wx.stopPullDownRefresh();
 		wx.hideNavigationBarLoading();
-
-        that.setData({
-          bar: wx.getStorageSync('mername')
-        })
 	},
 
 	/**

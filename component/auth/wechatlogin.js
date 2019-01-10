@@ -13,7 +13,7 @@ Component({
   data: {
     showModalStatus: true,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    dongda: false,
+    dongda: true,
     bgImg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_popup.jpg",
     smImg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/%E6%8E%88%E6%9D%83%E5%8F%91%E7%8E%B0%E6%9B%B4%E5%A4%9A%E7%B2%BE%E5%BD%A9%E9%A1%B5logo%E6%9B%BF%E6%8D%A2.png",
     watch: {

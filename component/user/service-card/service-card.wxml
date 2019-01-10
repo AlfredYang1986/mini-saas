@@ -1,15 +1,16 @@
 <!--component/user/service-card/service-card.wxml-->
-<view class='service-card' wx:for="{{card}}">
+<view class='service-card' wx:for="{{lists}}">
     <view class='card'>
-        <text class='card-title'>{{item.title}}</text>
+        <text class='card-title'>{{item.courseName}}</text>
         <view class='card-content'>
             <view class='card-cover'>
-                <image src='{{item.cover}}'></image>
+                <image src='{{item.Reservable.SessionInfo.dealcover}}'></image>
+                <!-- <text>{{item.Reservable.SessionInfo.dealcover}}</text> -->
             </view>
             <view class='card-info'>
-                <text>{{item.address}}</text>
-                <text>{{item.time}}</text>
-                <text>{{item.price}}</text>
+                <text>{{item.Reservable.SessionInfo.yardname}}</text>
+                <text>{{item.dealdate}}</text>
+                <text>¥ {{item.Reservable.SessionInfo.price}}</text>
             </view>
         </view>
     </view>

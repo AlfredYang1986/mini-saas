@@ -100,8 +100,8 @@ function genOpenIdQuery(code) {
           type: "Eqcond",
           attributes: {
             key: "brand",
-            val: "pacee"
-            // val: 'dongda' // 1. dongda 2. pacee
+            // val: "pacee"
+            val: 'dongda' // 1. dongda 2. pacee
           }
         }
       ]
@@ -288,7 +288,7 @@ function queryPushedApplee(callback) {
       var dealedJson = JSON.parse(json)
       let result = bmstore.sync(dealedJson)
       console.log(result)
-      wx.setStorageSync("dd_id", result.id);
+      wx.setStorageSync("dd_id", result.Applyee.id);
       wx.setStorageSync("dd_token", result.token);
       console.log(result);
       callback.onQueryCurSuccess(result);

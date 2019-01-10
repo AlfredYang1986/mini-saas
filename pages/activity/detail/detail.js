@@ -22,6 +22,7 @@ var OSS = require('../../../models/ali-oss.js')
 
 let actvDetailSort;
 let actvDetailName;
+let reservableid;
 Page({
 
   /** 
@@ -155,7 +156,7 @@ Page({
     }
     var bmactv = require('../../../models/bm_actv_schema.js')
     bmactv.queryActvInfo(options.actvid, callback)
-    
+    reservableid = options.actvid
     that.setData({
       bar: wx.getStorageSync('mername')
     })
@@ -308,9 +309,8 @@ Page({
     applyPage:function(event) {
         console.log(event)
         let that = this;
-        let childid = event.currentTarget.dataset.id;
         wx:wx.navigateTo({
-            url: '/pages/activity/apply/apply?childid=' + childid,
+          url: '/pages/activity/apply/apply?reservableid=' + reservableid,
         })
     },
 

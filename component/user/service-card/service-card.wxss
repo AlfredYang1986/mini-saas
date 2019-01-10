@@ -39,4 +39,9 @@
     font-family: PingFangSC-Regular;
     font-size: 26rpx;
     color: #8C8C8C;
+    max-width: 300rpx;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
+

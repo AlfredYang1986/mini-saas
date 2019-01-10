@@ -12,7 +12,7 @@ function guid() {
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
 
-function genApplyeePushQuery(except_time, course_name, contact, course_type) {
+function genApplyeePushQuery(except_time, course_name, contact, course_type, reservableid) {
   let now = new Date().getTime()
   let config = require('./bm_config.js')
   let lm = require('./bm_applyee_schema.js');
@@ -31,6 +31,7 @@ function genApplyeePushQuery(except_time, course_name, contact, course_type) {
         courseName: course_name,
         contact: contact,
         courseType: course_type,
+        reservableId: reservableid
       },
       relationships: {
         Kids: {
@@ -45,10 +46,10 @@ function genApplyeePushQuery(except_time, course_name, contact, course_type) {
   }
 }
 
-function pushApply(except_time, course_name, contact, course_type, kids, callback) {
+function pushApply(except_time, course_name, contact, course_type, reservableid, kids, callback) {
   var lm = require('./bm_applyee_schema.js');
   bmstore.reset();
-  let query_payload = genApplyeePushQuery(except_time, course_name, contact, course_type);
+  let query_payload = genApplyeePushQuery(except_time, course_name, contact, course_type, reservableid);
   let result = bmstore.sync(query_payload);
   result.Kids = kids
   result.Applyee = lm.queryLocalApplyee();
@@ -172,9 +173,9 @@ function genMultiQuery(param) {
     }
 }
 
-function queryMultiObjects(param, callback) {
+function queryMultiObjects(callback) {
   bmmulti.reset();
-  let query_yard_payload = genMultiQuery(param);
+  let query_yard_payload = genMultiQuery();
   let rd = bmmulti.sync(query_yard_payload);
   let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()));
   let brand = rd.Eqcond[0].serialize();
@@ -184,6 +185,7 @@ function queryMultiObjects(param, callback) {
   let dt = JSON.stringify(rd_tmp);
   
   var config = require('./bm_config.js')
+  
   wx.showLoading({
     title: '加载中',
   });
@@ -197,7 +199,7 @@ function queryMultiObjects(param, callback) {
       'Accept': 'application/json',
       'Authorization': 'bearer ' + wx.getStorageSync('dd_token')
     },
-    success: function (res) {
+    success(res) {
       var json = JSON.stringify(res.data)
       json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
       var dealedJson = JSON.parse(json)

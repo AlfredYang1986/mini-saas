@@ -37,7 +37,9 @@ Page({
       let that = this;
       let callback = {
         onSuccess: function (res) {
-          console.log(res)
+          that.setData({
+            list: res
+          })
         },
         onFail: function () {
           // TODO : 报错 ...
