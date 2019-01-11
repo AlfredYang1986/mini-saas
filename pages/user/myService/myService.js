@@ -97,11 +97,6 @@ Page({
      */
     onShareAppMessage: function () {
 
-    },
-
-    serviceDetail: function() {
-        wx.navigateTo({
-            url: '../serviceDetail/serviceDetail',
-        })
     }
+    
 })

@@ -4,6 +4,7 @@ var OSS = require('../../../models/ali-oss.js')
 
 let classDetailSort;
 let classDetailName;
+let reservableid;
 Page({
  
   /**
@@ -49,6 +50,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      debugger
+    reservableid = options.expid
     var lm = require('../../../models/bm_applyee_schema.js');
     if (!lm.checkIsLogin()) {
       wx.redirectTo({
@@ -243,7 +246,7 @@ Page({
 
     apply: function(event) {
         wx:wx.navigateTo({
-            url: '/pages/classes/apply/apply',
+            url: '/pages/classes/apply/apply?reservableid=' + reservableid,
         })
     },
 

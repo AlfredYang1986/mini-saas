@@ -35,6 +35,10 @@ function bmstoreDestroy() {
   let kids = queryAllLocalKids();
   return bmstore.destroy(kids);
 }
+function bmstoredelete(model) {
+  let kids = queryAllLocalKids();
+  return bmstore.destroy(model)
+}
 
 function queryAllLocalKids() {
   // bmstore.reset()
@@ -57,15 +61,16 @@ function saveAllKidOnStorage() {
   })
 }
 
-function loadAllKidOnStrage() {
+function loadAllKidOnStrage(callback) {
   bmstore.reset();
   wx.getStorage({
     key: 'kids',
     success: function(res) {
-      let result = JSON.parse(res);
+      let result = JSON.parse(res.data);
       for (let idx = 0; idx < result.length; idx++) {
         bmstore.sync(result[idx]);
       }
+      callback.onSuccess(result)
     },
   })
 }
@@ -77,5 +82,6 @@ module.exports = {
   queryLocalKidByID: queryLocalKidByID,
   saveAllKidOnStorage: saveAllKidOnStorage,
   bmstoreReset: bmstoreReset,
-  bmstoreDestroy: bmstoreDestroy
+  bmstoreDestroy: bmstoreDestroy,
+  bmstoredelete: bmstoredelete
 }

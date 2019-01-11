@@ -1,16 +1,16 @@
 <!--component/user/service-card/service-card.wxml-->
-<view class='service-card' wx:for="{{lists}}">
+<view class='service-card' wx:for="{{lists}}" bindtap="serviceDetail"  data-reservableid="{{item.id}}">
     <view class='card'>
-        <text class='card-title'>{{item.courseName}}</text>
+        <text class='card-title'>{{item.Reservable.SessionInfo.title}}</text>
         <view class='card-content'>
             <view class='card-cover'>
-                <image src='{{item.Reservable.SessionInfo.dealcover}}'></image>
+                <image src='{{item.dealImage}}'></image>
                 <!-- <text>{{item.Reservable.SessionInfo.dealcover}}</text> -->
             </view>
             <view class='card-info'>
-                <text>{{item.Reservable.SessionInfo.yardname}}</text>
-                <text>{{item.dealdate}}</text>
-                <text>¥ {{item.Reservable.SessionInfo.price}}</text>
+                <text>{{item.Yard.address}}</text>
+                <text>{{item.deal_expect_time}}</text>
+                <text>¥ {{item.price}}</text>
             </view>
         </view>
     </view>

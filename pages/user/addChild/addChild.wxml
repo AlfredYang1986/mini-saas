@@ -6,7 +6,7 @@
         <view class='list-area'>
             <view class='list'>
                 <view class='title'>孩子姓名</view>
-                <input placeholder='请输入孩子姓名'></input>
+                <input placeholder='请输入孩子姓名' bindinput="bindKeyInput" value='{{name}}'></input>
             </view>
             <view class='list'>
                 <view class='title'>选择生日</view>
@@ -27,7 +27,7 @@
                 <view class='title'>孩子性别</view>
                 <radio-group class="radio-group rela-radio-group" bindchange="sexRadioChange">
                     <label class="radio rela-radio" wx:for="{{sex}}">
-                        <radio value="{{sex.name}}" checked="{{sex.checked}}" class='redio-dot'/>{{item.value}}
+                        <radio value="{{item.name}}" checked="{{item.checked}}" class='redio-dot'/>{{item.value}}
                     </label>
                 </radio-group>
             </view>
@@ -35,14 +35,14 @@
                 <view class='title'>亲子关系</view>
                 <radio-group class="radio-group rela-radio-group" bindchange="radioChange">
                     <label class="radio rela-radio" wx:for="{{rela}}">
-                        <radio value="{{rela.name}}" checked="{{rela.checked}}" class='redio-dot'/>{{item.value}}
+                        <radio value="{{item.name}}" checked="{{item.checked}}" class='redio-dot'/>{{item.value}}
                     </label>
                 </radio-group>
             </view>
         </view>
     </view>
     <view class='button-area'>
-        <button>保存</button>
-        <a>删除孩子</a>
+        <button bindtap='saveKid'>保存</button>
+        <a bindtap='deleteKid'>删除孩子</a>
     </view>
 </view>

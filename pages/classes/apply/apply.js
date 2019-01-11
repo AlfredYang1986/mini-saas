@@ -13,6 +13,7 @@ let detailSort;
 let detailName;
 let yardname;
 let haveChild = true;
+let reservableid;
 Page({
 
   /**
@@ -45,10 +46,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      android: getApp().globalData.android,
-      iosX: getApp().globalData.iosX
-    });
+    reservableid = options.reservableid;
     var lm = require('../../../models/bm_applyee_schema.js');
     if (!lm.checkIsLogin()) {
       wx.redirectTo({
@@ -71,7 +69,9 @@ Page({
       address: yard,
       nowDate: date,
       haveChild: true,
-        bar: wx.getStorageSync('mername')
+      bar: wx.getStorageSync('mername'),
+      android: getApp().globalData.android,
+      iosX: getApp().globalData.iosX
     })
   },
 
@@ -392,7 +392,7 @@ Page({
 
   onCommitApply: function (e) {
     let that = this;
-    if (except_time != undefined && detailName != undefined && contact != undefined && contact != '' && detailSort != undefined && kids != undefined) {
+      if (except_time != undefined && detailName != undefined && contact != undefined && contact != '' && detailSort != undefined && kids != undefined && reservableid != undefined) {
       let callback = {
         onSuccess: function (res) {
           // setTimeout(wx.navigateBack({
@@ -420,18 +420,14 @@ Page({
       // let selectedKid = ks.queryLocalKidByID(e.detail.value)
       // kid.push(selectedKid);
       var ay = require('../../../models/bm_apply_schema.js');
-      ay.pushApply(except_time, detailName, contact, detailSort, kids, callback);
+      ay.pushApply(except_time, detailName, contact, detailSort, reservableid, kids, callback);
     } else {
       wx.showModal({
         title: '提交失败',
         content: '还有没填好的地方哦',
         success: function (res) {
-          if (res.confirm) {
-
-          } else {
-
-          }
-
+          if (res.confirm) {} 
+          else {}
         }
       })
     }

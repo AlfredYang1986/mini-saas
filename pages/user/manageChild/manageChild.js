@@ -8,17 +8,34 @@ Page({
         android: false,
         iosX: false,
         deviceHeight: getApp().globalData.deviceHeight,
+        kids: null
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      this.setData({
-        android: getApp().globalData.android,
-        iosX: getApp().globalData.iosX,
-        bar: wx.getStorageSync('mername')
-      });
+        let ks = require('../../../models/bm_kids_schema.js');
+        let kidArray = ks.queryAllLocalKids();
+        this.setData({
+            android: getApp().globalData.android,
+            iosX: getApp().globalData.iosX,
+            bar: wx.getStorageSync('mername'),
+            kids: kidArray
+        });
+        
+        // let callback = {
+        //     onSuccess: function (res) {
+        //         debugger
+        //         console.log(res)
+        //     },
+        //     onFail: function(err) {
+        //       console.log(err)
+        //     }
+        // }
+        
+        // let ers = ks.loadAllKidOnStrage(callback);
+
     },
 
     /**
@@ -70,9 +87,15 @@ Page({
 
     },
 
+    goback: function() {
+        wx.switchTab({
+            url: '/pages/user/user-info/user-info',
+        })
+    },
+
     addChild: function() {
         wx.navigateTo({
-            url: '../addChild/addChild',
+            url: '/pages/user/addChild/addChild',
         })
     }
 })

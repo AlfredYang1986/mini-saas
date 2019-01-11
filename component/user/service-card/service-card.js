@@ -1,6 +1,7 @@
 // component/user/service-card/service-card.js
 var bmconfig = require('../../../models/bm_config.js')
 var OSS = require('../../../models/ali-oss.js')
+// let reservableid;
 Component({
     /**
      * 组件的属性列表
@@ -11,54 +12,36 @@ Component({
           value: [],
           observer: function (news, olds, path) {
             let that = this;
-            let list = [];
             let client = new OSS({
-              region: 'oss-cn-beijing',
-              accessKeyId: 'LTAINO7wSDoWJRfN',
-              accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
-              bucket: 'bmsass'
+                region: 'oss-cn-beijing',
+                accessKeyId: 'LTAINO7wSDoWJRfN',
+                accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
+                bucket: 'bmsass'
             });
             if (news != null) {
-              let reservableinfo;
-              news.map((ele) => {              
-                let callbackReservable = {
-                  onSuccess: function (res) {
-                    reservableinfo = res;
-                    ele.Reservable = reservableinfo;
-                    if (ele.Reservable != null && ele.Reservable != undefined) {
-                      ele.Reservable.SessionInfo.yardname = wx.getStorageSync('yardname');
-                      ele.Reservable.SessionInfo.price = "免费";
-                      ele.Reservable.SessionInfo.dealcover = client.signatureUrl(ele.Reservable.SessionInfo.cover)
-                    } 
+                news.map((ele) => {
+                    ele.price = "免费";
+                    ele.dealImage = client.signatureUrl(ele.Reservable.SessionInfo.cover);
+                    var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
                     var date = new Date(ele.except_time);
                     var seperator1 = "-";
                     var seperator2 = ":";
+                    var year = date.getFullYear();
                     var month = date.getMonth() + 1;
                     var strDate = date.getDate();
+                    var week = date.getDay();
                     var hour = date.getHours();
                     var minute = date.getMinutes();
                     function addZero(m) {
-                      return m < 10 ? '0' + m : m;
+                        return m < 10 ? '0' + m : m;
                     }
-                    ele.dealdate = date.getFullYear() + seperator1 + addZero(month) + seperator1 + (strDate) + ' ' + addZero(hour) + seperator2 + addZero(minute);
-
-                    list.push(ele)
-                    that.setData({
-                      lists: list
-                    })
-                  },
-                  onFail: function () {
-                    // TODO : 报错 ...
-                  }
-                }
-                let reservableId = ele.reservableId;
-                var reservable = require('../../../models/bm_actv_schema.js')
-                reservable.queryActvInfo(reservableId, callbackReservable)
-                 
+                    ele.deal_expect_time = year + seperator1 + addZero(month) + seperator1 + (strDate) + ' ' + weekDay[week]+ ' ' + addZero(hour) + seperator2 + addZero(minute);
+                    return ele;
+                })
                 
-              })
-              console.log(news)
-              
+                that.setData({
+                    lists: news
+                })              
             }
           }
         }
@@ -91,6 +74,11 @@ Component({
      * 组件的方法列表
      */
     methods: {
-
+      serviceDetail: function (event) {
+        let reservableid = event.currentTarget.dataset.reservableid;
+        wx.navigateTo({
+          url: '../serviceDetail/serviceDetail?reservableid=' + reservableid,
+        })
+      }
     }
 })

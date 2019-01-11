@@ -1,10 +1,12 @@
 // pages/user/serviceDetail/serviceDetail.js
+let OSS = require('../../../models/ali-oss.js')
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        reservable: null,
         infoTitle: "乐高机器人搭建课",
         infoTime: "2018-03-08 周六",
         listTitle: "PRO科学空间 五道口校区",
@@ -21,13 +23,50 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.setData({
-          android: getApp().globalData.android,
-          iosX: getApp().globalData.iosX
+        var lm = require('../../../models/bm_applyee_schema.js');
+        if (!lm.checkIsLogin()) {
+            wx.redirectTo({
+                url: '/pages/register/register'
+            })
+            return
+        }
+        var bmconfig = require('../../../models/bm_config.js')
+        let client = new OSS({
+            region: 'oss-cn-beijing',
+            accessKeyId: 'LTAINO7wSDoWJRfN',
+            accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
+            bucket: 'bmsass'
         });
-        this.setData({
+        let that = this
+        let callback = {
+            onSuccess: function (res) {
+                var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+                var date = new Date(res.except_time);
+                var seperator1 = "-";
+                var seperator2 = ":";
+                var year = date.getFullYear();
+                var month = date.getMonth() + 1;
+                var strDate = date.getDate();
+                var week = date.getDay();
+                function addZero(m) {
+                    return m < 10 ? '0' + m : m;
+                }
+                res.dealdate = year + seperator1 + addZero(month) + seperator1 + (strDate) + ' ' + weekDay[week];
+                that.setData({
+                    reservable: res
+                })
+
+            },
+            onFail: function(err) {
+                console.log(err)
+            }
+        }
+        var bmactv = require('../../../models/bm_apply_schema.js')
+        bmactv.queryApplyInfo(options.reservableid, callback)
+        that.setData({
             bar: wx.getStorageSync('mername')
         })
+        
     },
 
     /**

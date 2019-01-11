@@ -191,7 +191,7 @@ function queryMultiObjects(callback) {
   });
 
   wx.request({
-    url: config.bm_service_host + '/api/v1/findapplies/0',
+    url: config.bm_service_host + '/api/v1/findapplydetailmulti/0',
     data: dt,
     method: 'post',
     header: {
@@ -217,7 +217,86 @@ function queryMultiObjects(callback) {
   })
 }
 
+function queryApplyInfo(reservableid, callback) {
+    bmstore.reset();
+
+    let query_yard_payload = genIdQuery(reservableid);
+    let rd = bmstore.sync(query_yard_payload);
+    let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()));
+
+    let inc = rd.Eqcond[0].serialize();
+    rd_tmp['included'] = [inc.data];
+    let dt = JSON.stringify(rd_tmp);
+    let token = wx.getStorageSync('dd_token');
+    console.log('token: ' + token)
+
+    let config = require('./bm_config.js');
+    //   wx.showLoading({
+    //     title: '加载中',
+    //   });
+    wx.request({
+        url: config.bm_service_host + '/api/v1/findapplydetail/0',
+        data: dt,
+        method: 'post',
+        header: {
+            'Content-Type': 'application/json', // 默认值
+            'Accept': 'application/json',
+            'Authorization': 'bearer ' + token
+        },
+        success(res) {
+            var json = JSON.stringify(res.data)
+            json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
+            var dealedJson = JSON.parse(json)
+            let result = bmmulti.sync(dealedJson)
+            console.log(result)
+            callback.onSuccess(result)
+        },
+        fail(err) {
+            callback.onFail(err)
+        },
+        complete() {
+            //   wx.hideLoading();
+            console.log('complete!!!')
+        }
+    })
+}
+
+function genIdQuery(tmpid) {
+    let eq = guid();
+    return {
+        data: {
+            id: guid(),
+            type: "Request",
+            attributes: {
+                res: "BmApply"
+            },
+            relationships: {
+                Eqcond: {
+                    data: [
+                        {
+                            id: eq,
+                            type: "Eqcond"
+                        }
+                    ]
+                }
+            }
+        },
+        included: [
+            {
+                id: eq,
+                type: "Eqcond",
+                attributes: {
+                    key: "id",
+                    val: tmpid
+                }
+            }
+        ]
+    }
+}
+
+
 module.exports = {
   pushApply: pushApply,
-  queryMultiObjects: queryMultiObjects
+  queryMultiObjects: queryMultiObjects,
+  queryApplyInfo: queryApplyInfo
 }

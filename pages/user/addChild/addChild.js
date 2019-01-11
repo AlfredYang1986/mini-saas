@@ -1,4 +1,9 @@
 // pages/user/addChild/addChild.js
+let name;
+let guardian_role;
+let dob;
+let gender;
+let childid;
 Page({
 
     /**
@@ -19,12 +24,23 @@ Page({
         android: false,
         iosX: false,
         deviceHeight: getApp().globalData.deviceHeight,
+        name: ''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        childid = options.childid;
+        if(childid != undefined && childid != '') {
+            let ks = require('../../../models/bm_kids_schema.js');
+            let kidInfo = ks.queryLocalKidByID(childid)
+            name = kidInfo.name
+            this.setData({
+                name: kidInfo.name
+            })
+        }
+        
         let nowdate = this.getNowFormatDate();
         this.setData({
             date: nowdate,
@@ -103,11 +119,52 @@ Page({
         this.setData({
             date: e.detail.value
         })
+        dob = new Date(e.detail.value).getTime();
     },
 
     radioChange: function (e) {
-        console.log('radio发生change事件，携带value值为：', e.detail.value)
         guardian_role = e.detail.value
-
     },
+
+    sexRadioChange: function(e) {
+        if (e.detail.value == '男生') {
+            gender = 1;
+        } else if (e.detail.value == '女生') {
+            gender = 0;
+        }
+    },
+
+    bindKeyInput: function (e) {
+        name = e.detail.value;
+    },
+
+    saveKid() {
+        let ks = require('../../../models/bm_kids_schema.js');
+        if (childid != undefined && childid != '') {
+            let kid = ks.queryLocalKidByID(childid);
+            ks.bmstoredelete(kid);
+        }
+
+        if (name != undefined && name != '' && dob != undefined && gender != undefined && guardian_role != undefined && guardian_role != null) {
+            ks.genOneKid(name, 'nickname', dob, gender, guardian_role)
+            wx.redirectTo({
+                url: '/pages/user/manageChild/manageChild',
+            })
+        } else {
+            console.log("请填写完整信息")
+        }
+        // ks.saveAllKidOnStorage();
+        
+    },
+
+    deleteKid() {
+        let ks = require('../../../models/bm_kids_schema.js');
+        if (childid != undefined && childid != '') {
+            let kid = ks.queryLocalKidByID(childid);
+            ks.bmstoredelete(kid);
+        }
+        wx.redirectTo({
+            url: '/pages/user/manageChild/manageChild',
+        })
+    }
 })

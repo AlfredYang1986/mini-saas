@@ -4,19 +4,19 @@
     <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
     <view class='content-padding'>
         <view class='info-card'>
-            <view class='title'>{{infoTitle}}</view>
+            <view class='title'>{{reservable.Reservable.SessionInfo.title}}</view>
             <view class='semi-circle'>
                 <view class='semi-circle-left'></view>
                 <view class='semi-circle-right'></view>
             </view>
             <view class='time-title'>预计参与时间</view>
-            <view class='time'>{{infoTime}}</view>
+            <view class='time'>{{reservable.dealdate}}</view>
         </view>
         <view class='list-card'>
             <view class='list-info'>
                 <view class='title-area'>
-                    <view class='title'>{{listTitle}}</view>
-                    <view class='address'>{{listAddress}}</view>
+                    <view class='title'>{{reservable.Yard.title}}</view>
+                    <view class='address'>{{reservable.Yard.address}}</view>
                 </view>
                 <view class='add-icon'>
                     <image src='{{mapIcon}}'></image>

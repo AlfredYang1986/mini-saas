@@ -1,9 +1,9 @@
 <!--pages/user/manageChild/manageChild.wxml-->
-<navigation-bar title='{{bar}}' class="navigationBar {{android?'android':'nav'}} {{iosX?'iosx':''}}"></navigation-bar>
+<navigation-bar title='{{bar}}' class="navigationBar {{android?'android':'nav'}} {{iosX?'iosx':''}}" bindtap='goback'></navigation-bar>
 <view class='content-page'>
     <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
     <view class='child-list'>
-        <child-card bindtap='addChild'></child-card>
+        <child-card kids='{{kids}}'></child-card>
     </view>
     <view class='add-child'>
         <button bindtap='addChild'>+ 新增孩子</button>
