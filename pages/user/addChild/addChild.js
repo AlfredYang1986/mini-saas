@@ -4,6 +4,7 @@ let guardian_role;
 let dob;
 let gender;
 let childid;
+let nowdate 
 Page({
 
     /**
@@ -12,14 +13,19 @@ Page({
     data: {
         date: '',
         nowdate: '',
+        checkgirl: '',
+        checkboy: '',
+        checkfather: '',
+        checkmother: '',
+        checkother: '',
         rela: [
-            { name: '妈妈', value: '妈妈', },
-            { name: '爸爸', value: '爸爸', },
-            { name: '其他', value: '其他' },
+            { name: '妈妈', value: '妈妈', checked: 'checked'},
+            { name: '爸爸', value: '爸爸', checked: ''},
+            { name: '其他', value: '其他', checked: ''},
         ],
         sex: [
-            { name: '男生', value: '男生', },
-            { name: '女生', value: '女生', },
+            { name: '男生', value: '男生', checked: 'checked'},
+            { name: '女生', value: '女生', checked: ''},
         ],
         android: false,
         iosX: false,
@@ -32,18 +38,60 @@ Page({
      */
     onLoad: function (options) {
         childid = options.childid;
+        nowdate = this.getNowFormatDate();
+        let that = this;
         if(childid != undefined && childid != '') {
             let ks = require('../../../models/bm_kids_schema.js');
             let kidInfo = ks.queryLocalKidByID(childid)
             name = kidInfo.name
+
+            let date = new Date(kidInfo.dob);
+            let month = date.getMonth() + 1;
+            let strDate = date.getDate();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+            let dealdate = date.getFullYear() + '-' + month + '-' + strDate;
+
+            if(kidInfo.gender == 0) {
+                that.setData({
+                    checkgirl: 'checked'
+                })
+            } else {
+                that.setData({
+                    checkboy: 'checked'
+                })
+            }
+
+            if(kidInfo.guardian_role == '爸爸') {
+                that.setData({
+                    checkfather: 'checked'
+                })
+            } else if(kidInfo.guardian_role == '妈妈') {
+                that.setData({
+                    checkmother: 'checked'
+                })
+            } else {
+                that.setData({
+                    checkother: 'checked'
+                })
+            }
+
             this.setData({
-                name: kidInfo.name
+                name: kidInfo.name,
+                date: dealdate
+            })
+        } else {
+            this.setData({
+                date: nowdate
             })
         }
         
-        let nowdate = this.getNowFormatDate();
+        
         this.setData({
-            date: nowdate,
             bar: wx.getStorageSync('mername'),
             android: getApp().globalData.android,
             iosX: getApp().globalData.iosX
@@ -162,6 +210,10 @@ Page({
         if (childid != undefined && childid != '') {
             let kid = ks.queryLocalKidByID(childid);
             ks.bmstoredelete(kid);
+            name = undefined;
+            dob == undefined;
+            gender == undefined;
+            guardian_role == undefined;
         }
         wx.redirectTo({
             url: '/pages/user/manageChild/manageChild',
