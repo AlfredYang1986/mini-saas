@@ -4,14 +4,14 @@ let guardian_role;
 let dob;
 let gender;
 let childid;
-let nowdate 
+let nowdate
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        nodelete: false,
+        errorInfo: false,
         date: '',
         nowdate: '',
         checkgirl: '',
@@ -20,13 +20,13 @@ Page({
         checkmother: '',
         checkother: '',
         rela: [
-            { name: '妈妈', value: '妈妈', checked: 'checked'},
-            { name: '爸爸', value: '爸爸', checked: ''},
-            { name: '其他', value: '其他', checked: ''},
+            { name: '妈妈', value: '妈妈', checked: 'checked' },
+            { name: '爸爸', value: '爸爸', checked: '' },
+            { name: '其他', value: '其他', checked: '' },
         ],
         sex: [
-            { name: '男生', value: '男生', checked: 'checked'},
-            { name: '女生', value: '女生', checked: ''},
+            { name: '男生', value: '男生', checked: 'checked' },
+            { name: '女生', value: '女生', checked: '' },
         ],
         android: false,
         iosX: false,
@@ -41,7 +41,7 @@ Page({
         childid = options.childid;
         nowdate = this.getNowFormatDate();
         let that = this;
-        if(childid != undefined && childid != '') {
+        if (childid != undefined && childid != '') {
             let ks = require('../../../models/bm_kids_schema.js');
             let kidInfo = ks.queryLocalKidByID(childid)
             name = kidInfo.name
@@ -57,7 +57,7 @@ Page({
             }
             let dealdate = date.getFullYear() + '-' + month + '-' + strDate;
 
-            if(kidInfo.gender == 0) {
+            if (kidInfo.gender == 0) {
                 that.setData({
                     checkgirl: 'checked'
                 })
@@ -67,11 +67,11 @@ Page({
                 })
             }
 
-            if(kidInfo.guardian_role == '爸爸') {
+            if (kidInfo.guardian_role == '爸爸') {
                 that.setData({
                     checkfather: 'checked'
                 })
-            } else if(kidInfo.guardian_role == '妈妈') {
+            } else if (kidInfo.guardian_role == '妈妈') {
                 that.setData({
                     checkmother: 'checked'
                 })
@@ -90,8 +90,8 @@ Page({
                 date: nowdate
             })
         }
-        
-        
+
+
         this.setData({
             bar: wx.getStorageSync('mername'),
             android: getApp().globalData.android,
@@ -175,7 +175,7 @@ Page({
         guardian_role = e.detail.value
     },
 
-    sexRadioChange: function(e) {
+    sexRadioChange: function (e) {
         if (e.detail.value == '男生') {
             gender = 1;
         } else if (e.detail.value == '女生') {
@@ -197,13 +197,21 @@ Page({
         if (name != undefined && name != '' && dob != undefined && gender != undefined && guardian_role != undefined && guardian_role != null) {
             ks.genOneKid(name, 'nickname', dob, gender, guardian_role)
             wx.redirectTo({
-                url: '/pages/user/manageChild/manageChild',
+                url: '/pages/activity/reserve/reserve',
             })
         } else {
-            console.log("请填写完整信息")
+            let that = this
+            this.setData({
+                errorInfo: true
+            })
+            setTimeout(function() {
+                that.setData({
+                    errorInfo: false
+                })
+            }, 2000)
         }
         // ks.saveAllKidOnStorage();
-        
+
     },
 
     deleteKid() {

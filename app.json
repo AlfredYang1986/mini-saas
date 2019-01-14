@@ -16,7 +16,9 @@
         "pages/user/myService/myService",
         "pages/user/manageChild/manageChild",
         "pages/user/addChild/addChild",
-        "pages/user/serviceDetail/serviceDetail"
+        "pages/user/serviceDetail/serviceDetail",
+        "pages/activity/reserve/reserve",
+        "pages/activity/addChild/addChild"
     ],
     "window": {
         "backgroundTextStyle": "light",

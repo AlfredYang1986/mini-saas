@@ -310,7 +310,8 @@ Page({
         console.log(event)
         let that = this;
         wx:wx.navigateTo({
-          url: '/pages/activity/apply/apply?reservableid=' + reservableid,
+        //   url: '/pages/activity/apply/apply?reservableid=' + reservableid,
+            url: '/pages/activity/reserve/reserve?reservableid=' + reservableid,
         })
     },
 
