@@ -25,7 +25,7 @@
     <view class='list child-info-border' >
       <text class='name'>孩子信息</text>
       <view class='select' wx:if="{{haveChild}}">
-        <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_add%402x.png' class='add'  ></image>
+        <image src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_add%402x.png' class='add'></image>
         <view>
           <button class='child' bindtap="addChild">添加孩子</button>
         </view>
@@ -139,16 +139,12 @@
         </radio-group>
       </view>
       <view bindtap="hideChild">
-        <button class='save-child' bindtap='queryAttendedKids' >完成</button>
+        <button class='save-child' bindtap='queryAttendedKids'>完成</button>
       </view>
     </view>
-    <!-- <add-child></add-child> -->
   </view>
 </view>
 
 
   <button type='submit' class='save-child' data-childid="{{childid}}"  bindtap='onCommitApply'>提交</button>
-  <!-- <view class='btn'>
-    <text>提交</text>
-  </view> -->
 </view>

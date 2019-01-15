@@ -67,7 +67,6 @@ page {
 }
 .childList {
     margin-top: -55rpx;
-    padding: 32rpx;
     display: flex;
     flex-direction: column;
     width: 670rpx;
@@ -76,7 +75,7 @@ page {
     background-color: #ffffff;
 }
 .childList .btn-name {
-    margin-bottom: 33rpx;
+    margin: 33rpx;
     font-family: PingFangSC-Medium;
     font-size: 32rpx;
     color: #262626;
@@ -85,6 +84,7 @@ page {
 .radio-group {
     display: flex;
     flex-direction: column;
+    margin: 32rpx 32rpx 0 32rpx;
 }
 .radio-group radio {
     margin-right: 32rpx;
@@ -93,6 +93,7 @@ page {
     width: 100%;
 }
 .add {
+    margin-bottom:32rpx;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -101,11 +102,12 @@ page {
     font-size: 16px;
     color: #80AEFF;
     text-align: center;
+    font-weight: bold;
 }
 .kid {
+    margin-bottom:32rpx;
     padding-bottom: 32rpx;
     border-bottom: 2rpx solid #f2f2f2;
-    margin-bottom: 32rpx;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -135,7 +137,7 @@ page {
     background-color: #ffffff;
 }
 .add-child .btn-name {
-    margin-left: 32rpx;
+    margin: 32rpx;
     font-family: PingFangSC-Medium;
     font-size: 32rpx;
     color: #262626;
@@ -164,8 +166,13 @@ page {
     font-size: 26rpx;
     color: #8C8C8C;
 }
+.btn-area {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 .submit {
-    margin-bottom: 40rpx;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -178,6 +185,8 @@ page {
     font-size: 16px;
     color: #FFFFFF;
     font-weight: bold;
+    position: fixed;
+    bottom: 40rpx;
 }
 
 .drawer_screen {
@@ -235,4 +244,26 @@ page {
     font-size: 32rpx;
     color: #FFFFFF;
     font-weight: bold;
+}
+.error-note {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.model {
+    margin-top: -650rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 590rpx;
+    height: 104rpx;
+    opacity: 0.85;
+    background: rgba(58, 83, 125, 0.85);
+    border-radius: 8rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #FFFFFF;
+    text-align: center;
 }

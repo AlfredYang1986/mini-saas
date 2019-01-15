@@ -1,5 +1,5 @@
 <view class='back'>
-    <image  class='back_icon' src='{{backIcon}}' bindtap='goBack'></image>
+    <image  class="back_icon" src='{{backIcon}}' bindtap='goBack'></image>
 </view>
 <view class="clsdet-container">
  <!-- <view class="clsdet-component">

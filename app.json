@@ -18,7 +18,8 @@
         "pages/user/addChild/addChild",
         "pages/user/serviceDetail/serviceDetail",
         "pages/activity/reserve/reserve",
-        "pages/activity/addChild/addChild"
+        "pages/activity/addChild/addChild",
+        "pages/activity/success/success"
     ],
     "window": {
         "backgroundTextStyle": "light",

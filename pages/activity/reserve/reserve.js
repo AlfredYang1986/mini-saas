@@ -1,5 +1,11 @@
 // pages/activity/reserve/reserve.js
 let reservableid;
+let kidArray;
+let expect_date;
+let detailName;
+let detailSort;
+let kid = [];
+let phone;
 Page({
 
     /**
@@ -16,7 +22,8 @@ Page({
         kids: null,
         noChild: true,
         hasChild: false,
-        tel: false
+        tel: false,
+        errorInfo: false,
     },
 
     /**
@@ -24,9 +31,11 @@ Page({
      */
     onLoad: function (options) {
         reservableid = options.reservableid;
+        detailSort = wx.getStorageSync('detailSort');
+        detailName = wx.getStorageSync('detailName');
         let lm = require('../../../models/bm_applyee_schema.js');
         let ks = require('../../../models/bm_kids_schema.js');
-        let kidArray = ks.queryAllLocalKids();
+        kidArray = ks.queryAllLocalKids();
         if(kidArray.length == 0) {
             this.setData({
                 noChild: true,
@@ -44,17 +53,9 @@ Page({
             })
             return
         }
-        let yardname = wx.getStorageSync('yardname');
-        let detailSort = wx.getStorageSync('detailSort');
-        let detailName = wx.getStorageSync('detailName');
-        let yard = [];
-        yard.push(yardname);
         let nowdate = this.getNowFormatDate();
-        let haveChild = true;
         this.setData({
-            address: yard,
             exp_date: nowdate,
-            haveChild: true,
             phone: wx.getStorageSync('dd_phoneno'),
             bar: '提交订单',
             android: getApp().globalData.android,
@@ -141,28 +142,76 @@ Page({
         function addZero(m) {
             return m < 10 ? '0' + m : m;
         }
-        var currentdate = year + seperator1 + addZero(month) + seperator1 + (strDate) + ' ' + weekDay[week];
+        expect_date = new Date(e.detail.value).getTime(); 
         this.setData({
-            exp_date: currentdate
+            exp_date: year + seperator1 + addZero(month) + seperator1 + (strDate) + ' ' + weekDay[week]
         })
     },
 
     addChild: function() {
-        wx.navigateTo({
-            url: '../addChild/addChild',
+        wx.redirectTo({
+            url: '/pages/activity/addChild/addChild?reservableid=' + reservableid,
         })
     },
 
     inputTel: function() {
-        this.setData({
-            tel: true
-        })
+        let that = this
+        if (kidArray.length == 0) {
+            this.setData({
+                errorInfo: true
+            })
+            setTimeout(function() {
+                that.setData({
+                    errorInfo: false
+                })
+            }, 2000)
+        } else {
+            if (expect_date != undefined && detailName != undefined && detailSort != undefined && reservableid != undefined && kid != undefined && kid.length != 0) {
+                this.setData({
+                    tel: true
+                })
+            }
+        }
+        
     },
 
     commitReserve: function() {
-        this.setData({
-            tel: false
-        })
-    }
+        let that = this;
+        if (expect_date != undefined && detailName != undefined && detailSort != undefined && reservableid != undefined && kid != undefined && kid.length != 0 && phone != undefined && phone != '') {
+            let callback = {
+                onSuccess: function (res) {
+                    let reservableid = res.id
+                    that.setData({
+                        tel: false
+                    })
+                    wx.navigateTo({
+                        url: '/pages/activity/success/success?reservableid=' + reservableid,
+                    })
+                },
+                onFail: function () {
+                    console.log('push apply error');
+                }
+            }
+            var ay = require('../../../models/bm_apply_schema.js');
+            ay.pushApply(expect_date, detailName, phone, detailSort, reservableid, kid, callback);
+        }
+    },
 
+    kidRadioChange: function (e) {
+        let kidname = e.detail.value;
+        kid = [];
+        kidArray.map((ele) => {
+            if(ele.name == kidname) {
+                kid.push(ele)
+                return kid
+            }
+        })
+    },
+
+    bindKeyInput: function (e) {
+        phone = e.detail.value
+        this.setData({
+            phone: e.detail.value
+        })
+    },
 })

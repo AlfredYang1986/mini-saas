@@ -1,8 +1,15 @@
 <!--pages/user/serviceDetail/serviceDetail.wxml-->
+<navigation-bar title='{{bar}}' class="navi {{android?'android':'nav'}} {{iosX?'iosx':''}}"></navigation-bar>
 <view class='content-page'>
-    <navigation-bar title='{{bar}}' class="navi {{android?'android':'nav'}} {{iosX?'iosx':''}}"></navigation-bar>
     <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
     <view class='content-padding'>
+        <view class='success-info'>
+            <view class='success-icon'>
+                <image src='{{successIcon}}'></image>
+            </view>
+            <view class='success-text'>提交成功</view>
+            <view class='success-note'>我们将尽快与您联系</view>
+        </view>
         <view class='info-card'>
             <view class='title'>{{reservable.Reservable.SessionInfo.title}}</view>
             <view class='semi-circle'>

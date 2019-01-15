@@ -14,6 +14,7 @@ Page({
         mapIcon: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_map%402x.png",
         noteIcon: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_warning_border%402x.png",
         callIcon: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_call%402x.png",
+        successIcon: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_success.png",
         android: false,
         iosX: false,
         deviceHeight: getApp().globalData.deviceHeight,
@@ -56,17 +57,18 @@ Page({
                 })
 
             },
-            onFail: function(err) {
+            onFail: function (err) {
                 console.log(err)
             }
         }
         var bmactv = require('../../../models/bm_apply_schema.js')
         bmactv.queryApplyInfo(options.reservableid, callback)
         that.setData({
-            bar: '服务详情',
+            bar: wx.getStorageSync('mername'),
             android: getApp().globalData.android,
             iosX: getApp().globalData.iosX,
         })
+
     },
 
     /**

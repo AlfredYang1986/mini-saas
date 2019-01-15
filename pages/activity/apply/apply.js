@@ -412,10 +412,6 @@ Page({
           console.log('push apply error');
         }
       }
-      // kid = [];
-      // let ks = require('../../../models/bm_kids_schema.js');
-      // let selectedKid = ks.queryLocalKidByID(e.detail.value)
-      // kid.push(selectedKid);
       var ay = require('../../../models/bm_apply_schema.js');
       ay.pushApply(except_time, detailName, contact, detailSort, reservableid,  kids, callback);
     } else {
