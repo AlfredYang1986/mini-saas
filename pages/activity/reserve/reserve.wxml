@@ -32,7 +32,7 @@
                         <view class='kid'>
                             <radio id='kid' value='{{item.name}}' checked="{{checkboy}}" class='redio-dot'/> 
                             <text class='name'>{{item.name}}</text>
-                            <text class='age'>{{item.gender}}  {{item.dob}}</text>
+                            <text class='age'>{{item.sex}}  {{item.age}}岁</text>
                         </view>
                     </label>
                 </radio-group>

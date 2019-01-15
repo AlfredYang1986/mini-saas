@@ -119,6 +119,10 @@ page {
     font-size: 14px;
     color: #262626;
     font-weight: bold;
+    width: 90rpx;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 .kid .age {
     font-family: PingFangSC-Regular;

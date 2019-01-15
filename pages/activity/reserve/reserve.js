@@ -24,6 +24,7 @@ Page({
         hasChild: false,
         tel: false,
         errorInfo: false,
+        sex: '',
     },
 
     /**
@@ -33,9 +34,20 @@ Page({
         reservableid = options.reservableid;
         detailSort = wx.getStorageSync('detailSort');
         detailName = wx.getStorageSync('detailName');
+        let that = this;
         let lm = require('../../../models/bm_applyee_schema.js');
         let ks = require('../../../models/bm_kids_schema.js');
         kidArray = ks.queryAllLocalKids();
+        kidArray.map((ele) => {
+            if(ele.gender == 0) {
+                ele.sex = '女生'
+            } else {
+                ele.sex = '男生'
+            }
+            let dob = new Date(ele.dob)
+            let dn = new Date();
+            ele.age = dn.getFullYear() - dob.getFullYear();
+        })
         if(kidArray.length == 0) {
             this.setData({
                 noChild: true,
