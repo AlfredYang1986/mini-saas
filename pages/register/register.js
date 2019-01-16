@@ -65,9 +65,6 @@ onLoad: function (options) {
             // TODO : 报错 ...
         }
     }
-    var bmbrand = require('../../models/bm_brand_schema.js')
-    console.log(bmbrand)
-    bmbrand.queryMultiBrands(callback)
 
     wx.stopPullDownRefresh();
   },
