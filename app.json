@@ -19,13 +19,18 @@
         "pages/user/serviceDetail/serviceDetail",
         "pages/activity/reserve/reserve",
         "pages/activity/addChild/addChild",
-        "pages/activity/success/success"
+        "pages/activity/success/success",
+        "pages/classes/addChild/addChild",
+        "pages/classes/reserve/reserve",
+        "pages/classes/success/success"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationStyle": "custom"
     },
     "tabBar": {
+        "color": "#A6A6A6",
+        "selectedColor": " #80AEFF",
         "list": [
             {
                 "pagePath": "pages/brand/info/info",

@@ -4,7 +4,7 @@ let guardian_role;
 let dob;
 let gender;
 let childid;
-let nowdate;
+let now;
 let reservableid;
 Page({
 
@@ -32,7 +32,7 @@ Page({
         android: false,
         iosX: false,
         deviceHeight: getApp().globalData.deviceHeight,
-        name: ''
+        name: '',
     },
 
     /**
@@ -40,12 +40,17 @@ Page({
      */
     onLoad: function (options) {
         reservableid = options.reservableid;
-        nowdate = this.getNowFormatDate();
+        now = this.getNowFormatDate();
+        dob = new Date().getTime();
+        name = undefined;
+        guardian_role = undefined;
+        gender = undefined;
         this.setData({
             bar: wx.getStorageSync('mername'),
             android: getApp().globalData.android,
             iosX: getApp().globalData.iosX,
-            date: nowdate
+            date: now,
+            nowdate: now
         })
     },
 

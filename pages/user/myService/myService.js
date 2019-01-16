@@ -16,37 +16,47 @@ Page({
      */
     onLoad: function (options) {
         this.setData({
-          android: getApp().globalData.android,
-          iosX: getApp().globalData.iosX,
-          bar: wx.getStorageSync('mername')
+            android: getApp().globalData.android,
+            iosX: getApp().globalData.iosX,
+            bar: wx.getStorageSync('mername')
         });
 
-      var lm = require('../../../models/bm_applyee_schema.js');
-      if (!lm.checkIsLogin()) {
-        wx.redirectTo({
-          url: '/pages/register/register'
-        })
-        return
-      }
-      let client = new OSS({
-        region: 'oss-cn-beijing',
-        accessKeyId: 'LTAINO7wSDoWJRfN',
-        accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
-        bucket: 'bmsass'
-      });
-      let that = this;
-      let callback = {
-        onSuccess: function (res) {
-          that.setData({
-            list: res
-          })
-        },
-        onFail: function () {
-          // TODO : 报错 ...
+        let lm = require('../../../models/bm_applyee_schema.js');
+        let bmconfig = require('../../../models/bm_config.js')
+        if (!lm.checkIsLogin()) {
+            wx.redirectTo({
+            url: '/pages/register/register'
+            })
+            return
         }
-      }
-      var bmapply = require('../../../models/bm_apply_schema.js')
-      bmapply.queryMultiObjects(callback)
+        let client = new OSS({
+            region: 'oss-cn-beijing',
+            accessKeyId: 'LTAINO7wSDoWJRfN',
+            accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
+            bucket: 'bmsass'
+        });
+        let that = this;
+        let callback = {
+            onSuccess: function (res) {
+                res.map((item) => {
+                    item.Reservable.price = '免费';
+                    let reservableid = item.Reservable.id;
+                    bmconfig.bm_baizao_actvPrice.map((ele) => {
+                        if (reservableid === ele.actvId) {
+                            item.Reservable.price = ele.price;
+                        }
+                    })
+                })
+                that.setData({
+                    list: res
+                })
+            },
+            onFail: function () {
+            // TODO : 报错 ...
+            }
+        }
+        var bmapply = require('../../../models/bm_apply_schema.js')
+        bmapply.queryMultiObjects(callback)
         
     },
 

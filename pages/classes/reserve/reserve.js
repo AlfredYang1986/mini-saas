@@ -25,8 +25,7 @@ Page({
         tel: false,
         errorInfo: false,
         sex: '',
-        now: '',
-        price: '免费'
+        now: ''
     },
 
     /**
@@ -36,21 +35,13 @@ Page({
         reservableid = options.reservableid;
         detailSort = wx.getStorageSync('detailSort');
         detailName = wx.getStorageSync('detailName');
-        expect_date = new Date().getTime(); 
+        expect_date = new Date().getTime();
         let that = this;
         let lm = require('../../../models/bm_applyee_schema.js');
         let ks = require('../../../models/bm_kids_schema.js');
-        let bmconfig = require('../../../models/bm_config.js')
-        bmconfig.bm_baizao_actvPrice.map((ele) => {
-            if (reservableid === ele.actvId) {
-                that.setData({
-                    price: ele.price
-                }) 
-            }
-        })
         kidArray = ks.queryAllLocalKids();
         kidArray.map((ele) => {
-            if(ele.gender == 0) {
+            if (ele.gender == 0) {
                 ele.sex = '女生'
             } else {
                 ele.sex = '男生'
@@ -59,7 +50,7 @@ Page({
             let dn = new Date();
             ele.age = dn.getFullYear() - dob.getFullYear();
         })
-        if(kidArray.length == 0) {
+        if (kidArray.length == 0) {
             this.setData({
                 noChild: true,
                 hasChild: false
@@ -180,25 +171,25 @@ Page({
         function addZero(m) {
             return m < 10 ? '0' + m : m;
         }
-        expect_date = new Date(e.detail.value).getTime(); 
+        expect_date = new Date(e.detail.value).getTime();
         this.setData({
             exp_date: year + seperator1 + addZero(month) + seperator1 + (strDate) + ' ' + weekDay[week]
         })
     },
 
-    addChild: function() {
+    addChild: function () {
         wx.redirectTo({
             url: '/pages/activity/addChild/addChild?reservableid=' + reservableid,
         })
     },
 
-    inputTel: function() {
+    inputTel: function () {
         let that = this
         if (kid.length == 0) {
             this.setData({
                 errorInfo: true
             })
-            setTimeout(function() {
+            setTimeout(function () {
                 that.setData({
                     errorInfo: false
                 })
@@ -210,10 +201,10 @@ Page({
                 })
             }
         }
-        
+
     },
 
-    commitReserve: function() {
+    commitReserve: function () {
         let that = this;
         if (expect_date != undefined && detailName != undefined && detailSort != undefined && reservableid != undefined && kid != undefined && kid.length != 0 && phone != undefined && phone != '') {
             let callback = {
@@ -239,7 +230,7 @@ Page({
         let kidname = e.detail.value;
         kid = [];
         kidArray.map((ele) => {
-            if(ele.name == kidname) {
+            if (ele.name == kidname) {
                 kid.push(ele)
                 return kid
             }

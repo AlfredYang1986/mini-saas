@@ -8,7 +8,7 @@
                     <view class='class-name'>{{detailName}}</view>
                     <view class='yard-name'>{{yardname}}</view>
                 </view>
-                <view class='price'>¥{{price}}</view>
+                <view class='price'>¥免费</view>
             </view>
             <view class='time'>
                 <picker mode="date" value="{{date}}" start="2019-01-16" end="2050-01-01" bindchange="bindExceptDateChange">
@@ -45,7 +45,7 @@
         </view>
     </view>
     <view class='btn-area'>
-        <button class='submit' bindtap='inputTel'>¥{{price}}  提交</button>
+        <button class='submit' bindtap='inputTel'>¥免费  提交</button>
     </view>
     
     <view class="drawer_screen" bindtap="" data-statu="close" wx:if="{{tel}}"></view>

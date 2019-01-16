@@ -89,7 +89,7 @@ Page({
       })
       return
     }
-    var bmconfig = require('../../../models/bm_config.js')
+    let bmconfig = require('../../../models/bm_config.js')
     let client = new OSS({
       region: 'oss-cn-beijing',
       accessKeyId: 'LTAINO7wSDoWJRfN',

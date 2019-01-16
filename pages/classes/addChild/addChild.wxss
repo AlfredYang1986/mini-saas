@@ -70,14 +70,14 @@ page {
     align-items: center;
     justify-content: center;
     background: #80AEFF;
-    border-radius: 4px;
+    border-radius: 8rpx;
     font-family: PingFangSC-Medium;
-    font-size: 14px;
+    font-size: 28rpx;
     color: #FFFFFF;
 }
 .button-area a {
     font-family: PingFangSC-Medium;
-    font-size: 14px;
+    font-size: 28rpx;
     color: #F54A32;
 }
 .error-note {
@@ -87,7 +87,7 @@ page {
     justify-content: center;
 }
 .model {
-    margin-top: -220rpx;
+    margin-top: -180rpx;
     display: flex;
     flex-direction: row;
     justify-content: center;

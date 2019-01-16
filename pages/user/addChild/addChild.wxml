@@ -16,7 +16,7 @@
                         mode="date"
                         value="{{date}}"
                         start="2000-09-01"
-                        end="nowdate"
+                        end="{{nowdate}}"
                         bindchange="bindDateChange"
                     >
                         <view class="picker">{{date}}</view>
@@ -49,5 +49,10 @@
     <view class='button-area'>
         <button bindtap='saveKid'>保存</button>
         <a bindtap='deleteKid'>删除孩子</a>
+    </view>
+    <view class='error-note' wx:if='{{errorInfo}}'>
+        <view class='model'>
+            <text>还没填完鸭</text>
+        </view>
     </view>
 </view>

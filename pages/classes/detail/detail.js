@@ -50,7 +50,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      debugger
     reservableid = options.expid
     var lm = require('../../../models/bm_applyee_schema.js');
     if (!lm.checkIsLogin()) {
@@ -60,7 +59,7 @@ Page({
       return
     }
 
-    var bmconfig = require('../../../models/bm_config.js')
+    let bmconfig = require('../../../models/bm_config.js')
     let client = new OSS({
       region: 'oss-cn-beijing',
       accessKeyId: 'LTAINO7wSDoWJRfN',
@@ -246,7 +245,8 @@ Page({
 
     apply: function(event) {
         wx:wx.navigateTo({
-            url: '/pages/classes/apply/apply?reservableid=' + reservableid,
+            // url: '/pages/classes/apply/apply?reservableid=' + reservableid,
+            url: '/pages/activity/reserve/reserve?reservableid=' + reservableid,
         })
     },
 
