@@ -30,7 +30,7 @@
     },
     "tabBar": {
         "color": "#A6A6A6",
-        "selectedColor": " #80AEFF",
+        "selectedColor": "#80AEFF",
         "list": [
             {
                 "pagePath": "pages/brand/info/info",
