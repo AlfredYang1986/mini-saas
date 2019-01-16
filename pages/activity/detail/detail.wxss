@@ -1,6 +1,6 @@
 /* pages/activity/activity.wxss */
 .back {
-  position: absolute;
+  position: fixed;
   margin-top: 60rpx;
   margin-left: 19rpx;
   width:44rpx;

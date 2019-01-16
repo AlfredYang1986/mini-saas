@@ -28,13 +28,11 @@ Component({
      */
     methods: {
         showBrandDetail: function (event) {
+            let brandid = event.currentTarget.dataset.brandid;
+            let bmconfig = require('../../../models/bm_config.js');
+            bmconfig.bm_baizao_id = brandid;
             wx.switchTab({
                 url: '/pages/brand/info/info',
-            })
-
-            wx.setStorage({
-                key: "brandid",
-                data: event.currentTarget.dataset.brandid
             })
         }
     }

@@ -62,6 +62,8 @@ function queryMultiActvs(callback) {
 function genMultiActvs() {
   let eq = guid();
   let br = guid();
+  let bmconfig = require('../models/bm_config.js');
+  let brandid = bmconfig.bm_baizao_id;
   return {
     data: {
       id: guid(),
@@ -98,7 +100,7 @@ function genMultiActvs() {
         type: "Eqcond",
         attributes: {
             key: "brandId",
-            val: "5be6a00b8fb80736e2ec9ba5"
+            val: brandid
         }
       }
     ]

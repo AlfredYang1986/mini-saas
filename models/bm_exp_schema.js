@@ -105,6 +105,8 @@ function queryExpInfo(expid, callback) {
 function genMultiExps() {
     let eq = guid();
     let br = guid();
+    let bmconfig = require('../models/bm_config.js');
+    let brandid = bmconfig.bm_baizao_id;
     return {
         data: {
             id: guid(),
@@ -140,7 +142,7 @@ function genMultiExps() {
                 type: "Eqcond",
                 attributes: {
                     key: "brandId",
-                    val: wx.getStorageSync('brandid')
+                    val: brandid
                 }
             }
         ]
