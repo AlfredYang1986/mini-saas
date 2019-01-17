@@ -311,7 +311,8 @@ Page({
         let that = this;
         wx:wx.navigateTo({
         //   url: '/pages/activity/apply/apply?reservableid=' + reservableid,
-            url: '/pages/activity/reserve/reserve?reservableid=' + reservableid,
+            // url: '/pages/activity/reserve/reserve?reservableid=' + reservableid,
+            url: '/pages/activity/datePicker/datePicker?reservableid=' + reservableid,
         })
     },
 

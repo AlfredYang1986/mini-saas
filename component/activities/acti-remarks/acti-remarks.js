@@ -11,7 +11,24 @@ Component({
     exp: {
       type: "Array",
       value: [],
-      observer: function (news, olds, path) {}
+      observer: function (news, olds, path) {
+          if(news != null) {
+              if (news.SessionInfo.inc != null) {
+                  this.setData({
+                      exp: news,
+                      hasRemark: true
+                  })
+              } else {
+                  this.setData({
+                      hasRemark: false
+                  })
+              }
+          } else {
+              this.setData({
+                  hasRemark: false
+              })
+          }
+      }
     }
   },
 
@@ -19,6 +36,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    hasRemark: true,
     "remarks": [
       "教学用具", "免费的饮品和零食",
     ]

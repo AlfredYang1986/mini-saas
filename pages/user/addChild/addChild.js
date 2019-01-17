@@ -42,6 +42,9 @@ Page({
         childid = options.childid;
         nowdate = this.getNowFormatDate();
         dob = new Date().getTime();
+        name = undefined;
+        guardian_role = undefined;
+        gender = undefined;
         let that = this;
         if(childid != undefined && childid != '') {
             let ks = require('../../../models/bm_kids_schema.js');

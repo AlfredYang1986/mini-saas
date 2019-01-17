@@ -18,7 +18,7 @@ Component({
                 accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
                 bucket: 'bmsass'
             });
-            if (news != null) {
+            if (news != null && news.length != 0) {
                 news.map((ele) => {
                     ele.price = "免费";
                     ele.dealImage = client.signatureUrl(ele.Reservable.SessionInfo.cover);
@@ -40,8 +40,13 @@ Component({
                 })
                 
                 that.setData({
+                    noValue: false,
                     lists: news
                 })              
+            } else {
+                that.setData({
+                  noValue: true
+                })
             }
           }
         }
@@ -52,6 +57,7 @@ Component({
      */
     data: {
         lists: null,
+        noValue: false,
         card: [
             {
                 title: "探索科学小屋",

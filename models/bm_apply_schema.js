@@ -105,6 +105,7 @@ function genMultiQuery(param) {
   let ne = guid();
 
   let lm = require('./bm_applyee_schema.js');
+  let config = require('./bm_config.js')
   let localApplyee = lm.queryLocalApplyee();
   let applyee = localApplyee.id;
 
@@ -150,7 +151,7 @@ function genMultiQuery(param) {
           type: "Eqcond",
           attributes: {
             key: "brandId",
-            val: wx.getStorageSync('brandid')
+            val: config.bm_baizao_id
           }
         },
         {

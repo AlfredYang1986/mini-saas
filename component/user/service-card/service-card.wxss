@@ -1,4 +1,16 @@
 /* component/user/service-card/service-card.wxss */
+.no-value {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 380rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 13px;
+    color: #8C8C8C;
+    text-align: center;
+}
 .service-card {
     margin-bottom: 32rpx;
     display: flex;

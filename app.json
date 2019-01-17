@@ -22,7 +22,8 @@
         "pages/activity/success/success",
         "pages/classes/addChild/addChild",
         "pages/classes/reserve/reserve",
-        "pages/classes/success/success"
+        "pages/classes/success/success",
+        "pages/activity/datePicker/datePicker"
     ],
     "window": {
         "backgroundTextStyle": "light",
