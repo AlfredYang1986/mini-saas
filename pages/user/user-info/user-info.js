@@ -16,15 +16,7 @@ Page({
             {
                 name: "管理孩子",
                 detail: "../manageChild/manageChild"
-            },
-            {
-                name: "推荐给朋友",
-                detail: "../../brand/info/info"
-            },
-            {
-                name: "联系客服",
-                detail: "../../brand/info/info"
-            },
+            }
         ],
         android: false,
         iosX: false,
@@ -95,6 +87,26 @@ Page({
     backToList() {
         wx.redirectTo({
             url: '/pages/brandlist/brandlist',
+        })
+    },
+
+    onShareAppMessage: function () {
+        return {
+            title: "转发给好友",
+            // imageUrl: "/utils/image/mineselected.png",
+            path: "/pages/register/register"
+        }
+    },
+
+    phoneCall: function() {
+        wx.makePhoneCall({
+            phoneNumber: '111111', 
+            success: function () {
+                console.log("拨打电话成功！")
+            },
+            fail: function () {
+                console.log("拨打电话失败！")
+            }
         })
     }
 })

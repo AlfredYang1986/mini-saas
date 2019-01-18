@@ -1,4 +1,8 @@
 /* pages/user/user.wxss */
+.navigator-hover {
+    background-color: #ffffff;
+    opacity: 1;
+}
 .content-page {
     padding: 48rpx 40rpx;
     display: flex;
@@ -69,4 +73,20 @@
     font-size: 28rpx;
     color: #262626;
     font-weight: bold;
+}
+.list button {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    background-color: #fff;
+    width: 180rpx;
+    outline: none;
+    font-family: PingFangSC-Medium;
+    font-size: 14px;
+    color: #262626;
+    text-align: left;
+    font-weight: bold;
+}
+.list button::after {
+  border: none;
 }

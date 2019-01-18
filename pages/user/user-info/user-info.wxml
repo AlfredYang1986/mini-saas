@@ -18,5 +18,17 @@
                 <image src="{{icon_enter}}"></image>
             </view>
         </navigator>
+        <navigator class='list'>
+            <button open-type='share'>推荐给朋友</button>
+            <view class='enter-icon'>
+                <image src="{{icon_enter}}"></image>
+            </view>
+        </navigator>
+        <navigator class='list'>
+            <button bindtap='phoneCall'>联系客服</button>
+            <view class='enter-icon'>
+                <image src="{{icon_enter}}"></image>
+            </view>
+        </navigator>
     </view>
 </view>
