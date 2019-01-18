@@ -4,7 +4,7 @@
     <view class='info'>
         <view class='reservable'>
             <view class='title'>您的意向时间</view>
-            <view class='time'>{{year}}年{{month}}月{{day}}日</view>
+            <view class='time'>{{year}}  年  {{month}}  月   {{day}}  日</view>
         </view>
         <view class='date-picker'>
             <picker-view class='picker-view' indicator-style="height: 50px;" indicator-class='selected-picker' style="width: 70%; height: 300px;" value="{{value}}" bindchange="bindChange">

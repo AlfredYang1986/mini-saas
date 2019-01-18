@@ -6,6 +6,7 @@ let gender;
 let childid;
 let now;
 let reservableid;
+let datePicker;
 Page({
 
     /**
@@ -40,6 +41,7 @@ Page({
      */
     onLoad: function (options) {
         reservableid = options.reservableid;
+        datePicker = options.datePicker;
         now = this.getNowFormatDate();
         dob = new Date().getTime();
         name = undefined;
@@ -147,7 +149,7 @@ Page({
         if (name != undefined && name != '' && dob != undefined && gender != undefined && guardian_role != undefined && guardian_role != null) {
             ks.genOneKid(name, 'nickname', dob, gender, guardian_role)
             wx.redirectTo({
-                url: '/pages/activity/reserve/reserve?reservableid=' + reservableid,
+                url: '/pages/activity/reserve/reserve?reservableid=' + reservableid + '&datePicker=' + datePicker,
             })
         } else {
             let that = this

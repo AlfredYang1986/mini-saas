@@ -8,17 +8,18 @@ for (let i = 2019; i <= 2100; i++) {
     years.push(i)
 }
 
-for (let i = 1; i <= 12; i++) {
+for (let i = date.getMonth() + 1; i <= 12; i++) {
     months.push(i)
 }
 
-for (let i = 1; i <= 31; i++) {
+for (let i = date.getDate(); i <= 31; i++) {
     days.push(i)
 }
 
 let mon = date.getMonth();
 let day = date.getDate() - 1;
 let reservableid;
+let datePicker;
 Page({
 
     /**
@@ -31,7 +32,7 @@ Page({
         month: date.getMonth() + 1,
         days,
         day: date.getDate(),
-        value: [0, mon, day],
+        value: [0, 0, 0],
     },
 
     /**
@@ -39,6 +40,7 @@ Page({
      */
     onLoad: function (options) {
         reservableid = options.reservableid;
+        datePicker = new Date().getTime()
         this.setData({
             phone: wx.getStorageSync('dd_phoneno'),
             bar: '选择意向时间',
@@ -98,6 +100,9 @@ Page({
 
     bindChange(e) {
         const val = e.detail.value
+        let dateSelected = this.data.years[val[0]] + '-' + this.data.months[val[1]] + '-' + this.data.days[val[2]];
+        datePicker = dateSelected;
+        // datePicker = new Date(dateSelected).getTime();
         this.setData({
             year: this.data.years[val[0]],
             month: this.data.months[val[1]],
@@ -107,7 +112,7 @@ Page({
 
     next() {
         wx.navigateTo({
-            url: '/pages/activity/reserve/reserve?reservableid=' + reservableid,
+            url: '/pages/activity/reserve/reserve?reservableid=' + reservableid + '&datePicker=' + datePicker,
         })
     }
 })
