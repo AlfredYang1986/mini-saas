@@ -246,7 +246,7 @@ Page({
     apply: function(event) {
         wx:wx.navigateTo({
             // url: '/pages/classes/apply/apply?reservableid=' + reservableid,
-            url: '/pages/activity/reserve/reserve?reservableid=' + reservableid,
+            url: '/pages/activity/datePicker/datePicker?reservableid=' + reservableid,
         })
     },
 

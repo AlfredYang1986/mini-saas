@@ -35,7 +35,8 @@ Page({
         reservableid = options.reservableid;
         detailSort = wx.getStorageSync('detailSort');
         detailName = wx.getStorageSync('detailName');
-        expect_date = new Date().getTime();
+        datePicker = options.datePicker;
+        expect_date = new Date(datePicker).getTime(); 
         let that = this;
         let lm = require('../../../models/bm_applyee_schema.js');
         let ks = require('../../../models/bm_kids_schema.js');
@@ -67,7 +68,7 @@ Page({
             })
             return
         }
-        let nowdate = this.getNowFormatDate();
+        let nowdate = this.getNowFormatDate(datePicker);
         let now = this.getNowFormatDateNoWeek();
         this.setData({
             exp_date: nowdate,
@@ -130,9 +131,9 @@ Page({
 
     },
 
-    getNowFormatDate: function () {
+    getNowFormatDate: function (e) {
         var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
-        var date = new Date();
+        var date = new Date(e);
         var seperator1 = "-";
         var seperator2 = ":";
         var year = date.getFullYear();
@@ -214,7 +215,7 @@ Page({
                         tel: false
                     })
                     wx.navigateTo({
-                        url: '/pages/activity/success/success?reservableid=' + reservableid,
+                        url: '/pages/activity/success/success?reservableid=' + reservableid + '&datePicker=' + datePicker,
                     })
                 },
                 onFail: function () {

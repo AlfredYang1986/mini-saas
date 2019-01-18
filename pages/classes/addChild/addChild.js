@@ -147,7 +147,7 @@ Page({
         if (name != undefined && name != '' && dob != undefined && gender != undefined && guardian_role != undefined && guardian_role != null) {
             ks.genOneKid(name, 'nickname', dob, gender, guardian_role)
             wx.redirectTo({
-                url: '/pages/activity/reserve/reserve?reservableid=' + reservableid,
+                url: '/pages/activity/reserve/reserve?reservableid=' + reservableid + '&datePicker=' + datePicker,
             })
         } else {
             let that = this

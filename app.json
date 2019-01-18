@@ -23,7 +23,8 @@
         "pages/classes/addChild/addChild",
         "pages/classes/reserve/reserve",
         "pages/classes/success/success",
-        "pages/activity/datePicker/datePicker"
+        "pages/activity/datePicker/datePicker",
+        "pages/classes/datePicker/datePicker"
     ],
     "window": {
         "backgroundTextStyle": "light",
