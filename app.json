@@ -1,5 +1,8 @@
 {
     "pages": [
+      
+        "pages/activity/lst/lst",
+        
         "pages/register/register",
         "pages/preregister/preregister",
         "pages/brand/info/info",
@@ -8,7 +11,7 @@
         "pages/classes/detail/detail",
         "pages/activity/detail/detail",
         "pages/classes/apply/apply",
-        "pages/activity/lst/lst",
+        
         "pages/activity/apply/apply",
         "pages/locations/details/details",
         "pages/brandlist/brandlist",
