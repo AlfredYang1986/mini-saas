@@ -109,10 +109,59 @@ Page({
       }
     }
     var bmconfig = require('../../../models/bm_config.js')
-    // var bmexp = require('../../../models/bm_exp_schema.js')
-    // bmexp.queryMultiExps(callback)
-    // var bmactvs = require('../../../models/bm_actv_schema.js')
-    // bmactvs.queryMultiActvs(callbackActvs)
+    var bmactvs = require('../../../models/bm_actv_schema.js')
+      bmactvs.queryMultiActvsWithLimits(1, 3).then(res => {
+          bmactvs.queryMultiActvsSessions(res).then(res => {
+              bmactvs.queryMultiSessionsImgs(res).then(result => {
+                  let tmp = bmactvs.bmstore.findAll("reservableitems");
+                  function expFunc(tt) {
+                      return tt.status == 1;
+                  }
+                  let res = tmp.filter(expFunc);
+                  let _originRes = res;
+                  let newres = _originRes.map((ele) => {
+                      let _originImg = ele.sessioninfo.cover;
+                      ele.sessioninfo.dealCover = client.signatureUrl(_originImg);
+                      if (ele.sessioninfo.aub == -1 && ele.sessioninfo.alb == -1) {
+                          ele.sessioninfo.hasAge = false;
+                      } else {
+                          ele.sessioninfo.hasAge = true;
+                      }
+                      return ele
+                  })
+
+                  that.setData({
+                      exps: res,
+                  })
+              })
+          })
+      })
+      bmactvs.queryMultiActvsWithLimits(0, 3).then(res => {
+        bmactvs.queryMultiActvsSessions(res).then(res => {
+            bmactvs.queryMultiSessionsImgs(res).then(result => {
+                let tmp = bmactvs.bmstore.findAll("reservableitems");
+                function actvFunc(tt) {
+                    return tt.status == 0;
+                }
+                let res = tmp.filter(actvFunc);
+                let _originRes = res;
+                let newres = _originRes.map((ele) => {
+                    let _originImg = ele.sessioninfo.cover;
+                    ele.sessioninfo.dealCover = client.signatureUrl(_originImg);
+                    if (ele.sessioninfo.aub == -1 && ele.sessioninfo.alb == -1) {
+                        ele.sessioninfo.hasAge = false;
+                    } else {
+                        ele.sessioninfo.hasAge = true;
+                    }
+                    return ele
+                })
+
+                that.setData({
+                    actvs: res,
+                })
+            })
+        })
+    })
     var bmbrand = require('../../../models/bm_brand_schema.js')
     bmbrand.queryBrand(bmconfig.bm_baizao_id).then(res => {
         let logo = res.logo;

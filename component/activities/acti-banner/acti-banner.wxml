@@ -7,11 +7,11 @@
   <scroll-view class="scroll-x" scroll-x style="width: 100%">
     <view class='content'>
       <view class='list'  wx:for="{{actv}}"   bindtap='showActiDetail' data-actvid="{{item.id}}">
-        <view class='bg-image' style="background-image: url('{{item.SessionInfo.dealCover}}')" >
+        <view class='bg-image' style="background-image: url('{{item.sessioninfo.dealCover}}')" >
           <view class='list-detail'>
             <view class='info'>
               <view class='sort'>{{item.SessionInfo.Cate.title}}</view>
-              <block wx:if="{{item.SessionInfo.hasAge}}">
+              <block wx:if="{{item.sessioninfo.hasAge}}">
                 <view class='age'>{{item.SessionInfo.alb}}-{{item.SessionInfo.aub}} 岁</view>
               </block>
               <block wx:else>
@@ -19,7 +19,7 @@
               </block>
             </view>
             <view class='apply'>
-              <view class='name'>{{item.SessionInfo.title}}</view>
+              <view class='name'>{{item.sessioninfo.title}}</view>
             </view>
           </view>
         </view>

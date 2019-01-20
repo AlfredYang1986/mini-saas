@@ -37,40 +37,6 @@ Page({
       bucket: 'bmsass'
     });
     let that = this
-    // let callback = {
-    //   onSuccess: function (res) {
-    //     let logo = res.logo;
-    //     res.newLogo = client.signatureUrl(logo);
-    //     let honors = res.Honors;
-    //     if(honors != null) {
-    //       let newHonors = honors.map((ele) => {
-    //         let honorsImg = ele.img;
-    //         ele.dealImg = client.signatureUrl(honorsImg);
-    //         return ele
-    //       })
-    //     }
-        
-    //     let Certifications = res.Certifications;
-    //     if(Certifications != null) {
-    //       let newCertifications = Certifications.map((ele) => {
-    //         let certificationsImg = ele.img;
-    //         ele.dealImg = client.signatureUrl(certificationsImg);
-    //         return ele
-    //       })
-    //     }
-        
-    //     let found = res.found;
-    //     res.time = new Date(found).getFullYear();
-    //     that.setData({
-    //       brand: res
-    //     })
-    //   },
-    //   onFail: function () {
-    //     // TODO : 报错 ...
-    //   }
-    // }
-    // var bmbrand = require('../../../models/bm_brand_schema.js')
-    // bmbrand.queryBrand(options.brandid, callback)
       var bmconfig = require('../../../models/bm_config.js')
       var bmbrand = require('../../../models/bm_brand_schema.js')
       bmbrand.queryBrand(bmconfig.bm_baizao_id).then(res => {
