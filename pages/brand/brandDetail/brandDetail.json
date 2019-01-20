@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-      "brand-detail": "/component/brand/brand-detail-head/brand-detail-head",
+      "brand-detail": "/component/brand/brand-detail-head/brand-detail-head"
   }
 }

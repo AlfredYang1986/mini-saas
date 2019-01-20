@@ -37,26 +37,28 @@ Page({
     let that = this;
     var bmactvs = require('../../../models/bm_actv_schema.js')
     bmactvs.queryMultiActvs().then(res => {
-      bmactvs.queryMultiActvsSessions(res).then(result => {
-        let res = bmactvs.bmstore.findAll('reservableitems');
-        let _originRes = res;
-        let newres = _originRes.map((ele) => {
-          let _originImg = ele.sessioninfo.cover;
-          if (_originImg) {
-            ele.sessioninfo.dealCover = client.signatureUrl(_originImg);
-          } else {
-            ele.sessioninfo.dealCover = "";
-          }
-          
-          if (ele.sessioninfo.aub == -1 && ele.sessioninfo.aub == -1) {
-            ele.sessioninfo.hasAge = false;
-          } else {
-            ele.sessioninfo.hasAge = true;
-          }
-            return ele
-        })
-        that.setData({
-          actvs: res
+      bmactvs.queryMultiActvsSessions(res).then(res => {
+        bmactvs.queryMultiSessionsImgs(res).then(result => {
+          let res = bmactvs.bmstore.findAll('reservableitems');
+          let _originRes = res;
+          let newres = _originRes.map((ele) => {
+            let _originImg = ele.sessioninfo.cover;
+            if (_originImg) {
+              ele.sessioninfo.dealCover = client.signatureUrl(_originImg);
+            } else {
+              ele.sessioninfo.dealCover = "";
+            }
+            
+            if (ele.sessioninfo.aub == -1 && ele.sessioninfo.aub == -1) {
+              ele.sessioninfo.hasAge = false;
+            } else {
+              ele.sessioninfo.hasAge = true;
+            }
+              return ele
+          })
+          that.setData({
+            actvs: bmactvs.bmstore.findAll('reservableitems')
+          })
         })
       })
     })

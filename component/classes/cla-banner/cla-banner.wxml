@@ -9,15 +9,15 @@
     <view class='content'>
       <block wx:for="{{exp}}" >
         <view class='list' bindtap='showClsDetail' data-expid="{{item.id}}">
-          <view class='cover' style="background-image: url('{{item.SessionInfo.dealCover}}')"></view>
+          <view class='cover' style="background-image: url('{{item.sessioninfo.dealCover}}')"></view>
           <view class='class-info'>
             <view class='info'>
-              <text class='sort'>{{item.SessionInfo.Cate.title}}</text>
-              <text class='name'>{{item.SessionInfo.title}}</text>
+              <text class='sort'>{{item.sessioninfo.category.title}}</text>
+              <text class='name'>{{item.sessioninfo.title}}</text>
             </view>
             <view class='suit'>
-              <block wx:if="{{item.SessionInfo.hasAge}}">
-                <text class='age'>{{item.SessionInfo.alb}}-{{item.SessionInfo.aub}} 岁</text>
+              <block wx:if="{{item.sessioninfo.hasAge}}">
+                <text class='age'>{{item.sessioninfo.alb}}-{{item.sessioninfo.aub}} 岁</text>
               </block>
               <block wx:else>
                 <view class='age'>不限年龄</view>

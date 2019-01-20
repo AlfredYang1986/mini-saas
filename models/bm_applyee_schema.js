@@ -174,29 +174,15 @@ function genApplyeePushQuery(uinfo, phoneno) {
   }
 }
 
-function guid() {
-  function s4() {
-    return Math.floor((1 + Math.random()) * 0x10000)
-      .toString(16)
-      .substring(1);
-  }
-  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
-}
-
 function pushApplee(openid, uinfo, phoneno, callback) {
   bmstore.reset();
-  let query_payload = genApplyeePushQuery(uinfo, phoneno);
-  let result = bmstore.sync(query_payload);
-
-  let rd_tmp = JSON.parse(JSON.stringify(result.serialize()));
-  let dt = JSON.stringify(rd_tmp);
 
   let config = require('./bm_config.js');
   wx.showLoading({
     title: '加载中',
   });
   wx.request({
-    url: config.bm_service_host + '/api/v1/pushapplyee/0',
+    url: config.bm_service_host + '/v0/pushapplyee/0',
     data: dt,
     method: 'post',
     header: {

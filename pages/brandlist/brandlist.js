@@ -47,24 +47,20 @@ Page({
             bucket: 'bmsass'
         });
         let that = this;
-        let callback = {
-            onSuccess: function (res) {
-                let newres = res.map((ele) => {
-                    let logo = ele.logo;
-                    ele.dealLogo = client.signatureUrl(logo);
-                    return ele
-                })
-                that.setData({
-                    brandList: res
-                })
-            },
-            onFail: function () {
-                // TODO : 报错 ...
-            }
-        }
         var bmbrand = require('../../models/bm_brand_schema.js')
         console.log(bmbrand)
-        bmbrand.queryMultiBrands(callback)
+        bmbrand.queryMultiBrands().then(res => {
+          let newres = res.map((ele) => {
+            let logo = ele.logo;
+            ele.dealLogo = client.signatureUrl(logo);
+            return ele
+          })
+          that.setData({
+            brandList: res
+          })
+        }).catch(err => {
+          console.log('error')
+        })
 
         wx.stopPullDownRefresh();
     },
