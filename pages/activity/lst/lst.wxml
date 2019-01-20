@@ -4,5 +4,5 @@
     <acti-lst isList="true" exps="{{actvs}}"></acti-lst>
 </view>
 <view class='notice'>
-  <text>更多精彩即将上线</text>
+  <text>-更多精彩即将上线-</text>
 </view>

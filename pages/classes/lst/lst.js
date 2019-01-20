@@ -16,72 +16,52 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-    this.setData({
-        android: getApp().globalData.android,
-        iosX: getApp().globalData.iosX,
-        bar: wx.getStorageSync('mername')
-    });
-    var lm = require('../../../models/bm_applyee_schema.js');
-    // if (!lm.checkIsLogin()) {
-    //   wx.redirectTo({
-    //       url: '/pages/register/register'
-    //   })
-    //   return
-    // }
-    let client = new OSS({
-        region: 'oss-cn-beijing',
-        accessKeyId: 'LTAINO7wSDoWJRfN',
-        accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
-        bucket: 'bmsass'
-    });
+        this.setData({
+            android: getApp().globalData.android,
+            iosX: getApp().globalData.iosX,
+            bar: wx.getStorageSync('mername')
+        });
+        var lm = require('../../../models/bm_applyee_schema.js');
+        // if (!lm.checkIsLogin()) {
+        //   wx.redirectTo({
+        //       url: '/pages/register/register'
+        //   })
+        //   return
+        // }
+        let client = new OSS({
+            region: 'oss-cn-beijing',
+            accessKeyId: 'LTAINO7wSDoWJRfN',
+            accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
+            bucket: 'bmsass'
+        });
 		let that = this;
-		let callback = {
-			onSuccess: function(res) {
-        let _originRes = res;
-        let newres = _originRes.map((ele) => {
-        let _originImg = ele.SessionInfo.cover;
-        ele.SessionInfo.dealCover = client.signatureUrl(_originImg);
-        if (ele.SessionInfo.aub == -1 && ele.SessionInfo.alb == -1) {
-            ele.SessionInfo.hasAge = false;
-        } else {
-            ele.SessionInfo.hasAge = true;
-        }
-            return ele
+        var bmactvs = require('../../../models/bm_actv_schema.js')
+        bmactvs.queryMultiActvs(1).then(res => {
+            bmactvs.queryMultiActvsSessions(res).then(res => {
+                bmactvs.queryMultiSessionsImgs(res).then(result => {
+                    let res = bmactvs.bmstore.findAll('reservableitems');
+                    let _originRes = res;
+                    let newres = _originRes.map((ele) => {
+                        let _originImg = ele.sessioninfo.cover;
+                        if (_originImg) {
+                            ele.sessioninfo.dealCover = client.signatureUrl(_originImg);
+                        } else {
+                            ele.sessioninfo.dealCover = "";
+                        }
+
+                        if (ele.sessioninfo.aub == -1 && ele.sessioninfo.aub == -1) {
+                            ele.sessioninfo.hasAge = false;
+                        } else {
+                            ele.sessioninfo.hasAge = true;
+                        }
+                        return ele
+                    })
+                    that.setData({
+                        exps: bmactvs.bmstore.findAll('reservableitems')
+                    })
+                })
+            })
         })
-        that.setData({
-            exps: res
-        })
-			},
-			onFail: function() {
-				// TODO : 报错 ...
-			}
-		}
-		var bmexps = require('../../../models/bm_exp_schema.js')
-		bmexps.queryMultiExps().then(res => {
-      bmexps.queryMultiExpsSessions(res).then(result => {
-        debugger
-        let res = bmexps.bmstore.findAll('reservableitems');
-        wx.hideLoading();
-        let _originRes = res;
-        let newres = _originRes.map((ele) => {
-          let _originImg = ele.sessioninfo.cover;
-          if (_originImg) {
-            ele.sessioninfo.dealCover = client.signatureUrl(_originImg);
-          } else {
-            ele.sessioninfo.dealCover = "";
-          }
-          if (ele.sessioninfo.aub == -1 && ele.sessioninfo.alb == -1) {
-            ele.sessioninfo.hasAge = false;
-          } else {
-            ele.sessioninfo.hasAge = true;
-          }
-          return ele
-        })
-        that.setData({
-          exps: res
-        })
-      })
-    })
 
 		wx.stopPullDownRefresh();
 		wx.hideNavigationBarLoading();

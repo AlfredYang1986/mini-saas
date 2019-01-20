@@ -10,7 +10,7 @@ Component({
       observer: function (news, olds, path) {
           let that = this;
           if (news != null) {
-             if (news.SessionInfo.acquisition == '' || news.SessionInfo.acquisition == null) {
+             if (news.sessioninfo.acquisition == '' || news.sessioninfo.acquisition == null) {
                 that.setData({
                     ifreward: false,
                 })

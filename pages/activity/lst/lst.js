@@ -36,7 +36,7 @@ Page({
     });
     let that = this;
     var bmactvs = require('../../../models/bm_actv_schema.js')
-    bmactvs.queryMultiActvs().then(res => {
+    bmactvs.queryMultiActvs(0).then(res => {
       bmactvs.queryMultiActvsSessions(res).then(res => {
         bmactvs.queryMultiSessionsImgs(res).then(result => {
           let res = bmactvs.bmstore.findAll('reservableitems');

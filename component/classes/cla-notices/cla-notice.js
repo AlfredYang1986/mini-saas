@@ -10,7 +10,7 @@ Component({
       observer: function (news, olds, path) {
         let that = this;
         if(news != null) {
-            if (news.SessionInfo.accompany == 1) {
+            if (news.sessioninfo.accompany == 1) {
                 that.setData({
                     acc: "需要家长陪同"
                 })
@@ -19,12 +19,12 @@ Component({
                     acc: "不需要家长陪同"
                 })
             }
-          if (news.SessionInfo.carrying == "" || news.SessionInfo.carrying == null ) {
+          if (news.sessioninfo.carrying == "" || news.sessioninfo.carrying == null ) {
                 that.setData({
                   bring: false
                 })
           }
-          if (news.SessionInfo.notice != '' && news.SessionInfo.notice != null) {
+          if (news.sessioninfo.notice != '' && news.sessioninfo.notice != null) {
               that.setData({
                 otherNotice: true
               })

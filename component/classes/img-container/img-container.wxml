@@ -16,9 +16,9 @@
       interval="{{interval}}"
       duration="{{duration}}" >
     <swiper-item>
-      <image src="{{exp.SessionInfo.dealCover}}" class="slide-image"/>
+      <image src="{{exp.sessioninfo.dealCover}}" class="slide-image"/>
     </swiper-item>
-    <block wx:for="{{exp.SessionInfo.Tagimgs}}">
+    <block wx:for="{{exp.sessioninfo.Tagimgs}}">
       <block wx:if="{{item.dealImg!=null}}" >
         <swiper-item>
           <image src="{{item.dealImg}}" class="slide-image"/>

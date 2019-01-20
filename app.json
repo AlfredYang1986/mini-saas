@@ -1,15 +1,15 @@
 {
     "pages": [
-        "pages/activity/lst/lst",
+        "pages/classes/lst/lst",
 
         "pages/register/register",
         "pages/preregister/preregister",
         "pages/brand/info/info",
         "pages/brand/detail/detail",
-        "pages/classes/lst/lst",
+        
         "pages/classes/detail/detail",
         "pages/activity/detail/detail",
-        
+        "pages/activity/lst/lst",
         "pages/locations/details/details",
         "pages/brandlist/brandlist",
         "pages/user/user-info/user-info",

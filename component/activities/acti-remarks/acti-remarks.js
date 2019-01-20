@@ -13,7 +13,7 @@ Component({
       value: [],
       observer: function (news, olds, path) {
           if(news != null) {
-              if (news.SessionInfo.inc != null) {
+              if (news.sessioninfo.including != null) {
                   this.setData({
                       exp: news,
                       hasRemark: true

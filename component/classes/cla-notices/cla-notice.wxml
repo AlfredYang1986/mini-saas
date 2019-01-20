@@ -6,7 +6,7 @@
       <text class='title-text'>{{bringTitle}}</text>
     </view>
     <view class='lists'>
-      <view class='list' wx:for='{{exp.SessionInfo.carrying}}'>
+      <view class='list' wx:for='{{exp.sessioninfo.carrying}}'>
         <view>
           <text class='list-dot'>・</text>
           <text>{{item}}</text>
@@ -27,7 +27,7 @@
         </view>
         <view>
           <text class='list-dot' wx:if='{{otherNotice}}'>・</text>
-          <text class='name'>{{exp.SessionInfo.notice}}</text>
+          <text class='name'>{{exp.sessioninfo.notice}}</text>
         </view>
       </view>
     </view>

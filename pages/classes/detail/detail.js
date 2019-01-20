@@ -2,9 +2,9 @@
 
 var OSS = require('../../../models/ali-oss.js')
 
-let classDetailSort;
-let classDetailName;
-let reservableid;
+// let classDetailSort;
+// let classDetailName;
+// let reservableid;
 Page({
  
   /**
@@ -50,7 +50,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    reservableid = options.expid
+    let reservableid = options.expid
     var lm = require('../../../models/bm_applyee_schema.js');
     if (!lm.checkIsLogin()) {
       wx.redirectTo({
@@ -67,66 +67,70 @@ Page({
       bucket: 'bmsass'
     });
     let that = this;
-    let callback = {
-      onSuccess: function (res) {
-        res.SessionInfo.price = "免费";
-        bmconfig.bm_baizao_actvPrice.map((ele) => {
-          if (res.id === ele.actvId){
-            res.SessionInfo.price = ele.price;
-          }
-        })
-        classDetailSort = res.status;
-        classDetailName = res.SessionInfo.title;
-        wx.setStorageSync('detailSort', classDetailSort);
-        wx.setStorageSync('detailName', classDetailName);
-        let tagimgs =res.SessionInfo.Tagimgs
-        let newTagimgs = tagimgs.map((ele) => {
-          let tagimg = ele.img;
-          if (tagimg !== ""){
-            ele.dealImg = client.signatureUrl(tagimg);
-          }
-          return ele
-        })
-        res.SessionInfo.Tagimgs = newTagimgs;
-        let _originImg = res.SessionInfo.cover;
-        res.SessionInfo.dealCover = client.signatureUrl(_originImg);
-        res.SessionInfo.yardtag = wx.getStorageSync('yardtag');
-        res.SessionInfo.yardname = wx.getStorageSync('yardname');
+      var bmactvs = require('../../../models/bm_actv_schema.js')
+    // bmexp.queryExpInfo(options.expid, callback)
+      bmactvs.queryActvsById(reservableid).then(res => {
+          let tmp = [];
+          tmp.push(res);
+          bmactvs.queryMultiActvsSessions(tmp).then(res => {
+              bmactvs.queryMultiSessionsImgs(res).then(result => {
+                  let res = bmactvs.bmstore.find('reservableitems', reservableid);
+                  res.sessioninfo.price = "免费";
+                  bmconfig.bm_baizao_actvPrice.map((ele) => {
+                      if (res.id === ele.actvId) {
+                          res.sessioninfo.price = ele.price;
+                      }
+                  })
 
-        if (res.SessionInfo.length == -1) {
-          res.SessionInfo.hasLenght = false;
-        } else {
-          res.SessionInfo.hasLenght = true;
-        }
+                //   actvDetailSort = res.status;
+                //   actvDetailName = res.sessioninfo.title;
+                  wx.setStorageSync('detailSort', res.status);
+                  wx.setStorageSync('detailName', res.sessioninfo.title);
+                  let tagimgs = res.sessioninfo.images
+                  let newTagimgs = tagimgs.map((ele) => {
+                      let tagimg = ele.img;
+                      if (tagimg !== "") {
+                          ele.dealImg = client.signatureUrl(tagimg);
+                      }
+                      return ele
+                  })
+                  res.sessioninfo.images = newTagimgs;
 
-        if (res.SessionInfo.aub == -1 && res.SessionInfo.alb == -1) {
-          res.SessionInfo.hasAge = false;
-        } else {
-          res.SessionInfo.hasAge = true;
-        }
+                  let _originImg = res.sessioninfo.cover;
+                  res.sessioninfo.dealCover = client.signatureUrl(_originImg);
 
-        if (res.SessionInfo.acquisition == "") {
-          that.setData({
-            reward: false
+                  res.sessioninfo.yardname = wx.getStorageSync('yardname');
+                  res.sessioninfo.yardtag = wx.getStorageSync('yardtag');
+
+                  if (res.sessioninfo.length == -1) {
+                      res.sessioninfo.hasLenght = false;
+                  } else {
+                      res.sessioninfo.hasLenght = true;
+                  }
+
+                  if (res.sessioninfo.aub == -1 && res.SessionInfo.alb == -1) {
+                      res.sessioninfo.hasAge = false;
+                  } else {
+                      res.sessioninfo.hasAge = true;
+                  }
+
+                  if (res.sessioninfo.acquisition == "") {
+                      that.setData({
+                          reward: false
+                      })
+                  }
+
+                  if (res.sessioninfo.inc == "") {
+                      that.setData({
+                          remarks: false
+                      })
+                  }
+                  that.setData({
+                      exp: res
+                  })
+              })
           })
-        }
-
-        if (res.SessionInfo.inc == "") {
-          that.setData({
-            remarks: false
-          })
-        }
-
-        that.setData({
-          exp: res
-        })
-      },
-      onFail: function () {
-        // TODO : 报错 ...
-      }
-    }
-    var bmexp = require('../../../models/bm_exp_schema.js')
-    bmexp.queryExpInfo(options.expid, callback)
+      })
 
     that.setData({
       bar: wx.getStorageSync('mername')
