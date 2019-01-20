@@ -26,7 +26,7 @@ function queryMultiBrands() {
             let result = bmstore.sync(dealedJson)
             console.log(result)
             // callback.onSuccess(result)
-            resolve(res)
+            resolve(result)
         },
         fail(err) {
             console.log(err)

@@ -63,51 +63,7 @@ Page({
       accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
       bucket: 'bmsass'
     });
-    //获取可视窗口高度
-    let callback = {
-      onSuccess: function (res) {
-        let _originRes = res;
-        let newres =  _originRes.map((ele)=> {
-          let _originImg = ele.SessionInfo.cover;
-          ele.SessionInfo.dealCover = client.signatureUrl(_originImg);
-          if (ele.SessionInfo.aub == -1 && ele.SessionInfo.alb == -1) {
-            ele.SessionInfo.hasAge = false;
-          } else {
-            ele.SessionInfo.hasAge = true;
-          }
-          return ele
-        })
-        
-        that.setData({
-          exps: res,
-        })
-      },
-      onFail: function () {
-        // TODO : 报错 ...
-      }
-    };
-    let callbackActvs = {
-      onSuccess: function (res) {
-        let _originRes = res;
-        let newres = _originRes.map((ele) => {
-          let _originImg = ele.SessionInfo.cover;
-          ele.SessionInfo.dealCover = client.signatureUrl(_originImg);
-          if (ele.SessionInfo.aub == -1 && ele.SessionInfo.alb == -1) {
-            ele.SessionInfo.hasAge = false;
-          } else {
-            ele.SessionInfo.hasAge = true;
-          }
-          return ele
-        })
-        
-        that.setData({
-          actvs: res,
-        })
-      },
-      onFail: function () {
-        // TODO : 报错 ...
-      }
-    }
+
     var bmconfig = require('../../../models/bm_config.js')
     var bmactvs = require('../../../models/bm_actv_schema.js')
       bmactvs.queryMultiActvsWithLimits(1, 3).then(res => {

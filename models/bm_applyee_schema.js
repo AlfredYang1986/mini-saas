@@ -148,6 +148,15 @@ function codeSuccess(code, callback) {
   })
 }
 
+function guid() {
+    function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+}
+
 function genApplyeePushQuery(uinfo, phoneno) {
   let g = 2;
   if (uinfo.gender == 1) g = 1
@@ -157,13 +166,13 @@ function genApplyeePushQuery(uinfo, phoneno) {
   return {
     data: {
       id: guid(),
-      type: "BmApplyee",
+      type: "Applicant",
       attributes: {
-        name: uinfo.nickName,
-        pic: uinfo.avatarUrl,
-        regi_phone: phoneno,
-        wechat_bind_phone: phoneno,
-        wechat_openid: wx.getStorageSync('dd_open_id'),
+        "name": uinfo.nickName,
+        "pic": uinfo.avatarUrl,
+        "regi-phone": phoneno,
+        "wechat-bind-phone": phoneno,
+        "wechat-openid": wx.getStorageSync('dd_open_id'),
         gender: g,
       },
       relationships: {
@@ -177,12 +186,18 @@ function genApplyeePushQuery(uinfo, phoneno) {
 function pushApplee(openid, uinfo, phoneno, callback) {
   bmstore.reset();
 
+    let req = genApplyeePushQuery(uinfo, phoneno)
+    let rd = bmstore.sync(req);
+    let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()))
+
+    let dt = JSON.stringify(rd_tmp)
+
   let config = require('./bm_config.js');
   wx.showLoading({
     title: '加载中',
   });
   wx.request({
-    url: config.bm_service_host + '/v0/pushapplyee/0',
+    url: config.bm_service_host + '/v0/ApplicantValidation',
     data: dt,
     method: 'post',
     header: {

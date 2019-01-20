@@ -48,7 +48,6 @@ Page({
         });
         let that = this;
         var bmbrand = require('../../models/bm_brand_schema.js')
-        console.log(bmbrand)
         bmbrand.queryMultiBrands().then(res => {
           let newres = res.map((ele) => {
             let logo = ele.logo;
