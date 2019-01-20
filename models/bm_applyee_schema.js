@@ -10,8 +10,7 @@ function checkWechatSession(callback) {
 
       let sk = wx.getStorageSync('dd_session_key');
       let oid = wx.getStorageSync('dd_open_id');
-      console.log(sk)
-      console.log(oid)
+
       if (oid != "" && sk != "") {
         callback.onSessionSuccess();
       } else {
@@ -262,13 +261,6 @@ function genQueryUserById() {
 
 function queryPushedApplee(callback) {
   bmstore.reset();
-//   let query_payload = genQueryUserById();
-//   let rd = bmstore.sync(query_payload);
-
-//   let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()));
-//   let inc = rd.Eqcond[0].serialize()
-//   rd_tmp['included'] = [inc.data]
-//   let dt = JSON.stringify(rd_tmp)
 
   let config = require('./bm_config.js');
   wx.showLoading({

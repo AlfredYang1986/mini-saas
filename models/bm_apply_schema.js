@@ -1,7 +1,7 @@
 import { JsonApiDataStore } from '../miniprogram_npm/jsonapi-datastore/index.js'
 
 var bmstore = new JsonApiDataStore();
-var bmmulti = new JsonApiDataStore();
+// var bmmulti = new JsonApiDataStore();
 
 function guid() {
   function s4() {
@@ -175,15 +175,16 @@ function genMultiQuery(param) {
 }
 
 function queryMultiObjects(callback) {
-  bmmulti.reset();
-  let query_yard_payload = genMultiQuery();
-  let rd = bmmulti.sync(query_yard_payload);
-  let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()));
-  let brand = rd.Eqcond[0].serialize();
-  let applyee = rd.Eqcond[1].serialize();
-  let ne = rd.Necond[0].serialize();
-  rd_tmp['included'] = [brand.data, applyee.data, ne.data];
-  let dt = JSON.stringify(rd_tmp);
+  bmstore.reset();
+
+//   let query_yard_payload = genMultiQuery();
+//   let rd = bmmulti.sync(query_yard_payload);
+//   let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()));
+//   let brand = rd.Eqcond[0].serialize();
+//   let applyee = rd.Eqcond[1].serialize();
+//   let ne = rd.Necond[0].serialize();
+//   rd_tmp['included'] = [brand.data, applyee.data, ne.data];
+//   let dt = JSON.stringify(rd_tmp);
   
   var config = require('./bm_config.js')
   
@@ -192,9 +193,9 @@ function queryMultiObjects(callback) {
   });
 
   wx.request({
-    url: config.bm_service_host + '/api/v1/findapplydetailmulti/0',
-    data: dt,
-    method: 'post',
+    url: config.bm_service_host + '/v0/applies?brandId=' + config.bm_baizao_id + "&applicantId=" + wx.getStorageSync('dd_id'),
+    // data: dt,
+    method: 'GET',
     header: {
       'Content-Type': 'application/json', // 默认值
       'Accept': 'application/json',
@@ -204,7 +205,7 @@ function queryMultiObjects(callback) {
       var json = JSON.stringify(res.data)
       json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
       var dealedJson = JSON.parse(json)
-      let result = bmmulti.sync(dealedJson)
+      let result = bmstore.sync(dealedJson)
       console.log(result)
       callback.onSuccess(result)
     },

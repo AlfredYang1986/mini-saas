@@ -39,6 +39,7 @@ Page({
         let callback = {
             onSuccess: function (res) {
                 res.map((item) => {
+                    debugger
                     item.Reservable.price = '免费';
                     let reservableid = item.Reservable.id;
                     bmconfig.bm_baizao_actvPrice.map((ele) => {
@@ -56,8 +57,7 @@ Page({
             }
         }
         var bmapply = require('../../../models/bm_apply_schema.js')
-        bmapply.queryMultiObjects(callback)
-        
+        // bmapply.queryMultiObjects(callback)
     },
 
     /**
