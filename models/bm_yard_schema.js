@@ -30,7 +30,7 @@ function queryYard(yardid) {
                 resolve(result);
             },
             fail(err) {
-                callback.onFail(err)
+                // callback.onFail(err)
                 reject(err)
             },
             complete() {

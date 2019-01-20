@@ -76,25 +76,44 @@ Page({
       bucket: 'bmsass'
     });
     let that = this
-    let callback = {
-      onSuccess: function (res) {
-        let tagimgs = res.Tagimgs;
-        let newimgs = tagimgs.map((ele) => {
-          let tagImg = ele.img;
-          ele.dealImg = client.signatureUrl(tagImg);
-          return ele
-        })
-        console.log(res)
-        that.setData({
-          yard: res
-        })
-      },
-      onFail: function () {
-        // TODO : 报错 ...
-      }
-    }
-    var bmyard = require('../../../models/bm_yard_schema.js')
-    bmyard.queryYard(options.yardid, callback)
+    // let callback = {
+    //   onSuccess: function (res) {
+    //     let tagimgs = res.Tagimgs;
+    //     let newimgs = tagimgs.map((ele) => {
+    //       let tagImg = ele.img;
+    //       ele.dealImg = client.signatureUrl(tagImg);
+    //       return ele
+    //     })
+    //     console.log(res)
+    //     that.setData({
+    //       yard: res
+    //     })
+    //   },
+    //   onFail: function () {
+    //     // TODO : 报错 ...
+    //   }
+    // }
+    // var bmyard = require('../../../models/bm_yard_schema.js')
+    // bmyard.queryYard(options.yardid, callback)
+
+      var bmconfig = require('../../../models/bm_config.js')
+      var bmyard = require('../../../models/bm_yard_schema.js')
+      bmyard.queryYard(bmconfig.bm_baizao_yard_id).then(res => {
+          bmyard.queryMultiYardImgs(res).then(result => {
+
+                let res = bmyard.bmstore.find("yards", bmconfig.bm_baizao_yard_id)
+                let tagimgs = res.images;
+                let newimgs = tagimgs.map((ele) => {
+                    let tagImg = ele.img;
+                    ele.dealImg = client.signatureUrl(tagImg);
+                    return ele
+                })
+                debugger
+                that.setData({
+                    yard: res
+                })
+          })
+      })
 
     that.setData({
       bar: wx.getStorageSync('mername')

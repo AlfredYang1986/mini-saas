@@ -108,38 +108,6 @@ Page({
         // TODO : 报错 ...
       }
     }
-
-    let callbackYard = {
-      onSuccess: function (res) {
-        let tagimgs = res.Tagimgs;
-        let newimgs = tagimgs.map((ele) => {
-          let tagImg = ele.img;
-          ele.dealImg = client.signatureUrl(tagImg);
-          return ele
-        })
-
-        res.cover1 = res.Tagimgs[0].dealImg;
-        res.cover2 = res.Tagimgs[1].dealImg;
-        res.cover3 = res.Tagimgs[2].dealImg;
-
-        wx.setStorage({
-          key: "yardname",
-          data: res.address
-        })
-        wx.setStorage({
-          key: 'yardtag',
-          data: res.Tagimgs,
-        })
-        console.log(res)
-        that.setData({
-          yardInfo: res,
-        })
-      },
-      onFail: function (err) {
-        // TODO : 报错 ...
-        console.log(err)
-      }
-    }
     var bmconfig = require('../../../models/bm_config.js')
     // var bmexp = require('../../../models/bm_exp_schema.js')
     // bmexp.queryMultiExps(callback)
