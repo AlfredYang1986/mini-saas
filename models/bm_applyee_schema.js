@@ -262,22 +262,22 @@ function genQueryUserById() {
 
 function queryPushedApplee(callback) {
   bmstore.reset();
-  let query_payload = genQueryUserById();
-  let rd = bmstore.sync(query_payload);
+//   let query_payload = genQueryUserById();
+//   let rd = bmstore.sync(query_payload);
 
-  let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()));
-  let inc = rd.Eqcond[0].serialize()
-  rd_tmp['included'] = [inc.data]
-  let dt = JSON.stringify(rd_tmp)
+//   let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()));
+//   let inc = rd.Eqcond[0].serialize()
+//   rd_tmp['included'] = [inc.data]
+//   let dt = JSON.stringify(rd_tmp)
 
   let config = require('./bm_config.js');
   wx.showLoading({
     title: '加载中',
   });
   wx.request({
-    url: config.bm_service_host + '/api/v1/findapplyee/0',
-    data: dt,
-    method: 'post',
+    url: config.bm_service_host + '/v0/applicants/' + wx.getStorageSync('dd_id'),
+    // data: dt,
+    method: 'GET',
     header: {
       'Content-Type': 'application/json', // 默认值
       'Accept': 'application/json',
@@ -288,9 +288,9 @@ function queryPushedApplee(callback) {
       json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
       var dealedJson = JSON.parse(json)
       let result = bmstore.sync(dealedJson)
-      console.log(result)
-      wx.setStorageSync("dd_id", result.Applyee.id);
-      wx.setStorageSync("dd_token", result.token);
+    //   debugger
+    //   wx.setStorageSync("dd_id", result.Applyee.id);
+    //   wx.setStorageSync("dd_token", result.token);
       console.log(result);
       callback.onQueryCurSuccess(result);
     },
