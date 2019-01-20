@@ -9,7 +9,7 @@ function queryMultiActvs() {
   return new Promise(function (resolve, reject) {
     wx.request({
       method: 'GET',  
-      url: config.bm_service_host + '/v0/reservableitems?status=1',
+      url: config.bm_service_host + '/v0/reservableitems?status=0',
       // data: data,
       //在header中统一封装报文头，这样不用每个接口都写一样的报文头定义的代码
       header: {
@@ -97,134 +97,8 @@ function queryOneSessionById(id) {
   });
 }
 
-function genMultiActvs() {
-  let eq = guid();
-  let br = guid();
-  let bmconfig = require('../models/bm_config.js');
-  let brandid = bmconfig.bm_baizao_id;
-  return {
-    data: {
-      id: guid(),
-      type: "Request",
-      attributes: {
-        res: "BmReservable"
-      },
-      relationships: {
-        Eqcond: {
-          data: [
-            {
-              id: eq,
-              type: "Eqcond"
-            },
-            {
-              id: br,
-              type: "Eqcond"
-            }
-          ]
-        }
-      }
-    },
-    included: [
-      {
-        id: eq,
-        type: "Eqcond",
-        attributes: {
-          key: "status",
-          val: 0
-        }
-      },
-      {
-        id: br,
-        type: "Eqcond",
-        attributes: {
-            key: "brandId",
-            val: brandid
-        }
-      }
-    ]
-  }
-}
-
-function queryActvInfo(actvid, callback) {
-  // bmstore.reset();
-
-  let query_yard_payload = genIdQuery(actvid);
-  let rd = bmstore.sync(query_yard_payload);
-  let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()));
-
-  let inc = rd.Eqcond[0].serialize();
-  rd_tmp['included'] = [inc.data];
-  let dt = JSON.stringify(rd_tmp);
-  let token = wx.getStorageSync('dd_token');
-  console.log('token: ' + token)
-
-  let config = require('./bm_config.js');
-//   wx.showLoading({
-//     title: '加载中',
-//   });
-  wx.request({
-    url: config.bm_service_host + '/api/v1/findreservable/0',
-    data: dt,
-    method: 'post',
-    header: {
-      'Content-Type': 'application/json', // 默认值
-      'Accept': 'application/json',
-      'Authorization': 'bearer ' + token
-    },
-    success(res) {
-      var json = JSON.stringify(res.data)
-      json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
-      var dealedJson = JSON.parse(json)
-      let result = bmmulti.sync(dealedJson)
-      console.log(result)
-      callback.onSuccess(result)
-    },
-    fail(err) {
-      callback.onFail(err)
-    },
-    complete() {
-    //   wx.hideLoading();
-      console.log('complete!!!')
-    }
-  })
-}
-
-function genIdQuery(tmpid) {
-  let eq = guid();
-  return {
-    data: {
-      id: guid(),
-      type: "Request",
-      attributes: {
-        res: "BmReservable"
-      },
-      relationships: {
-        Eqcond: {
-          data: [
-            {
-              id: eq,
-              type: "Eqcond"
-            }
-          ]
-        }
-      }
-    },
-    included: [
-      {
-        id: eq,
-        type: "Eqcond",
-        attributes: {
-          key: "id",
-          val: tmpid
-        }
-      }
-    ]
-  }
-}
-
 module.exports = {
   bmstore: bmstore,
   queryMultiActvs: queryMultiActvs,
-  queryActvInfo: queryActvInfo,
   queryMultiActvsSessions: queryMultiActvsSessions,
 }

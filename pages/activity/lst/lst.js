@@ -35,31 +35,9 @@ Page({
       bucket: 'bmsass'
     });
     let that = this;
-    // let callback = {
-    //   onSuccess: function (res) {
-    //     let _originRes = res;
-    //     let newres = _originRes.map((ele) => {
-    //       let _originImg = ele.sessioninfo.cover;
-    //       ele.sessioninfo.dealCover = client.signatureUrl(_originImg);
-    //       if (ele.sessioninfo.aub == -1 && ele.sessioninfo.aub == -1) {
-    //         ele.sessioninfo.hasAge = false;
-    //       } else {
-    //         ele.sessioninfo.hasAge = true;
-    //       }
-    //         return ele
-    //     })
-    //     that.setData({
-    //       actvs: res
-    //     })
-    //   },
-    //   onFail: function () {
-    //     // TODO : 报错 ...
-    //   }
-    // }
     var bmactvs = require('../../../models/bm_actv_schema.js')
     bmactvs.queryMultiActvs().then(res => {
       bmactvs.queryMultiActvsSessions(res).then(result => {
-        debugger
         let res = bmactvs.bmstore.findAll('reservableitems');
         let _originRes = res;
         let newres = _originRes.map((ele) => {
