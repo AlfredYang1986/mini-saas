@@ -10,9 +10,9 @@
         <view class='bg-image' style="background-image: url('{{item.sessioninfo.dealCover}}')" >
           <view class='list-detail'>
             <view class='info'>
-              <view class='sort'>{{item.SessionInfo.Cate.title}}</view>
+              <view class='sort'>{{item.sessioninfo.category.title}}</view>
               <block wx:if="{{item.sessioninfo.hasAge}}">
-                <view class='age'>{{item.SessionInfo.alb}}-{{item.SessionInfo.aub}} 岁</view>
+                <view class='age'>{{item.sessioninfo.alb}}-{{item.sessioninfo.aub}} 岁</view>
               </block>
               <block wx:else>
                 <view class='age'>不限年龄</view>

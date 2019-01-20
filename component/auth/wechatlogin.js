@@ -34,7 +34,8 @@ Component({
                 })
             }
             else if (tmp.startsWith('actv') && tid && tid != "") {
-              dir = '/pages/activity/detail/detail?actvid=' + tid
+            //   dir = '/pages/activity/detail/detail?actvid=' + tid
+                dir = '/pages/classes/detail/detail?expid=' + tid
                 wx.redirectTo({
                     url: dir,
                 })

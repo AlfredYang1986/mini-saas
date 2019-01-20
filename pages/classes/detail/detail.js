@@ -125,6 +125,7 @@ Page({
                           remarks: false
                       })
                   }
+                  debugger
                   that.setData({
                       exp: res
                   })
