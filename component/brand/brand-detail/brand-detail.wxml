@@ -19,11 +19,11 @@
   </view>
   <view class='story'>
     <text class='title'>初心故事</text>
-    <text class='content'>{{brand.foundStory}}</text>
+    <text class='content'>{{brand["found-story"]}}</text>
   </view>
   <view class='team'>
     <text class='title'>师资阵容</text>
-    <text class='content'>{{brand.edu_idea}}</text>
+    <text class='content'>{{brand["edu-idea"]}}</text>
   </view>
   <!-- <view class='achievement'>
     <text class='title'>教学成就</text>

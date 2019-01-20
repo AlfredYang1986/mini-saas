@@ -106,5 +106,5 @@ module.exports = {
     bmstore: bmstore,
     queryMultiYardImgs: queryMultiYardImgs,
     queryYardImageById: queryYardImageById,
-  queryYard: queryYard
+    queryYard: queryYard
 }
