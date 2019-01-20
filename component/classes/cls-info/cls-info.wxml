@@ -1,8 +1,8 @@
 <!--component/classes/cls-info/cls-info.wxml-->
 <view class='content-page'>
-  <view class='sort'>{{exp.SessionInfo.Cate.title}}</view>
+  <view class='sort'>{{exp.sessioninfo.category.title}}</view>
   <view class='name'>
-    <text>{{exp.SessionInfo.title}}</text>
+    <text>{{exp.sessioninfo.title}}</text>
     <!-- <image class='share' src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_share.png'></image> -->
   </view>
   <view class='lists'>
@@ -10,8 +10,8 @@
       <view class='img-area'>
         <image class='img' src='{{img1}}'></image>
       </view>
-      <block wx:if="{{exp.SessionInfo.hasAge}}">
-        <view class='des'>{{exp.SessionInfo.alb}}-{{exp.SessionInfo.aub}} 岁</view>
+      <block wx:if="{{exp.sessioninfo.hasAge}}">
+        <view class='des'>{{exp.sessioninfo.alb}}-{{exp.sessioninfo.aub}} 岁</view>
       </block>
       <block wx:else>
         <view class='des'>不限年龄</view>
@@ -21,8 +21,8 @@
        <view class='img-area'>
         <image class='img' src='{{img2}}'></image>
       </view>
-      <block wx:if="{{exp.SessionInfo.hasLenght}}">
-        <view class='des'>{{exp.SessionInfo.length}}分钟</view>
+      <block wx:if="{{exp.sessioninfo.hasLenght}}">
+        <view class='des'>{{exp.sessioninfo.length}}分钟</view>
       </block>
       <block wx:else>
         <view class='des'>不限时长</view>
@@ -32,7 +32,7 @@
        <view class='img-area'>
         <image class='img' src='{{img3}}'></image>
       </view>
-      <view class='des'>{{exp.SessionInfo.yardname}}</view>
+      <view class='des'>{{exp.sessioninfo.yardname}}</view>
     </view>
   </view>
 </view>

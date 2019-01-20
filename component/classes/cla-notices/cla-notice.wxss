@@ -29,8 +29,13 @@
 .list {
   margin-left: 60rpx;
 }
+.list text {
+  font-family: PingFangSC-Regular;
+  font-size: 13px;
+  color: #8C8C8C;
+}
 .list .name {
   font-family: PingFangSC-Regular;
-  font-size: 28rpx;
-  color: #404040;
+  font-size: 13px;
+  color: #8C8C8C;
 }

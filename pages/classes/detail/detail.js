@@ -2,8 +2,9 @@
 
 var OSS = require('../../../models/ali-oss.js')
 
-let classDetailSort;
-let classDetailName;
+// let classDetailSort;
+// let classDetailName;
+// let reservableid;
 Page({
  
   /**
@@ -19,6 +20,10 @@ Page({
     animationData: {},
     tab:0,
     exp: null,
+    reward: true,
+    remarks: true,
+    notice: true,
+    backIcon: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_back_light%402x.png",
   },
 
   showAll: function (e) {
@@ -45,6 +50,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let reservableid = options.expid
     var lm = require('../../../models/bm_applyee_schema.js');
     if (!lm.checkIsLogin()) {
       wx.redirectTo({
@@ -53,7 +59,7 @@ Page({
       return
     }
 
-    var bmconfig = require('../../../models/bm_config.js')
+    let bmconfig = require('../../../models/bm_config.js')
     let client = new OSS({
       region: 'oss-cn-beijing',
       accessKeyId: 'LTAINO7wSDoWJRfN',
@@ -61,60 +67,75 @@ Page({
       bucket: 'bmsass'
     });
     let that = this;
-    let callback = {
-      onSuccess: function (res) {
-        res.SessionInfo.price = "免费";
-        bmconfig.bm_baizao_actvPrice.map((ele) => {
-          if (res.id === ele.actvId){
-            res.SessionInfo.price = ele.price;
-          }
-        })
-        classDetailSort = res.status;
-        classDetailName = res.SessionInfo.title;
-        wx.setStorageSync('detailSort', classDetailSort);
-        wx.setStorageSync('detailName', classDetailName);
-        let tagimgs =res.SessionInfo.Tagimgs
-        let newTagimgs = tagimgs.map((ele) => {
-          let tagimg = ele.img;
-          if (tagimg !== ""){
-            ele.dealImg = client.signatureUrl(tagimg);
-          }
-          return ele
-        })
-        res.SessionInfo.Tagimgs = newTagimgs;
-        let _originRes = res;
-        let _originImg = res.SessionInfo.cover;
-        res.SessionInfo.dealCover = client.signatureUrl(_originImg);
-        res.SessionInfo.yardtag = wx.getStorageSync('yardtag');
-        res.SessionInfo.yardname = wx.getStorageSync('yardname');
+      var bmactvs = require('../../../models/bm_actv_schema.js')
+    // bmexp.queryExpInfo(options.expid, callback)
+      bmactvs.queryActvsById(reservableid).then(res => {
+          let tmp = [];
+          tmp.push(res);
+          bmactvs.queryMultiActvsSessions(tmp).then(res => {
+              bmactvs.queryMultiSessionsImgs(res).then(result => {
+                  let res = bmactvs.bmstore.find('reservableitems', reservableid);
+                  res.sessioninfo.price = "免费";
+                  bmconfig.bm_baizao_actvPrice.map((ele) => {
+                      if (res.id === ele.actvId) {
+                          res.sessioninfo.price = ele.price;
+                      }
+                  })
 
-        if (res.SessionInfo.carrying == '' || res.SessionInfo.carrying == '') {
-          res.SessionInfo.carrying = '无';
-        }
+                //   actvDetailSort = res.status;
+                //   actvDetailName = res.sessioninfo.title;
+                  wx.setStorageSync('detailSort', res.status);
+                  wx.setStorageSync('detailName', res.sessioninfo.title);
+                  let tagimgs = res.sessioninfo.images
+                  let newTagimgs = tagimgs.map((ele) => {
+                      let tagimg = ele.img;
+                      if (tagimg !== "") {
+                          ele.dealImg = client.signatureUrl(tagimg);
+                      }
+                      return ele
+                  })
+                  res.sessioninfo.images = newTagimgs;
 
-        if (res.SessionInfo.length == -1) {
-          res.SessionInfo.hasLenght = false;
-        } else {
-          res.SessionInfo.hasLenght = true;
-        }
+                  let _originImg = res.sessioninfo.cover;
+                  res.sessioninfo.dealCover = client.signatureUrl(_originImg);
 
-        if (res.SessionInfo.aub == 0) {
-          res.SessionInfo.hasAge = false;
-        } else {
-          res.SessionInfo.hasAge = true;
-        }
+                  res.sessioninfo.yardname = wx.getStorageSync('yardname');
+                  res.sessioninfo.yardtag = wx.getStorageSync('yardtag');
 
+                  if (res.sessioninfo.length == -1) {
+                      res.sessioninfo.hasLenght = false;
+                  } else {
+                      res.sessioninfo.hasLenght = true;
+                  }
 
-        that.setData({
-          exp: res
-        })
-      },
-      onFail: function () {
-        // TODO : 报错 ...
-      }
-    }
-    var bmexp = require('../../../models/bm_exp_schema.js')
-    bmexp.queryExpInfo(options.expid, callback)
+                  if (res.sessioninfo.aub == -1 && res.SessionInfo.alb == -1) {
+                      res.sessioninfo.hasAge = false;
+                  } else {
+                      res.sessioninfo.hasAge = true;
+                  }
+
+                  if (res.sessioninfo.acquisition == "") {
+                      that.setData({
+                          reward: false
+                      })
+                  }
+
+                  if (res.sessioninfo.inc == "") {
+                      that.setData({
+                          remarks: false
+                      })
+                  }
+                  debugger
+                  that.setData({
+                      exp: res
+                  })
+              })
+          })
+      })
+
+    that.setData({
+      bar: wx.getStorageSync('mername')
+    })
   },
 
   /**
@@ -199,37 +220,45 @@ Page({
   },
 
 
-  hideModal: function (e) {
-    var that = this;
-    var animation = wx.createAnimation({
-      duration: 200,
-      timingFunction: 'linear'
-    })
-    that.animation = animation
-    animation.translateY(300).step()
-    that.setData({
-      animationData: animation.export()
+    hideModal: function (e) {
+        var that = this;
+        var animation = wx.createAnimation({
+            duration: 200,
+            timingFunction: 'linear'
+        })
+        that.animation = animation
+        animation.translateY(300).step()
+        that.setData({
+            animationData: animation.export()
 
-    })
-    setTimeout(function () {
-      animation.translateY(0).step()
-      that.setData({
-        animationData: animation.export(),
-        show: false,
-        hide: true,
-      })
-    }, 100)
-  },
-  
-  showSuccess: function(event) {
-    wx.navigateTo({
-      url: '../success/success',
-    })
-  },
-  apply: function(event) {
-    wx:wx.navigateTo({
-      url: '/pages/classes/apply/apply',
-    })
-  }
+        })
+        setTimeout(function () {
+            animation.translateY(0).step()
+            that.setData({
+            animationData: animation.export(),
+            show: false,
+            hide: true,
+            })
+        }, 100)
+    },
+
+    showSuccess: function(event) {
+        wx.navigateTo({
+            url: '../success/success',
+        })
+    },
+
+    apply: function(event) {
+        wx:wx.navigateTo({
+            // url: '/pages/classes/apply/apply?reservableid=' + reservableid,
+            url: '/pages/activity/datePicker/datePicker?reservableid=' + reservableid,
+        })
+    },
+
+    goBack: function () {
+        wx.navigateBack({
+            delta: 1
+        })
+    }
 
 })

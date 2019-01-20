@@ -1,5 +1,5 @@
 <!--component/activities/card/card.wxml-->
-<view class='matter-list'wx:if="{{actiCard}}" style='background-image:url("{{actiCard.href}}")'>
+<view class='matter-list' wx:if="{{actiCard}}" style='background-image:url("{{actiCard.href}}")'>
   <view class='mask'>
       <view class='info item'>
         <text class='name'>{{actiCard.name}}</text>

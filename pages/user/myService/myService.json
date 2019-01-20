@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "navigation-bar": "/component/common/navigation-bar/navigation-bar",
+      "service-card": "/component/user/service-card/service-card"
+  }
+}

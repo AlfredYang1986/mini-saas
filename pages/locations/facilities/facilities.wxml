@@ -1,5 +1,0 @@
-<!--pages/locations/facilities/facilities.wxml-->
-<view class='content-page'>
-  <view class='title'>场地安全与设施</view>
-  <faci-list></faci-list>
-</view>

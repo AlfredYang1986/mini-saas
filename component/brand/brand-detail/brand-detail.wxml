@@ -19,11 +19,11 @@
   </view>
   <view class='story'>
     <text class='title'>初心故事</text>
-    <text class='content'>{{brand.foundStory}}</text>
+    <text class='content'>{{brand["found-story"]}}</text>
   </view>
   <view class='team'>
     <text class='title'>师资阵容</text>
-    <text class='content'>{{brand.edu_idea}}</text>
+    <text class='content'>{{brand["edu-idea"]}}</text>
   </view>
   <!-- <view class='achievement'>
     <text class='title'>教学成就</text>
@@ -36,17 +36,7 @@
     </view>
     </scroll-view>
   </view> -->
-   <view class='attest'>
-    <text class='title'>教学成就</text>
-    <scroll-view class="" scroll-x style="width: 100%">
-    <view class='content'>
-      <view class='list' wx:for="{{brand.Honors}}">
-        <image src='{{item.dealImg}}'></image>
-        <text class='name'>{{item.tag}}</text>
-      </view>
-    </view>
-    </scroll-view>
-  </view>
+
   <!-- <view class='attest'>
     <text class='title'>资质认证</text>
     <scroll-view class="" scroll-x style="width: 100%">
@@ -58,4 +48,28 @@
     </view>
     </scroll-view>
   </view> -->
+
+  <!-- <view class='attest'>
+    <text class='title'>教学成就</text>
+    <scroll-view class="" scroll-x style="width: 100%">
+    <view class='content'>
+      <view class='list' wx:for="{{brand.Honors}}">
+        <image src='{{item.dealImg}}'></image>
+        <text class='name'>{{item.tag}}</text>
+      </view>
+    </view>
+    </scroll-view>
+  </view> -->
+  
+  <view class='achievement'>
+    <text class='title'>教学成就</text>
+    <view class='achieve'>
+      <view class='achieve-list'  wx:for="{{brand.Honors}}">
+        <view class='img-area'>
+          <image class='achieve-img' src='{{item.dealImg}}'></image>
+        </view>
+        <text class='achieve-content'>{{item.tag}}</text>
+      </view>
+    </view>
+  </view>
 </view> 

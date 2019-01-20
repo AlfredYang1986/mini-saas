@@ -1,11 +1,10 @@
 // pages/brand/brand.js
-
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
+    mername: "百造PACEE",
     brand:{
       logobg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/logo_bg.png",
       logourl:"https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/logo%403x.png",
@@ -14,6 +13,9 @@ Page({
     exps: null,
     actvs: null,
     brandInfo: null,
+    android: false,
+    iosX: false,
+    deviceHeight: getApp().globalData.deviceHeight,
   },
   tab_slide: function (e) {//滑动切换tab 
     var that = this;
@@ -34,7 +36,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      android: getApp().globalData.android,
+      iosX: getApp().globalData.iosX
+    });
     var lm = require('../../../models/bm_applyee_schema.js');
     if (!lm.checkIsLogin()) {
       wx.redirectTo({
@@ -58,106 +63,109 @@ Page({
       accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
       bucket: 'bmsass'
     });
-    //获取可视窗口高度
-    let callback = {
-      onSuccess: function (res) {
-        let _originRes = res;
-        let newres =  _originRes.map((ele)=> {
-          let _originImg = ele.SessionInfo.cover;
-          ele.SessionInfo.dealCover = client.signatureUrl(_originImg);
-          if (ele.SessionInfo.aub == 0) {
-            ele.SessionInfo.hasAge = false;
-          } else {
-            ele.SessionInfo.hasAge = true;
-          }
-          return ele
+
+    var bmconfig = require('../../../models/bm_config.js')
+    var bmactvs = require('../../../models/bm_actv_schema.js')
+      bmactvs.queryMultiActvsWithLimits(1, 3).then(res => {
+          bmactvs.queryMultiActvsSessions(res).then(res => {
+              bmactvs.queryMultiSessionsImgs(res).then(result => {
+                  let tmp = bmactvs.bmstore.findAll("reservableitems");
+                  function expFunc(tt) {
+                      return tt.status == 1;
+                  }
+                  let res = tmp.filter(expFunc);
+                  let _originRes = res;
+                  let newres = _originRes.map((ele) => {
+                      let _originImg = ele.sessioninfo.cover;
+                      ele.sessioninfo.dealCover = client.signatureUrl(_originImg);
+                      if (ele.sessioninfo.aub == -1 && ele.sessioninfo.alb == -1) {
+                          ele.sessioninfo.hasAge = false;
+                      } else {
+                          ele.sessioninfo.hasAge = true;
+                      }
+                      return ele
+                  })
+
+                  that.setData({
+                      exps: res,
+                  })
+              })
+          })
+      })
+      bmactvs.queryMultiActvsWithLimits(0, 3).then(res => {
+        bmactvs.queryMultiActvsSessions(res).then(res => {
+            bmactvs.queryMultiSessionsImgs(res).then(result => {
+                let tmp = bmactvs.bmstore.findAll("reservableitems");
+                function actvFunc(tt) {
+                    return tt.status == 0;
+                }
+                let res = tmp.filter(actvFunc);
+                let _originRes = res;
+                let newres = _originRes.map((ele) => {
+                    let _originImg = ele.sessioninfo.cover;
+                    ele.sessioninfo.dealCover = client.signatureUrl(_originImg);
+                    if (ele.sessioninfo.aub == -1 && ele.sessioninfo.alb == -1) {
+                        ele.sessioninfo.hasAge = false;
+                    } else {
+                        ele.sessioninfo.hasAge = true;
+                    }
+                    return ele
+                })
+
+                that.setData({
+                    actvs: res,
+                })
+            })
         })
-        
-        that.setData({
-          exps: res,
-        })
-      },
-      onFail: function () {
-        // TODO : 报错 ...
-      }
-    };
-    let callbackActvs = {
-      onSuccess: function (res) {
-        let _originRes = res;
-        let newres = _originRes.map((ele) => {
-          let _originImg = ele.SessionInfo.cover;
-          ele.SessionInfo.dealCover = client.signatureUrl(_originImg);
-          if (ele.SessionInfo.aub == 0) {
-            ele.SessionInfo.hasAge = false;
-          } else {
-            ele.SessionInfo.hasAge = true;
-          }
-          return ele
-        })
-        
-        that.setData({
-          actvs: res,
-        })
-      },
-      onFail: function () {
-        // TODO : 报错 ...
-      }
-    }
-    let callbackBrand = {
-      onSuccess: function (res) {
-        console.log(res)
+    })
+    var bmbrand = require('../../../models/bm_brand_schema.js')
+    bmbrand.queryBrand(bmconfig.bm_baizao_id).then(res => {
         let logo = res.logo;
         res.newLogo = client.signatureUrl(logo);
         that.setData({
-          brandInfo: res,
-        })
-      },
-      onFail: function (err) {
-        // TODO : 报错 ...
-        console.log(err)
-      }
-    }
-
-    let callbackYard = {
-      onSuccess: function (res) {
-        let tagimgs = res.Tagimgs;
-        let newimgs = tagimgs.map((ele) => {
-          let tagImg = ele.img;
-          ele.dealImg = client.signatureUrl(tagImg);
-          return ele
-        })
-
-        res.cover1 = res.Tagimgs[0].dealImg;
-        res.cover2 = res.Tagimgs[1].dealImg;
-        res.cover3 = res.Tagimgs[2].dealImg;
-
-        wx.setStorage({
-          key: "yardname",
-          data: res.address
+            brandInfo: res,
+            mername: res.subtitle
         })
         wx.setStorage({
-          key: 'yardtag',
-          data: res.Tagimgs,
+            key: "mername",
+            data: res.subtitle
         })
-        console.log(res)
+
         that.setData({
-          yardInfo: res,
+            bar: wx.getStorageSync('mername')
         })
-      },
-      onFail: function (err) {
-        // TODO : 报错 ...
-        console.log(err)
-      }
-    }
-    var bmconfig = require('../../../models/bm_config.js')
-    var bmexp = require('../../../models/bm_exp_schema.js')
-    bmexp.queryMultiExps(callback)
-    var bmactvs = require('../../../models/bm_actv_schema.js')
-    bmactvs.queryMultiActvs(callbackActvs)
-    var bmbrand = require('../../../models/bm_brand_schema.js')
-    bmbrand.queryBrand(bmconfig.brandid,callbackBrand)
+    })
+
     var bmyard = require('../../../models/bm_yard_schema.js')
-    bmyard.queryYard(bmconfig.yardid, callbackYard)
+    bmyard.queryYard(bmconfig.bm_baizao_yard_id).then(res => {
+        bmyard.queryMultiYardImgs(res).then(result => {
+
+            let res = bmyard.bmstore.find("yards", bmconfig.bm_baizao_yard_id)
+            let tagimgs = res.images;
+            let newimgs = tagimgs.map((ele) => {
+                let tagImg = ele.img;
+                ele.dealImg = client.signatureUrl(tagImg);
+                return ele
+            })
+
+            res.cover1 = res.images[0].dealImg;
+            res.cover2 = res.images[1].dealImg;
+            res.cover3 = res.images[2].dealImg;
+
+            wx.setStorage({
+                key: "yardname",
+                data: res.address
+            })
+            wx.setStorage({
+                key: 'yardtag',
+                data: res.Tagimgs,
+            })
+            console.log(res)
+            that.setData({
+                yardInfo: res,
+            })
+        })
+    })
 
     wx.stopPullDownRefresh();
     wx.hideNavigationBarLoading();
@@ -212,12 +220,6 @@ Page({
   onShareAppMessage: function () {
   
   },
-
-  showBrandDetail: function (event) {
-    wx.navigateTo({
-      url: '/pages/brand/details/details'
-    })
-  },
   
   scanclick: function(res) {
     wx.scanCode({
@@ -247,6 +249,12 @@ Page({
           console.log('二维码错误')
         }
       }
+    })
+  },
+
+  backToList() {
+     wx.redirectTo({
+        url: '/pages/brandlist/brandlist',
     })
   }
 })

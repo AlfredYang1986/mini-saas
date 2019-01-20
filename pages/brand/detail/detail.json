@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "navigation-bar": "/component/common/navigation-bar/navigation-bar",
     "class-banner": "/component/classes/banner/banner",
     "brand-banner-slogan": "/component/brand/slogan/slogan",
     "brand-description": "/component/brand/description/description",

@@ -12,8 +12,22 @@ Component({
       type: "Array",
       value: [],
       observer: function (news, olds, path) {
-        console.log("this is in acti-remarks .js")
-        console.log(news, olds)
+          if(news != null) {
+              if (news.sessioninfo.including != null) {
+                  this.setData({
+                      exp: news,
+                      hasRemark: true
+                  })
+              } else {
+                  this.setData({
+                      hasRemark: false
+                  })
+              }
+          } else {
+              this.setData({
+                  hasRemark: false
+              })
+          }
       }
     }
   },
@@ -22,6 +36,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    hasRemark: true,
     "remarks": [
       "教学用具", "免费的饮品和零食",
     ]

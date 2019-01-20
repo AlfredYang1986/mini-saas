@@ -7,19 +7,27 @@ Page({
    */
   data: {
     actvs: null,
+    android: false,
+    iosX: false,
+    deviceHeight: getApp().globalData.deviceHeight,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      android: getApp().globalData.android,
+      iosX: getApp().globalData.iosX,
+      bar: wx.getStorageSync('mername')
+    });
     var lm = require('../../../models/bm_applyee_schema.js');
-    if (!lm.checkIsLogin()) {
-      wx.redirectTo({
-        url: '/pages/register/register'
-      })
-      return
-    }
+    // if (!lm.checkIsLogin()) {
+    //   wx.redirectTo({
+    //     url: '/pages/register/register'
+    //   })
+    //   return
+    // }
     let client = new OSS({
       region: 'oss-cn-beijing',
       accessKeyId: 'LTAINO7wSDoWJRfN',
@@ -27,33 +35,36 @@ Page({
       bucket: 'bmsass'
     });
     let that = this;
-    let callback = {
-      onSuccess: function (res) {
-        let _originRes = res;
-        let newres = _originRes.map((ele) => {
-          let _originImg = ele.SessionInfo.cover;
-          ele.SessionInfo.dealCover = client.signatureUrl(_originImg);
-          if (ele.SessionInfo.aub == 0) {
-            ele.SessionInfo.hasAge = false;
-          } else {
-            ele.SessionInfo.hasAge = true;
-          }
-            return ele
-        })
-        that.setData({
-          actvs: res
-        })
-      },
-      onFail: function () {
-        // TODO : 报错 ...
-      }
-    }
     var bmactvs = require('../../../models/bm_actv_schema.js')
-    console.log(bmactvs)
-    bmactvs.queryMultiActvs(callback)
-    
+    bmactvs.queryMultiActvs(0).then(res => {
+      bmactvs.queryMultiActvsSessions(res).then(res => {
+        bmactvs.queryMultiSessionsImgs(res).then(result => {
+          let res = bmactvs.bmstore.findAll('reservableitems');
+          let _originRes = res;
+          let newres = _originRes.map((ele) => {
+            let _originImg = ele.sessioninfo.cover;
+            if (_originImg) {
+              ele.sessioninfo.dealCover = client.signatureUrl(_originImg);
+            } else {
+              ele.sessioninfo.dealCover = "";
+            }
+            
+            if (ele.sessioninfo.aub == -1 && ele.sessioninfo.aub == -1) {
+              ele.sessioninfo.hasAge = false;
+            } else {
+              ele.sessioninfo.hasAge = true;
+            }
+              return ele
+          })
+          that.setData({
+            actvs: bmactvs.bmstore.findAll('reservableitems')
+          })
+        })
+      })
+    })
+
     wx.stopPullDownRefresh();
-		wx.hideNavigationBarLoading();
+    wx.hideNavigationBarLoading();
   },
 
   /**

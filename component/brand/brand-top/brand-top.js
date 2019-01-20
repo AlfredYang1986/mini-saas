@@ -28,7 +28,7 @@ Component({
     brandDetails: function (event) {
       let brandid = event.currentTarget.dataset.brandid;
       wx: wx.navigateTo({
-        url: '/pages/brand/detail/detail?brandid' + brandid
+          url: '/pages/brand/detail/detail?brandid' + brandid
       })
     },
 

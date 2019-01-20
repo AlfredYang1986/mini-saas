@@ -39,6 +39,8 @@
 	flex-direction: column;
 	justify-content: flex-start;
   align-items: center;
+  text-align:center;
+
 }
 .bg-color {
   width: 96rpx;
@@ -56,7 +58,10 @@
 	flex-direction: row;
 	justify-content: space-around;
 }
-
+.content-item text {
+  width: 96rpx;
+  
+}
 .content-mid {
 	display: flex;
 	flex-wrap: nowrap;

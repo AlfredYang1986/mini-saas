@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "location-images": "/component/location/image-container/image-container",
-    "location-details": "/component/location/detail/detail"
-  }
-}

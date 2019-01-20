@@ -1,3 +1,6 @@
+<view class='back'>
+    <image  class="back_icon" src='{{backIcon}}' bindtap='goBack'></image>
+</view>
 <view class="clsdet-container">
  <!-- <view class="clsdet-component">
 		<cls-images></cls-images>
@@ -10,7 +13,7 @@
     <cls-info exp="{{actv}}"></cls-info>
   </view>
 
-  <view class='clsdet-component'>
+  <view class='clsdet-component' wx:if='{{reward}}'>
     <cls-reward exp="{{actv}}"></cls-reward>
   </view>
 
@@ -20,7 +23,7 @@
     </view>
   </view>
 
-  <view class='clsdet-component'>
+  <view class='clsdet-component'  wx:if='{{remarks}}'>
     <cls-remarks exp="{{actv}}"></cls-remarks>
   </view>
 
@@ -82,7 +85,7 @@
         <view class='block'wx:if="{{showOthers}}">
           <view class='title'  bindtap='hideModal'>联系方式</view>
           <view class='num'>
-              <input  type="number" placeholder-style="font-family: PingFangSC-Regular;font-size: 14px;color: #D9D9D9;" placeholder="请输入" focus="{{focus}}" />
+              <input  type="number" placeholder-style="font-family: PingFangSC-Regular;font-size: 28rpx;color: #D9D9D9;" placeholder="请输入" focus="{{focus}}" />
           </view>
         </view>
         <view class='submit' bindtap='showSuccess' wx:if="{{showOthers}}">申请体验</view>

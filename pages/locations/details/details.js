@@ -47,7 +47,10 @@ Page({
         image: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_floor%402x.png",
         name: "防摔地板"
       },
-    ]
+    ],
+    android: false,
+    iosX: false,
+    deviceHeight: getApp().globalData.deviceHeight,
 
   },
 
@@ -55,6 +58,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      android: getApp().globalData.android,
+      iosX: getApp().globalData.iosX
+    });
     var lm = require('../../../models/bm_applyee_schema.js');
     if (!lm.checkIsLogin()) {
       wx.redirectTo({
@@ -69,25 +76,27 @@ Page({
       bucket: 'bmsass'
     });
     let that = this
-    let callback = {
-      onSuccess: function (res) {
-        let tagimgs = res.Tagimgs;
-        let newimgs = tagimgs.map((ele) => {
-          let tagImg = ele.img;
-          ele.dealImg = client.signatureUrl(tagImg);
-          return ele
-        })
-        console.log(res)
-        that.setData({
-          yard: res
-        })
-      },
-      onFail: function () {
-        // TODO : 报错 ...
-      }
-    }
-    var bmyard = require('../../../models/bm_yard_schema.js')
-    bmyard.queryYard(options.yardid, callback)
+      var bmconfig = require('../../../models/bm_config.js')
+      var bmyard = require('../../../models/bm_yard_schema.js')
+      bmyard.queryYard(bmconfig.bm_baizao_yard_id).then(res => {
+          bmyard.queryMultiYardImgs(res).then(result => {
+
+                let res = bmyard.bmstore.find("yards", bmconfig.bm_baizao_yard_id)
+                let tagimgs = res.images;
+                let newimgs = tagimgs.map((ele) => {
+                    let tagImg = ele.img;
+                    ele.dealImg = client.signatureUrl(tagImg);
+                    return ele
+                })
+                that.setData({
+                    yard: res
+                })
+          })
+      })
+
+    that.setData({
+      bar: wx.getStorageSync('mername')
+    })
   },
 
   /**

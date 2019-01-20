@@ -8,7 +8,17 @@ Component({
       type: "Array",
       value: [],
       observer: function (news, olds, path) {
-       
+          let actv = [];
+          if (news != null) {
+              news.map((ele) => {
+                  if (ele.start_date != -1 && ele.end_date != -1) {
+                      actv.push(ele)
+                  }
+              })
+              this.setData({
+                  actv: actv
+              })
+          }  
       }
     }
   },
@@ -58,9 +68,8 @@ Component({
   methods: {
     showActiDetail: function (event) {
       let actvid = event.currentTarget.dataset.actvid;
-      console.log(event);
       wx.navigateTo({
-        url: '/pages/activity/detail/detail?actvid=' + actvid
+          url: '/pages/classes/detail/detail?expid=' + actvid
       })
     },
     showLst:function(event) {

@@ -36,7 +36,7 @@
 	width: 294rpx;
 	height: 182rpx;
    background: #FFFFFF;
-  box-shadow: 0 6px 12px 0 rgba(173,186,222,0.52);
+  box-shadow: 0 6px 24rpx 0 rgba(173,186,222,0.52);
   border-radius: 4rpx;
 }
 

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "navigation-bar": "/component/common/navigation-bar/navigation-bar",
     "clsimg": "/component/classes/img-container/img-container",
     "clstitle": "/component/classes/title-container/title-container",
     "clsabout": "/component/common/about-container/about-container",

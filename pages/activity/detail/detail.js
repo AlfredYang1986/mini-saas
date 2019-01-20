@@ -22,6 +22,7 @@ var OSS = require('../../../models/ali-oss.js')
 
 let actvDetailSort;
 let actvDetailName;
+let reservableid;
 Page({
 
   /** 
@@ -44,6 +45,11 @@ Page({
     day: 2,
     value: [9999, 1, 1],
     id:0,
+    actv: null,
+    reward: true,
+    remarks: true,
+    notice: true,
+    backIcon: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_back_light%402x.png",
   },
   showAll: function (e) {
     this.setData({
@@ -83,7 +89,7 @@ Page({
       })
       return
     }
-    var bmconfig = require('../../../models/bm_config.js')
+    let bmconfig = require('../../../models/bm_config.js')
     let client = new OSS({
       region: 'oss-cn-beijing',
       accessKeyId: 'LTAINO7wSDoWJRfN',
@@ -91,58 +97,73 @@ Page({
       bucket: 'bmsass'
     });
     let that = this
-    let callback = {
-      onSuccess: function (res) {
-        res.SessionInfo.price = "免费";
-        bmconfig.bm_baizao_actvPrice.map((ele) => {
-          if (res.id === ele.actvId){
-            res.SessionInfo.price = ele.price;
-          }
-        })
-        
-        actvDetailSort = res.status;
-        actvDetailName = res.SessionInfo.title;
-        wx.setStorageSync('detailSort', actvDetailSort);
-        wx.setStorageSync('detailName', actvDetailName);
-        let tagimgs =res.SessionInfo.Tagimgs
-        let newTagimgs = tagimgs.map((ele) => {
-          let tagimg = ele.img;
-          if (tagimg !== ""){
-            ele.dealImg = client.signatureUrl(tagimg);
-          }
-          return ele
-        })
-        res.SessionInfo.Tagimgs = newTagimgs;
-
-        let _originImg = res.SessionInfo.cover;
-        res.SessionInfo.dealCover = client.signatureUrl(_originImg);
-        res.SessionInfo.yardname = wx.getStorageSync('yardname');
-        res.SessionInfo.yardtag = wx.getStorageSync('yardtag');
-
-        if (res.SessionInfo.carrying == '' || res.SessionInfo.carrying == '') {
-          res.SessionInfo.carrying = '无';
-        }
-
-        if(res.SessionInfo.length == -1) {
-          res.SessionInfo.hasLenght = false;
-        } else {
-          res.SessionInfo.hasLenght = true;
-        }
-
-        if(res.SessionInfo.aub == 0) {
-          res.SessionInfo.hasAge = false;
-        } else {
-          res.SessionInfo.hasAge = true;
-        }
-
-        that.setData({
-          actv: res
-        })
-
-      },
-    }
     var bmactv = require('../../../models/bm_actv_schema.js')
-    bmactv.queryActvInfo(options.actvid, callback)
+    // bmactv.queryActvInfo(options.actvid, callback)
+    reservableid = options.actvid
+      bmactv.queryActvsById(reservableid).then(res => {
+          let tmp = [];
+          tmp.push(res);
+          bmactvs.queryMultiActvsSessions(res).then(res => {
+              bmactvs.queryMultiSessionsImgs(res).then(result => {
+                  let res = bmactvs.bmstore.find('reservableitems', reservableid);
+                  res.sessioninfo.price = "免费";
+                  bmconfig.bm_baizao_actvPrice.map((ele) => {
+                      if (res.id === ele.actvId) {
+                          res.sessioninfo.price = ele.price;
+                      }
+                  })
+                  actvDetailSort = res.status;
+                  actvDetailName = res.sessioninfo.title;
+                  wx.setStorageSync('detailSort', actvDetailSort);
+                  wx.setStorageSync('detailName', actvDetailName);
+                  let tagimgs = res.sessioninfo.images
+                  let newTagimgs = tagimgs.map((ele) => {
+                      let tagimg = ele.img;
+                      if (tagimg !== "") {
+                          ele.dealImg = client.signatureUrl(tagimg);
+                      }
+                      return ele
+                  })
+                  res.sessioninfo.images = newTagimgs;
+
+                  let _originImg = res.sessioninfo.cover;
+                  res.sessioninfo.dealCover = client.signatureUrl(_originImg);
+
+                  res.sessioninfo.yardname = wx.getStorageSync('yardname');
+                  res.sessioninfo.yardtag = wx.getStorageSync('yardtag');
+
+                  if (res.sessioninfo.length == -1) {
+                      res.sessioninfo.hasLenght = false;
+                  } else {
+                      res.sessioninfo.hasLenght = true;
+                  }
+
+                  if (res.sessioninfo.aub == -1 && res.SessionInfo.alb == -1) {
+                      res.sessioninfo.hasAge = false;
+                  } else {
+                      res.sessioninfo.hasAge = true;
+                  }
+
+                  if (res.sessioninfo.acquisition == "") {
+                      that.setData({
+                          reward: false
+                      })
+                  }
+
+                  if (res.sessioninfo.inc == "") {
+                      that.setData({
+                          remarks: false
+                      })
+                  }
+                  that.setData({
+                      actv: res
+                  })
+              })
+          })
+      })
+    that.setData({
+      bar: wx.getStorageSync('mername')
+    })
   },
 
   /**
@@ -234,67 +255,74 @@ Page({
 
   },
 
-  hideModal: function (e) {
-    var that = this;
-    var animation = wx.createAnimation({
-      duration: 500,
-      timingFunction: 'linear'
-    })
-    that.animation = animation
-    animation.translateY(100).step()
-    that.setData({
-      animationData: animation.export()
+    hideModal: function (e) {
+        var that = this;
+        var animation = wx.createAnimation({
+            duration: 500,
+            timingFunction: 'linear'
+        })
+        that.animation = animation
+        animation.translateY(100).step()
+        that.setData({
+            animationData: animation.export()
 
-    })
-    setTimeout(function () {
-      animation.translateY(0).step()
-      that.setData({
-        animationData: animation.export(),
-        show: false,
-        hide: true,
-      })
-    }, 100)
-  },
+        })
+        setTimeout(function () {
+            animation.translateY(0).step()
+            that.setData({
+            animationData: animation.export(),
+            show: false,
+            hide: true,
+            })
+        }, 100)
+    },
 
-  showSuccess:function(evevt) {
-    wx.navigateTo({
-      url: '../success/success',
-    })
-  },
+    showSuccess:function(evevt) {
+        wx.navigateTo({
+            url: '../success/success',
+        })
+    },
 
-  selectTime:function(event) {
-    this.setData({
-      showTime:true,
-      showOthers: false,
-    })
-  },
+    selectTime:function(event) {
+        this.setData({
+            showTime:true,
+            showOthers: false,
+        })
+    },
 
-  hideTime:function(event) {
-    this.setData({
-      showTime:false,
-      showOthers:true,
-    })
-  },
+    hideTime:function(event) {
+        this.setData({
+            showTime:false,
+            showOthers:true,
+        })
+    },
 
-  showmap: function(event) {
-    wx.navigateTo({
-      url: '/pages/locations/detail/map/map',
-    })
-  },
+    showmap: function(event) {
+        wx.navigateTo({
+            url: '/pages/locations/detail/map/map',
+        })
+    },
 
-  choseColor:function(e) {
-    var id = e.currentTarget.dataset.id;  //获取自定义的ID值
-    this.setData({
-      id: id
-    })
-  },
+    choseColor:function(e) {
+        var id = e.currentTarget.dataset.id;  //获取自定义的ID值
+        this.setData({
+            id: id
+        })
+    },
 
-  applyPage:function(event) {
-    console.log(event)
-    let that = this;
-    let childid = event.currentTarget.dataset.id;
-    wx:wx.navigateTo({
-      url: '/pages/activity/apply/apply?childid=' + childid,
-    })
-  }
+    applyPage:function(event) {
+        console.log(event)
+        let that = this;
+        wx:wx.navigateTo({
+        //   url: '/pages/activity/apply/apply?reservableid=' + reservableid,
+            // url: '/pages/activity/reserve/reserve?reservableid=' + reservableid,
+            url: '/pages/activity/datePicker/datePicker?reservableid=' + reservableid,
+        })
+    },
+
+    goBack:function() {
+        wx.navigateBack({
+            delta: 1
+        })
+    }
 })

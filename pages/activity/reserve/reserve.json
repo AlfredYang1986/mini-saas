@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+      "navigation-bar": "/component/common/navigation-bar-apply/navigation-bar-apply"
+  }
+}
