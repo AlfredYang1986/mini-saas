@@ -63,10 +63,10 @@ function queryBrand(brandid) {
         let result = bmstore.sync(dealedJson)
         console.log(result)
         // callback.onSuccess(result)
-        resolve(res)
+        resolve(result)
       },
       fail(err) {
-        callback.onFail(err)
+        // callback.onFail(err)
         reject(err)
       },
       complete() {
@@ -78,6 +78,7 @@ function queryBrand(brandid) {
 }
 
 module.exports = {
+    bmstore: bmstore,
     queryMultiBrands: queryMultiBrands,
     queryBrand: queryBrand
 }

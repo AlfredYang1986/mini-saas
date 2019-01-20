@@ -1,12 +1,12 @@
 {
     "pages": [
-        "pages/classes/lst/lst",
+        "pages/brand/info/info",
 
         "pages/register/register",
         "pages/preregister/preregister",
-        "pages/brand/info/info",
-        "pages/brand/detail/detail",
         
+        "pages/brand/detail/detail",
+        "pages/classes/lst/lst",
         "pages/classes/detail/detail",
         "pages/activity/detail/detail",
         "pages/activity/lst/lst",

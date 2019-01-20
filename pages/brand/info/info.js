@@ -108,29 +108,6 @@ Page({
         // TODO : 报错 ...
       }
     }
-    let callbackBrand = {
-      onSuccess: function (res) {
-        console.log(res)
-        let logo = res.logo;
-        res.newLogo = client.signatureUrl(logo);
-        that.setData({
-            brandInfo: res,
-            mername: res.subtitle
-        })
-        wx.setStorage({
-            key: "mername",
-            data: res.subtitle
-        })
-
-        that.setData({
-            bar: wx.getStorageSync('mername')
-        })
-      },
-      onFail: function (err) {
-        // TODO : 报错 ...
-        console.log(err)
-      }
-    }
 
     let callbackYard = {
       onSuccess: function (res) {
@@ -164,14 +141,58 @@ Page({
       }
     }
     var bmconfig = require('../../../models/bm_config.js')
-    var bmexp = require('../../../models/bm_exp_schema.js')
-    bmexp.queryMultiExps(callback)
-    var bmactvs = require('../../../models/bm_actv_schema.js')
-    bmactvs.queryMultiActvs(callbackActvs)
+    // var bmexp = require('../../../models/bm_exp_schema.js')
+    // bmexp.queryMultiExps(callback)
+    // var bmactvs = require('../../../models/bm_actv_schema.js')
+    // bmactvs.queryMultiActvs(callbackActvs)
     var bmbrand = require('../../../models/bm_brand_schema.js')
-    bmbrand.queryBrand(bmconfig.brandid,callbackBrand)
+    bmbrand.queryBrand(bmconfig.bm_baizao_id).then(res => {
+        let logo = res.logo;
+        res.newLogo = client.signatureUrl(logo);
+        that.setData({
+            brandInfo: res,
+            mername: res.subtitle
+        })
+        wx.setStorage({
+            key: "mername",
+            data: res.subtitle
+        })
+
+        that.setData({
+            bar: wx.getStorageSync('mername')
+        })
+    })
+
     var bmyard = require('../../../models/bm_yard_schema.js')
-    bmyard.queryYard(bmconfig.yardid, callbackYard)
+    bmyard.queryYard(bmconfig.bm_baizao_yard_id).then(res => {
+        bmyard.queryMultiYardImgs(res).then(result => {
+
+            let res = bmyard.bmstore.find("yards", bmconfig.bm_baizao_yard_id)
+            let tagimgs = res.images;
+            let newimgs = tagimgs.map((ele) => {
+                let tagImg = ele.img;
+                ele.dealImg = client.signatureUrl(tagImg);
+                return ele
+            })
+
+            res.cover1 = res.images[0].dealImg;
+            res.cover2 = res.images[1].dealImg;
+            res.cover3 = res.images[2].dealImg;
+
+            wx.setStorage({
+                key: "yardname",
+                data: res.address
+            })
+            wx.setStorage({
+                key: 'yardtag',
+                data: res.Tagimgs,
+            })
+            console.log(res)
+            that.setData({
+                yardInfo: res,
+            })
+        })
+    })
 
     wx.stopPullDownRefresh();
     wx.hideNavigationBarLoading();

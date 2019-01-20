@@ -8,7 +8,6 @@ Component({
       type: "Array",
       value: [],
       observer: function (news, olds, path) {
-          debugger
         console.log(news)
       }
     }
