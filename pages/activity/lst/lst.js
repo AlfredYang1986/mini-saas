@@ -22,12 +22,12 @@ Page({
       bar: wx.getStorageSync('mername')
     });
     var lm = require('../../../models/bm_applyee_schema.js');
-    if (!lm.checkIsLogin()) {
-      wx.redirectTo({
-        url: '/pages/register/register'
-      })
-      return
-    }
+    // if (!lm.checkIsLogin()) {
+    //   wx.redirectTo({
+    //     url: '/pages/register/register'
+    //   })
+    //   return
+    // }
     let client = new OSS({
       region: 'oss-cn-beijing',
       accessKeyId: 'LTAINO7wSDoWJRfN',
@@ -35,34 +35,56 @@ Page({
       bucket: 'bmsass'
     });
     let that = this;
-    let callback = {
-      onSuccess: function (res) {
+    // let callback = {
+    //   onSuccess: function (res) {
+    //     let _originRes = res;
+    //     let newres = _originRes.map((ele) => {
+    //       let _originImg = ele.sessioninfo.cover;
+    //       ele.sessioninfo.dealCover = client.signatureUrl(_originImg);
+    //       if (ele.sessioninfo.aub == -1 && ele.sessioninfo.aub == -1) {
+    //         ele.sessioninfo.hasAge = false;
+    //       } else {
+    //         ele.sessioninfo.hasAge = true;
+    //       }
+    //         return ele
+    //     })
+    //     that.setData({
+    //       actvs: res
+    //     })
+    //   },
+    //   onFail: function () {
+    //     // TODO : 报错 ...
+    //   }
+    // }
+    var bmactvs = require('../../../models/bm_actv_schema.js')
+    bmactvs.queryMultiActvs().then(res => {
+      bmactvs.queryMultiActvsSessions(res).then(result => {
+        debugger
+        let res = bmactvs.bmstore.findAll('reservableitems');
         let _originRes = res;
         let newres = _originRes.map((ele) => {
-          let _originImg = ele.SessionInfo.cover;
-          ele.SessionInfo.dealCover = client.signatureUrl(_originImg);
-          if (ele.SessionInfo.aub == -1 && ele.SessionInfo.aub == -1) {
-            ele.SessionInfo.hasAge = false;
+          let _originImg = ele.sessioninfo.cover;
+          if (_originImg) {
+            ele.sessioninfo.dealCover = client.signatureUrl(_originImg);
           } else {
-            ele.SessionInfo.hasAge = true;
+            ele.sessioninfo.dealCover = "";
+          }
+          
+          if (ele.sessioninfo.aub == -1 && ele.sessioninfo.aub == -1) {
+            ele.sessioninfo.hasAge = false;
+          } else {
+            ele.sessioninfo.hasAge = true;
           }
             return ele
         })
         that.setData({
           actvs: res
         })
-      },
-      onFail: function () {
-        // TODO : 报错 ...
-      }
-    }
-    var bmactvs = require('../../../models/bm_actv_schema.js')
-    console.log(bmactvs)
-    bmactvs.queryMultiActvs(callback)
-    
+      })
+    })
+
     wx.stopPullDownRefresh();
     wx.hideNavigationBarLoading();
-
   },
 
   /**

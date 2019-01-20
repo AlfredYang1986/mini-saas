@@ -1,5 +1,8 @@
 {
     "pages": [
+      
+        "pages/activity/lst/lst",
+        
         "pages/register/register",
         "pages/preregister/preregister",
         "pages/brand/info/info",
