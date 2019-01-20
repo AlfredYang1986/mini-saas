@@ -10,9 +10,7 @@
 
         "pages/classes/detail/detail",
         "pages/activity/detail/detail",
-        "pages/classes/apply/apply",
         "pages/activity/lst/lst",
-        "pages/activity/apply/apply",
         "pages/locations/details/details",
         "pages/brandlist/brandlist",
         "pages/user/user-info/user-info",
@@ -27,7 +25,8 @@
         "pages/classes/reserve/reserve",
         "pages/classes/success/success",
         "pages/activity/datePicker/datePicker",
-        "pages/classes/datePicker/datePicker"
+        "pages/classes/datePicker/datePicker",
+        "pages/brand/brandDetail/brandDetail"
     ],
     "window": {
         "backgroundTextStyle": "light",

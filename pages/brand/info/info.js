@@ -226,12 +226,6 @@ Page({
   onShareAppMessage: function () {
   
   },
-
-  showBrandDetail: function (event) {
-    wx.navigateTo({
-      url: '/pages/brand/details/details'
-    })
-  },
   
   scanclick: function(res) {
     wx.scanCode({

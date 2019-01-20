@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "navigation-bar": "/component/common/navigation-bar/navigation-bar",
-    "kid-info": "/component/classes/apply-kid-info/apply-kid-info",
-    "add-child": "/component/common/add-child/add-child"
-  }
-}
