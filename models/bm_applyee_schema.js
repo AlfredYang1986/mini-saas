@@ -60,66 +60,15 @@ function queryUserBasicInfo(callback) {
   })
 }
 
-function genOpenIdQuery(code) {
-  let eq = guid()
-  let eq0 = guid()
-  return  {
-      data: {
-        id: guid(),
-        type: "Request",
-        attributes: {
-          res: "BmWeChatInfo"
-        },
-        relationships: {
-          Eqcond: {
-            data: [
-              {
-                id: eq,
-                type: "Eqcond"
-              },
-              {
-                id: eq0,
-                type: "Eqcond"
-              }
-            ]
-          }
-        }
-      },
-      included: [
-        {
-          id: eq,
-          type: "Eqcond",
-          attributes: {
-            key: "code",
-            val: code
-          }
-        },
-        {
-          id: eq0,
-          type: "Eqcond",
-          attributes: {
-            key: "brand",
-            // val: "pacee"
-            val: 'dongda' // 1. dongda 2. pacee
-          }
-        }
-      ]
-    }
-}
-
-function genWeChatInfoQuery(code) {
-  return  {
-    "server-name": "dongda",
-    "code": code,
-  }  
-}
-
 function codeSuccess(code, callback) {
   wx.showLoading({
     title: '加载中',
   });
 
-  let req = genWeChatInfoQuery(code)
+  let req =  {
+    "server-name": "dongda",
+    "code": code,
+  }  
   let dt = JSON.stringify(req)
 
   let config = require('./bm_config.js')
