@@ -107,30 +107,32 @@ function genOpenIdQuery(code) {
     }
 }
 
+function genWeChatInfoQuery(code) {
+  return  {
+    "server-name": "dongda",
+    "code": code,
+  }  
+}
+
 function codeSuccess(code, callback) {
   wx.showLoading({
     title: '加载中',
   });
 
-  let req = genOpenIdQuery(code)
-  let rd = bmstore.sync(req);
-  let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()))
-
-  let inc = rd.Eqcond[0].serialize()
-  let inc2 = rd.Eqcond[1].serialize()
-  rd_tmp['included'] = [inc.data, inc2.data]
-  let dt = JSON.stringify(rd_tmp)
+  let req = genWeChatInfoQuery(code)
+  let dt = JSON.stringify(req)
 
   let config = require('./bm_config.js')
   wx.request({
-    url: config.bm_service_host + '/api/v1/findwechatinfo/0',
+    url: config.bm_service_host + '/v0/GetWeChatInfo',
     method: 'post',
     data: dt,
     success(res) {
       var json = JSON.stringify(res.data)
       json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
       var dealedJson = JSON.parse(json)
-      let result = bmstore.sync(dealedJson)
+      // let result = bmstore.sync(dealedJson)
+      let result = res.data.result
       console.log(result)
       wx.setStorageSync('dd_open_id', result.OpenId)
       wx.setStorageSync('dd_session_key', result.SessionKey)
