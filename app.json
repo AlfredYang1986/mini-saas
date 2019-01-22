@@ -1,29 +1,9 @@
 {
   "pages": [
     "pages/register/register",
-    "pages/brandlist/brandlist",
+    "pages/brand/lst/lst",
     "pages/brand/info/info",
-    "pages/brand/detail/detail",
-    "pages/activity/lst/lst",
-    "pages/classes/lst/lst",
-    "pages/classes/detail/detail",
-    "pages/activity/detail/detail",
-    "pages/locations/details/details",
-    "pages/user/user-info/user-info",
-    "pages/preregister/preregister",
-    "pages/user/myService/myService",
-    "pages/user/manageChild/manageChild",
-    "pages/user/addChild/addChild",
-    "pages/user/serviceDetail/serviceDetail",
-    "pages/activity/reserve/reserve",
-    "pages/activity/addChild/addChild",
-    "pages/activity/success/success",
-    "pages/classes/addChild/addChild",
-    "pages/classes/reserve/reserve",
-    "pages/classes/success/success",
-    "pages/activity/datePicker/datePicker",
-    "pages/classes/datePicker/datePicker",
-    "pages/brand/brandDetail/brandDetail"
+    "pages/user/info/info"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -40,7 +20,7 @@
         "selectedIconPath": "./utils/image/homeselected.png"
       },
       {
-        "pagePath": "pages/user/user-info/user-info",
+        "pagePath": "pages/user/info/info",
         "text": "我",
         "iconPath": "./utils/image/mine.png",
         "selectedIconPath": "./utils/image/mineselected.png"

@@ -1,14 +1,12 @@
-// pages/brand-detail/brand-detail.js
-
-var OSS = require('../../../models/ali-oss.js')
-
+// pages/activity/lst/lst.js
+var OSS = require('../../../../models/ali-oss.js')
 Page({
-
+ 
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-		brand: null,
+		actvs: null,
 		android: false,
 		iosX: false,
 		deviceHeight: getApp().globalData.deviceHeight,
@@ -20,7 +18,8 @@ Page({
 	onLoad: function (options) {
 		this.setData({
 			android: getApp().globalData.android,
-			iosX: getApp().globalData.iosX
+			iosX: getApp().globalData.iosX,
+			bar: wx.getStorageSync('mername')
 		});
 		var lm = require('../../../models/bm_applyee_schema.js');
 		if (!lm.checkIsLogin()) {
@@ -29,46 +28,45 @@ Page({
 			})
 			return
 		}
-
 		let client = new OSS({
 			region: 'oss-cn-beijing',
 			accessKeyId: 'LTAINO7wSDoWJRfN',
 			accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
 			bucket: 'bmsass'
 		});
-		let that = this
-		let store = require('../../../models/bm-data.js').store;
-		let bmconfig = require('../../../models/bm_config.js')
-		store.Find('brands', bmconfig.bm_baizao_id).then(res => {
-			let logo = res.logo;
-			res.newLogo = client.signatureUrl(logo);
-			let images = res.images;
-			if(images != null) {
-					images.map((ele) => {
-							let honorsImg = ele.img;
-							ele.dealImg = client.signatureUrl(honorsImg);
-							return ele
-					})
+		let that = this;
+		let store = require('../../../../models/bm-data.js').store;
+		store.Query('reservableitems', 'status=1').then(result => {
+			let tmp = store._bmstore.findAll("reservableitems");
+			function expFunc(tt) {
+				return tt.status == 1;
 			}
-			function honorFunc (tmp) {
-					return tmp.flag == 1;
-			}
-			function certFunc(tmp) {
-					return tmp.flag == 2;
-			}
-			res.Honors = images.filter(honorFunc);
-			res.Certifications = images.filter(certFunc);
+			let res = tmp.filter(expFunc);
+			let _originRes = res;
+			let newres = _originRes.map((ele) => {
+				let _originImg = ele.sessioninfo.cover;
+				if (_originImg) {
+					ele.sessioninfo.dealCover = client.signatureUrl(_originImg);
+				} else {
+					ele.sessioninfo.dealCover = "";
+				}
 
-			let found = res.found;
-			res.time = new Date(found).getFullYear();
+				if (ele.sessioninfo.aub == -1 && ele.sessioninfo.aub == -1) {
+					ele.sessioninfo.hasAge = false;
+				} else {
+					ele.sessioninfo.hasAge = true;
+				}
+				return ele
+			})
+
 			that.setData({
-					brand: res
+				exps: res,
 			})
 		})
 
-		that.setData({
-			bar: wx.getStorageSync('mername')
-		})
+
+		wx.stopPullDownRefresh();
+		wx.hideNavigationBarLoading();
 	},
 
 	/**
@@ -103,7 +101,8 @@ Page({
 	 * 页面相关事件处理函数--监听用户下拉动作
 	 */
 	onPullDownRefresh: function () {
-	
+		wx.showNavigationBarLoading();
+		this.onLoad();
 	},
 
 	/**
@@ -118,5 +117,11 @@ Page({
 	 */
 	onShareAppMessage: function () {
 	
+	},
+
+	activityDetail: function (event) {
+		wx.navigateTo({
+			url: '/pages/activity/detail/detail',
+		})
 	}
 })

@@ -28,14 +28,14 @@ Component({
             let tid = wx.getStorageSync('qr_page_id')
             let dir = ''
             if (tmp.startsWith('exp') && tid && tid != "") {
-              dir = '/pages/classes/detail/detail?expid=' + tid
+              dir = '/pages/reservableitems/detail/detail?expid=' + tid
                 wx.redirectTo({
                     url: dir,
                 })
             }
             else if (tmp.startsWith('actv') && tid && tid != "") {
             //   dir = '/pages/activity/detail/detail?actvid=' + tid
-                dir = '/pages/classes/detail/detail?expid=' + tid
+                dir = '/pages/reservableitems/detail/detail?expid=' + tid
                 wx.redirectTo({
                     url: dir,
                 })
@@ -45,7 +45,7 @@ Component({
                     url: dir,
                 })
             }else {
-                dir = '/pages/brandlist/brandlist'
+                dir = '/pages/brand/lst/lst'
                 wx.redirectTo({
                     url: dir,
                 })
