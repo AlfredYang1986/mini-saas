@@ -1,53 +1,33 @@
 {
-    "pages": [
-        "pages/register/register",
-        "pages/preregister/preregister",
-        "pages/brand/info/info",
-        "pages/brand/detail/detail",
-        "pages/classes/lst/lst",
-        "pages/classes/detail/detail",
-        "pages/activity/detail/detail",
-        "pages/activity/lst/lst",
-        "pages/locations/details/details",
-        "pages/brandlist/brandlist",
-        "pages/user/user-info/user-info",
-        "pages/user/myService/myService",
-        "pages/user/manageChild/manageChild",
-        "pages/user/addChild/addChild",
-        "pages/user/serviceDetail/serviceDetail",
-        "pages/activity/reserve/reserve",
-        "pages/activity/addChild/addChild",
-        "pages/activity/success/success",
-        "pages/classes/addChild/addChild",
-        "pages/classes/reserve/reserve",
-        "pages/classes/success/success",
-        "pages/activity/datePicker/datePicker",
-        "pages/classes/datePicker/datePicker",
-        "pages/brand/brandDetail/brandDetail"
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationStyle": "custom"
-    },
-    "tabBar": {
-        "color": "#A6A6A6",
-        "selectedColor": "#80AEFF",
-        "list": [
-            {
-                "pagePath": "pages/brand/info/info",
-                "text": "发现",
-                "iconPath": "./utils/image/home.png",
-                "selectedIconPath": "./utils/image/homeselected.png"
-            },
-            {
-                "pagePath": "pages/user/user-info/user-info",
-                "text": "我",
-                "iconPath": "./utils/image/mine.png",
-                "selectedIconPath": "./utils/image/mineselected.png"
-            }
-        ]
-    },
-    "globalData": {
-        "navHeight": 0
-    }
+  "pages": [
+    "pages/register/register",
+    "pages/brand/lst/lst",
+    "pages/brand/info/info",
+    "pages/user/info/info"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "color": "#A6A6A6",
+    "selectedColor": "#80AEFF",
+    "list": [
+      {
+        "pagePath": "pages/brand/info/info",
+        "text": "发现",
+        "iconPath": "./utils/image/home.png",
+        "selectedIconPath": "./utils/image/homeselected.png"
+      },
+      {
+        "pagePath": "pages/user/info/info",
+        "text": "我",
+        "iconPath": "./utils/image/mine.png",
+        "selectedIconPath": "./utils/image/mineselected.png"
+      }
+    ]
+  },
+  "globalData": {
+    "navHeight": 0
+  }
 }

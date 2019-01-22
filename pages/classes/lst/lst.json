@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "navigation-bar": "/component/common/navigation-bar/navigation-bar",
-    "class-lst": "/component/classes/cla-banner/cla-banner"
-  },
-  "enablePullDownRefresh": true,
-  "backgroundTextStyle": "dark"
-}

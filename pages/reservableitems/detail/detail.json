@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "navigation-bar": "/component/common/navigation-bar/navigation-bar",
+    "clsimg": "/component/reservableitems/img-container/img-container",
+    "clsbtn": "/component/reservableitems/btns/btns",
+    "cls-info": "/component/reservableitems/info/info",
+    "cls-remarks": "/component/reservableitems/remarks/remarks",
+    "cls-reward": "/component/reservableitems/reward/reward",
+    "cls-notice": "/component/reservableitems/notices/notice",
+    "cls-facility": "/component/common/facility/facility",
+    "cls-scroll": "/component/reservableitems/x-scroll/x-scroll"
+  }
+}

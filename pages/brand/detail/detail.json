@@ -1,10 +1,6 @@
 {
   "usingComponents": {
     "navigation-bar": "/component/common/navigation-bar/navigation-bar",
-    "class-banner": "/component/classes/banner/banner",
-    "brand-banner-slogan": "/component/brand/slogan/slogan",
-    "brand-description": "/component/brand/description/description",
-    "brand-glory": "/component/brand/glory/glory",
-    "brand-detail": "/component/brand/brand-detail/brand-detail"
+    "brand-detail": "/component/brand/detail/detail"
   }
 }
