@@ -64,7 +64,6 @@ Page({
 			bucket: 'bmsass'
 		});
 
-		
 		let store = require('../../../models/bm-data.js').store;
 		store.Query('reservableitems', 'page[number]=1&page[size]=3&status=1').then(result => {
 			let tmp = store._bmstore.findAll("reservableitems");
@@ -118,11 +117,11 @@ Page({
 			res.newLogo = client.signatureUrl(logo);
 			that.setData({
 				brandInfo: res,
-				mername: res.subtitle
+				mername: res.title
 			})
 			wx.setStorage({
 				key: "mername",
-				data: res.subtitle
+				data: res.title
 			})
 
 			that.setData({

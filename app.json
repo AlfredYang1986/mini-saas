@@ -3,7 +3,11 @@
     "pages/register/register",
     "pages/brand/lst/lst",
     "pages/brand/info/info",
-    "pages/user/info/info"
+    "pages/user/info/info",
+    "pages/booking/appointment/datepicker/datepicker",
+    "pages/booking/appointment/order/order",
+    "pages/booking/appointment/addkid/addkid",
+    "pages/booking/appointment/result/result"
   ],
   "window": {
     "backgroundTextStyle": "light",

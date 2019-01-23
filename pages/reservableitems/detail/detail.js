@@ -126,7 +126,8 @@ Page({
     })
  
     that.setData({
-        bar: wx.getStorageSync('mername')
+        bar: wx.getStorageSync('mername'),
+        reservableid: reservableid
     })
   },
 
@@ -241,9 +242,10 @@ Page({
     },
 
     apply: function(event) {
+      let reservableid = this.data.reservableid;
         wx:wx.navigateTo({
-            // url: '/pages/classes/apply/apply?reservableid=' + reservableid,
-            url: '/pages/activity/datePicker/datePicker?reservableid=' + reservableid,
+            // url: '/pages/activity/datePicker/datePicker?reservableid=' + reservableid,
+            url: '/pages/booking/appointment/datepicker/datepicker?reservableid='+ reservableid,
         })
     },
 

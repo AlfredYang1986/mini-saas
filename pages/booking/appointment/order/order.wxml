@@ -1,0 +1,64 @@
+<!--pages/booking/appointment/order/order.wxml-->
+  
+<navigation-bar title='{{bar}}' class="navi {{android?'android':'nav'}} {{iosX?'iosx':''}}"></navigation-bar>
+<view class='content-page'>
+    <view class='info'>
+        <view class='reservable'>
+            <view class='class-info'>
+                <view class='name'>
+                    <view class='class-name'>{{detailName}}</view>
+                    <view class='yard-name'>{{yardname}}</view>
+                </view>
+                <view class='price'>¥{{price}}</view>
+            </view>
+            <view class='time'>
+                <!-- <picker mode="date" value="{{date}}" start="2019-01-16" end="2050-01-01"> -->
+                    <view class="picker select">
+                        <text>{{exp_date}}</text>
+                    </view>
+                <!-- </picker> -->
+            </view>
+        </view>
+        <view class='add-child-area'>
+            <view class='add-child' bindtap='addChild' wx:if='{{noChild}}'>
+                <view class='btn-name'>添加孩子</view>  
+                <view class='btn-icon'>
+                    <image src='{{add_icon}}'></image>
+                </view>
+            </view>
+            <view class='childList' wx:if='{{hasChild}}'>
+                <view class='btn-name'>添加孩子</view>
+                <radio-group class="radio-group" bindchange="kidRadioChange"  >
+                    <label class="radio" wx:for='{{kids}}'>
+                        <view class='kid'>
+                            <radio id='kid' value='{{item.name}}' checked="{{checkboy}}" class='redio-dot'/> 
+                            <text class='name'>{{item.name}}</text>
+                            <text class='age'>{{item.sex}}  {{item.age}}岁</text>
+                        </view>
+                    </label>
+                </radio-group>
+                <view class='add' bindtap='addChild'>+新增</view>
+            </view> 
+        </view>
+        <view class='note'>
+            <image src='{{note_icon}}'></image>
+            <text>{{note_text}}</text>
+        </view>
+    </view>
+    <view class='btn-area'>
+        <button class='submit' bindtap='inputTel'>¥{{price}}  提交</button>
+    </view>
+    
+    <view class="drawer_screen" bindtap="" data-statu="close" wx:if="{{tel}}"></view>
+    <view class="drawer_box" wx:if='{{tel}}'>
+        <view class='title'>联系人电话</view>
+        <input type='number' value='{{phone}}' placeholder='请输入电话' bindinput="bindKeyInput"></input>
+        <button class='submit-tel' bindtap='commitReserve'>提交</button>
+    </view>
+
+    <view class='error-note' wx:if='{{errorInfo}}'>
+        <view class='model'>
+            <text>请添加孩子</text>
+        </view>
+    </view>
+</view>

@@ -17,6 +17,8 @@ function genApplyeePushQuery(except_time, course_name, contact, course_type, res
   let config = require('./bm_config.js')
   let lm = require('./bm_applyee_schema.js');
   let localApplyee = lm.queryLocalApplyee();
+  console.log('---')
+  console.table(localApplyee)
   let applyee = localApplyee.id;
 
   return {

@@ -156,6 +156,85 @@ class bm_alf_data {
             }) 
         })
     }
+    createRecord(res_name,data){
+      let keys = Object.keys(data);
+      let attributes ={},
+        tmp_data = {}
+      keys.forEach(ele=> {
+        attributes[ele] = data[ele]
+      })
+        tmp_data.type = res_name;
+        tmp_data.attributes = attributes;
+      return {
+        data: tmp_data
+      };
+    }
+    Update(res_name,data){
+      let that = this;
+      return new Promise((resolve,reject)=> {
+        wx.request({
+          url: this.baseUrl() + res_name,
+          data: data,
+          method: 'put',
+          header: {
+            'Content-Type': 'application/json', // 默认值
+            'Accept': 'application/json',
+            // 'Authorization': 'bearer ce6af788112b26331e9789b0b2606cce'
+          },
+          success(res) {
+            var json = JSON.stringify(res.data)
+            json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
+            var dealedJson = JSON.parse(json)
+            let result = that._bmstore.sync(dealedJson)
+            console.log(result)
+            resolve(result)
+          },
+          fail(err) {
+            console.log(err)
+            reject(err)
+          },
+          complete() {
+            wx.hideLoading();
+            console.log('complete!!!')
+          }
+        })
+      })
+    }
+    Save(res_name,data){
+      let that = this;
+      // return this.saveRecord(res_name,data).then(res=> {
+      //   return that.Find(res_name,res.id);
+      // })
+      return new Promise((resolve,reject)=> {
+        wx.request({
+          url: this.baseUrl() + res_name,
+          data: data,
+          method: 'post',
+          header: {
+            'Content-Type': 'application/json', // 默认值
+            'Accept': 'application/json',
+            // 'Authorization': 'bearer ce6af788112b26331e9789b0b2606cce'
+          },
+          success(res) {
+            var json = JSON.stringify(res.data)
+            json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
+            var dealedJson = JSON.parse(json)
+            let result = that._bmstore.sync(dealedJson)
+            console.log(result)
+            resolve(result)
+          },
+          fail(err) {
+            console.log(err)
+            reject(err)
+          },
+          complete() {
+            wx.hideLoading();
+            console.log('complete!!!')
+          }
+        })
+      })
+      
+    }
 }
 
 var store = new bm_alf_data();
