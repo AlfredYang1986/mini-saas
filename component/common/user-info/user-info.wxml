@@ -1,8 +1,0 @@
-<!--component/common/user-info/user-info.wxml-->
-<view class='server' bindtap='myServer' wx:for="{{list}}">
-    <view>
-      <!-- <image src='{{item.icon}}' class='icon'></image> -->
-      <text>{{item.name}}</text>
-    </view>
-    <image src='{{item.enter}}' class='enter'></image>
-</view>

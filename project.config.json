@@ -1,5 +1,5 @@
 {
-	"description": "项目配置文件。",
+	"description": "Project configuration file",
 	"packOptions": {
 		"ignore": []
 	},
@@ -10,13 +10,16 @@
 		"minified": true,
 		"newFeature": true,
 		"nodeModules": true,
-		"autoAudits": false,
-		"uglifyFileName": false
+		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.0",
+	"libVersion": "2.5.0",
 	"appid": "wx6129e48a548c52b8",
-	"projectname": "mini-saas",
+	"projectname": "mini-saas-new",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
 	"condition": {
 		"search": {
 			"current": -1,
