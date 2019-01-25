@@ -19,13 +19,13 @@ Page({
     android: getApp().globalData.android,
     iosX: getApp().globalData.iosX,
     customNavBarHeight: getApp().globalData.customNavBarHeight,
-    pageContantHeight: getApp().globalData.pageContantHeight 
+    pageContantHeight: getApp().globalData.pageContantHeight
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var lm = require('../../../../models/bm_applyee_schema.js');
     if (!lm.checkIsLogin()) {
       wx.redirectTo({
@@ -42,7 +42,7 @@ Page({
     let that = this
 
     let store = require('../../../../models/bm-data.js').store,
-        tmp_reservable = null;
+      tmp_reservable = null;
     store.Find('applies', options.appliesid).then(res => {
       let brandId = res['brand-id'];
       var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
@@ -53,23 +53,24 @@ Page({
       var month = date.getMonth() + 1;
       var strDate = date.getDate();
       var week = date.getDay();
+
       function addZero(m) {
         return m < 10 ? '0' + m : m;
       }
-      
+
       tmp_reservable = {
-        dealdate: year + seperator1 + addZero(month) + seperator1 + (strDate) + ' ' + weekDay[week], 
-        yard: {}, 
+        dealdate: year + seperator1 + addZero(month) + seperator1 + (strDate) + ' ' + weekDay[week],
+        yard: {},
         title: res['course-name']
-        };
+      };
       that.setData({
         reservable: tmp_reservable
       })
-      return store.Query('yards','brand-id='+brandId)
-    }).then(res=> {
+      return store.Query('yards', 'brand-id=' + brandId)
+    }).then(res => {
       tmp_reservable.yard = res[0];
       that.setData({
-        reservable:tmp_reservable
+        reservable: tmp_reservable
       })
     })
     that.setData({
@@ -83,49 +84,61 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
+  },
+  callService: function(e) {
+    let phone = e.currentTarget.dataset.phone;
+    wx.makePhoneCall({
+      phoneNumber: phone,
+      success: function () {
+        //  console.log("拨打电话成功！")
+      },
+      fail: function () {
+        //  console.log("拨打电话失败！")
+      }
+    })
   }
 })

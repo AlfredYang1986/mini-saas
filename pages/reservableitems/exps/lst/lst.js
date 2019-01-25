@@ -6,6 +6,7 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
+    bar: '咚哒精选',
 		exps: null,
     android: getApp().globalData.android,
     iosX: getApp().globalData.iosX,
@@ -16,11 +17,6 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-        this.setData({
-            android: getApp().globalData.android,
-            iosX: getApp().globalData.iosX,
-            bar: '咚哒精选'
-        });
         var lm = require('../../../../models/bm_applyee_schema.js');
         if (!lm.checkIsLogin()) {
         	wx.redirectTo({

@@ -3,7 +3,7 @@
 <!-- <navigation-bar title='{{bar}}' reLaunch='{{reLaunch}}' class="navi {{android?'android':'nav'}} {{iosX?'iosx':''}}"></navigation-bar> -->
 <view class='content-page' style='height:{{pageContantHeight}}rpx;padding-top:{{customNavBarHeight}}rpx'>
     <!-- <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view> -->
-    <navbar noback='false' title='{{bar}}' bgColor='#80AEFF' color='#fff' reLaunch='{{reLaunch}}' height='{{customNavBarHeight}}'></navbar>
+    <navbar noback='false' title='{{bar}}' iconColor='1' bgColor='#80AEFF' color='#fff' reLaunch='{{reLaunch}}' height='{{customNavBarHeight}}'></navbar>
 
     <view class='content-padding'>
         <view class='success-info'>
@@ -38,7 +38,7 @@
                 </view>
                 <view class='note-text'>注意事项：现场付费</view>
             </view>
-            <view class='phone'>
+            <view class='phone' data-phone="{{reservable.yard['service-contact']}}" bindtap='callService'>
                 <view class='phone-icon'>
                     <image src='{{callIcon}}'></image>
                 </view>

@@ -143,6 +143,7 @@ Page({
 		})
 
 		store.Find('yards', bmconfig.bm_baizao_yard_id).then(res => {
+      console.log(res);
 			let tagimgs = res.images;
 			let newimgs = tagimgs.map((ele) => {
 				let tagImg = ele.img;

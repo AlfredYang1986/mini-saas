@@ -47,18 +47,14 @@ App({
     wx.getSystemInfo({
       success: res => {
         //导航高度
-        // console.log(res.statusBarHeight)
-        // that.globalData.navHeight = res.statusBarHeight + 64;
         that.globalData.deviceHeight = res.screenHeight;
- 
-        console.warn(res.statusBarHeight);
-
         //  自定义导航栏高度
-        let customNavBarHeight = res.statusBarHeight + res.screenWidth * 88 / 750;
-        let model = res.model,
+        let customNavBarHeight = res.statusBarHeight + res.screenWidth * 88 / 750,
+          model = res.model,
           isPhomeX = model.indexOf('iPhone X') > -1 || model.indexOf('iPhoneX') > -1 || model.indexOf('iPhone11') > -1,
           pageContantHeight = (isPhomeX ? res.screenHeight : res.windowHeight) - customNavBarHeight,
           pixelRatio = res.pixelRatio;
+
         if (pixelRatio == 2 || isPhomeX) {
           that.globalData.customNavBarHeight = customNavBarHeight * 2
           that.globalData.pageContantHeight = pageContantHeight * 2
@@ -76,7 +72,6 @@ App({
           if (res.model.slice(0, 8) === "iPhone X") {
             that.globalData.iosX = true;
             that.globalData.iosX = true;
-
           } else {
             that.globalData.iosX = false;
           }

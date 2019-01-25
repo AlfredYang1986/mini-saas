@@ -39,6 +39,17 @@ Component({
       type: String,
       value: ""
     },
+    iconColor: {
+      type:Number,
+      value:0,
+      observer: function(news,olds,path) {
+        if(news == 1) {
+          this.setData({
+            backIcon: 'https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_back_light%402x.png'
+          })
+        }
+      }
+    }
     // android: {
     //   type: Boolean,
     //   value: false

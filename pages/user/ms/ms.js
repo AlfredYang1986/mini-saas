@@ -17,22 +17,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let that = this;
+    let that = this,
+      lm = require('../../../models/bm_applyee_schema.js'),
+      bmconfig = require('../../../models/bm_config.js');
 
-    let lm = require('../../../models/bm_applyee_schema.js');
-    let bmconfig = require('../../../models/bm_config.js')
     if (!lm.checkIsLogin()) {
       wx.redirectTo({
         url: '/pages/register/register'
       })
       return
     }
-    let client = new OSS({
-      region: 'oss-cn-beijing',
-      accessKeyId: 'LTAINO7wSDoWJRfN',
-      accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
-      bucket: 'bmsass'
-    });
+    // let client = new OSS({
+    //   region: 'oss-cn-beijing',
+    //   accessKeyId: 'LTAINO7wSDoWJRfN',
+    //   accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
+    //   bucket: 'bmsass'
+    // });
     // let callback = {
     //   onSuccess: function(res) {
     //     res.map((item) => {       
@@ -54,12 +54,17 @@ Page({
     // }
     let store = require('../../../models/bm-data.js').store,
       bmapply = require('../../../models/bm_apply_schema.js');
-    // store.Query('applies', 'applicant-id=' + wx.getStorageSync('dd_id')).then(res => {
-    //   console.log(res);
-    //   that.setData({
-    //     list: res
-    //   })
-    // })
+    store.Query('applies', 'applicant-id=' + wx.getStorageSync('dd_id')).then(res => {
+      let tmp = store._bmstore.findAll("applies");
+
+      function currentApplicant(tt) {
+        return tt['applicant-id'] == wx.getStorageSync('dd_id');
+      }
+      let tmp_applies = tmp.filter(currentApplicant);
+      that.setData({
+        list: res
+      })
+    })
     // bmapply.queryMultiObjects(callback)
   },
 

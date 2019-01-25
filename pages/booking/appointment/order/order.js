@@ -4,7 +4,7 @@ let kidArray;
 let expect_date;
 let detailName;
 let detailSort;
-let kid = [];
+// let kid = [];
 let phone;
 let datePicker;
 Page({
@@ -20,18 +20,20 @@ Page({
     note_icon: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_warning_border%402x.png",
     note_text: "注意事项：现场付费",
     date: '',
-    kids: null,
-    noChild: true,
-    hasChild: false,
-    tel: false,
+    choosedKidsId: [],
+    // kids: null,
+    bar: '提交订单',
+    // noChild: true,
+    // hasChild: false,
+    showTelModal: false,
     errorInfo: false,
-    sex: '',
+    // sex: '',
     now: '',
     price: '免费',
     android: getApp().globalData.android,
     iosX: getApp().globalData.iosX,
-    customNavBarHeight: getApp().globalData.customNavBarHeight ,
-    pageContantHeight: getApp().globalData.pageContantHeight 
+    customNavBarHeight: getApp().globalData.customNavBarHeight,
+    pageContantHeight: getApp().globalData.pageContantHeight
   },
 
   /**
@@ -47,10 +49,14 @@ Page({
      */
     datePicker = options.datePicker;
     expect_date = Number(datePicker);
-    let that = this;
-    let lm = require('../../../../models/bm_applyee_schema.js');
-    let ks = require('../../../../models/bm_kids_schema.js');
-    let bmconfig = require('../../../../models/bm_config.js')
+    let that = this,
+      lm = require('../../../../models/bm_applyee_schema.js'),
+      // ks = require('../../../../models/bm_kids_schema.js'),
+      bmconfig = require('../../../../models/bm_config.js'),
+      store = require('../../../../models/bm-data.js').store,
+      nowdate = this.getNowFormatDate(datePicker, true),
+      now = this.getNowFormatDate(new Date(), false);
+
     bmconfig.bm_baizao_actvPrice.map((ele) => {
       if (reservableid === ele.actvId) {
         that.setData({
@@ -58,46 +64,46 @@ Page({
         })
       }
     })
-    kidArray = ks.queryAllLocalKids();
-    kidArray.map((ele) => {
-      if (ele.gender == 0) {
-        ele.sex = '女生'
-      } else {
-        ele.sex = '男生'
+    // kidArray = ks.queryAllLocalKids();
+    store.Query('kids', 'applicant-id=' + wx.getStorageSync('dd_id')).then(result => {
+      let tmp = store._bmstore.findAll("kids");
+
+      function filterFunc(tt) {
+        return tt["applicant-id"] == wx.getStorageSync('dd_id');
       }
-      let dob = new Date(ele.dob)
-      let dn = new Date();
-      ele.age = dn.getFullYear() - dob.getFullYear();
+      let res = tmp.filter(filterFunc);
+      // 计算年纪
+      res.forEach((ele) => {
+        let dob = new Date(ele.dob)
+        let dn = new Date();
+        ele.age = dn.getFullYear() - dob.getFullYear();
+      })
+      that.setData({
+        kids: res,
+        noKids: res.length === 0 ? true : false,
+        exp_date: nowdate,
+        phone: wx.getStorageSync('dd_phoneno'),
+        detailName: wx.getStorageSync('detailName'),
+        now: now
+      })
     })
-    if (kidArray.length == 0) {
-      this.setData({
-        noChild: true,
-        hasChild: false
-      })
-    } else {
-      this.setData({
-        noChild: false,
-        hasChild: true
-      })
-    }
     if (!lm.checkIsLogin()) {
       wx.redirectTo({
         url: '/pages/register/register'
       })
       return
     }
-    let nowdate = this.getNowFormatDate(datePicker, true),
-      now = this.getNowFormatDate(new Date(), false);
-    this.setData({
-      exp_date: nowdate,
-      phone: wx.getStorageSync('dd_phoneno'),
-      bar: '提交订单',
-      android: getApp().globalData.android,
-      iosX: getApp().globalData.iosX,
-      kids: kidArray,
-      detailName: wx.getStorageSync('detailName'),
-      now: now
-    })
+
+    // this.setData({
+    //   exp_date: nowdate,
+    //   phone: wx.getStorageSync('dd_phoneno'),
+    //   bar: '提交订单',
+    //   android: getApp().globalData.android,
+    //   iosX: getApp().globalData.iosX,
+    //   kids: kidArray,
+    //   detailName: wx.getStorageSync('detailName'),
+    //   now: now
+    // })
   },
 
   /**
@@ -198,8 +204,8 @@ Page({
   },
 
   inputTel: function() {
-    let that = this;
-    console.log(kid);
+    let that = this,
+      kid = this.data.choosedKidsId;
     if (kid.length == 0) {
       this.setData({
         errorInfo: true
@@ -208,22 +214,21 @@ Page({
         that.setData({
           errorInfo: false
         })
-      }, 2000)
+      }, 1600)
     } else {
-      if (expect_date != undefined && detailName != undefined && detailSort != undefined && reservableid != undefined && kid != undefined && kid.length != 0) {
+      if (expect_date != undefined && detailName != undefined && detailSort != undefined && reservableid != undefined) {
         this.setData({
-          tel: true
+          showTelModal: true
         })
       }
     }
   },
 
   commitReserve: function() {
-    
     let that = this,
       bmconfig = require('../../../../models/bm_config.js');
 
-    if (expect_date != undefined && detailName != undefined && detailSort != undefined && reservableid != undefined && kid != undefined && kid.length != 0 && phone != undefined && phone != '') {
+    if (expect_date != undefined && detailName != undefined && detailSort != undefined && reservableid != undefined && phone != undefined && phone != '') {
       let store = require('../../../../models/bm-data.js').store,
         tmp_appliesdatum = {
           "apply-time": new Date().getTime(),
@@ -234,33 +239,35 @@ Page({
           "reservable-id": reservableid,
           "status": 0,
           "contact": phone,
-          "kid-ids": kid,
+          "kid-ids": this.data.choosedKidsId,
           "applicant-id": wx.getStorageSync('dd_id'),
         },
         appliesdata = store.createRecord('applies', tmp_appliesdatum);
       store.Save('applies', appliesdata).then(res => {
-        let appliesid = res.id;
         that.setData({
-          tel: false
+          showTelModal: false
         })
         wx.navigateTo({
-          url: '/pages/booking/appointment/result/result?appliesid=' + appliesid,
+          url: '/pages/booking/appointment/result/result?appliesid=' + res.id,
         })
       })
     }
   },
 
   kidRadioChange: function(e) {
-    let kidname = e.detail.value,
-      kids = [],
-      kidId = '';
-    kids = kidArray.map(kid => {
-      if (kid.name == kidname) {
-        return kid.id;
+    let choosedKidId = e.detail.value,
+      kids = this.data.kids,
+      choosedKidsId = [];
+
+    choosedKidsId = kids.map(ele => {
+      if (ele.id === choosedKidId) {
+        return ele.id
       }
-    });
-    kid = kids.filter(ele => typeof ele !== 'undefined');
-    return kid;
+    })
+    this.setData({
+      choosedKidsId: choosedKidsId.filter(ele => true)
+    })
+    return choosedKidsId;
   },
 
   bindKeyInput: function(e) {

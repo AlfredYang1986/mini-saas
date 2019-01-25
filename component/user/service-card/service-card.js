@@ -20,8 +20,10 @@ Component({
             });
             if (news != null && news.length != 0) {
                 news.map((ele) => {
+                  console.log(ele);
+                  console.warn('---')
                     ele.price = "免费";
-                    ele.dealImage = client.signatureUrl(ele.Reservable.SessionInfo.cover);
+                    ele.dealImage = client.signatureUrl(ele.reservable.sessionInfo.cover);
                     var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
                     var date = new Date(ele.except_time);
                     var seperator1 = "-";

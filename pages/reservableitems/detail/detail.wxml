@@ -3,7 +3,7 @@
     <image class='back_icon' src='{{backIcon}}' bindtap='goBack'></image>
 </view> -->
 <view class="clsdet-container">
-<navbar noback='false' title=' ' bgColor='transparent' height='{{customNavBarHeight}}'></navbar>
+<navbar noback='false' iconColor='1' bgColor='transparent' height='{{customNavBarHeight}}'></navbar>
 
     <view class="clsdet-component">
         <clsimg exp="{{exp}}"></clsimg>
