@@ -4,15 +4,15 @@ const years = []
 const months = []
 const days = []
 
-for (let i = 2019; i <= 2100; i++) {
+for (let i = 2019; i <= 2019; i++) {
   years.push(i)
 }
 
-for (let i = date.getMonth() + 1; i <= 12; i++) {
+for (let i = 1; i <= 12; i++) {
   months.push(i)
 }
 
-for (let i = date.getDate(); i <= 31; i++) {
+for (let i = 1; i <= 31; i++) {
   days.push(i)
 }
 
@@ -32,7 +32,11 @@ Page({
     month: date.getMonth() + 1,
     days,
     day: date.getDate(),
-    value: [0, 0, 0],
+    value: [0, date.getMonth(), date.getDate()-1],
+    android: getApp().globalData.android,
+    iosX: getApp().globalData.iosX,
+    customNavBarHeight: getApp().globalData.customNavBarHeight,
+    pageContantHeight: getApp().globalData.pageContantHeight
   },
 
   /**
@@ -99,10 +103,13 @@ Page({
   },
 
   bindChange(e) {
-    const val = e.detail.value
+    const val = e.detail.value;
     let dateSelected = this.data.years[val[0]] + '-' + this.data.months[val[1]] + '-' + this.data.days[val[2]];
-    datePicker = dateSelected;
-    // datePicker = new Date(dateSelected).getTime();
+    let tmp_dateSelect = this.data.years[val[0]] + '/' + this.data.months[val[1]] + '/' + this.data.days[val[2]];
+
+    // datePicker = dateSelected;
+    datePicker = new Date(tmp_dateSelect).getTime();
+    console.log(datePicker)
     this.setData({
       year: this.data.years[val[0]],
       month: this.data.months[val[1]],
@@ -111,10 +118,8 @@ Page({
   },
 
   next() {
-    wx.navigateTo({
-//      url: '/pages/activity/reserve/reserve?reservableid=' + reservableid + '&datePicker=' + datePicker,
-      url: '/pages/booking/appointment/order/order?reservableid=' + reservableid + '&datePicker=' + datePicker,
-
-    })
+      wx.navigateTo({
+        url: '/pages/booking/appointment/order/order?reservableid=' + reservableid + '&datePicker=' + datePicker,
+      })
   }
 })

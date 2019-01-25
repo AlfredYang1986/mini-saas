@@ -14,7 +14,7 @@ Page({
     bar: "咚哒精选",
     android: false,
     iosX: false,
-    deviceHeight: getApp().globalData.deviceHeight,
+    customNavBarHeight: getApp().globalData.customNavBarHeight,
   },
 
   /**

@@ -9,9 +9,8 @@ Page({
 	 */
 	data: {
 		brand: null,
-		android: false,
-		iosX: false,
-		deviceHeight: getApp().globalData.deviceHeight,
+    customNavBarHeight: getApp().globalData.customNavBarHeight,
+    pageContantHeight: getApp().globalData.pageContantHeight 
 	},
 
 	/**

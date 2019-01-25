@@ -4,17 +4,15 @@ page {
     height: 100%;
 }
 .content-page {
-    display: flex;
+  position: relative;
+    /* display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; */
     min-height: 100%;
     background-color: #f7f8fa;
 }
-.info {
-    width: 100%;
-}
 .reservable {
-    padding-top: 160rpx;
+    padding-top: 40rpx;
     height: 422rpx;
     background-color: #80AEFF;
 }
@@ -173,10 +171,13 @@ page {
     color: #8C8C8C;
 }
 .btn-area {
-    width: 100%;
-    display: flex;
+  position: fixed;
+  bottom: 80rpx;
+    /* display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: center; */
+    left: 50%;
+    transform: translateX(-50%);
 }
 .submit {
     display: flex;
@@ -192,7 +193,7 @@ page {
     color: #FFFFFF;
     font-weight: bold;
     /* position: fixed; */
-    bottom: 80rpx;
+    /* bottom: 80rpx; */
 }
 
 .drawer_screen {

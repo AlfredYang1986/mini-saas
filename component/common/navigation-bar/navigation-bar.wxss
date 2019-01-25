@@ -13,11 +13,12 @@
     height: 44rpx;
     position: absolute;
     left: 0;
-    padding-left: 18rpx;
+    padding-left: 28rpx;
 }
 .back-icon image {
     width: 44rpx;
     height: 44rpx;
+    padding-right: 44rpx;
 }
 .title {
     width: 100%;

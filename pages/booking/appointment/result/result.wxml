@@ -1,8 +1,10 @@
 <!--pages/booking/appointment/result/result.wxml-->
 
-<navigation-bar title='{{bar}}' class="navi {{android?'android':'nav'}} {{iosX?'iosx':''}}"></navigation-bar>
-<view class='content-page'>
-    <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
+<!-- <navigation-bar title='{{bar}}' reLaunch='{{reLaunch}}' class="navi {{android?'android':'nav'}} {{iosX?'iosx':''}}"></navigation-bar> -->
+<view class='content-page' style='height:{{pageContantHeight}}rpx;padding-top:{{customNavBarHeight}}rpx'>
+    <!-- <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view> -->
+    <navbar noback='false' title='{{bar}}' bgColor='#80AEFF' color='#fff' reLaunch='{{reLaunch}}' height='{{customNavBarHeight}}'></navbar>
+
     <view class='content-padding'>
         <view class='success-info'>
             <view class='success-icon'>
@@ -12,7 +14,7 @@
             <view class='success-note'>我们将尽快与您联系</view>
         </view>
         <view class='info-card'>
-            <view class='title'>{{reservable.Reservable.SessionInfo.title}}</view>
+            <view class='title'>{{reservable.title}}</view>
             <view class='semi-circle'>
                 <view class='semi-circle-left'></view>
                 <view class='semi-circle-right'></view>
@@ -23,8 +25,8 @@
         <view class='list-card'>
             <view class='list-info'>
                 <view class='title-area'>
-                    <view class='title'>{{reservable.Yard.title}}</view>
-                    <view class='address'>{{reservable.Yard.address}}</view>
+                    <view class='title'>{{reservable.yard.title}}</view>
+                    <view class='address'>{{reservable.yard.address}}</view>
                 </view>
                 <view class='add-icon'>
                     <image src='{{mapIcon}}'></image>

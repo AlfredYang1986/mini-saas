@@ -5,7 +5,7 @@ Component({
      */
     properties: {
         kids: {
-            type: "Array",
+            type: Array,
             value: [],
             observer: function (news, olds, path) {
                 let that = this;
@@ -65,7 +65,7 @@ Component({
         addChild: function (event) {
             let childid = event.currentTarget.dataset.childid;
             wx.navigateTo({
-                url: '/pages/user/addChild/addChild?childid=' + childid
+              url: '/pages/booking/appointment/addkid/addkid?wherefrom=managerkids&&candel=1&childid=' + childid
             })
         }
     }

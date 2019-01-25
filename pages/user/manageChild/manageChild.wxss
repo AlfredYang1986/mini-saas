@@ -1,4 +1,10 @@
 /* pages/user/manageChild/manageChild.wxss */
+page {
+    height: 100%;
+}
+.content-page {
+    background-color: #f7f8fb;
+}
 .child-list {
     padding: 40rpx;
 }

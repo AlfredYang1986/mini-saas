@@ -1,4 +1,4 @@
-/* component/activities/acti-banner/acti-banner.wxss */
+/* component/reservableitems/x-scroll/x-scroll.wxss */
 .content-page {
   padding-top: 49rpx;
   display: flex;

@@ -11,7 +11,7 @@
     <view class='info'>
       <text class='intro'>「{{brand.slogan}}」</text>
       <view class='lists'>
-        <view class='list' wx:for="{{brand.brand_tags}}" wx:for-index="idx">
+        <view class='list' wx:for="{{brand['brand-tags']}}" wx:for-index="idx">
           <view>
             {{item}}
             <block wx:if="{{idx<2}}">

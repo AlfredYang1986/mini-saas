@@ -16,9 +16,10 @@ Page({
     noteIcon: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_warning_border%402x.png",
     callIcon: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_call%402x.png",
     successIcon: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_success.png",
-    android: false,
-    iosX: false,
-    deviceHeight: getApp().globalData.deviceHeight,
+    android: getApp().globalData.android,
+    iosX: getApp().globalData.iosX,
+    customNavBarHeight: getApp().globalData.customNavBarHeight,
+    pageContantHeight: getApp().globalData.pageContantHeight 
   },
 
   /**
@@ -39,37 +40,44 @@ Page({
       bucket: 'bmsass'
     });
     let that = this
-    let callback = {
-      onSuccess: function (res) {
-        var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
-        var date = new Date(res.except_time);
-        var seperator1 = "-";
-        var seperator2 = ":";
-        var year = date.getFullYear();
-        var month = date.getMonth() + 1;
-        var strDate = date.getDate();
-        var week = date.getDay();
-        function addZero(m) {
-          return m < 10 ? '0' + m : m;
-        }
-        res.dealdate = year + seperator1 + addZero(month) + seperator1 + (strDate) + ' ' + weekDay[week];
-        that.setData({
-          reservable: res
-        })
 
-      },
-      onFail: function (err) {
-        console.log(err)
+    let store = require('../../../../models/bm-data.js').store,
+        tmp_reservable = null;
+    store.Find('applies', options.appliesid).then(res => {
+      let brandId = res['brand-id'];
+      var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+      var date = new Date(res['except-time']);
+      var seperator1 = "-";
+      var seperator2 = ":";
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      var strDate = date.getDate();
+      var week = date.getDay();
+      function addZero(m) {
+        return m < 10 ? '0' + m : m;
       }
-    }
-    var bmactv = require('../../../../models/bm_apply_schema.js')
-    bmactv.queryApplyInfo(options.reservableid, callback)
+      
+      tmp_reservable = {
+        dealdate: year + seperator1 + addZero(month) + seperator1 + (strDate) + ' ' + weekDay[week], 
+        yard: {}, 
+        title: res['course-name']
+        };
+      that.setData({
+        reservable: tmp_reservable
+      })
+      return store.Query('yards','brand-id='+brandId)
+    }).then(res=> {
+      tmp_reservable.yard = res[0];
+      that.setData({
+        reservable:tmp_reservable
+      })
+    })
     that.setData({
-      bar: wx.getStorageSync('mername'),
+      bar: '订单结果页',
       android: getApp().globalData.android,
       iosX: getApp().globalData.iosX,
+      reLaunch: true
     })
-
   },
 
   /**

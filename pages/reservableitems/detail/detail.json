@@ -8,6 +8,10 @@
     "cls-reward": "/component/reservableitems/reward/reward",
     "cls-notice": "/component/reservableitems/notices/notice",
     "cls-facility": "/component/common/facility/facility",
-    "cls-scroll": "/component/reservableitems/x-scroll/x-scroll"
+    "cls-scroll": "/component/reservableitems/x-scroll/x-scroll",
+    "cls-about": "/component/reservableitems/description/description",
+    "cls-showitems": "/component/reservableitems/show-items/show-items",
+    "navbar": "/component/common/nav-bar/nav-bar"
+    
   }
 }

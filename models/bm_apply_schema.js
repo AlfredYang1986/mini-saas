@@ -195,7 +195,7 @@ function queryMultiObjects(callback) {
   });
 
   wx.request({
-    url: config.bm_service_host + '/v0/applies?brandId=' + config.bm_baizao_id + "&applicantId=" + wx.getStorageSync('dd_id'),
+    url: config.bm_service_host + '/v2/applies?brandId=' + config.bm_baizao_id + "&applicantId=" + wx.getStorageSync('dd_id'),
     // data: dt,
     method: 'GET',
     header: {

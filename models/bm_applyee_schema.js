@@ -73,7 +73,7 @@ function codeSuccess(code, callback) {
 
   let config = require('./bm_config.js')
   wx.request({
-    url: config.bm_service_host + '/v0/GetWeChatInfo',
+    url: config.bm_service_host + '/v2/GetWeChatInfo',
     method: 'post',
     data: dt,
     success(res) {
@@ -147,7 +147,7 @@ function pushApplee(openid, uinfo, phoneno, callback) {
     title: '加载中',
   });
   wx.request({
-    url: config.bm_service_host + '/v0/ApplicantValidation',
+    url: config.bm_service_host + '/v2/ApplicantValidation',
     data: dt,
     method: 'post',
     header: {
@@ -218,7 +218,7 @@ function queryPushedApplee(callback) {
     title: '加载中',
   });
   wx.request({
-    url: config.bm_service_host + '/v0/applicants/' + wx.getStorageSync('dd_id'),
+    url: config.bm_service_host + '/v2/applicants/' + wx.getStorageSync('dd_id'),
     // data: dt,
     method: 'GET',
     header: {

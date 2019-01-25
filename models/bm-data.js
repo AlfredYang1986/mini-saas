@@ -9,7 +9,7 @@ class bm_alf_data {
 
     baseUrl() {
         let config = require('./bm_config.js');
-        return config.bm_service_host + "/v0/";
+        return config.bm_service_host + "/v2/";
     }
 
     urlForFindAllResource(res_name) {
@@ -156,6 +156,7 @@ class bm_alf_data {
             }) 
         })
     }
+
     createRecord(res_name,data){
       let keys = Object.keys(data);
       let attributes ={},
@@ -169,6 +170,7 @@ class bm_alf_data {
         data: tmp_data
       };
     }
+
     Update(res_name,data){
       let that = this;
       return new Promise((resolve,reject)=> {
@@ -200,11 +202,10 @@ class bm_alf_data {
         })
       })
     }
+
     Save(res_name,data){
       let that = this;
-      // return this.saveRecord(res_name,data).then(res=> {
-      //   return that.Find(res_name,res.id);
-      // })
+
       return new Promise((resolve,reject)=> {
         wx.request({
           url: this.baseUrl() + res_name,
@@ -232,8 +233,37 @@ class bm_alf_data {
             console.log('complete!!!')
           }
         })
-      })
+      }) 
+    }
+
+    DeleteRecord(res_name,id) {
+      let that = this;
       
+      return new Promise((resolve, reject) => {
+        wx.request({
+          url: this.baseUrl() + res_name+'/'+id,
+          data: {},
+          method: 'delete',
+          header: {
+            'Content-Type': 'application/json', // 默认值
+            'Accept': 'application/json',
+            // 'Authorization': 'bearer ce6af788112b26331e9789b0b2606cce'
+          },
+          success(res) {
+            var json = JSON.stringify(res.data)
+            json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
+            var dealedJson = JSON.parse(json)
+            let result = that._bmstore.sync(dealedJson)
+            resolve(result)
+          },
+          fail(err) {
+            reject(err)
+          },
+          complete() {
+            wx.hideLoading();
+          }
+        })
+      }) 
     }
 }
 

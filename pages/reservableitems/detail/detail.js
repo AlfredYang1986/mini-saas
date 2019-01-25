@@ -23,7 +23,10 @@ Page({
     reward: true,
     remarks: true,
     notice: true,
+    android: getApp().globalData.android,
+    iosX: getApp().globalData.iosX,
     backIcon: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_back_light%402x.png",
+    customNavBarHeight: getApp().globalData.customNavBarHeight,
   },
 
   showAll: function (e) {
@@ -50,6 +53,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // this.setData({
+    //   android: getApp().globalData.android,
+    //   iosX: getApp().globalData.iosX,
+    // });
     let reservableid = options.expid
     var lm = require('../../../models/bm_applyee_schema.js');
     if (!lm.checkIsLogin()) {
@@ -75,7 +82,6 @@ Page({
                 res.sessioninfo.price = ele.price;
             }
         })
-
         //   actvDetailSort = res.status;
         //   actvDetailName = res.sessioninfo.title;
         wx.setStorageSync('detailSort', res.status);
@@ -119,10 +125,21 @@ Page({
                 remarks: false
             })
         }
-
         that.setData({
             exp: res
+        });
+        return store.Find('yards',bmconfig.bm_baizao_yard_id);
+    }).then(res=> {
+      if (res.images.length == 0) {
+        that.setData({
+          images: false,
         })
+      }else {
+        that.setData({
+          images: true,
+          showimages: res
+        })
+      }
     })
  
     that.setData({
@@ -208,8 +225,6 @@ Page({
         animationData: animation.export()
       })
     }, 100)
-
-
   },
 
 

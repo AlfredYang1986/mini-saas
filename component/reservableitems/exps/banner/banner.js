@@ -12,15 +12,18 @@ Component({
 			type:"Array",
 			value:[],
 			observer:function(news,olds,path){
-					let exp = [];
+					let exp = [],
+            brandid = '';
 					if(news != null) {
 							news.map((ele) => {
+                  brandid = ele['brand-id'];
 									if (ele.start_date != -1 && ele.end_date != -1) {
 											exp.push(ele)
 									}
 							})
 							this.setData({
-									exp: exp
+									exp: exp,
+                  brandid: brandid
 							})
 					}  
 			}
@@ -39,7 +42,7 @@ Component({
 	methods: {
 		showClasses: function (event) {
 			wx.navigateTo({
-				url: '/pages/reservableitems/exps/lst/lst'
+        url: '/pages/reservableitems/exps/lst/lst?brandid=' + this.data.brandid + '&status=1'
 			})
 		},
 		showClsDetail: function (event) {

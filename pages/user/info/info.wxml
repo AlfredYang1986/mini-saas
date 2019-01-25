@@ -1,7 +1,8 @@
 <!--pages/user/user.wxml-->
-<navigation-bar title='{{bar}}' bindtap='backToList' class="navigationBar {{android?'android':'nav'}} {{iosX?'iosx':''}}"></navigation-bar>
-<view class='content-page'>
-    <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
+<!-- <navigation-bar title='{{bar}}' bindtap='backToList' class="navigationBar {{android?'android':'nav'}} {{iosX?'iosx':''}}"></navigation-bar> -->
+<view class='content-page' style='height:{{pageContantHeight}}rpx;padding-top:{{customNavBarHeight}}rpx'>
+    <!-- <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view> -->
+    <navbar noback='true' title='{{bar}}' height='{{customNavBarHeight}}'></navbar>
     <view class='head-area'>
         <view class='headView'>
             <!-- <image src='{{headImg}}'></image> -->
@@ -18,17 +19,18 @@
                 <image src="{{icon_enter}}"></image>
             </view>
         </navigator>
-        <navigator class='list'>
-            <button open-type='share'>推荐给朋友</button>
-            <view class='enter-icon'>
+        <button class='list recommend' open-type='share' >
+            <text >推荐给朋友</text>
+            <!-- <view class='enter-icon'>
                 <image src="{{icon_enter}}"></image>
-            </view>
-        </navigator>
-        <navigator class='list'>
-            <button bindtap='phoneCall'>联系客服</button>
-            <view class='enter-icon'>
+            </view> -->
+        </button>
+        <button class='list recommend' bindtap='phoneCall'>
+            <text >联系客服</text>
+            <!-- <view class='enter-icon'>
                 <image src="{{icon_enter}}"></image>
-            </view>
-        </navigator>
+            </view> -->
+        </button>
+        <!-- <button class='btn btn-simple' bindtap='phoneCall'>联系客服</button> -->
     </view>
 </view>

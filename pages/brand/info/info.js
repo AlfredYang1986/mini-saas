@@ -15,7 +15,7 @@ Page({
 		brandInfo: null,
 		android: false,
 		iosX: false,
-		deviceHeight: getApp().globalData.deviceHeight,
+    customNavBarHeight: getApp().globalData.customNavBarHeight,
 	},
 	tab_slide: function (e) {//滑动切换tab 
 		var that = this;
@@ -38,7 +38,7 @@ Page({
 	onLoad: function (options) {
 		this.setData({
 			android: getApp().globalData.android,
-			iosX: getApp().globalData.iosX
+			iosX: getApp().globalData.iosX,
 		});
 		var lm = require('../../../models/bm_applyee_schema.js');
 		if (!lm.checkIsLogin()) {
@@ -57,6 +57,8 @@ Page({
 			}
 		});
 		var OSS = require('../../../models/ali-oss.js');
+    let bmconfig = require('../../../models/bm_config.js'),
+      brandId =  bmconfig.bm_baizao_id;
 		let client = new OSS({
 			region: 'oss-cn-beijing',
 			accessKeyId: 'LTAINO7wSDoWJRfN',
@@ -65,12 +67,17 @@ Page({
 		});
 
 		let store = require('../../../models/bm-data.js').store;
-		store.Query('reservableitems', 'page[number]=1&page[size]=3&status=1').then(result => {
+		store.Query('reservableitems', 'page[number]=1&page[size]=3&status=1&brand-id='+brandId).then(result => {
 			let tmp = store._bmstore.findAll("reservableitems");
 			function expFunc(tt) {
 				return tt.status == 1;
 			}
-			let res = tmp.filter(expFunc);
+      function currentBrand(exp) {
+        return exp['brand-id'] == brandId
+      }
+      let expRes = tmp.filter(expFunc),
+        res = expRes.filter(currentBrand);
+			// let res = tmp.filter(expFunc);
 			let _originRes = res;
 			let newres = _originRes.map((ele) => {
 				let _originImg = ele.sessioninfo.cover;
@@ -88,12 +95,18 @@ Page({
 			})
 		})
 		
-		store.Query('reservableitems', 'page[number]=1&page[size]=3&status=0').then(result => {
+		store.Query('reservableitems', 'page[number]=1&page[size]=3&status=0&brand-id='+brandId).then(result => {
 			let tmp = store._bmstore.findAll("reservableitems");
+      
 			function actvFunc(tt) {
 				return tt.status == 0;
 			}
-			let res = tmp.filter(actvFunc);
+      function currentBrand(act) {
+        return act['brand-id'] == brandId
+      }
+      let actRes = tmp.filter(actvFunc),
+        res = actRes.filter(currentBrand);
+			// let res = tmp.filter(actvFunc);
 			let _originRes = res;
 			let newres = _originRes.map((ele) => {
 				let _originImg = ele.sessioninfo.cover;
@@ -111,7 +124,7 @@ Page({
 			})
 		})
 
-		let bmconfig = require('../../../models/bm_config.js')
+		// let bmconfig = require('../../../models/bm_config.js')
 		store.Find('brands', bmconfig.bm_baizao_id).then(res => {
 			let logo = res.logo;
 			res.newLogo = client.signatureUrl(logo);

@@ -8,15 +8,20 @@ Component({
 			type: "Array",
 			value: [],
 			observer: function (news, olds, path) {
-					let actv = [];
+					let actv = [],
+            brandid = '';
 					if (news != null) {
 							news.map((ele) => {
+                console.log('=====')
+                console.log(ele['brand-id'])
+                brandid = ele['brand-id'];
 									if (ele.start_date != -1 && ele.end_date != -1) {
 											actv.push(ele)
 									}
 							})
 							this.setData({
-									actv: actv
+									actv: actv,
+                  brandid:brandid
 							})
 					}  
 			}
@@ -74,7 +79,7 @@ Component({
 		},
 		showLst:function(event) {
 			wx:wx.navigateTo({
-				url: '/pages/reservableitems/exps/lst/lst'
+				url: '/pages/reservableitems/exps/lst/lst?brandid='+this.data.brandid+'&status=0'
 			})
 		}
 	}

@@ -2,6 +2,8 @@
   "usingComponents": {
     "wechatlogin": "/component/auth/wechatlogin",
     "brand-card": "/component/brand/card/card",
-    "navigation-bar": "/component/common/navigation-bar/navigation-bar"
+    "navigation-bar": "/component/common/navigation-bar/navigation-bar",
+    "navbar": "/component/common/nav-bar/nav-bar"
+    
   }
 }

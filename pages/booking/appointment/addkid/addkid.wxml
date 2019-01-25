@@ -1,8 +1,9 @@
 <!--pages/booking/appointment/addkid/addkid.wxml-->
 
-<view class='content-page'>
-    <navigation-bar title='{{bar}}' class="navigationBar {{android?'android':'nav'}} {{iosX?'iosx':''}}"></navigation-bar>
-    <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
+<view class='content-page' style='height:{{pageContantHeight}}rpx;padding-top:{{customNavBarHeight}}rpx'>
+    <!-- <navigation-bar title='{{bar}}' class="navigationBar {{android?'android':'nav'}} {{iosX?'iosx':''}}"></navigation-bar>
+    <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view> -->
+    <navbar noback='false' title='{{bar}}' bgColor='#fff' height='{{customNavBarHeight}}'></navbar>
     <view class='info-list'>
         <view class='list-area'>
             <view class='list'>
@@ -49,6 +50,7 @@
     </view>
     <view class='button-area'>
         <button bindtap='saveKid'>保存</button>
+        <a bindtap='deleteKid' wx:if='{{candel}}'>删除孩子</a>
     </view>
     <view class='error-note' wx:if='{{errorInfo}}'>
         <view class='model'>

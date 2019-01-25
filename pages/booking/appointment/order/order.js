@@ -27,18 +27,26 @@ Page({
     errorInfo: false,
     sex: '',
     now: '',
-    price: '免费'
+    price: '免费',
+    android: getApp().globalData.android,
+    iosX: getApp().globalData.iosX,
+    customNavBarHeight: getApp().globalData.customNavBarHeight ,
+    pageContantHeight: getApp().globalData.pageContantHeight 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     reservableid = options.reservableid;
     detailSort = wx.getStorageSync('detailSort');
     detailName = wx.getStorageSync('detailName');
+    /**
+     * TODO: 传过来的为时间戳转换后的字符串，这里又转换为时间戳。黑人问号。
+     * 现在是时间戳的传递
+     */
     datePicker = options.datePicker;
-    expect_date = new Date(datePicker).getTime();
+    expect_date = Number(datePicker);
     let that = this;
     let lm = require('../../../../models/bm_applyee_schema.js');
     let ks = require('../../../../models/bm_kids_schema.js');
@@ -78,9 +86,8 @@ Page({
       })
       return
     }
-    // let nowdate = this.getNowFormatDate(options.datePicker);
-    let nowdate = this.getNowFormatDate(datePicker);
-    let now = this.getNowFormatDateNoWeek();
+    let nowdate = this.getNowFormatDate(datePicker, true),
+      now = this.getNowFormatDate(new Date(), false);
     this.setData({
       exp_date: nowdate,
       phone: wx.getStorageSync('dd_phoneno'),
@@ -96,83 +103,76 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
-
-  getNowFormatDate: function (e) {
-    // let timestamp = new Date(e);
+  /**
+   * 将字符串转为时间戳 再转为字符串加上周几
+   */
+  getNowFormatDate: function(e, hasWeek) {
     var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
-    var date = new Date(e);
+    var date = new Date(Number(e));
     var seperator1 = "-";
     var seperator2 = ":";
     var year = date.getFullYear();
     var month = date.getMonth() + 1;
     var strDate = date.getDate();
     var week = date.getDay();
-    function addZero(m) {
-      return m < 10 ? '0' + m : m;
-    }
-    var currentdate = year + seperator1 + addZero(month) + seperator1 + (strDate) + ' ' + weekDay[week];
-    return currentdate;
-  },
-  getNowFormatDateNoWeek: function () {
-    var date = new Date();
-    var seperator1 = "-";
-    var seperator2 = ":";
-    var year = date.getFullYear();
-    var month = date.getMonth() + 1;
-    var strDate = date.getDate();
-    function addZero(m) {
-      return m < 10 ? '0' + m : m;
-    }
-    var currentdate = year + seperator1 + addZero(month) + seperator1 + (strDate)
-    return currentdate;
-  },
 
-  bindExceptDateChange: function (e) {
+    function addZero(m) {
+      return m < 10 ? '0' + m : m;
+    }
+    let stringTime = '';
+    if (hasWeek) {
+      stringTime = year + seperator1 + addZero(month) + seperator1 + (strDate) + ' ' + weekDay[week];
+    } else {
+      stringTime = year + seperator1 + addZero(month) + seperator1 + (strDate);
+    }
+    return stringTime;
+  },
+  bindExceptDateChange: function(e) {
     var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
     var date = new Date(e.detail.value);
     var seperator1 = "-";
@@ -181,6 +181,7 @@ Page({
     var month = date.getMonth() + 1;
     var strDate = date.getDate();
     var week = date.getDay();
+
     function addZero(m) {
       return m < 10 ? '0' + m : m;
     }
@@ -190,19 +191,20 @@ Page({
     })
   },
 
-  addChild: function () {
+  addChild: function() {
     wx.redirectTo({
-      url: '/pages/booking/appointment/addkid/addkid?reservableid=' + reservableid + '&datePicker=' + datePicker,
+      url: '/pages/booking/appointment/addkid/addkid?wherefrom=appointment&reservableid=' + reservableid + '&datePicker=' + datePicker,
     })
   },
 
-  inputTel: function () {
-    let that = this
+  inputTel: function() {
+    let that = this;
+    console.log(kid);
     if (kid.length == 0) {
       this.setData({
         errorInfo: true
       })
-      setTimeout(function () {
+      setTimeout(function() {
         that.setData({
           errorInfo: false
         })
@@ -214,56 +216,54 @@ Page({
         })
       }
     }
-
   },
 
-  commitReserve: function () {
+  commitReserve: function() {
+    
     let that = this,
-      bmconfig = require('../../../../models/bm_config.js')
+      bmconfig = require('../../../../models/bm_config.js');
+
     if (expect_date != undefined && detailName != undefined && detailSort != undefined && reservableid != undefined && kid != undefined && kid.length != 0 && phone != undefined && phone != '') {
       let store = require('../../../../models/bm-data.js').store,
         tmp_appliesdatum = {
-              "apply-time": new Date().getTime(),
-              "except-time": expect_date,
-              "brand-id": bmconfig.brandid,
-              "course-name": detailName,
-              "course-type": detailSort,
-              "reservable-id":reservableid,
-              "status": 0,
-              "contact": phone
+          "apply-time": new Date().getTime(),
+          "except-time": expect_date,
+          "brand-id": bmconfig.bm_baizao_id,
+          "course-name": detailName,
+          "course-type": detailSort,
+          "reservable-id": reservableid,
+          "status": 0,
+          "contact": phone,
+          "kid-ids": kid,
+          "applicant-id": wx.getStorageSync('dd_id'),
         },
-        appliesdata = store.createRecord('applies', tmp_appliesdatum),
-        tmp_kidsdatum = {
-              "name": "小王",
-              "nickname": "王",
-              "dob": 111,
-              "gender": 1,
-              "guardian-role": "爸爸" 
-        },
-        kidsdatum = store.createRecord('kids',tmp_kidsdatum),
-        appliesid = '',
-        kidsid = '';
-      store.Save('applies',appliesdata).then(res=> {
-        appliesid= res.id;
-        return store.Save('kids',kidsdatum)
-      }).then(res=> {
-        
+        appliesdata = store.createRecord('applies', tmp_appliesdatum);
+      store.Save('applies', appliesdata).then(res => {
+        let appliesid = res.id;
+        that.setData({
+          tel: false
+        })
+        wx.navigateTo({
+          url: '/pages/booking/appointment/result/result?appliesid=' + appliesid,
+        })
       })
     }
   },
 
-  kidRadioChange: function (e) {
-    let kidname = e.detail.value;
-    kid = [];
-    kidArray.map((ele) => {
-      if (ele.name == kidname) {
-        kid.push(ele)
-        return kid
+  kidRadioChange: function(e) {
+    let kidname = e.detail.value,
+      kids = [],
+      kidId = '';
+    kids = kidArray.map(kid => {
+      if (kid.name == kidname) {
+        return kid.id;
       }
-    })
+    });
+    kid = kids.filter(ele => typeof ele !== 'undefined');
+    return kid;
   },
 
-  bindKeyInput: function (e) {
+  bindKeyInput: function(e) {
     phone = e.detail.value
     this.setData({
       phone: e.detail.value

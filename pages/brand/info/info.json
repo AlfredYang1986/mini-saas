@@ -6,8 +6,10 @@
     "location-banner": "/component/location/banner/banner",
     "brand-logo": "/component/brand/logo/logo",
     "brand-top": "/component/brand/top/top",
-    "navigation-bar": "/component/common/navigation-bar/navigation-bar"
+    "navigation-bar": "/component/common/navigation-bar/navigation-bar",
+    "navbar": "/component/common/nav-bar/nav-bar"
    },
    "enablePullDownRefresh": true,
-   "backgroundTextStyle": "dark"
+   "backgroundTextStyle": "dark",
+   "navigationBarTextStyle":"black"
 }

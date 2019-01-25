@@ -89,6 +89,9 @@ page {
     font-size: 28rpx;
     color: #595959;
 }
+.add-icon {
+  flex: 0 0 50rpx;
+}
 .list-card .add-icon image {
     width: 44rpx;
     height: 44rpx;

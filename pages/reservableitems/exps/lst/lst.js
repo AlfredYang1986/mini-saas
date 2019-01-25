@@ -7,9 +7,9 @@ Page({
 	 */
 	data: {
 		exps: null,
-        android: false,
-        iosX: false,
-        deviceHeight: getApp().globalData.deviceHeight,
+    android: getApp().globalData.android,
+    iosX: getApp().globalData.iosX,
+    customNavBarHeight: getApp().globalData.customNavBarHeight,
 	},
 
 	/**
@@ -19,7 +19,7 @@ Page({
         this.setData({
             android: getApp().globalData.android,
             iosX: getApp().globalData.iosX,
-            bar: wx.getStorageSync('mername')
+            bar: '咚哒精选'
         });
         var lm = require('../../../../models/bm_applyee_schema.js');
         if (!lm.checkIsLogin()) {
@@ -37,12 +37,18 @@ Page({
 		let that = this;
 
 		let store = require('../../../../models/bm-data.js').store;
-		store.Query('reservableitems', 'status=0').then(result => {
-			let tmp = store._bmstore.findAll("reservableitems");
-			function expFunc(tt) {
-				return tt.status == 0;
-			}
-			let res = tmp.filter(expFunc);
+		store.Query('reservableitems', 'status=0&brand-id='+options.brandid).then(result => {
+			let tmp = store._bmstore.findAll("reservableitems"),
+          status = options.status;
+      function actvFunc(tt) {
+        return tt.status == status;
+      }
+      function currentBrand(act) {
+        return act['brand-id'] == options.brandid
+      }
+      let actRes = tmp.filter(actvFunc),
+        res = actRes.filter(currentBrand);
+			// let res = tmp.filter(expFunc);
 			let _originRes = res;
 			let newres = _originRes.map((ele) => {
 				let _originImg = ele.sessioninfo.cover;
@@ -59,9 +65,8 @@ Page({
 				}
 				return ele
 			})
-
 			that.setData({
-				exps: res,
+				exps: newres,
 			})
 		})
 

@@ -11,10 +11,10 @@ function guid() {
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
 
-function genOneKid(name, nick_name, dob, gender, guardian_role) {
+function genOneKid(id,name, nick_name, dob, gender, guardian_role) {
   let kid = {
     data: {
-      id: guid(),
+      id: id,
       type: "BmKid",
       attributes: {
         name: name,

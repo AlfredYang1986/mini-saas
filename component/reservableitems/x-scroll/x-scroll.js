@@ -1,4 +1,4 @@
-// component/classes/cls-x-scroll/cls-x-scroll.js
+// component/reservableitems/x-scroll/x-scroll.js
 Component({
   /**
    * 组件的属性列表
@@ -8,7 +8,16 @@ Component({
       type: "Array",
       value: [],
       observer: function (news, olds, path) {
-        console.log(news)
+
+        let normalImgs = news.images.map(ele=> {
+            return {
+              dealImg: ele.dealImg,
+              tag: ele.tag
+            }
+        })
+        this.setData({
+          imgs: normalImgs
+        })
       }
     }
   },

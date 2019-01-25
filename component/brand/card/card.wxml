@@ -3,7 +3,7 @@
     <view class='brand-card'>
         <view class='bg'>
             <view class='card-content'>
-                <text class='tag'>科学</text>
+                <text class='tag'>{{item.category.title}}</text>
                 <view class='content-center'>
                     <view class='logo-area'>
                         <image class='logo' src='{{item.dealLogo}}'></image>
@@ -14,7 +14,7 @@
                     </view>
                     
                     <view class='tags'>
-                        <text  wx:for='{{item.brand_tags}}'>{{item}}</text>
+                        <text  wx:for='{{item["brand-tags"]}}'>{{item}}</text>
                     </view>
                 </view>
                 

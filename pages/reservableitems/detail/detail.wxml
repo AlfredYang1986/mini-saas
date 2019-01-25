@@ -1,8 +1,10 @@
-<!--pages/class-lst/class-detail/class-detail.wxml-->
-<view class='back'>
+<!--pages/reservableitems/detail/detail.wxml-->
+<!-- <view class='back'>
     <image class='back_icon' src='{{backIcon}}' bindtap='goBack'></image>
-</view>
+</view> -->
 <view class="clsdet-container">
+<navbar noback='false' title=' ' bgColor='transparent' height='{{customNavBarHeight}}'></navbar>
+
     <view class="clsdet-component">
         <clsimg exp="{{exp}}"></clsimg>
     </view>
@@ -17,12 +19,12 @@
 
     <view class='clsdet-component'>
         <view class="clsdet-component" wx:if='{{hide}}'>
-            <clsabout exp="{{exp}}"></clsabout>
+            <cls-about exp="{{exp}}"></cls-about>
         </view>
     </view>
 
     <view class='clsdet-component' wx:if='{{remarks}}'>
-        <cls-remarks exp="{{exp}}"></cls-remarks>
+        <cls-showtiems exp="{{exp}}"></cls-showtiems>
     </view>
 
     <view class='clsdet-component'>
@@ -31,9 +33,9 @@
         </view>
     </view>
 
-    <view class='clsdet-component'>
+    <view class='clsdet-component' wx:if='{{images}}'>
         <view class='scroll'>
-            <cls-scroll exp="{{exp}}"></cls-scroll>
+            <cls-scroll exp="{{showimages}}"></cls-scroll>
         </view>
     </view>
 
