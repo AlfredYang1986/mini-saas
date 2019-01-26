@@ -6,18 +6,17 @@
     </view>
 </block>
 <block wx:else>
-    <view class='service-card' wx:for="{{lists}}" bindtap="serviceDetail"  data-reservableid="{{item.id}}">
+    <view class='service-card' wx:for="{{lists}}" bindtap="serviceDetail"  data-appliesid="{{item.id}}">
         <view class='card'>
-            <text class='card-title'>{{item.Reservable.SessionInfo.title}}</text>
+            <text class='card-title'>{{item['reservable-title']}}</text>
             <view class='card-content'>
                 <view class='card-cover'>
                     <image src='{{item.dealImage}}'></image>
-                    <!-- <text>{{item.Reservable.SessionInfo.dealcover}}</text> -->
                 </view>
                 <view class='card-info'>
-                    <text>{{item.Yard.address}}</text>
+                    <text>{{item['yard-address']}}</text>
                     <text>{{item.deal_expect_time}}</text>
-                    <text>¥ {{item.Reservable.price}}</text>
+                    <text>¥ {{item['reservable-price']}}</text>
                 </view>
             </view>
         </view>

@@ -53,16 +53,50 @@ Page({
     //   }
     // }
     let store = require('../../../models/bm-data.js').store,
-      bmapply = require('../../../models/bm_apply_schema.js');
+      // bmapply = require('../../../models/bm_apply_schema.js'),
+      tmp_applies = [];
     store.Query('applies', 'applicant-id=' + wx.getStorageSync('dd_id')).then(res => {
-      let tmp = store._bmstore.findAll("applies");
+      // 如果不进行这一步会报错
+      tmp_applies = res.map(ele => {
+        ele.applicant = [];
+        return ele;
+      });
 
-      function currentApplicant(tt) {
-        return tt['applicant-id'] == wx.getStorageSync('dd_id');
-      }
-      let tmp_applies = tmp.filter(currentApplicant);
+      let reservablePromise = tmp_applies.map(ele => {
+        let reservableitemId = ele['reservable-id'];
+        return store.Find('reservableitems', reservableitemId)
+      })
+
+      return Promise.all(reservablePromise)
+    }).then(res => {
+      res.forEach(ele => {
+        tmp_applies.forEach(item => {
+          if (item['reservable-id'] == ele.id) {
+            item['reservable-cover'] = ele.sessioninfo.cover;
+            item['reservable-title'] = ele.sessioninfo.title;
+            item['reservable-price'] = ele.price || '免费';
+          }
+        })
+      })
+      // that.setData({
+      //   list: tmp_applies
+      // })
+      let yardsPromise = tmp_applies.map(ele => {
+        let brandId = ele['brand-id'];
+        return store.Query('yards', "brand-id=" + brandId)
+      })
+
+      return Promise.all(yardsPromise)
+    }).then(res => {
+      res.forEach(ele => {
+        tmp_applies.forEach(item => {
+          // if (item['reservable-id'] == ele.id) {
+          item['yard-address'] = ele[0].address;
+          // }
+        })
+      })
       that.setData({
-        list: res
+        list: tmp_applies
       })
     })
     // bmapply.queryMultiObjects(callback)

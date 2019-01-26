@@ -23,7 +23,7 @@
   flex-direction: row;
 }
 .title-area .tags text {
-  margin-right: 52rpx;
+  margin-right: 24rpx;
   padding: 4rpx 16rpx;
   border: 1rpx solid #979797;
   border-radius: 8rpx;

@@ -49,7 +49,11 @@ Component({
           })
         }
       }
-    }
+    },
+    backtoAppliesList: {
+      type: Number,
+      value: 0,
+    },
     // android: {
     //   type: Boolean,
     //   value: false
@@ -73,7 +77,8 @@ Component({
    */
   methods: {
     backTo: function () {
-      if (this.data.reLaunch) {
+      console.log(this.data.backtoAppliesList)
+      if (this.data.reLaunch && !this.data.backtoAppliesList) {
         wx.reLaunch({
           url: '/pages/brand/lst/lst'
         })

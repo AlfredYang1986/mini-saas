@@ -26,7 +26,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var lm = require('../../../../models/bm_applyee_schema.js');
+    let that = this,
+      lm = require('../../../../models/bm_applyee_schema.js'),
+      store = require('../../../../models/bm-data.js').store,
+      tmp_reservable = null;
     if (!lm.checkIsLogin()) {
       wx.redirectTo({
         url: '/pages/register/register'
@@ -39,10 +42,7 @@ Page({
       accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
       bucket: 'bmsass'
     });
-    let that = this
 
-    let store = require('../../../../models/bm-data.js').store,
-      tmp_reservable = null;
     store.Find('applies', options.appliesid).then(res => {
       let brandId = res['brand-id'];
       var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
@@ -72,12 +72,13 @@ Page({
       that.setData({
         reservable: tmp_reservable
       })
+    }).catch(error => {
+      console.log(error)
     })
     that.setData({
-      bar: '订单结果页',
-      android: getApp().globalData.android,
-      iosX: getApp().globalData.iosX,
-      reLaunch: true
+      bar: options.fromServerList ? "服务详情" : '订单结果页',
+      reLaunch: true,
+      backtoAppliesList: options.fromServerList || 0
     })
   },
 
@@ -133,10 +134,10 @@ Page({
     let phone = e.currentTarget.dataset.phone;
     wx.makePhoneCall({
       phoneNumber: phone,
-      success: function () {
+      success: function() {
         //  console.log("拨打电话成功！")
       },
-      fail: function () {
+      fail: function() {
         //  console.log("拨打电话失败！")
       }
     })

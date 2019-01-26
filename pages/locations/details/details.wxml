@@ -1,12 +1,13 @@
 <!--pages/locations/details/details.wxml-->
-<navigation-bar title='{{bar}}' class="navigationBar {{android?'android':'nav'}} {{iosX?'iosx':''}}"></navigation-bar>
-<view class='content-page' yard='{{yard}}'>
+<!-- <navigation-bar title='{{bar}}' class="navigationBar {{android?'android':'nav'}} {{iosX?'iosx':''}}"></navigation-bar> -->
+<view class='content-page' yard='{{yard}}' style='margin-top:{{customNavBarHeight}}rpx'>
+    <navbar noback='false' title='{{bar}}' height='{{customNavBarHeight}}'></navbar>
   <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
   <view class='title-area'>
     <view class='title'>{{yard.title}}</view>
     <view class='address'>{{yard.address}}</view>
     <view class='tags'>
-      <text>{{yard.attribute}}</text>
+      <text>{{yard.scenario}}</text><text>{{yard.attribute}}</text>
     </view>
   </view>
   <view class='show-img-area'>

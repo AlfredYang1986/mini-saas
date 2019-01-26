@@ -1,7 +1,6 @@
 // pages/booking/appointment/addkid/addkid.js
-
 let name;
-let guardian_role;
+let guardianRole;
 let dob;
 let gender;
 let childid;
@@ -62,9 +61,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let ks = require('../../../../models/bm_kids_schema.js'),
-      store = require('../../../../models/bm-data.js').store,
+    let store = require('../../../../models/bm-data.js').store,
       that = this;
+
     ({
       reservableid,
       datePicker,
@@ -74,19 +73,19 @@ Page({
     isFromManage = options.wherefrom == 'managerkids' ? true : false;
 
     now = this.getNowFormatDate();
-    dob = new Date().getTime();
     if (typeof childid == 'undefined') {
       ({
         name,
-        guardian_role,
-        gender
-      } = {});
+        guardianRole,
+        gender,
+        dob
+      } = {
+        dob: new Date().getTime()
+      });
       this.setData({
         date: now
       })
     } else {
-      // let kidInfo = ks.queryLocalKidByID(childid);
-      // let kidInfo = null;
       store.Find('kids', childid).then(kidInfo => {
         let date = new Date(kidInfo.dob),
           tmp_month = date.getMonth() + 1,
@@ -94,8 +93,20 @@ Page({
           tmp_strDate = date.getDate(),
           strDate = tmp_strDate < 10 ? "0" + tmp_strDate : tmp_strDate,
           dealdate = date.getFullYear() + '-' + month + '-' + strDate;
-        name = kidInfo.name
+        console.log(kidInfo.name);
+        console.log(kidInfo['guardian-role']);
+        console.log(kidInfo.gender);
+        console.log(kidInfo.dob);
 
+
+        name = kidInfo.name;
+        guardianRole = kidInfo['guardian-role'];
+        gender = kidInfo.gender;
+        dob = kidInfo.dob;
+        console.log(name);
+        console.log(guardianRole);
+        console.log(gender);
+        console.log(dob);
         if (kidInfo.gender == 0) {
           that.setData({
             checkgirl: 'checked'
@@ -106,11 +117,11 @@ Page({
           })
         }
 
-        if (kidInfo.guardian_role == '爸爸') {
+        if (kidInfo['guardian-role'] == '爸爸') {
           that.setData({
             checkfather: 'checked'
           })
-        } else if (kidInfo.guardian_role == '妈妈') {
+        } else if (kidInfo['guardian-role'] == '妈妈') {
           that.setData({
             checkmother: 'checked'
           })
@@ -122,19 +133,15 @@ Page({
 
         that.setData({
           name: kidInfo.name,
-          date: dealdate
+          date: dealdate,
         })
       })
     }
-    // name = undefined;
-    // guardian_role = undefined;
-    // gender = undefined;
+
     this.setData({
       isFromManage: isFromManage,
       candel: Number(candel),
       bar: '添加孩子',
-      android: getApp().globalData.android,
-      iosX: getApp().globalData.iosX,
       nowdate: now
     })
   },
@@ -212,7 +219,7 @@ Page({
   },
 
   radioChange: function(e) {
-    guardian_role = e.detail.value
+    guardianRole = e.detail.value
   },
 
   sexRadioChange: function(e) {
@@ -228,27 +235,23 @@ Page({
   },
 
   saveKid() {
-    let ks = require('../../../../models/bm_kids_schema.js'),
-      store = require('../../../../models/bm-data.js').store,
+    let store = require('../../../../models/bm-data.js').store,
       tmp_kidsdatum = null,
       kidsdatum = null;
 
-    if (name != undefined && name != '' && dob != undefined && gender != undefined && guardian_role != undefined && guardian_role != null) {
-      // ks.genOneKid(name, 'nickname', dob, gender, guardian_role);
+    if (Boolean(name) && Boolean(dob) && gender != undefined && guardianRole.length > 0) {
       tmp_kidsdatum = {
+        "id": childid,
         "applicant-id": wx.getStorageSync('dd_id'),
         "name": name,
         "dob": dob,
         "gender": gender,
-        "guardian-role": guardian_role
+        "guardian-role": guardianRole
       };
       let kidsdatum = store.createRecord('kids', tmp_kidsdatum);
+          // patch = {patch: childid?true:false,id:childid }
       store.Save('kids', kidsdatum).then(res => {
-        ks.genOneKid(res.id, name, 'nickname', dob, gender, guardian_role);
         if (isFromManage) {
-          // wx.redirectTo({
-          //   url: '/pages/user/manageChild/manageChild',
-          // })
           wx.navigateBack({
             delta: 1
           })
@@ -270,29 +273,19 @@ Page({
         })
       }, 2000)
     }
-    // ks.saveAllKidOnStorage();
   },
 
   deleteKid() {
     let ks = require('../../../../models/bm_kids_schema.js'),
       store = require('../../../../models/bm-data.js').store;
     if (childid != undefined && childid != '') {
-      // let kid = ks.queryLocalKidByID(childid);
-      // ks.bmstoredelete(kid);
-      // name = undefined;
-      // dob = undefined;
-      // gender = undefined;
-      // guardian_role = undefined;
-      //}
       store.DeleteRecord('kids', childid).then(res => {
-        let kid = ks.queryLocalKidByID(childid);
-        ks.bmstoredelete(kid);
         name = undefined;
         dob = undefined;
         gender = undefined;
-        guardian_role = undefined;
-        wx.redirectTo({
-          url: '/pages/user/manageChild/manageChild',
+        guardianRole = undefined;
+        wx.navigateBack({
+          delta: 1
         })
       })
     }

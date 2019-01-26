@@ -75,7 +75,8 @@ Page({
     });
     let that = this;
     let store = require('../../../models/bm-data.js').store;
-    store.Find('reservableitems', reservableid).then(res => {
+    store.Find('reservableitems', reservableid).then(result => {
+        let res = result;
         res.sessioninfo.price = "免费";
         bmconfig.bm_baizao_actvPrice.map((ele) => {
             if (res.id === ele.actvId) {
@@ -108,7 +109,7 @@ Page({
             res.sessioninfo.hasLenght = true;
         }
 
-        if (res.sessioninfo.aub == -1 && res.SessionInfo.alb == -1) {
+        if (res.sessioninfo.aub == -1 && res.sessioninfo.alb == -1) {
             res.sessioninfo.hasAge = false;
         } else {
             res.sessioninfo.hasAge = true;

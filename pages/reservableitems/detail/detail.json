@@ -12,6 +12,6 @@
     "cls-about": "/component/reservableitems/description/description",
     "cls-showitems": "/component/reservableitems/show-items/show-items",
     "navbar": "/component/common/nav-bar/nav-bar"
-    
-  }
+  },
+  "navigationBarTextStyle": "white"
 }

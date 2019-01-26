@@ -5,6 +5,5 @@
     "navbar": "/component/common/nav-bar/nav-bar"
   },
   "enablePullDownRefresh": true,
-  "backgroundTextStyle": "dark",
   "navigationBarTextStyle": "black"
 }

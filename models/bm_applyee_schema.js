@@ -83,8 +83,8 @@ function codeSuccess(code, callback) {
       // let result = bmstore.sync(dealedJson)
       let result = res.data.result
       console.log(result)
-      wx.setStorageSync('dd_open_id', result.OpenId)
-      wx.setStorageSync('dd_session_key', result.SessionKey)
+      wx.setStorageSync('dd_open_id', result['open-id'])
+      wx.setStorageSync('dd_session_key', result['session-key'])
       callback.onLoginSuccess(res);
     },
     fail(err) {
@@ -231,7 +231,6 @@ function queryPushedApplee(callback) {
       json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
       var dealedJson = JSON.parse(json)
       let result = bmstore.sync(dealedJson)
-    //   debugger
     //   wx.setStorageSync("dd_id", result.Applyee.id);
     //   wx.setStorageSync("dd_token", result.token);
       console.log(result);

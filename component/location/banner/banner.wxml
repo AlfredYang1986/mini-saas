@@ -4,7 +4,7 @@
 		<view class="content-item">
 			<view class="content-row-span">
         <view class='big-title'>
-          <view class="title">参观场地</view>
+          <view class="title">参观校区</view>
           <view class='btn'>
             <text>更多详情</text>
             <image src="https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_chevron_right_dark%402x.png"></image>

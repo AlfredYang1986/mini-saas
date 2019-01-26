@@ -66,16 +66,18 @@ Page({
     })
     // kidArray = ks.queryAllLocalKids();
     store.Query('kids', 'applicant-id=' + wx.getStorageSync('dd_id')).then(result => {
-      let tmp = store._bmstore.findAll("kids");
-
-      function filterFunc(tt) {
-        return tt["applicant-id"] == wx.getStorageSync('dd_id');
-      }
-      let res = tmp.filter(filterFunc);
+      let res = result;
+      // let tmp = store._bmstore.findAll("kids");
+      // let tmp = result;
+      // function filterFunc(tt) {
+      //   return tt["applicant-id"] == wx.getStorageSync('dd_id');
+      // }
+      // let res = tmp.filter(filterFunc);
       // 计算年纪
       res.forEach((ele) => {
-        let dob = new Date(ele.dob)
-        let dn = new Date();
+        let dob = new Date(ele.dob),
+          dn = new Date();
+
         ele.age = dn.getFullYear() - dob.getFullYear();
       })
       that.setData({
@@ -93,17 +95,6 @@ Page({
       })
       return
     }
-
-    // this.setData({
-    //   exp_date: nowdate,
-    //   phone: wx.getStorageSync('dd_phoneno'),
-    //   bar: '提交订单',
-    //   android: getApp().globalData.android,
-    //   iosX: getApp().globalData.iosX,
-    //   kids: kidArray,
-    //   detailName: wx.getStorageSync('detailName'),
-    //   now: now
-    // })
   },
 
   /**

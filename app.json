@@ -11,7 +11,8 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationStyle": "custom"
+    "navigationStyle": "custom",
+   "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#A6A6A6",

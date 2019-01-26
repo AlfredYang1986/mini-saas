@@ -1,7 +1,3 @@
-<!--pages/reservableitems/detail/detail.wxml-->
-<!-- <view class='back'>
-    <image class='back_icon' src='{{backIcon}}' bindtap='goBack'></image>
-</view> -->
 <view class="clsdet-container">
 <navbar noback='false' iconColor='1' bgColor='transparent' height='{{customNavBarHeight}}'></navbar>
 

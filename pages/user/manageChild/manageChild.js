@@ -1,51 +1,22 @@
 // pages/user/manageChild/manageChild.js
 Page({
 
-      /**
-       * 页面的初始数据
-       */
-      data: {
-        android: getApp().globalData.android,
-        iosX: getApp().globalData.iosX,
-        customNavBarHeight: getApp().globalData.customNavBarHeight,
-        pageContantHeight: getApp().globalData.pageContantHeight,
-        bar: '管理孩子',
-        kids: null
-      },
-
-      /**
-       * 生命周期函数--监听页面加载
-       */
-      onLoad: function(options) {
-        let that = this,
-          ks = require('../../../models/bm_kids_schema.js'),
-          kidArray = ks.queryAllLocalKids(),
-          store = require('../../../models/bm-data.js').store,
-          bmapply = require('../../../models/bm_apply_schema.js');
-        this.setData({
-          kids: kidArray
-        });
-
-        // let callback = {
-        //     onSuccess: function (res) {
-        //         debugger
-        //         console.log(res)
-        //     },
-        //     onFail: function(err) {
-        //       console.log(err)
-        //     }
-        // }
-        store.Query('kids', 'applicant-id=' + wx.getStorageSync('dd_id')).then(result => {
-          let tmp = store._bmstore.findAll("kids");
-          function filterFunc(tt) {
-            return tt["applicant-id"] == wx.getStorageSync('dd_id');
-          }
-          let res = tmp.filter(filterFunc);
-          that.setData({
-            kids: res
-          })
-        })
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    android: getApp().globalData.android,
+    iosX: getApp().globalData.iosX,
+    customNavBarHeight: getApp().globalData.customNavBarHeight,
+    pageContantHeight: getApp().globalData.pageContantHeight,
+    bar: '管理孩子',
+    kids: []
   },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -62,13 +33,8 @@ Page({
       store = require('../../../models/bm-data.js').store;
 
     store.Query('kids', 'applicant-id=' + wx.getStorageSync('dd_id')).then(result => {
-      let tmp = store._bmstore.findAll("kids");
-      function filterFunc(tt) {
-        return tt["applicant-id"] == wx.getStorageSync('dd_id');
-      }
-      let res = tmp.filter(filterFunc);
       that.setData({
-        kids: res
+        kids: result
       })
     })
   },
