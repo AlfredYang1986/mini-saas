@@ -52,8 +52,15 @@ Page({
         ele.dealLogo = client.signatureUrl(logo);
         return ele
       })
+      let list = [];
+      res.map((ele) => {
+          if (ele.id != '5c19bbce25c6b0000188f4bc') {
+              list.push(ele);
+          }
+          return list
+      })
       that.setData({
-        brandList: res
+          brandList: list
       })
     })
     wx.stopPullDownRefresh();

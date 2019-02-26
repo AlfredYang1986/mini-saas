@@ -41,25 +41,24 @@ class bm_alf_data {
         method: 'GET',
         url: url,
         header: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          // 'Authorization': 'bearer ' + token
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'bearer ' + wx.getStorageSync('dd_token')
         },
         success(res) {
-          var json = JSON.stringify(res.data)
-          json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
-          var dealedJson = JSON.parse(json)
-          let result = that._bmstore.sync(dealedJson)
-          console.log(result);
-          resolve(result)
+            var json = JSON.stringify(res.data)
+            json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
+            var dealedJson = JSON.parse(json)
+            let result = that._bmstore.sync(dealedJson)
+            console.log(result);
+            resolve(result)
         },
         fail(err) {
-          console.log(err)
-          reject(err)
+            console.log(err)
+            reject(err)
         },
         complete() {
-          wx.hideLoading();
-          console.log('complete!!')
+        console.log('complete!!')
         }
       })
     })
@@ -197,7 +196,7 @@ class bm_alf_data {
         header: {
           'Content-Type': 'application/json', // 默认值
           'Accept': 'application/json',
-          // 'Authorization': 'bearer ce6af788112b26331e9789b0b2606cce'
+          'Authorization': 'bearer ' + wx.getStorageSync('dd_token')
         },
         success(res) {
           var json = JSON.stringify(res.data)
@@ -230,7 +229,7 @@ class bm_alf_data {
         header: {
           'Content-Type': 'application/json', // 默认值
           'Accept': 'application/json',
-          // 'Authorization': 'bearer ce6af788112b26331e9789b0b2606cce'
+          'Authorization': 'bearer ' + wx.getStorageSync('dd_token')
         },
         success(res) {
           var json = JSON.stringify(res.data)
