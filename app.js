@@ -18,6 +18,9 @@ App({
           that.onLoginSuccess = true;
         }
       },
+      onLoginFail: function() {
+        that.onLoginSuccess = false;
+      },
       onUserInfoSuccess: function(res) {
         lm.queryCurApplyee(this);
       },
@@ -40,6 +43,9 @@ App({
       onCodeFail: function() {
         console.log('登陆，获取Code失败')
       },
+      onDecryptedPhoneNumber: function (encryptedData, iv) {
+        lm.decryptedPhoneNumber(encryptedData, iv)
+      }
     }
     // lm.wechatLogin(callback);
     lm.checkWechatSession(callback);

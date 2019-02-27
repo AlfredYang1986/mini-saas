@@ -4,6 +4,7 @@ import { bm_service_host } from './bm_config.js'
 var bmstore = new JsonApiDataStore();
 
 function checkWechatSession(callback) {
+  //校验session_key是否有效，失效时重新执行登录流程，避免小程序反复执行登录流程
   wx.checkSession({
     success() {
       console.log('token 没有过期，直接登陆');
@@ -46,7 +47,10 @@ function queryUserBasicInfo(callback) {
         // 已经授权，可以直接调用 getUserInfo 获取头像昵称
         wx.getUserInfo({
           success: function (res) {
-            console.log(res.userInfo)
+            let encryptedData = res.encryptedData
+            let iv = res.iv;
+            let result = callback.onDecryptedPhoneNumber(encryptedData, iv);
+            console.log(result)
             callback.onUserInfoSuccess(res);
           }
         })

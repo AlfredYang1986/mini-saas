@@ -256,7 +256,11 @@ Page({
       }
     })
     this.setData({
-      choosedKidsId: choosedKidsId.filter(ele => true)
+      choosedKidsId: choosedKidsId.filter(function(ele) {
+        if(ele) {
+          return ele;
+        }
+      })
     })
     return choosedKidsId;
   },
