@@ -11,23 +11,12 @@
     </view>
   </view>
   <view class='show-img-area'>
-    <x-scroll-banner tagimgs="{{yard.images}}"></x-scroll-banner>
+    <x-scroll-banner tagimgs="{{yardimages}}"></x-scroll-banner>
   </view>
   <view class='content'>
     <text class='subtitle'>交通路线</text>
     <text class='address'>{{yard["traffic-info"]}}</text>
   </view>
-  <!-- <view class='content'>
-    <text class='subtitle'>校区认证</text>
-    <scroll-view class="" scroll-x style="width: 100%">
-      <view class='school-detail'>
-        <view class='list' wx:for="{{schoolTags}}">
-          <image  class='school-img' src='{{item.img}}'></image>
-          <text class='name'>{{item.name}}</text>
-        </view>
-      </view>
-    </scroll-view>
-  </view> -->
   <view class='content'>
     <facility></facility>
   </view>

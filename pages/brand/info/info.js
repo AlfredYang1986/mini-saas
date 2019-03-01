@@ -67,8 +67,7 @@ Page({
     });
 
     store.Query('reservableitems', 'page[number]=1&page[size]=3&ne[end-date]=-1&ne[start-date]=-1&status=1&brand-id=' + brandId).then(result => {
-      let _originRes = result,
-        newres = [];
+      let _originRes = result, newres = [];
 
       newres = _originRes.map((ele) => {
         let _originImg = ele.sessioninfo.cover;
@@ -123,7 +122,9 @@ Page({
 
     store.Find('yards', bmconfig.bm_baizao_yard_id).then(res => {
 
-      let tagimgs = res.images;
+      let tagimgs = res.images.filter(function (e) {
+        return e.flag == 0;
+      })
       let newimgs = tagimgs.map((ele) => {
         let tagImg = ele.img;
         ele.dealImg = client.signatureUrl(tagImg);

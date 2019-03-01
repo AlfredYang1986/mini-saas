@@ -73,15 +73,18 @@ Page({
     let bmconfig = require('../../../models/bm_config.js')
     let store = require('../../../models/bm-data.js').store;
     store.Find('yards', bmconfig.bm_baizao_yard_id).then(res => {
-      let tagimgs = res.images;
+      let tagimgs = res.images.filter(function(e) {
+        return e.flag == 0;
+      })
       let newimgs = tagimgs.map((ele) => {
-        let tagImg = ele.img;
-        ele.dealImg = client.signatureUrl(tagImg);
-        return ele
+          let tagImg = ele.img;
+          ele.dealImg = client.signatureUrl(tagImg);
+          return ele
       })
 
       that.setData({
-        yard: res
+        yard: res,
+        yardimages: newimgs
       })
     })
 

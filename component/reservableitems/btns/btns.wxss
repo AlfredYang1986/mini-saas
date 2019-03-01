@@ -7,7 +7,7 @@
 .actibtn .actibtn-bkg {
 	/* background-image: linear-gradient(-90deg, #9DC0FF 0%, #6E9CEE 100%); */
 	box-shadow: 0 5px 10px 0 rgba(52,96,201,0.55);
-  background-image: linear-gradient(-90deg, #9DC0FF 0%, #6E9CEE 100%);
+  background-image: linear-gradient(90deg, #9DC0FF 0%, #6E9CEE 100%);
   border-radius: 8rpx;
 	width: 670rpx;
 	height: 96rpx;

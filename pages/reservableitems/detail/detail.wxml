@@ -20,7 +20,7 @@
     </view>
 
     <view class='clsdet-component' wx:if='{{remarks}}'>
-        <cls-showtiems exp="{{exp}}"></cls-showtiems>
+        <cls-showitems exp="{{exp}}"></cls-showitems>
     </view>
 
     <view class='clsdet-component'>
