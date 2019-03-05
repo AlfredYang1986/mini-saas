@@ -44,10 +44,20 @@ Component({
                 url: dir,
               })
             } else {
-              dir = '/pages/brand/lst/lst'
-              wx.switchTab({
-                url: dir,
-              })
+              // dir = '/pages/brand/lst/lst'
+              let phone = wx.getStorageSync('phone');
+              if(phone && phone != '') {
+                dir = '/pages/brand/lst/lst'
+                wx.switchTab({
+                  url: dir,
+                })
+              } else {
+                dir = '/pages/phonenumber/phonenumber'
+                wx.redirectTo({
+                  url: dir,
+                })
+              }
+              
             }
 
             wx.removeStorage({
@@ -97,31 +107,11 @@ Component({
           lm.pushApplee(openid, e.detail.userInfo, "", callback);
         } else {
           wx.setStorageSync('dd_uinfo', JSON.stringify(e.detail.userInfo));
-          var lm = require('../../models/bm_applyee_schema.js');
-          let encryptedData = e.detail.encryptedData.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
-          // let result = lm.decryptedPhoneNumber(encryptedData, e.detail.iv)
-          // console.log(result)
-
-          let callback = {
-            onPushSuccess: function() {
-              // that.setData({
-              //     'showModalStatus': false
-              // })
-              getApp().onLoginSuccess = true;
-              wx.hideLoading();
-            },
-            onPushFail: function() {
-              console.log('push failed');
-              wx.hideLoading();
-            }
-          }
 
           let openid = wx.getStorageSync('dd_open_id')
           var lm = require('../../models/bm_applyee_schema.js');
           let uinfo = JSON.parse(wx.getStorageSync('dd_uinfo'));
-          // wx.setStorageSync('dd_phoneno', result.purePhoneNumber);
-          // wx.setStorageSync('dd_phoneno', '12345');
-          // lm.pushApplee(openid, uinfo, result.purePhoneNumber, callback);
+          
           lm.pushApplee(openid, uinfo, '12345', callback);
         }
       }

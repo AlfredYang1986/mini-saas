@@ -7,12 +7,13 @@
     "pages/booking/appointment/datepicker/datepicker",
     "pages/booking/appointment/order/order",
     "pages/booking/appointment/addkid/addkid",
-    "pages/booking/appointment/result/result"
+    "pages/booking/appointment/result/result",
+    "pages/phonenumber/phonenumber"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationStyle": "custom",
-   "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#A6A6A6",
