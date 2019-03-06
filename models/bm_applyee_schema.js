@@ -276,6 +276,66 @@ function checkIsLogin() {
   return true
 }
 
+function pushPhoneNum(phoneno, callback) {
+  let dt = { "phone": phoneno}
+
+  let config = require('./bm_config.js');
+  wx.showLoading({
+    title: '加载中',
+  });
+
+  wx.request({
+    url: config.bm_service_host + '/v2/GenerateSmsCode',
+    data: dt,
+    method: 'post',
+    header: {
+      'Content-Type': 'application/json', // 默认值
+      'Accept': 'application/json',
+    },
+    success(res) {
+      callback.onPushSuccess(res);
+    },
+    fail(err) {
+      console.log('fail!!!')
+      callback.onPushFail(err);
+    },
+    complete() {
+      wx.hideLoading();
+      console.log('complete!!!')
+    }
+  })
+}
+
+function checkPhoneNum(phoneno, code, callback) {
+  let dt = { "phone": phoneno, "code": code }
+
+  let config = require('./bm_config.js');
+  // wx.showLoading({
+  //   title: '加载中',
+  // });
+
+  wx.request({
+    url: config.bm_service_host + '/v2/VerifiedSmsCode',
+    data: dt,
+    method: 'post',
+    header: {
+      'Content-Type': 'application/json', // 默认值
+      'Accept': 'application/json',
+    },
+    success(res) {
+      callback.onCheckSuccess(res);
+    },
+    fail(err) {
+      console.log('fail!!!')
+      callback.onCheckFail(err);
+    },
+    complete() {
+      // wx.hideLoading();
+      console.log('complete!!!')
+    }
+  })
+}
+
 module.exports = {
   checkWechatSession: checkWechatSession,
   wechatLogin: loginWithWechat,
@@ -285,5 +345,7 @@ module.exports = {
   queryCurApplyee: queryPushedApplee,
   queryLocalApplyee: queryLocalApplyee,
   decryptedPhoneNumber: decryptedPhoneNumber,
-  checkIsLogin: checkIsLogin
+  checkIsLogin: checkIsLogin,
+  pushPhoneNum: pushPhoneNum,
+  checkPhoneNum: checkPhoneNum
 }

@@ -11,6 +11,7 @@ Page({
     buttonType: 'default',
     phoneNum: '',
     code: '',
+    reSend: false,
   },
 
 
@@ -34,14 +35,16 @@ Page({
       this.hideSendMsg()
     }
   },
+  
+
 
   checkPhoneNum: function (phoneNum) {
-    let str = /^1\d{10}$/
+    let str = /^1[34578]\d{9}$/
     if (str.test(phoneNum)) {
       return true
     } else {
       wx.showToast({
-        title: '手机号不正确',
+        title: '手机号格式错误',
         icon: 'none'
       })
       return false
@@ -65,40 +68,25 @@ Page({
   },
 
   sendMsg: function () {
-    console.log('发送获取验证码')
     this.setData({
       alreadySend: true,
-      send: false
+      send: false,
+      reSend: false,
     })
-    // this.timer()
     this.countdown()
-  },
-
-  timer: function () {
-    //Promise:ES6将其写进了语言标准 获取异步操作的消息
-    let promise = new Promise((resolve, reject) => {
-      let setTimer = setInterval(
-        () => {
-          this.setData({
-            second: this.data.second - 1
-          })
-          if (this.data.second <= 0) {
-            this.setData({
-              second: 60,
-              alreadySend: false,
-              send: true
-            })
-            // resolve异步操作成功
-            resolve(setTimer)
-          }
-        }
-        , 1000)
-    })
-    // 将Promise对象的状态从“未完成”变为“成功”
-    promise.then((setTimer) => {
-      console.log('resolve异步操作成功')
-      clearInterval(setTimer)
-    })
+    
+    let callback = {
+      onPushSuccess: function (res) {
+        console.log(res)
+        wx.hideLoading();
+      },
+      onPushFail: function (err) {
+        console.log(err);
+        wx.hideLoading();
+      }
+    }
+    let lm = require('../../models/bm_applyee_schema.js');
+    lm.pushPhoneNum(this.data.phoneNum, callback);
   },
 
   countdown: function () {
@@ -106,7 +94,9 @@ Page({
     var second = this.data.second
     if (second == 0) {
       that.setData({
-        second: 60
+        second: 60,
+        alreadySend: false,
+        reSend: true
       })
       return
     }
@@ -120,7 +110,6 @@ Page({
 
   // 验证码
   addCode: function (e) {
-    console.log('验证码-addCode')
     this.setData({
       code: e.detail.value
     })
@@ -162,10 +151,31 @@ Page({
 
   },
   showInfo: function (event) {
-    wx.setStorageSync('phone', this.data.phoneNum);
-    wx.switchTab({
-      url: '/pages/brand/lst/lst',
-    })
+    let that = this;
+    let callback = {
+      onCheckSuccess: function (res) {
+        console.log(res)
+        if(res.data.status == 'ok') {
+          wx.setStorageSync('phone', that.data.phoneNum);
+          wx.switchTab({
+            url: '/pages/brand/lst/lst',
+          })
+        } else if (res.data.status == 'error') {
+          wx.showToast({
+            title: '验证码错误',
+            icon: 'none'
+          })
+        }
+        // wx.hideLoading();
+      },
+      onCheckFail: function (err) {
+        console.log(err);
+        // wx.hideLoading();
+      }
+    }
+    let lm = require('../../models/bm_applyee_schema.js');
+    lm.checkPhoneNum(this.data.phoneNum, this.data.code, callback);
+   
   },
 
   /**

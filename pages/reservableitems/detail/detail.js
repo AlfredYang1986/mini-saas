@@ -89,9 +89,11 @@ Page({
         wx.setStorageSync('detailName', res.sessioninfo.title);
         let tagimgs = res.sessioninfo.images
         let newTagimgs = tagimgs.map((ele) => {
-            let tagimg = ele.img;
-            if (tagimg !== "") {
-                ele.dealImg = client.signatureUrl(tagimg);
+            if(ele.img) {
+                let tagimg = ele.img;
+                if (tagimg !== "") {
+                  ele.dealImg = client.signatureUrl(tagimg);
+                }
             }
             return ele
         })

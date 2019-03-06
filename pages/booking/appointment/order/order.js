@@ -4,11 +4,9 @@ let kidArray;
 let expect_date;
 let detailName;
 let detailSort;
-// let kid = [];
 let phone;
 let datePicker;
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -21,13 +19,9 @@ Page({
     note_text: "注意事项：现场付费",
     date: '',
     choosedKidsId: [],
-    // kids: null,
     bar: '提交订单',
-    // noChild: true,
-    // hasChild: false,
     showTelModal: false,
     errorInfo: false,
-    // sex: '',
     now: '',
     price: '免费',
     android: getApp().globalData.android,
@@ -50,12 +44,12 @@ Page({
     datePicker = options.datePicker;
     expect_date = Number(datePicker);
     let that = this,
-      lm = require('../../../../models/bm_applyee_schema.js'),
-      // ks = require('../../../../models/bm_kids_schema.js'),
-      bmconfig = require('../../../../models/bm_config.js'),
-      store = require('../../../../models/bm-data.js').store,
-      nowdate = this.getNowFormatDate(datePicker, true),
-      now = this.getNowFormatDate(new Date(), false);
+    lm = require('../../../../models/bm_applyee_schema.js'),
+    bmconfig = require('../../../../models/bm_config.js'),
+    store = require('../../../../models/bm-data.js').store,
+    nowdate = this.getNowFormatDate(datePicker, true),
+    now = this.getNowFormatDate(new Date(), false);
+    phone = wx.getStorageSync('phone');
 
     bmconfig.bm_baizao_actvPrice.map((ele) => {
       if (reservableid === ele.actvId) {
@@ -64,16 +58,8 @@ Page({
         })
       }
     })
-    // kidArray = ks.queryAllLocalKids();
     store.Query('kids', 'applicant-id=' + wx.getStorageSync('dd_id')).then(result => {
       let res = result;
-      // let tmp = store._bmstore.findAll("kids");
-      // let tmp = result;
-      // function filterFunc(tt) {
-      //   return tt["applicant-id"] == wx.getStorageSync('dd_id');
-      // }
-      // let res = tmp.filter(filterFunc);
-      // 计算年纪
       res.forEach((ele) => {
         let dob = new Date(ele.dob),
           dn = new Date();
@@ -84,7 +70,7 @@ Page({
         kids: res,
         noKids: res.length === 0 ? true : false,
         exp_date: nowdate,
-        phone: wx.getStorageSync('dd_phoneno'),
+        phone: wx.getStorageSync('phone'),
         detailName: wx.getStorageSync('detailName'),
         now: now
       })
@@ -217,7 +203,7 @@ Page({
 
   commitReserve: function() {
     let that = this,
-      bmconfig = require('../../../../models/bm_config.js');
+    bmconfig = require('../../../../models/bm_config.js');
 
     if (expect_date != undefined && detailName != undefined && detailSort != undefined && reservableid != undefined && phone != undefined && phone != '') {
       let store = require('../../../../models/bm-data.js').store,
@@ -234,10 +220,10 @@ Page({
           "applicant-id": wx.getStorageSync('dd_id'),
         },
         appliesdata = store.createRecord('applies', tmp_appliesdatum);
-      store.Save('applies', appliesdata).then(res => {
-        that.setData({
-          showTelModal: false
-        })
+        store.Save('applies', appliesdata).then(res => {
+          that.setData({
+            showTelModal: false
+          })
         wx.navigateTo({
           url: '/pages/booking/appointment/result/result?appliesid=' + res.id,
         })

@@ -17,9 +17,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    debugger
     let that = this,
-      lm = require('../../../models/bm_applyee_schema.js'),
-      bmconfig = require('../../../models/bm_config.js');
+    lm = require('../../../models/bm_applyee_schema.js'),
+    bmconfig = require('../../../models/bm_config.js');
 
     if (!lm.checkIsLogin()) {
       wx.redirectTo({
@@ -27,34 +28,8 @@ Page({
       })
       return
     }
-    // let client = new OSS({
-    //   region: 'oss-cn-beijing',
-    //   accessKeyId: 'LTAINO7wSDoWJRfN',
-    //   accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
-    //   bucket: 'bmsass'
-    // });
-    // let callback = {
-    //   onSuccess: function(res) {
-    //     res.map((item) => {       
-    //       item.Reservable.price = '免费';
-    //       let reservableid = item.Reservable.id;
-    //       bmconfig.bm_baizao_actvPrice.map((ele) => {
-    //         if (reservableid === ele.actvId) {
-    //           item.Reservable.price = ele.price;
-    //         }
-    //       })
-    //     })
-    //     that.setData({
-    //       list: res
-    //     })
-    //   },
-    //   onFail: function() {
-    //     // TODO : 报错 ...
-    //   }
-    // }
     let store = require('../../../models/bm-data.js').store,
-      // bmapply = require('../../../models/bm_apply_schema.js'),
-      tmp_applies = [];
+    tmp_applies = [];
     store.Query('applies', 'applicant-id=' + wx.getStorageSync('dd_id')).then(res => {
       // 如果不进行这一步会报错
       tmp_applies = res.map(ele => {
