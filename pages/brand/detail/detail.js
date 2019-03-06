@@ -35,6 +35,7 @@ Page({
 			accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
 			bucket: 'bmsass'
 		});
+    
 		let that = this
 		let store = require('../../../models/bm-data.js').store;
 		let bmconfig = require('../../../models/bm_config.js')

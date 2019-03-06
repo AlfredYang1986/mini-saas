@@ -36,6 +36,9 @@ class bm_alf_data {
 
   getPromisWithUrl(url) {
     let that = this;
+    wx.showLoading({
+      title: '加载中',
+    });
     return new Promise(function(resolve, reject) {
       wx.request({
         method: 'GET',
@@ -49,11 +52,14 @@ class bm_alf_data {
             var json = JSON.stringify(res.data)
             json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
             var dealedJson = JSON.parse(json)
+            console.log(dealedJson)
             let result = that._bmstore.sync(dealedJson)
             console.log(result);
             resolve(result)
+            wx.hideLoading();
         },
         fail(err) {
+            wx.hideLoading();
             console.log(err)
             reject(err)
         },

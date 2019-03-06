@@ -17,7 +17,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    debugger
     let that = this,
     lm = require('../../../models/bm_applyee_schema.js'),
     bmconfig = require('../../../models/bm_config.js');
@@ -30,6 +29,9 @@ Page({
     }
     let store = require('../../../models/bm-data.js').store,
     tmp_applies = [];
+    wx.showLoading({
+      title: '加载中',
+    });
     store.Query('applies', 'applicant-id=' + wx.getStorageSync('dd_id')).then(res => {
       // 如果不进行这一步会报错
       tmp_applies = res.map(ele => {
@@ -73,6 +75,7 @@ Page({
       that.setData({
         list: tmp_applies
       })
+      wx.hideLoading();
     })
     // bmapply.queryMultiObjects(callback)
   },

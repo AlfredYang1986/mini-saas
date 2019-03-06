@@ -13,11 +13,11 @@ Component({
 			value:[],
 			observer:function(news,olds,path){
 					let exp = [],
-            brandid = '';
+          brandid = '';
 					if(news != null) {
 							news.map((ele) => {
                   brandid = ele['brand-id'];
-									if (ele.start_date != -1 && ele.end_date != -1) {
+                  if (ele['start-date'] != -1 && ele['end-date'] != -1) {
 											exp.push(ele)
 									}
 							})
