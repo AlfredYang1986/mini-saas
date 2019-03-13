@@ -36,9 +36,9 @@ class bm_alf_data {
 
   getPromisWithUrl(url) {
     let that = this;
-    wx.showLoading({
-      title: '加载中',
-    });
+    // wx.showLoading({
+    //   title: '加载中',
+    // });
     return new Promise(function(resolve, reject) {
       wx.request({
         method: 'GET',
@@ -64,7 +64,7 @@ class bm_alf_data {
             reject(err)
         },
         complete() {
-          wx.hideLoading();
+          // wx.hideLoading();
           console.log('complete!!')
         }
       })
@@ -218,7 +218,7 @@ class bm_alf_data {
           reject(err)
         },
         complete() {
-          wx.hideLoading();
+          // wx.hideLoading();
           console.log('complete!!!')
         }
       })
@@ -249,7 +249,7 @@ class bm_alf_data {
           reject(err)
         },
         complete() {
-          wx.hideLoading();
+          // wx.hideLoading();
         }
       })
     })
