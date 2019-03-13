@@ -10,8 +10,8 @@
         <view class='base-info'>
             <view class='name'>{{item.name}}</view>
                 <view class='age'>
-                    <text>{{age}}岁</text>
-                    <text>{{sex}}生</text>
+                    <text>{{item.age}}岁</text>
+                    <text>{{item.sex}}生</text>
                 </view>
         </view>
         <view class='enter'>

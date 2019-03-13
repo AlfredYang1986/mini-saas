@@ -9,7 +9,7 @@ Component({
       value: [],
       observer: function (news, olds, path) {
 
-        let normalImgs = news.images.map(ele=> {
+        let normalImgs = news.map(ele=> {
             return {
               dealImg: ele.dealImg,
               tag: ele.tag

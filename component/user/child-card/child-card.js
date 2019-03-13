@@ -9,28 +9,25 @@ Component({
             value: [],
             observer: function (news, olds, path) {
                 let that = this;
+                //console.log("1*************")
                 if(news != null && news.length != 0) {
+                    console.log("2*************")
                     news.map((ele) => {
-                        if (ele.gender == 0) {
-                            that.setData({
-                                sex: "女",
-                            })
-                        } else if (ele.gender == 1) {
-                            that.setData({
-                                sex: '男',
-                            })
+                        if (ele.gender === 0) {
+                          //console.log("11*************")
+                          ele.sex = '女'
+                        } else if (ele.gender === 1) {
+                          //console.log("21*************")
+                          ele.sex = '男'
                         } else {
-                            that.setData({
-                                sex: '未知'
-                            })
+                          //console.log("31*************")
+                          ele.sex = '未知'
                         }
 
                         let dob = new Date(ele.dob);
                         let dn = new Date();
                         let res_age = dn.getFullYear() - dob.getFullYear();
-                        that.setData({
-                            age: res_age
-                        })
+                        ele.age = res_age
                     }) 
                     that.setData({
                         noValue: false,

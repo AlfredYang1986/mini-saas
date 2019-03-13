@@ -137,6 +137,23 @@ function genApplyeePushQuery(uinfo, phoneno) {
   }
 }
 
+function genChangePhoneNumQuery(phoneno) {
+  return {
+    data: {
+      id: guid(),
+      type: "applicants",
+      attributes: {
+        "regi-phone": phoneno,
+        "wechat-bind-phone": phoneno
+      },
+      relationships: {
+
+      }
+    },
+    included: []
+  }
+}
+
 function pushApplee(openid, uinfo, phoneno, callback) {
   bmstore.reset();
 
@@ -179,6 +196,66 @@ function pushApplee(openid, uinfo, phoneno, callback) {
       console.log('complete!!!')
     }
   })
+}
+
+//修改电话号码
+function changePhoneNum(uinfo, phoneno, callback) {
+  let g = 2;
+  if (uinfo.gender == 1) g = 1
+  else if (uinfo.gender == 2) g = 0
+  else g = 2;
+
+  bmstore.reset();
+
+  let req = genChangePhoneNumQuery(phoneno)
+  let rd = bmstore.sync(req);
+  let rd_tmp = JSON.parse(JSON.stringify(rd.serialize()))
+
+  let dt = JSON.stringify(rd_tmp)
+
+  let config = require('./bm_config.js');
+  // wx.showLoading({
+  //   title: '加载中',
+  // });
+  wx.request({
+    url: config.bm_service_host + '/v2/UpdateApplicant',
+    data: {
+      "id": wx.getStorageSync('dd_id'),
+      "regi-phone": phoneno,
+      "wechat-openid": wx.getStorageSync('dd_open_id'),
+      "wechat-bind-phone": phoneno,
+      "name": uinfo.nickName,
+      "gender": g,
+      "pic": uinfo.avatarUrl 
+    },
+    method: 'post',
+    header: {
+      'Content-Type': 'application/json', // 默认值
+      'Accept': 'application/json',
+      // 'Authorization': 'bearer ce6af788112b26331e9789b0b2606cce'
+    },
+    success(res) {
+      var json = JSON.stringify(res.data)
+      json = json.replace(/\u00A0|\u2028|\u2029|\uFEFF/g, '')
+      var dealedJson = JSON.parse(json)
+      // let result = bmstore.sync(dealedJson)
+      // console.log(result)
+      // wx.setStorageSync("dd_id", result.id);
+      // wx.setStorageSync("dd_token", result.token);
+      // console.log(result);
+      callback.onPushSuccess(res);
+    },
+    fail(err) {
+      console.log('fail!!!')
+      callback.onPushFail(err);
+    },
+    complete() {
+      //wx.hideLoading();
+      console.log('complete!!!')
+    }
+  })
+  
+  
 }
 
 function genQueryUserById() {
@@ -347,5 +424,6 @@ module.exports = {
   decryptedPhoneNumber: decryptedPhoneNumber,
   checkIsLogin: checkIsLogin,
   pushPhoneNum: pushPhoneNum,
-  checkPhoneNum: checkPhoneNum
+  checkPhoneNum: checkPhoneNum,
+  changePhoneNum: changePhoneNum,
 }

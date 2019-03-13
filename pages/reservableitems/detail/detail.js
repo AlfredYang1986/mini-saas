@@ -140,9 +140,16 @@ Page({
           images: false,
         })
       }else {
+        let tagimgs = res.images
+        let newimgs = tagimgs.map(ele => {
+          return{
+            dealImg : client.signatureUrl(ele.img),
+            tag: ele.tag
+          }
+        })
         that.setData({
           images: true,
-          showimages: res
+          showimages: newimgs
         })
       }
     })

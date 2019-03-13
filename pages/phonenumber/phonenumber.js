@@ -158,6 +158,10 @@ Page({
         console.log(res)
         if(res.data.status == 'ok') {
           wx.setStorageSync('phone', that.data.phoneNum);
+          let openid = wx.getStorageSync('dd_open_id')
+          var lm = require('../../models/bm_applyee_schema.js');
+          let uinfo = JSON.parse(wx.getStorageSync('dd_uinfo'));
+          lm.changePhoneNum(uinfo, that.data.phoneNum, callback); //标记待完善
           wx.switchTab({
             url: '/pages/brand/lst/lst',
           })
