@@ -20,8 +20,8 @@ Page({
     android: getApp().globalData.android,
     iosX: getApp().globalData.iosX,
     customNavBarHeight: getApp().globalData.customNavBarHeight,
-    pageContantHeight: getApp().globalData.pageContantHeight
-    
+    pageContantHeight: getApp().globalData.pageContantHeight,
+    bar: '咚哒精选',
   },
 
   /**
