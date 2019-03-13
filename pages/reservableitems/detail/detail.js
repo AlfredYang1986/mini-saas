@@ -90,12 +90,8 @@ Page({
         wx.setStorageSync('detailName', res.sessioninfo.title);
         //debugger
         let tagimgs = res.sessioninfo.images
-        console.log("&&&&&"+tagimgs[0].id)
-        console.log("&&&&&" + tagimgs[1])
-        console.log("&&&&&" + tagimgs[2])
         let newTagimgs = tagimgs.map((ele) => {
             if(ele.img) {
-                console.log("&&&&&")
                 let tagimg = ele.img;
                 if (tagimg !== "") {
                   ele.dealImg = client.signatureUrl(tagimg);
