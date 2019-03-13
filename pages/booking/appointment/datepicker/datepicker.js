@@ -36,7 +36,8 @@ Page({
     android: getApp().globalData.android,
     iosX: getApp().globalData.iosX,
     customNavBarHeight: getApp().globalData.customNavBarHeight,
-    pageContantHeight: getApp().globalData.pageContantHeight
+    pageContantHeight: getApp().globalData.pageContantHeight,
+    clickAvailable: false,
   },
 
   /**
@@ -50,6 +51,8 @@ Page({
       bar: '选择意向时间',
       android: getApp().globalData.android,
       iosX: getApp().globalData.iosX,
+      clickAvailable: false,
+      //clickAvailable : false,
     })
   },
 
@@ -114,6 +117,18 @@ Page({
       year: this.data.years[val[0]],
       month: this.data.months[val[1]],
       day: this.data.days[val[2]]
+    })
+  },
+
+  bindEnd() {
+    this.setData({
+      clickAvailable: true,
+    })
+  },
+
+  bindStart() {
+    this.setData({
+      clickAvailable: false,
     })
   },
 

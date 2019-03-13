@@ -19,7 +19,7 @@
       <image src="{{exp.sessioninfo.dealCover}}" class="slide-image"/>
     </swiper-item>
     <block wx:for="{{exp.sessioninfo.images}}">
-      <block wx:if="{{item.dealImg!=null}}" >
+      <block wx:if="{{item.dealImg}}" >
         <swiper-item>
           <image src="{{item.dealImg}}" class="slide-image"/>
         </swiper-item>

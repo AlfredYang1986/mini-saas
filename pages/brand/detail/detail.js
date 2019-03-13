@@ -40,6 +40,7 @@ Page({
 		let that = this
 		let store = require('../../../models/bm-data.js').store;
 		let bmconfig = require('../../../models/bm_config.js')
+    store.clearStore()
 		store.Find('brands', bmconfig.bm_baizao_id).then(res => {
 			let logo = res.logo;
 			res.newLogo = client.signatureUrl(logo);

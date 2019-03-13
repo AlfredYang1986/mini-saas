@@ -31,7 +31,7 @@ Page({
     this.setData({
       android: getApp().globalData.android,
       iosX: getApp().globalData.iosX,
-      bar: wx.getStorageSync('mername')
+      //bar: wx.getStorageSync('mername')
     });
 
   },

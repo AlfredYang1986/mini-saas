@@ -72,6 +72,7 @@ Page({
 
     let bmconfig = require('../../../models/bm_config.js')
     let store = require('../../../models/bm-data.js').store;
+    store.clearStore()
     store.Find('yards', bmconfig.bm_baizao_yard_id).then(res => {
       let tagimgs = res.images.filter(function(e) {
         return e.flag == 0;

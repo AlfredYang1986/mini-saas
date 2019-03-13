@@ -75,6 +75,7 @@ Page({
     });
     let that = this;
     let store = require('../../../models/bm-data.js').store;
+    store.clearStore();
     store.Find('reservableitems', reservableid).then(result => {
         let res = result;
         res.sessioninfo.price = "免费";
@@ -87,9 +88,14 @@ Page({
         //   actvDetailName = res.sessioninfo.title;
         wx.setStorageSync('detailSort', res.status);
         wx.setStorageSync('detailName', res.sessioninfo.title);
+        //debugger
         let tagimgs = res.sessioninfo.images
+        console.log("&&&&&"+tagimgs[0].id)
+        console.log("&&&&&" + tagimgs[1])
+        console.log("&&&&&" + tagimgs[2])
         let newTagimgs = tagimgs.map((ele) => {
             if(ele.img) {
+                console.log("&&&&&")
                 let tagimg = ele.img;
                 if (tagimg !== "") {
                   ele.dealImg = client.signatureUrl(tagimg);
@@ -97,7 +103,7 @@ Page({
             }
             return ele
         })
-        res.sessioninfo.images = newTagimgs;
+        res.sessioninfo.images = newTagimgs; //??
 
         let _originImg = res.sessioninfo.cover;
         res.sessioninfo.dealCover = client.signatureUrl(_originImg);

@@ -36,6 +36,7 @@ Page({
 		});
 		let that = this;
 		let store = require('../../../../models/bm-data.js').store;
+    store.clearStore()
 		store.Query('reservableitems', 'status=1').then(result => {
 			let tmp = store._bmstore.findAll("reservableitems");
 			function expFunc(tt) {

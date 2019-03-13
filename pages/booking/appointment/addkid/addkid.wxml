@@ -50,7 +50,7 @@
     </view>
     <view class='button-area'>
         <button bindtap='saveKid'>保存</button>
-        <a bindtap='deleteKid' wx:if='{{candel}}'>删除孩子</a>
+        <!-- <a bindtap='deleteKid' wx:if='{{candel}}'>删除孩子</a> -->
     </view>
     <view class='error-note' wx:if='{{errorInfo}}'>
         <view class='model'>

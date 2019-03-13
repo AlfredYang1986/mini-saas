@@ -42,7 +42,7 @@ Page({
       accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
       bucket: 'bmsass'
     });
-
+    store.clearStore()
     store.Find('applies', options.appliesid).then(res => {
       let brandId = res['brand-id'];
       var weekDay = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];

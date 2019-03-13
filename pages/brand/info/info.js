@@ -65,7 +65,7 @@ Page({
       accessKeySecret: 'PcDzLSOE86DsnjQn8IEgbaIQmyBzt6',
       bucket: 'bmsass'
     });
-
+    store.clearStore()
     store.Query('reservableitems', 'page[number]=1&page[size]=3&ne[end-date]=-1&ne[start-date]=-1&status=1&brand-id=' + brandId).then(result => {
       let _originRes = result, newres = [];
 

@@ -30,8 +30,8 @@ Page({
    */
   onShow: function() {
     let that = this,
-      store = require('../../../models/bm-data.js').store;
-
+    store = require('../../../models/bm-data.js').store;
+    store.clearStore()
     store.Query('kids', 'applicant-id=' + wx.getStorageSync('dd_id')).then(result => {
       that.setData({
         kids: result

@@ -9,7 +9,7 @@ Page({
     android: getApp().globalData.android,
     iosX: getApp().globalData.iosX,
     customNavBarHeight: getApp().globalData.customNavBarHeight,
-    pageContantHeight: getApp().globalData.pageContantHeight,
+    //pageContantHeight: getApp().globalData.pageContantHeight,
     bar: '我的服务'
   },
 
@@ -32,6 +32,7 @@ Page({
     wx.showLoading({
       title: '加载中',
     });
+    store.clearStore()
     store.Query('applies', 'applicant-id=' + wx.getStorageSync('dd_id')).then(res => {
       // 如果不进行这一步会报错
       tmp_applies = res.map(ele => {

@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bar: '咚哒精选',
+    bar: '更多精选体验课',
     exps: null,
     android: getApp().globalData.android,
     iosX: getApp().globalData.iosX,
@@ -33,6 +33,7 @@ Page({
     let that = this;
 
     let store = require('../../../../models/bm-data.js').store;
+    store.clearStore()
     store.Query('reservableitems', 'status=' + options.status + '&brand-id=' + options.brandid +'&ne[end-date]=-1&ne[start-date]=-1').then(result => {
 
       let _originRes = result,

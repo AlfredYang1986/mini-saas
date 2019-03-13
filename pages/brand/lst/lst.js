@@ -46,6 +46,7 @@ Page({
     let that = this;
 
     let store = require('../../../models/bm-data.js').store;
+    store.clearStore()
     store.FindAll('brands').then(res => {
       let newres = res.map((ele) => {
         let logo = ele.logo;

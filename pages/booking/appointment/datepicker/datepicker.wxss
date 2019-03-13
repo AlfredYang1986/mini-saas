@@ -66,6 +66,20 @@ page {
     font-weight: bold;
     /* bottom: 80rpx; */
 }
+.submit-reject {
+  display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 590rpx;
+    height: 96rpx;
+    background: rgb(187, 197, 216);
+    border-radius: 46rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 16px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
 .submit::after {
   border: 0;
 }

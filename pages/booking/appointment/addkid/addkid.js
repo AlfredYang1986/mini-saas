@@ -86,6 +86,7 @@ Page({
         date: now
       })
     } else {
+      store.clearStore()
       store.Find('kids', childid).then(kidInfo => {
         let date = new Date(kidInfo.dob),
           tmp_month = date.getMonth() + 1,
@@ -250,6 +251,7 @@ Page({
       };
       let kidsdatum = store.createRecord('kids', tmp_kidsdatum);
           // patch = {patch: childid?true:false,id:childid }
+      store.clearStore()
       store.Save('kids', kidsdatum).then(res => {
         if (isFromManage) {
           wx.navigateBack({
@@ -279,6 +281,7 @@ Page({
     let ks = require('../../../../models/bm_kids_schema.js'),
       store = require('../../../../models/bm-data.js').store;
     if (childid != undefined && childid != '') {
+      store.clearStore()
       store.DeleteRecord('kids', childid).then(res => {
         name = undefined;
         dob = undefined;

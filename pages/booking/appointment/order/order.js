@@ -58,6 +58,7 @@ Page({
         })
       }
     })
+    store.clearStore()
     store.Query('kids', 'applicant-id=' + wx.getStorageSync('dd_id')).then(result => {
       let res = result;
       res.forEach((ele) => {
@@ -220,6 +221,7 @@ Page({
           "applicant-id": wx.getStorageSync('dd_id'),
         },
         appliesdata = store.createRecord('applies', tmp_appliesdatum);
+        store.clearStore()
         store.Save('applies', appliesdata).then(res => {
           that.setData({
             showTelModal: false
