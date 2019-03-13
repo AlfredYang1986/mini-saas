@@ -56,15 +56,16 @@ class bm_alf_data {
             let result = that._bmstore.sync(dealedJson)
             console.log(result);
             resolve(result)
-            wx.hideLoading();
+            // wx.hideLoading();
         },
         fail(err) {
-            wx.hideLoading();
+            // wx.hideLoading();
             console.log(err)
             reject(err)
         },
         complete() {
-        console.log('complete!!')
+          wx.hideLoading();
+          console.log('complete!!')
         }
       })
     })

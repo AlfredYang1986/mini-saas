@@ -47,10 +47,10 @@ function queryUserBasicInfo(callback) {
         // 已经授权，可以直接调用 getUserInfo 获取头像昵称
         wx.getUserInfo({
           success: function (res) {
-            let encryptedData = res.encryptedData
-            let iv = res.iv;
-            let result = callback.onDecryptedPhoneNumber(encryptedData, iv);
-            console.log(result)
+            // let encryptedData = res.encryptedData
+            // let iv = res.iv;
+            // let result = callback.onDecryptedPhoneNumber(encryptedData, iv);
+            // console.log(result)
             callback.onUserInfoSuccess(res);
           }
         })
