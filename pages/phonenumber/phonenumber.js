@@ -96,6 +96,7 @@ Page({
       that.setData({
         second: 60,
         alreadySend: false,
+        send: false,
         reSend: true
       })
       return

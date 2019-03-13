@@ -1,7 +1,7 @@
 // pages/brand-detail/brand-detail.js
-
+// import { JsonApiDataStore } from '../../../miniprogram_npm/jsonapi-datastore/index.js'
 var OSS = require('../../../models/ali-oss.js')
-
+// var bmstore = new JsonApiDataStore();
 Page({
 
 	/**
@@ -17,6 +17,7 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
+    // bmstore.reset();
 		this.setData({
 			android: getApp().globalData.android,
 			iosX: getApp().globalData.iosX
