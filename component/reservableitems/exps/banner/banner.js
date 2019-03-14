@@ -42,7 +42,7 @@ Component({
 	methods: {
 		showClasses: function (event) {
 			wx.navigateTo({
-        url: '/pages/reservableitems/exps/lst/lst?brandid=' + this.data.brandid + '&status=1'
+        url: '/pages/reservableitems/exps/lst/lst?brandid=' + this.data.brandid + '&status=1' + '&bar=精选体验课'
 			})
 		},
 		showClsDetail: function (event) {

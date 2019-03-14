@@ -56,7 +56,7 @@
     <button class='submit' bindtap='inputTel'>¥{{price}} 提交</button>
   </view>
 
-  <view class="drawer_screen" bindtap="" data-statu="close" wx:if="{{showTelModal}}"></view>
+  <view class="drawer_screen" bindtap="closeTelModal" data-statu="close" wx:if="{{showTelModal}}"></view>
   <view class="drawer_box" wx:if='{{showTelModal}}'>
     <view class='title'>联系人电话</view>
     <input type='number' value='{{phone}}' placeholder='请输入电话' bindinput="bindKeyInput"></input>

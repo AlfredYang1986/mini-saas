@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bar: '更多精选体验课',
+    bar: '',
     exps: null,
     android: getApp().globalData.android,
     iosX: getApp().globalData.iosX,
@@ -17,6 +17,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: '加载中',
+    })
     var lm = require('../../../../models/bm_applyee_schema.js');
     if (!lm.checkIsLogin()) {
       wx.redirectTo({
@@ -56,7 +59,9 @@ Page({
       })
       that.setData({
         exps: newres,
+        bar: options.bar,
       })
+      wx.hideLoading();
     })
 
     wx.stopPullDownRefresh();

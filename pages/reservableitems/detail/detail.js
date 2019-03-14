@@ -53,6 +53,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '正在努力加载中',
+    })
     // this.setData({
     //   android: getApp().globalData.android,
     //   iosX: getApp().globalData.iosX,
@@ -65,7 +68,7 @@ Page({
       })
       return
     }
-
+    
     let bmconfig = require('../../../models/bm_config.js')
     let client = new OSS({
       region: 'oss-cn-beijing',
@@ -152,19 +155,21 @@ Page({
           showimages: newimgs
         })
       }
+      wx.hideLoading();
     })
  
     that.setData({
         bar: wx.getStorageSync('mername'),
         reservableid: reservableid
     })
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    
   },
 
   /**
@@ -280,6 +285,10 @@ Page({
         wx.navigateBack({
             delta: 1
         })
-    }
+    },
+
+    // test: function () {
+    //   console.log("---------失败")
+    // }
 
 })

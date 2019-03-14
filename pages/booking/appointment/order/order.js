@@ -259,4 +259,10 @@ Page({
       phone: e.detail.value
     })
   },
+
+  closeTelModal: function(e){
+    this.setData({
+      showTelModal: false,
+    })
+  },
 })

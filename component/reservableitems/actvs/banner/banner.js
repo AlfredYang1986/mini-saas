@@ -46,7 +46,7 @@ Component({
     },
     showLst: function(event) {
       wx: wx.navigateTo({
-        url: '/pages/reservableitems/exps/lst/lst?brandid=' + this.data.brandid + '&status=0'
+        url: '/pages/reservableitems/exps/lst/lst?brandid=' + this.data.brandid + '&status=0' + '&bar=精彩活动' //这里复用了list了，不需要做分类
       })
     }
   }
