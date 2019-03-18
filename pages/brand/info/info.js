@@ -5,6 +5,7 @@ Page({
    */
   data: {
     mername: "百造PACEE",
+    brandId: null,
     brand: {
       logobg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/logo_bg.png",
       logourl: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/logo%403x.png",
@@ -44,7 +45,9 @@ Page({
       bmconfig = require('../../../models/bm_config.js'),
       brandId = bmconfig.bm_baizao_id,
       store = require('../../../models/bm-data.js').store;
-
+    that.setData({
+      brandId: brandId
+    })
     if (!lm.checkIsLogin()) {
       wx.redirectTo({
         url: '/pages/register/register'
@@ -241,6 +244,12 @@ Page({
   backToList() {
     wx.redirectTo({
       url: '/pages/brand/lst/lst'
+    })
+  },
+
+  brandApply(event){
+    wx.navigateTo({
+      url: '/pages/booking/appointment/brandorder/brandorder'
     })
   }
 })

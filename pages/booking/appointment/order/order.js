@@ -177,7 +177,7 @@ Page({
 
   addChild: function() {
     wx.redirectTo({
-      url: '/pages/booking/appointment/addkid/addkid?wherefrom=appointment&reservableid=' + reservableid + '&datePicker=' + datePicker,
+      url: '/pages/booking/appointment/addkid/addkid?wherefrom=order&reservableid=' + reservableid + '&datePicker=' + datePicker,
     })
   },
 

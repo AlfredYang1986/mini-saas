@@ -2,7 +2,10 @@
 <view class='content-page' style='margin-top:{{customNavBarHeight}}rpx'>
     <navbar noback='false' title='{{bar}}' height='{{customNavBarHeight}}'></navbar>
     <brand-top brand="{{brandInfo}}"></brand-top>
-    <view class="brand-container" wx:if="{{brand}}"> 
+    <cover-view class='brand-apply-view'>
+      <cover-view class='brand-apply-btn' bindtap='brandApply'>立即报名</cover-view>
+    </cover-view>
+        <view class="brand-container" wx:if="{{brand}}"> 
         <view class="brand-component">
             <activity-banner class="activity-banner" actvs="{{actvs}}"></activity-banner>
         </view>

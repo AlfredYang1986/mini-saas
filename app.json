@@ -8,6 +8,8 @@
     "pages/booking/appointment/order/order",
     "pages/booking/appointment/addkid/addkid",
     "pages/booking/appointment/result/result",
+    "pages/booking/appointment/brandresult/brandresult",
+    "pages/booking/appointment/brandorder/brandorder",
     "pages/phonenumber/phonenumber"
   ],
   "window": {

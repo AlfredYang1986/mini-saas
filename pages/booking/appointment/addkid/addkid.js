@@ -8,6 +8,8 @@ let now;
 let reservableid;
 let datePicker;
 let isFromManage;
+let isFromOrder;
+let isFromBrandOrder;
 let candel;
 Page({
 
@@ -71,6 +73,8 @@ Page({
       candel
     } = options);
     isFromManage = options.wherefrom == 'managerkids' ? true : false;
+    isFromOrder = options.wherefrom == 'order' ? true : false;
+    isFromBrandOrder = options.wherefrom == 'brandorder' ? true : false;
 
     now = this.getNowFormatDate();
     if (typeof childid == 'undefined') {
@@ -141,6 +145,8 @@ Page({
 
     this.setData({
       isFromManage: isFromManage,
+      isFromOrder: isFromOrder,
+      isFromBrandOrder: isFromBrandOrder,
       candel: Number(candel),
       bar: '添加孩子',
       nowdate: now
@@ -257,9 +263,13 @@ Page({
           wx.navigateBack({
             delta: 1
           })
-        } else {
+        } else if(isFromOrder){
           wx.redirectTo({
             url: '/pages/booking/appointment/order/order?reservableid=' + reservableid + '&datePicker=' + datePicker,
+          })
+        } else if(isFromBrandOrder){
+          wx.redirectTo({
+            url: '/pages/booking/appointment/brandorder/brandorder',
           })
         }
       })
