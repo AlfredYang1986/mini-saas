@@ -9,8 +9,14 @@ Page({
 	 */
 	data: {
 		brand: null,
+    yard: null,
+    teachers: [],
+    barColor: '#fff',
+    barBgColor: 'transparent',
+    iconColor: 1,
     customNavBarHeight: getApp().globalData.customNavBarHeight,
-    pageContantHeight: getApp().globalData.pageContantHeight 
+    pageContantHeight: getApp().globalData.pageContantHeight,
+    brandbg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_home_brand_bg.png"
 	},
 
 	/**
@@ -42,6 +48,7 @@ Page({
 		let bmconfig = require('../../../models/bm_config.js')
     store.clearStore()
 		store.Find('brands', bmconfig.bm_baizao_id).then(res => {
+      console.log("{&&&&&&&&&&&&"+res['brand-tags'])
 			let logo = res.logo;
 			res.newLogo = client.signatureUrl(logo);
 			let images = res.images;
@@ -66,11 +73,40 @@ Page({
 			that.setData({
 					brand: res
 			})
+      //场馆查询
+      store.clearStore()
+      store.Find('yards', bmconfig.bm_baizao_yard_id).then(res => {
+        console.log(res)
+        that.setData({
+          yard: res,
+        })
+      })
+
+      //教师查询
+      store.clearStore()
+      store.Query('teachers', "brand-id="+bmconfig.bm_baizao_id).then(res => {
+        console.log(res)
+        let teachers = res;
+        //对教师icon做处理
+        teachers.map((ele) => {
+          let icon = ele.icon
+          if (icon != null && icon.length > 0) {
+            ele.dealImg = client.signatureUrl(icon);
+          }else {
+            ele.dealImg = "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/4.png"
+          }
+          return ele
+        })
+        
+        that.setData({
+          teachers: teachers,
+        })
+      })
+
+
 		})
 
-		that.setData({
-			bar: wx.getStorageSync('mername')
-		})
+		
 	},
 
 	/**
@@ -120,5 +156,27 @@ Page({
 	 */
 	onShareAppMessage: function () {
 	
-	}
+	},
+
+  onPageScroll: function (e) {
+    let that = this
+    if (e.scrollTop > 385) {
+      if (that.data.barBgColor === 'transparent') {
+        that.setData({
+          barBgColor: '#fff',
+          barColor: '#000',
+          iconColor: 2,
+        })
+      }
+    }
+    if (e.scrollTop < 385) {
+      if (that.data.barBgColor === '#fff') {
+        that.setData({
+          barBgColor: 'transparent',
+          barColor: '#fff',
+          iconColor: 1,
+        })
+      }
+    }
+  },
 })

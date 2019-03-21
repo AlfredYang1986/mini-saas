@@ -131,6 +131,7 @@ Page({
     store.Find('yards', bmconfig.bm_baizao_yard_id).then(res => {
 
       let tagimgs = res.images.filter(function (e) {
+        //过滤作用
         return e.flag == 0;
       })
       let newimgs = tagimgs.map((ele) => {
