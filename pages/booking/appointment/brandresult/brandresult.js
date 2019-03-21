@@ -6,6 +6,7 @@ Page({
    */
   data: {
     brandTitle: '',
+    brandPhone: '',
     imageVerify: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_suc%402x.png",
     android: getApp().globalData.android,
     iosX: getApp().globalData.iosX,
@@ -17,8 +18,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      brandTitle: options.brandtitle,
+    let that = this,
+      lm = require('../../../../models/bm_applyee_schema.js'),
+      OSS = require('../../../../models/ali-oss.js'),
+      bmconfig = require('../../../../models/bm_config.js'),
+      brandId = bmconfig.bm_baizao_id,
+      store = require('../../../../models/bm-data.js').store;
+    store.clearStore()
+    store.Find('yards', bmconfig.bm_baizao_yard_id).then(res => {
+      console.log("1111111111111" + res.serviceContact)
+      that.setData({
+        brandTitle: options.brandtitle,
+        brandPhone: "11111111",
+      })
     })
   },
 

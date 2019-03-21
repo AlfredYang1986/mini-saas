@@ -6,6 +6,7 @@
     "location-banner": "/component/location/banner/banner",
     "brand-logo": "/component/brand/logo/logo",
     "brand-top": "/component/brand/top/top",
+    "brand-top-new": "/component/brand/top2/top2",
     "navigation-bar": "/component/common/navigation-bar/navigation-bar",
     "navbar": "/component/common/nav-bar/nav-bar"
    },

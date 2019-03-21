@@ -85,20 +85,21 @@ Component({
     bindGetUserInfo(e) {
       let that = this
       if (e.detail.errMsg == 'getUserInfo:ok') {
+        //同意授权
         console.log(e.detail.userInfo);
-        let callback = {
-          onPushSuccess: function() {
-            // that.setData({
-            //     'showModalStatus': false
-            // })
-            getApp().onLoginSuccess = true;
-            wx.hideLoading();
-          },
-          onPushFail: function() {
-            console.log('push failed');
-            wx.hideLoading();
-          }
-        }
+        // let callback = {
+        //   onPushSuccess: function() {
+        //     // that.setData({
+        //     //     'showModalStatus': false
+        //     // })
+        //     getApp().onLoginSuccess = true;
+        //     wx.hideLoading();
+        //   },
+        //   onPushFail: function() {
+        //     console.log('push failed');
+        //     wx.hideLoading();
+        //   }
+        // }
 
         // wx.setStorageSync('dd_uinfo', JSON.stringify(e.detail.userInfo));
         if (this.data.dongda) {
@@ -106,13 +107,16 @@ Component({
           var lm = require('../../models/bm_applyee_schema.js');
           lm.pushApplee(openid, e.detail.userInfo, "", callback);
         } else {
+          //將微信用戶信息存儲到本地
+          getApp().onLoginSuccess = true;
+          wx.hideLoading();
           wx.setStorageSync('dd_uinfo', JSON.stringify(e.detail.userInfo));
 
-          let openid = wx.getStorageSync('dd_open_id')
-          var lm = require('../../models/bm_applyee_schema.js');
-          let uinfo = JSON.parse(wx.getStorageSync('dd_uinfo'));
+          // let openid = wx.getStorageSync('dd_open_id')
+          // var lm = require('../../models/bm_applyee_schema.js');
+          // let uinfo = JSON.parse(wx.getStorageSync('dd_uinfo'));
           
-          lm.pushApplee(openid, uinfo, '12345', callback);
+          // lm.pushApplee(openid, uinfo, '12345', callback);
         }
       }
     },

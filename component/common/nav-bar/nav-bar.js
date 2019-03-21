@@ -48,6 +48,11 @@ Component({
             backIcon: 'https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_back_light%402x.png'
           })
         }
+        if(news == 2) {
+          this.setData({
+            backIcon: 'https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_back_dark%402x.png'
+          })
+        }
       }
     },
     backtoAppliesList: {

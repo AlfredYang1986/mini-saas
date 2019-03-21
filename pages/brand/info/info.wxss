@@ -35,7 +35,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-right: 40rpx;
   width: 240rpx; 
   height: 72rpx;
   border-radius: 18px;
@@ -44,9 +43,43 @@
   background: linear-gradient(to right, rgba(161,226,255,1),rgba(107,160,255,1));
 }
 .brand-apply-view {
-  width: 100%;
-  display: flex;
+  position: absolute;
+  z-index: 3;
+  top: 372rpx;
+  right: 40rpx;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+}
+.brand-container {
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+  top: -48rpx;
+  padding-top: 88rpx;
+  border-top-right-radius: 20rpx;
+  border-top-left-radius: 20rpx;
+}
+.brand-top {
+  position: relative;
+  z-index: 1;
+}
+.scan-view {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  top: 372rpx;
+  right: 312rpx;
+  height: 72rpx;
+  width: 72rpx;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px 0 #eee;
+}
+.scan-img {
+  height: 40rpx;
+  width: 40rpx;
 }

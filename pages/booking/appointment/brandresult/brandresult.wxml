@@ -8,7 +8,7 @@
     <image class='content-image' src='{{imageVerify}}'></image>
     <view class='text-success'>提交成功</view>
     <view class='text-success-detail'>我们尽快与您联系</view>
-    <view class='text-success-detail'>客服电话：010-4345435</view> 
+    <view class='text-success-detail'>客服电话：{{brandPhone}}</view> 
   </view>
   
   

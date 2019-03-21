@@ -9,8 +9,13 @@ Page({
     brand: {
       logobg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/logo_bg.png",
       logourl: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/logo%403x.png",
+      brandbg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_home_brand_bg.png"
     },
+    scanImg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_scan%402x.png",
     tab: 1,
+    barColor: '#fff',
+    barBgColor: 'transparent',
+    iconColor: 1,
     exps: null,
     actvs: null,
     brandInfo: null,
@@ -251,5 +256,37 @@ Page({
     wx.navigateTo({
       url: '/pages/booking/appointment/brandorder/brandorder'
     })
-  }
+  },
+
+  onPageScroll: function (e) {
+    let that = this
+    console.log("####" + e.scrollTop)
+    let barBgColor
+    let barColor
+    let iconColor
+    if(e.scrollTop > 182) {
+      console.log("@@@@@@@@")
+      if(that.data.barBgColor === 'transparent'){
+        console.log("11111")
+        barColor = '#000'
+        barBgColor = '#fff'
+        that.setData({
+          barBgColor: barBgColor,
+          barColor: barColor,
+        })
+      }
+    }
+    if (e.scrollTop < 182) {
+      console.log("@@@@@@@@")
+      if (that.data.barBgColor === '#fff') {
+        console.log("11111")
+        barColor = '#fff'
+        barBgColor = 'transparent'
+        that.setData({
+          barBgColor: barBgColor,
+          barColor: barColor,
+        })
+      }
+    }
+  },
 })
