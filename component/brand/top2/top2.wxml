@@ -1,6 +1,6 @@
 <!--component/brand/top2/top2.wxml-->
 <view class='content-page' data-brandid="{{item.id}}">
-  <view class='top-content'>
+  <view class='top-content' bindtap='brandDetails'>
     <image class='brand-logo' src='{{brand.newLogo}}'></image>
     <view class='top-content-right'>
       <view class='top-content-right-title'>

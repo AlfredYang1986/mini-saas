@@ -1,5 +1,5 @@
 <view class="clsdet-container">
-<navbar noback='false' iconColor='1' bgColor='transparent' height='{{customNavBarHeight}}'></navbar>
+<navbar noback='false' iconColor='{{iconColor}}' bgColor='{{barBgColor}}' height='{{customNavBarHeight}}'></navbar>
 
     <view class="clsdet-component">
         <clsimg exp="{{exp}}"></clsimg>

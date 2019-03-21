@@ -23,6 +23,9 @@ Page({
     reward: true,
     remarks: true,
     notice: true,
+    barBgColor: "transparent",
+    //barColor: "#fff",
+    iconColor: -1,
     android: getApp().globalData.android,
     iosX: getApp().globalData.iosX,
     backIcon: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_back_light%402x.png",
@@ -205,6 +208,29 @@ Page({
    */
   onReachBottom: function () {
   
+  },
+
+  /**
+   * 页面滚动时候的检测函数
+   */
+  onPageScroll: function (e) {
+    let that = this
+    if (e.scrollTop > 182) {
+      if (that.data.barBgColor === 'transparent') {
+        that.setData({
+          barBgColor: '#fff',
+          iconColor: 2,
+        })
+      }
+    }
+    if (e.scrollTop < 182) {
+      if (that.data.barBgColor === '#fff') {
+        that.setData({
+          barBgColor: 'transparent',
+          iconColor: 1,
+        })
+      }
+    }
   },
 
   /**

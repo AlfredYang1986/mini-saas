@@ -26,10 +26,9 @@ Page({
       store = require('../../../../models/bm-data.js').store;
     store.clearStore()
     store.Find('yards', bmconfig.bm_baizao_yard_id).then(res => {
-      console.log("1111111111111" + res.serviceContact)
       that.setData({
         brandTitle: options.brandtitle,
-        brandPhone: "11111111",
+        brandPhone: res['service-contact'],
       })
     })
   },

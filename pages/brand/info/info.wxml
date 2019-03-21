@@ -1,6 +1,6 @@
 <!--pages/brand/brand.wxml-->
 <view class='content-page'>
-    <navbar noback='false' title='{{bar}}' bgColor='{{barBgColor}}' iconColor='{{iconColor}}' color='{{barColor}}' height='{{customNavBarHeight}}'></navbar>
+    <navbar noback='false' title='{{mername}}' bgColor='{{barBgColor}}' iconColor='{{iconColor}}' color='{{barColor}}' height='{{customNavBarHeight}}'></navbar>
     <brand-top-new class='brand-top' brand="{{brandInfo}}"></brand-top-new>
     <view class='scan-view' bindtap='scanclick'>
       <image class='scan-img' src='{{scanImg}}'></image>

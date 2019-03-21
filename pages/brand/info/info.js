@@ -4,7 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    mername: "百造PACEE",
+    mername: "",
     brandId: null,
     brand: {
       logobg: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/logo_bg.png",
@@ -260,31 +260,21 @@ Page({
 
   onPageScroll: function (e) {
     let that = this
-    console.log("####" + e.scrollTop)
-    let barBgColor
-    let barColor
-    let iconColor
     if(e.scrollTop > 182) {
-      console.log("@@@@@@@@")
       if(that.data.barBgColor === 'transparent'){
-        console.log("11111")
-        barColor = '#000'
-        barBgColor = '#fff'
         that.setData({
-          barBgColor: barBgColor,
-          barColor: barColor,
+          barBgColor: '#fff',
+          barColor: '#000',
+          iconColor: 2,
         })
       }
     }
     if (e.scrollTop < 182) {
-      console.log("@@@@@@@@")
       if (that.data.barBgColor === '#fff') {
-        console.log("11111")
-        barColor = '#fff'
-        barBgColor = 'transparent'
         that.setData({
-          barBgColor: barBgColor,
-          barColor: barColor,
+          barBgColor: 'transparent',
+          barColor: '#fff',
+          iconColor: 1,
         })
       }
     }
