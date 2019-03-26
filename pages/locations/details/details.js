@@ -13,6 +13,7 @@ Page({
     address: "朝阳区东直门外大街第三方大厦A座 1101室",
     tag: ["购物中心", "室内"],
     traffic: "距地铁6号线潞城站B口步行500m",
+    certImgs: [],
     schoolTags: [{
         img: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_campus_%20certification.jpg",
         name: "儿童适宜标准"
@@ -80,21 +81,59 @@ Page({
       let tagimgs = res.images.filter(function(e) {
         return e.flag == 0;
       })
+      let undealCertImgs = res.images.filter(function(e) {
+        return e.flag == 2;
+      })
       let newimgs = tagimgs.map((ele) => {
           let tagImg = ele.img;
           ele.dealImg = client.signatureUrl(tagImg);
           return ele
       })
-
+      let certImgs = undealCertImgs.map((ele) => {
+        let img = ele.img;
+        ele.dealImg = client.signatureUrl(img);
+        return ele;
+      })
+      //获取设施
+      let notDealFacili = res.facilities
+      let facilities = []
+      for(let idx = 0; idx < notDealFacili.length; idx++) {
+        var facility = new Object()
+        facility.name = notDealFacili[idx]
+        switch (notDealFacili[idx]) {
+          case "实时监控": 
+            facility.image = "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_camear%402x.png";
+            break;
+          case "门禁": 
+            facility.image = "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_entranceguard%402x.png";
+            break;
+          case "急救包": 
+            facility.image = "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_emergency%402x.png";
+            break;
+          case "防摔地板": 
+            facility.image = "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_floor%402x.png";
+            break;
+          default: 
+            facility.image = "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_camear%402x.png";
+            break;
+        }
+        facilities.push(facility)
+      }
+      for(let idx = 0; idx < facilities.length; idx++){
+        console.log(facilities[idx].name)
+      }
       that.setData({
         yard: res,
-        yardimages: newimgs
+        yardimages: newimgs,
+        certImgs: certImgs,
+        facilities: facilities,
       })
       wx.hideLoading();
     })
 
     that.setData({
-      bar: wx.getStorageSync('mername')
+      //bar: wx.getStorageSync('mername')
+      bar: "校区详情"
     })
   },
 
@@ -109,7 +148,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    
   },
 
   /**
@@ -145,5 +184,12 @@ Page({
    */
   onShareAppMessage: function() {
 
-  }
+  },
+
+  moreFacility: function (e) {
+    let bmconfig = require('../../../models/bm_config.js')
+    wx.navigateTo({
+      url: "/pages/locations/facilities/facilities?yardid=" + bmconfig.bm_baizao_yard_id
+    })
+  },
 })

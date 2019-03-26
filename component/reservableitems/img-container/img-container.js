@@ -24,6 +24,7 @@ Component({
     pointerColor: "#FFFFFF",
     interval: 2000,
     duration: 1000,
+    curIndex: 0,
     images: [
       {
         url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_cover_trialclass_01.jpg"
@@ -35,6 +36,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    changeIndex: function(e) {
+      let index = e.detail.current
+      //console.log("hhhhhhhhh "+index)
+      this.setData({
+        curIndex: index,
+      })
+    }
   }
 })

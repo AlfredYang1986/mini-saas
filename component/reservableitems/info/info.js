@@ -22,6 +22,7 @@ Component({
     img1: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_age%402x.png",
     img2: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_time%402x.png",
     img3: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_address%402x.png",
+    img4: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/phone%402x.png",
   },
 
   /**

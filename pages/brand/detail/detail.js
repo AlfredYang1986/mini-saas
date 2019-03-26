@@ -59,6 +59,8 @@ Page({
 							return ele
 					})
 			}
+
+      //过滤
 			function honorFunc (tmp) {
 					return tmp.flag == 1;
 			}

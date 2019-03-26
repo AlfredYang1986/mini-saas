@@ -4,11 +4,14 @@
   padding-right: 40rpx;
   padding-left: 40rpx;
   padding-top: 48rpx;
-
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-
+  position: relative;
+  top: -48rpx;
+  z-index: 2;
+  background-color: #fff;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
 }
 .sort {
   font-family: PingFangSC-Regular;
@@ -43,8 +46,8 @@
   margin-bottom: 32rpx;
 }
 .img-area {
-  min-width: 44rpx;
-  min-height: 44rpx;
+  width: 44rpx;
+  height: 44rpx;
   margin-right: 32rpx;
 }
 .list .img {
@@ -52,9 +55,13 @@
   height: 44rpx;
 }
 .list .des {
+  width: 85%;
   font-family: PingFangSC-Regular;
   font-size: 28rpx;
   color: #404040;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .tags {
   display: flex;
@@ -74,4 +81,8 @@
   color: #519629;
   line-height: 48rpx;
   text-align: center;
+}
+.icon-arrow {
+  width: 44rpx;
+  height: 44rpx;
 }

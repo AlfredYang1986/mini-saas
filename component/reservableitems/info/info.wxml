@@ -1,10 +1,10 @@
 <!--component/classes/cls-info/cls-info.wxml-->
 <view class='content-page'>
-  <view class='sort'>{{exp.sessioninfo.category.title}}</view>
+  <!-- <view class='sort'>{{exp.sessioninfo.category.title}}</view>
   <view class='name'>
     <text>{{exp.sessioninfo.title}}</text>
-    <!-- <image class='share' src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_share.png'></image> -->
-  </view>
+  </view> -->
+  <!-- <image class='share' src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_share.png'></image> -->
   <view class='lists'>
     <view class='list'>
       <view class='img-area'>
@@ -33,6 +33,14 @@
         <image class='img' src='{{img3}}'></image>
       </view>
       <view class='des'>{{exp.sessioninfo.yardname}}</view>
+      <image class='icon-arrow' src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/chevron-right%20s%402x.png'></image>
+    </view>
+    <view class='list'>
+      <view class='img-area'>
+       <image class='img' src='{{img4}}'></image>
+      </view>
+      <view class='des'>{{exp.sessioninfo.phone}}</view>
+      <image class='icon-arrow' src='https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/chevron-right%20s%402x.png'></image>
     </view>
   </view>
 </view>

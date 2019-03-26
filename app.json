@@ -10,7 +10,8 @@
     "pages/booking/appointment/result/result",
     "pages/booking/appointment/brandresult/brandresult",
     "pages/booking/appointment/brandorder/brandorder",
-    "pages/phonenumber/phonenumber"
+    "pages/phonenumber/phonenumber",
+    "pages/locations/facilities/facilities"
   ],
   "window": {
     "backgroundTextStyle": "light",

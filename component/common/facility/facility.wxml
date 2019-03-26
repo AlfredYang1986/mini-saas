@@ -18,7 +18,7 @@
 	
 		<block wx:if="{{facilities.length > 4}}">
             <view class="c-loc-facility-item content-item">
-					<view class="content-item">
+					<view class="content-item" bindtap="moreFacility">
 						<view class="content-align-center">
 							<text class=".c-loc-facility-more-num">+{{facilities.length - 3}}</text> 
 						</view>

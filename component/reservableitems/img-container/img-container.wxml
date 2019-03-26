@@ -14,7 +14,8 @@
       indicator-active-color="{{pointerColor}}"
       circular="{{circular}}" 
       interval="{{interval}}"
-      duration="{{duration}}" >
+      duration="{{duration}}"
+      bindchange='changeIndex'>
     <swiper-item>
       <image src="{{exp.sessioninfo.dealCover}}" class="slide-image"/>
     </swiper-item>
@@ -26,4 +27,11 @@
       </block>
     </block>
   </swiper>
+  <view class='exp-info-title'>
+    <view class='type'>{{exp.sessioninfo.category.title}}</view>
+    <view class='title'>{{exp.sessioninfo.title}}</view>
+  </view>
+  <view class='indicator-view'>
+    <view class='indicator-text'>{{curIndex+1}}/{{exp.sessioninfo.images.length+1}}</view>
+  </view>
 </view>

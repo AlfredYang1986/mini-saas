@@ -20,6 +20,7 @@ Page({
     animationData: {},
     tab:0,
     exp: null,
+    facilities: [],
     reward: true,
     remarks: true,
     notice: true,
@@ -141,6 +142,34 @@ Page({
         });
         return store.Find('yards',bmconfig.bm_baizao_yard_id);
     }).then(res=> {
+      let phone = res['service-contact']
+      let exp = that.data.exp
+      exp.sessioninfo.phone = phone
+      //获取设施
+      let notDealFacili = res.facilities
+      let facilities = []
+      for (let idx = 0; idx < notDealFacili.length; idx++) {
+        var facility = new Object()
+        facility.name = notDealFacili[idx]
+        switch (notDealFacili[idx]) {
+          case "实时监控":
+            facility.image = "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_camear%402x.png";
+            break;
+          case "门禁":
+            facility.image = "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_entranceguard%402x.png";
+            break;
+          case "急救包":
+            facility.image = "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_emergency%402x.png";
+            break;
+          case "防摔地板":
+            facility.image = "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_floor%402x.png";
+            break;
+          default:
+            facility.image = "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/icon_camear%402x.png";
+            break;
+        }
+        facilities.push(facility)
+      }
       if (res.images.length == 0) {
         that.setData({
           images: false,
@@ -155,7 +184,9 @@ Page({
         })
         that.setData({
           images: true,
-          showimages: newimgs
+          exp: exp,
+          showimages: newimgs,
+          facilities: facilities
         })
       }
       wx.hideLoading();
@@ -215,7 +246,7 @@ Page({
    */
   onPageScroll: function (e) {
     let that = this
-    if (e.scrollTop > 182) {
+    if (e.scrollTop > 464) {
       if (that.data.barBgColor === 'transparent') {
         that.setData({
           barBgColor: '#fff',
@@ -223,7 +254,7 @@ Page({
         })
       }
     }
-    if (e.scrollTop < 182) {
+    if (e.scrollTop < 464) {
       if (that.data.barBgColor === '#fff') {
         that.setData({
           barBgColor: 'transparent',
@@ -312,6 +343,13 @@ Page({
             delta: 1
         })
     },
+    
+    moreFacility: function (e) {
+    let bmconfig = require('../../../models/bm_config.js')
+    wx.navigateTo({
+      url: "/pages/locations/facilities/facilities?yardid=" + bmconfig.bm_baizao_yard_id
+    })
+  },
 
     // test: function () {
     //   console.log("---------失败")

@@ -256,3 +256,47 @@ image.back_icon {
   margin-bottom: 16rpx;
   display: block;
 }
+.faci-content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  margin-top: 48rpx;
+  border-top: 2rpx solid #F2F2F2;
+  padding-top: 48rpx;
+  padding-bottom: 160rpx;
+}
+.faci-view {
+  display: flex;
+  flex-direction: row;
+}
+.faci-item {
+  height: 96rpx;
+  display: flex;
+  margin-right: 48rpx;
+  flex-direction: column;
+  align-items: center;
+}
+.faci-name {
+  color: #A6A6A6;
+  font-size: 22rpx;
+  margin-top: 16rpx;
+}
+.faci-img {
+  width: 48rpx;
+  height: 48rpx;
+}
+.faci-more-text {
+  width: 48rpx;
+  height: 48rpx;
+  font-size: 36rpx;
+  color: #80AEFF;
+  font-family: SFProText-Bold;
+}
+.subtitle {
+  margin-bottom: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 28rpx;
+  color: #0D0D0D;
+  
+}
