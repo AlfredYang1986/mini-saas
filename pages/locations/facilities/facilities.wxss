@@ -10,6 +10,7 @@
 .facilities-list {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   flex-wrap: wrap; /*弹性布局，一行排不下会自己换行*/
 }
 .item-view {

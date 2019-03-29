@@ -14,12 +14,20 @@
 }
 .exp-info-title {
   position: absolute;
-  top: 718rpx;
+  width: 75%;
+  /* top: 718rpx; */
+  top: 670rpx;
   left: 40rpx;
   z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+.text-m {
+  top: 670rpx;
+}
+.text-l {
+  top: 718rpx;
 }
 .title {
   color: #fff;

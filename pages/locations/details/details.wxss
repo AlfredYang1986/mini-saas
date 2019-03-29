@@ -194,6 +194,7 @@ text.c-loc-facility-more-num {
 .faci-view {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 .faci-item {
   height: 96rpx;

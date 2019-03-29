@@ -27,7 +27,11 @@
       </block>
     </block>
   </swiper>
-  <view class='exp-info-title'>
+  <view class='exp-info-title text-m' wx:if='{{exp.sessioninfo.title.length > 12}}'>
+    <view class='type'>{{exp.sessioninfo.category.title}}</view>
+    <view class='title '>{{exp.sessioninfo.title}}</view>
+  </view>
+  <view class='exp-info-title text-l' wx:else>
     <view class='type'>{{exp.sessioninfo.category.title}}</view>
     <view class='title'>{{exp.sessioninfo.title}}</view>
   </view>

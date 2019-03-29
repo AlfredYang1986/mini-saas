@@ -8,6 +8,7 @@ Component({
       type: "Array",
       value: [],
       observer: function (news, olds, path) {
+        console.log(news.sessioninfo.title.length)
         console.log("this is in img-container .js")
         console.log(news, olds)
       }
@@ -25,6 +26,7 @@ Component({
     interval: 2000,
     duration: 1000,
     curIndex: 0,
+    screenWidth: wx.getSystemInfoSync().windowWidth,
     images: [
       {
         url: "https://bm-mini.oss-cn-beijing.aliyuncs.com/demo/img_cover_trialclass_01.jpg"
