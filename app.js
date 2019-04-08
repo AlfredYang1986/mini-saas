@@ -45,6 +45,12 @@ App({
       },
       onDecryptedPhoneNumber: function (encryptedData, iv) {
         lm.decryptedPhoneNumber(encryptedData, iv)
+      },
+      onPushSuccess: function() {
+        console.log("上傳成功")
+      },
+      onPushFail: function() {
+        console.log("上傳失敗")
       }
     }
     // lm.wechatLogin(callback);

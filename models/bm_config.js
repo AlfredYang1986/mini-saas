@@ -1,5 +1,5 @@
-var host = 'https://api.dongdakid.com'
-//var host = 'http://192.168.100.174:31415'
+//var host = 'https://api.dongdakid.com'
+var host = 'http://192.168.100.174:31415'
 var brandid = '5be6a00b8fb80736e2ec9ba5'
 // var brandid = wx.getStorageSync('brandid')
 var yardid = '5bebbe3d8fb8074f6440dcca'

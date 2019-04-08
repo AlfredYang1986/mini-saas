@@ -8,8 +8,8 @@ Component({
       type: "Array",
       value: [],
       observer: function (news, olds, path) {
-        console.log(news.sessioninfo.title.length)
-        console.log("this is in img-container .js")
+        //console.log(news.sessioninfo.title.length)
+        //console.log("this is in img-container .js")
         console.log(news, olds)
       }
     }
