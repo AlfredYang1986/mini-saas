@@ -89,19 +89,19 @@ Component({
       if (e.detail.errMsg == 'getUserInfo:ok') {
         //同意授权
         console.log(e.detail.userInfo);
-        // let callback = {
-        //   onPushSuccess: function() {
-        //     // that.setData({
-        //     //     'showModalStatus': false
-        //     // })
-        //     getApp().onLoginSuccess = true;
-        //     wx.hideLoading();
-        //   },
-        //   onPushFail: function() {
-        //     console.log('push failed');
-        //     wx.hideLoading();
-        //   }
-        // }
+        let callback = {
+          onPushSuccess: function() {
+            // that.setData({
+            //     'showModalStatus': false
+            // })
+            getApp().onLoginSuccess = true;
+            wx.hideLoading();
+          },
+          onPushFail: function() {
+            console.log('push failed');
+            wx.hideLoading();
+          }
+        }
 
         // wx.setStorageSync('dd_uinfo', JSON.stringify(e.detail.userInfo));
         if (this.data.dongda) {
@@ -111,7 +111,7 @@ Component({
           lm.pushApplee(openid, e.detail.userInfo, "", callback);
         } else {
           //將微信用戶信息存儲到本地
-          console.log("$$$$$$$$$$")
+
           wx.setStorageSync('dd_uinfo', JSON.stringify(e.detail.userInfo));
           getApp().onLoginSuccess = true; //注意是在这里调用函数的，所以这个时候还没有set本地缓存
           wx.hideLoading();
