@@ -161,11 +161,25 @@ Page({
           let openid = wx.getStorageSync('dd_open_id')
           var lm = require('../../models/bm_applyee_schema.js');
           let uinfo = JSON.parse(wx.getStorageSync('dd_uinfo'));
-          lm.pushApplee(openid, uinfo, that.data.phoneNum, callback); //改成了在电话号码录入的时候进行用户验证
+          let cb = {
+            onPushSuccess: function () {
+              // that.setData({
+              //     'showModalStatus': false
+              // })
+              getApp().onLoginSuccess = true;
+              wx.hideLoading();
+              wx.switchTab({
+                url: '/pages/brand/lst/lst',
+              })
+            },
+            onPushFail: function () {
+              console.log('push failed');
+              wx.hideLoading();
+            }
+          }
+          lm.pushApplee(openid, uinfo, that.data.phoneNum, cb); //改成了在电话号码录入的时候进行用户验证
           //lm.changePhoneNum(uinfo, that.data.phoneNum, callback); //标记待完善
-          wx.switchTab({
-            url: '/pages/brand/lst/lst',
-          })
+
         } else if (res.data.status == 'error') {
           wx.showToast({
             title: '验证码错误',

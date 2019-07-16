@@ -70,6 +70,7 @@ function codeSuccess(code, callback) {
   });
 
   let req =  {
+    // "server-name": "pacee",
     "server-name": "dongda",
     "code": code,
   }  
